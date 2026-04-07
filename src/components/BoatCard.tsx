@@ -1,47 +1,65 @@
+import { Ruler, Wind, Users } from "lucide-react";
+
 interface BoatCardProps {
-  image: string;
   name: string;
   category: string;
   description: string;
-  specs: { label: string; value: string }[];
+  image: string;
+  specs: {
+    length: string;
+    speed: string;
+    crew: string;
+  };
+  index: number;
 }
 
-const BoatCard = ({ image, name, category, description, specs }: BoatCardProps) => {
+const BoatCard = ({ name, category, description, image, specs, index }: BoatCardProps) => {
   return (
-    <div className="group bg-card rounded-sm overflow-hidden border border-border hover:border-primary/30 transition-colors duration-500">
-      <div className="relative overflow-hidden aspect-[4/3]">
+    <article
+      className="group overflow-hidden rounded-lg border border-border bg-card transition-all duration-500 hover:border-primary/30"
+      style={{
+        boxShadow: "var(--shadow-card)",
+        animationDelay: `${index * 150}ms`,
+      }}
+    >
+      <div className="relative h-64 overflow-hidden">
         <img
           src={image}
           alt={name}
           loading="lazy"
           width={800}
           height={600}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute top-4 left-4">
-          <span className="bg-primary text-primary-foreground text-xs font-body font-semibold uppercase tracking-wider px-3 py-1.5">
-            {category}
-          </span>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
+        <span className="absolute bottom-4 left-4 rounded-sm bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-foreground">
+          {category}
+        </span>
       </div>
-
-      <div className="p-6 md:p-8">
-        <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-3">
-          {name}
-        </h3>
-        <p className="text-muted-foreground font-light leading-relaxed mb-6">
+      <div className="p-6">
+        <h3 className="text-2xl font-bold">{name}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
           {description}
         </p>
-        <div className="grid grid-cols-3 gap-4 border-t border-border pt-6">
-          {specs.map((spec) => (
-            <div key={spec.label} className="text-center">
-              <p className="text-primary font-heading text-xl font-bold">{spec.value}</p>
-              <p className="text-muted-foreground text-xs uppercase tracking-wider mt-1">{spec.label}</p>
-            </div>
-          ))}
+        <div className="mt-5 grid grid-cols-3 gap-3 border-t border-border pt-5">
+          <div className="flex flex-col items-center gap-1">
+            <Ruler className="h-4 w-4 text-primary" />
+            <span className="text-xs text-muted-foreground">Lunghezza</span>
+            <span className="text-sm font-semibold">{specs.length}</span>
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <Wind className="h-4 w-4 text-primary" />
+            <span className="text-xs text-muted-foreground">Velocità</span>
+            <span className="text-sm font-semibold">{specs.speed}</span>
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <Users className="h-4 w-4 text-primary" />
+            <span className="text-xs text-muted-foreground">Equipaggio</span>
+            <span className="text-sm font-semibold">{specs.crew}</span>
+          </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
