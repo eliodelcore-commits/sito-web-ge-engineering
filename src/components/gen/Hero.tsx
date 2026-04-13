@@ -50,7 +50,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="hidden md:block absolute z-10" style={{ top: '-136px', right: '-200px' }}>
+          <div className="hidden md:block absolute z-10" style={{ top: '64px', right: '0px' }}>
             <img src={logo} alt="GenGinering SRL Solutions" className="h-64 lg:h-80 opacity-90" />
           </div>
         </div>
