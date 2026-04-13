@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Leaf, Heart, Sparkles, Droplets, Phone, Mail, MapPin, Clock, Star, ArrowRight } from "lucide-react";
+import { Leaf, Heart, Sparkles, Droplets, Phone, Mail, MapPin, Clock, Star, ArrowRight, Instagram } from "lucide-react";
 import holisticHero from "@/assets/holistic-hero.jpg";
 import holisticLogo from "@/assets/holistic-logo.png";
 import holisticMassage from "@/assets/holistic-massage.jpg";
@@ -386,9 +386,9 @@ const HolisticLanding = () => {
 
                 <div className="space-y-4">
                   {[
-                    { icon: Phone, text: "328 381 0878" },
+                    { icon: Phone, text: "328 381 0878 (WhatsApp)" },
+                    { icon: Instagram, text: "@ali.del.benessere" },
                     { icon: Mail, text: "gabry.burdulea@gmail.com" },
-                    { icon: MapPin, text: "Contattaci per la sede" },
                     { icon: Clock, text: "Su appuntamento" },
                   ].map(({ icon: Icon, text }) => (
                     <div key={text} className="flex items-center gap-3 text-[#d4c8b8]">
