@@ -25,7 +25,7 @@ const features = [
 
 const TechSection = () => {
   return (
-    <section className="border-t border-border px-6 py-24 md:py-32">
+    <section id="tecnologia" className="border-t border-border px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 text-center">
           <span className="text-sm font-semibold uppercase tracking-widest text-primary">
