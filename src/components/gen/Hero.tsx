@@ -4,7 +4,7 @@ import logo from "@/assets/logo-genginering-nobg.png";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
       {/* Grid background */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
@@ -50,7 +50,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="hidden md:flex items-start justify-end flex-shrink-0 absolute top-20 right-6 lg:right-12">
+          <div className="hidden md:block absolute top-20 right-6 lg:right-12 z-10">
             <img src={logo} alt="GenGinering SRL Solutions" className="h-64 lg:h-80 opacity-90" />
           </div>
         </div>
