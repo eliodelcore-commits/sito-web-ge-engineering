@@ -7,7 +7,7 @@ const services = [
     icon: Cpu,
     title: "Automazione Hardware",
     description: "Progettazione completa di impianti di automazione industriale con componentistica di ultima generazione.",
-    features: ["PLC Siemens, Allen-Bradley, Schneider", "Sensori e strumentazione industriale", "Quadri elettrici e bordo macchina", "Integrazione sistemi di sicurezza"],
+    features: ["PLC Siemens", "Azionamenti SEW", "Azionamenti Vacon", "Azionamenti KEB", "Azionamenti Siemens"],
   },
   {
     icon: MonitorSmartphone,
