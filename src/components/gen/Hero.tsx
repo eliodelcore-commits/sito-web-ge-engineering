@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <div className="relative">
       {/* Logo in alto a destra, subito sotto la navbar */}
-      <div className="hidden md:block fixed z-50" style={{ top: '64px', right: '0px' }}>
+      <div className="hidden md:block fixed z-50" style={{ top: '264px', right: '200px' }}>
         <img src={logo} alt="GenGinering SRL Solutions" className="h-64 lg:h-80 opacity-90" />
       </div>
 
