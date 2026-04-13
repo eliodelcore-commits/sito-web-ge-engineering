@@ -1,23 +1,28 @@
 import { Zap, Leaf, Compass, Shield } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const features = [
   {
+    slug: "foiling-technology",
     icon: Zap,
     title: "Foiling Technology",
     description: "I foil in carbonio permettono allo scafo di sollevarsi dall'acqua, riducendo l'attrito e raggiungendo velocità impensabili.",
   },
   {
+    slug: "propulsione-green",
     icon: Leaf,
     title: "Propulsione Green",
     description: "Motori elettrici ibridi, pannelli solari e idrogeneratori rendono la navigazione sempre più sostenibile.",
   },
   {
+    slug: "navigazione-ai",
     icon: Compass,
     title: "Navigazione AI",
     description: "Sistemi di intelligenza artificiale analizzano vento, correnti e meteo per ottimizzare la rotta in tempo reale.",
   },
   {
+    slug: "materiali-avanzati",
     icon: Shield,
     title: "Materiali Avanzati",
     description: "Fibra di carbonio, kevlar e resine epossidiche di ultima generazione per scafi ultraleggeri e resistenti.",
@@ -44,24 +49,28 @@ const TechSection = () => {
         </motion.div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((f, i) => (
-            <motion.div
-              key={f.title}
-              className="group rounded-lg border border-border bg-card p-6 transition-all duration-300 hover:border-primary/30"
-              style={{ boxShadow: "var(--shadow-card)" }}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-            >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-md bg-secondary">
-                <f.icon className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="text-lg font-bold">{f.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {f.description}
-              </p>
-            </motion.div>
+            <Link key={f.slug} to={`/tecnologia/${f.slug}`}>
+              <motion.div
+                className="group rounded-lg border border-border bg-card p-6 transition-all duration-300 hover:border-primary/30 cursor-pointer h-full"
+                style={{ boxShadow: "var(--shadow-card)" }}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              >
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-md bg-secondary">
+                  <f.icon className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-bold">{f.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {f.description}
+                </p>
+                <span className="mt-4 inline-block text-xs font-semibold text-primary uppercase tracking-wider group-hover:underline">
+                  Scopri di più →
+                </span>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
