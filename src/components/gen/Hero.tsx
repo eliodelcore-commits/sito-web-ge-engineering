@@ -50,7 +50,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="hidden md:flex items-center justify-center flex-shrink-0">
+          <div className="hidden md:flex items-start justify-end flex-shrink-0 -mt-16 mr-[-2rem]">
             <img src={logo} alt="GenGinering SRL Solutions" className="h-64 lg:h-80 opacity-90" />
           </div>
         </div>
