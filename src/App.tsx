@@ -7,6 +7,7 @@ import GenHome from "./pages/GenHome";
 import Servizi from "./pages/Servizi";
 import AutomazioneHardware from "./pages/AutomazioneHardware";
 import AutomazioneSoftware from "./pages/AutomazioneSoftware";
+import WirelessPlanning from "./pages/WirelessPlanning";
 import Progetti from "./pages/Progetti";
 import GenContatti from "./pages/GenContatti";
 import NotFound from "./pages/NotFound";
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/servizi" element={<Servizi />} />
           <Route path="/servizi/automazione-hardware" element={<AutomazioneHardware />} />
           <Route path="/servizi/automazione-software" element={<AutomazioneSoftware />} />
+          <Route path="/servizi/wireless-planning" element={<WirelessPlanning />} />
           <Route path="/progetti" element={<Progetti />} />
           <Route path="/contatti" element={<GenContatti />} />
           <Route path="*" element={<NotFound />} />
