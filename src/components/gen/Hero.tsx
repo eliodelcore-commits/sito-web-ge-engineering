@@ -4,15 +4,20 @@ import logo from "@/assets/logo-genginering-nobg.png";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-      {/* Grid background */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-        backgroundSize: '60px 60px'
-      }} />
-      
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex items-center justify-between gap-12">
+    <div className="relative">
+      {/* Logo in alto a destra, subito sotto la navbar */}
+      <div className="hidden md:block fixed z-50" style={{ top: '64px', right: '0px' }}>
+        <img src={logo} alt="GenGinering SRL Solutions" className="h-64 lg:h-80 opacity-90" />
+      </div>
+
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+        {/* Grid background */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }} />
+        
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
@@ -49,13 +54,9 @@ const Hero = () => {
               </Link>
             </div>
           </div>
-          
-          <div className="hidden md:block absolute z-10" style={{ top: '64px', right: '0px' }}>
-            <img src={logo} alt="GenGinering SRL Solutions" className="h-64 lg:h-80 opacity-90" />
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
