@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo-genginering.png";
+import logo from "@/assets/logo-genginering-transparent.png";
 
 const Hero = () => {
   return (
@@ -13,7 +13,7 @@ const Hero = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl">
-          <img src={logo} alt="GenGinering Solutions" className="h-32 mb-8" />
+          <img src={logo} alt="GenGinering Solutions" className="h-44 mb-8" />
           
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
