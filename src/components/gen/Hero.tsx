@@ -8,10 +8,10 @@ const Hero = () => {
     <section className="min-h-screen flex items-center justify-center relative pt-16">
       {/* Background image sfocata */}
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-10 blur-[2px]"
+        className="absolute inset-0 bg-cover bg-center opacity-20 blur-[2px]"
         style={{ backgroundImage: `url(${bgDrives})` }}
       />
-      <div className="absolute inset-0 bg-background/70" />
+      <div className="absolute inset-0 bg-background/60" />
 
       {/* Logo in alto a destra */}
       <img
