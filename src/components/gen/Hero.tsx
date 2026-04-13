@@ -50,7 +50,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="hidden md:flex items-start justify-end flex-shrink-0 absolute top-20 right-6 lg:right-12">
+          <div className="hidden md:block absolute top-20 right-6 lg:right-12 z-10">
             <img src={logo} alt="GenGinering SRL Solutions" className="h-64 lg:h-80 opacity-90" />
           </div>
         </div>
