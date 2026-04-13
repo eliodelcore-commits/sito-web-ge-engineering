@@ -10,6 +10,7 @@ import AutomazioneSoftware from "./pages/AutomazioneSoftware";
 import WirelessPlanning from "./pages/WirelessPlanning";
 import Progetti from "./pages/Progetti";
 import GenContatti from "./pages/GenContatti";
+import AssistenzaTecnica from "./pages/AssistenzaTecnica";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/servizi/automazione-software" element={<AutomazioneSoftware />} />
           <Route path="/servizi/wireless-planning" element={<WirelessPlanning />} />
           <Route path="/progetti" element={<Progetti />} />
+          <Route path="/servizi/assistenza-tecnica" element={<AssistenzaTecnica />} />
           <Route path="/contatti" element={<GenContatti />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
