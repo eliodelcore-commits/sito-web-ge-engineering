@@ -61,7 +61,7 @@ const Progetti = () => {
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
+            {filtered.map((project) => (
               <div
                 key={project.title}
                 className="group p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300 flex flex-col"
