@@ -9,19 +9,19 @@ const machines = [
   {
     title: "Trasloelevatori",
     description:
-      "Sistemi automatici per lo stoccaggio e il prelievo di pallet e cassette in magazzini verticali ad alta densità. Gestione ottimizzata degli spazi con velocità e precisione elevate.",
+      "Installiamo, configuriamo e mettiamo in servizio trasloelevatori a 3 assi (X/Y/Z) per magazzini verticali ad alta densità. Ci occupiamo del commissioning completo e del service post-avviamento.",
     image: trasloelevatore,
   },
   {
     title: "Robot Industriali",
     description:
-      "Bracci robotici per operazioni di picking, pallettizzazione, manipolazione e assemblaggio. Integrazione completa con i sistemi di gestione del magazzino.",
+      "Integriamo e avviamo bracci robotici per picking, pallettizzazione e manipolazione. Dalla messa in funzione alla manutenzione programmata, garantiamo continuità operativa.",
     image: robot,
   },
   {
     title: "Veicoli a Guida Laser (LGV)",
     description:
-      "Veicoli autonomi a guida laser per il trasporto automatizzato di materiali all'interno dello stabilimento. Navigazione precisa, sicura e flessibile senza infrastrutture fisse.",
+      "Installiamo e configuriamo veicoli autonomi a guida laser per il trasporto interno. Forniamo assistenza tecnica, manutenzione preventiva e interventi rapidi on-site.",
     image: lgv,
   },
 ];
@@ -47,9 +47,9 @@ const AutomazioneHardware = () => {
             Magazzini Automatici
           </h1>
           <p className="text-muted-foreground max-w-2xl">
-            Progettiamo e integriamo sistemi completi per la logistica automatizzata:
+            Installiamo, mettiamo in funzione e forniamo assistenza tecnica su
             trasloelevatori, robot industriali e veicoli a guida laser per magazzini
-            ad alte prestazioni.
+            automatici ad alte prestazioni.
           </p>
         </div>
       </div>
