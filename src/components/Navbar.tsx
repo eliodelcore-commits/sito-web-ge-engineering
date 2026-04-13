@@ -14,7 +14,13 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 text-primary">
+        <Link
+          to="/"
+          onClick={() => {
+            if (pathname === "/") window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className="flex items-center gap-2 text-primary"
+        >
           <Anchor className="w-6 h-6" />
           <span className="font-heading text-xl font-bold text-foreground">VelaNova</span>
         </Link>
