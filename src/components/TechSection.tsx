@@ -1,4 +1,5 @@
 import { Zap, Leaf, Compass, Shield } from "lucide-react";
+import { motion } from "framer-motion";
 
 const features = [
   {
@@ -27,20 +28,31 @@ const TechSection = () => {
   return (
     <section id="tecnologia" className="border-t border-border px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-16 text-center">
+        <motion.div
+          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+        >
           <span className="text-sm font-semibold uppercase tracking-widest text-primary">
             Innovazione
           </span>
           <h2 className="mt-3 text-4xl font-bold md:text-5xl">
             Tecnologia <span className="italic text-gradient-gold">all'Avanguardia</span>
           </h2>
-        </div>
+        </motion.div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map((f) => (
-            <div
+          {features.map((f, i) => (
+            <motion.div
               key={f.title}
               className="group rounded-lg border border-border bg-card p-6 transition-all duration-300 hover:border-primary/30"
               style={{ boxShadow: "var(--shadow-card)" }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-md bg-secondary">
                 <f.icon className="h-6 w-6 text-primary" />
@@ -49,7 +61,7 @@ const TechSection = () => {
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {f.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
