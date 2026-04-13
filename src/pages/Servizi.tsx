@@ -30,6 +30,7 @@ const services = [
     title: "Assistenza Tecnica",
     description: "Supporto continuo per garantire il massimo uptime dei vostri impianti produttivi.",
     features: ["Manutenzione preventiva e predittiva", "Interventi rapidi on-site", "Teleassistenza e monitoraggio remoto", "Contratti di assistenza personalizzati"],
+    link: "/servizi/assistenza-tecnica",
   },
 ];
 

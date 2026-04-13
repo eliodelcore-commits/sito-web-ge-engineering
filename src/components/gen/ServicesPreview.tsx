@@ -26,6 +26,7 @@ const services = [
     icon: Wrench,
     title: "Assistenza & Manutenzione",
     description: "Supporto tecnico continuo, manutenzione preventiva e interventi rapidi su impianti di automazione.",
+    link: "/servizi/assistenza-tecnica",
   },
 ];
 
