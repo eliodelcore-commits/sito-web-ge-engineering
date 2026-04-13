@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
 import { Cpu, Wifi, MonitorSmartphone, Wrench, CheckCircle2 } from "lucide-react";
@@ -8,6 +9,7 @@ const services = [
     title: "Automazione Hardware",
     description: "Progettazione completa di impianti di automazione industriale con componentistica di ultima generazione.",
     features: ["PLC Siemens", "Azionamenti SEW", "Azionamenti Vacon", "Azionamenti KEB", "Azionamenti Siemens"],
+    link: "/servizi/automazione-hardware",
   },
   {
     icon: MonitorSmartphone,
@@ -55,7 +57,13 @@ const Servizi = () => {
                     <service.icon className="w-5 h-5 text-primary" />
                   </div>
                   <h2 className="font-heading text-2xl font-semibold mb-3">
-                    {service.title}
+                    {service.link ? (
+                      <Link to={service.link} className="hover:text-primary transition-colors">
+                        {service.title} →
+                      </Link>
+                    ) : (
+                      service.title
+                    )}
                   </h2>
                   <p className="text-muted-foreground leading-relaxed">
                     {service.description}
