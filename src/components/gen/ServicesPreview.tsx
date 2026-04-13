@@ -8,16 +8,19 @@ const services = [
     icon: Cpu,
     title: "Automazione Hardware",
     description: "Progettazione e installazione di PLC, sensori, attuatori e quadri di automazione per linee produttive.",
+    link: "/servizi/automazione-hardware",
   },
   {
     icon: MonitorSmartphone,
     title: "Automazione Software",
     description: "Sviluppo SCADA, HMI e sistemi di supervisione per il controllo completo dei processi industriali.",
+    link: "/servizi/automazione-software",
   },
   {
     icon: Wifi,
     title: "Wireless Planning",
     description: "Site survey e progettazione reti wireless industriali con Ekahau AI per copertura e performance ottimali.",
+    link: "/servizi/wireless-planning",
   },
   {
     icon: Wrench,
