@@ -16,6 +16,9 @@ const Navbar = () => {
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="GenGinering Solutions" className="h-12" />
+          <span className="hidden lg:block text-xs text-muted-foreground leading-tight">
+            Via Idice 47, 40050<br />Monterenzio (BO)
+          </span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
