@@ -15,7 +15,7 @@ const Navbar = () => {
           <a href="#tecnologia" className="text-muted-foreground hover:text-foreground text-sm uppercase tracking-wider transition-colors">
             Tecnologia
           </a>
-          <a href="#contatti" className="text-muted-foreground hover:text-foreground text-sm uppercase tracking-wider transition-colors">
+          <a href="/contatti" className="text-muted-foreground hover:text-foreground text-sm uppercase tracking-wider transition-colors">
             Contatti
           </a>
         </div>
