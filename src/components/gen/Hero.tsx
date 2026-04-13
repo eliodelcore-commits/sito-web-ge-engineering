@@ -1,15 +1,17 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo-genginering-nobg.png";
+import bgDrives from "@/assets/home-bg-drives.jpg";
 
 const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative pt-16">
-      {/* Grid background */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-        backgroundSize: '60px 60px'
-      }} />
+      {/* Background image sfocata */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-10 blur-[2px]"
+        style={{ backgroundImage: `url(${bgDrives})` }}
+      />
+      <div className="absolute inset-0 bg-background/70" />
 
       {/* Logo in alto a destra */}
       <img
