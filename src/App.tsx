@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import GenHome from "./pages/GenHome";
 import Servizi from "./pages/Servizi";
 import AutomazioneHardware from "./pages/AutomazioneHardware";
+import AutomazioneSoftware from "./pages/AutomazioneSoftware";
 import Progetti from "./pages/Progetti";
 import GenContatti from "./pages/GenContatti";
 import NotFound from "./pages/NotFound";

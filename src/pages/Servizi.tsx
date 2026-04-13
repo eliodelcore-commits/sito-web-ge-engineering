@@ -16,6 +16,7 @@ const services = [
     title: "Automazione Software",
     description: "Sviluppo software per il controllo e la supervisione dei processi produttivi industriali.",
     features: ["Sistemi SCADA e HMI", "Programmazione PLC (Ladder, ST, FBD)", "Interfacce operatore touch screen", "Integrazione MES e ERP"],
+    link: "/servizi/automazione-software",
   },
   {
     icon: Wifi,
