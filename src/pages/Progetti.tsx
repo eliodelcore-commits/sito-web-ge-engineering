@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
 
@@ -41,6 +42,10 @@ const projects = [
 ];
 
 const Progetti = () => {
+  const [searchParams] = useSearchParams();
+  const cat = searchParams.get("cat");
+  const filtered = cat ? projects.filter((p) => p.category === cat) : projects;
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -56,7 +61,7 @@ const Progetti = () => {
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
+            {filtered.map((project) => (
               <div
                 key={project.title}
                 className="group p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300 flex flex-col"
