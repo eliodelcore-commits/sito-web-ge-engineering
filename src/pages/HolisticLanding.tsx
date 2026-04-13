@@ -68,7 +68,7 @@ const HolisticLanding = () => {
           <div className="flex items-center gap-3">
             <img src={holisticLogo} alt="Armonia Olistica" className="h-10 w-10" />
             <span className="font-heading text-xl font-semibold text-[#3d3229]">
-              Armonia <span className="text-[#c8956c]">Olistica</span>
+              Ali del <span className="text-[#c8956c]">Benessere</span>
             </span>
           </div>
           <div className="hidden md:flex items-center gap-8">
@@ -115,7 +115,7 @@ const HolisticLanding = () => {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#c8956c]/40 bg-[#c8956c]/10 text-[#e8c9a8] text-xs font-medium mb-8"
             >
               <Leaf className="w-3.5 h-3.5" />
-              Studio Olistico & Benessere
+              Operatore Massaggio Integrato
             </motion.div>
 
             <motion.h1
@@ -386,10 +386,10 @@ const HolisticLanding = () => {
 
                 <div className="space-y-4">
                   {[
-                    { icon: Phone, text: "+39 345 678 9012" },
-                    { icon: Mail, text: "info@armoniaolistica.it" },
-                    { icon: MapPin, text: "Via della Pace 22, Bologna" },
-                    { icon: Clock, text: "Lun-Sab: 9:00 - 20:00" },
+                    { icon: Phone, text: "328 381 0878" },
+                    { icon: Mail, text: "gabry.burdulea@gmail.com" },
+                    { icon: MapPin, text: "Contattaci per la sede" },
+                    { icon: Clock, text: "Su appuntamento" },
                   ].map(({ icon: Icon, text }) => (
                     <div key={text} className="flex items-center gap-3 text-[#d4c8b8]">
                       <Icon className="w-5 h-5 text-[#c8956c]" />
@@ -416,10 +416,10 @@ const HolisticLanding = () => {
                   />
                   <select className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white/60 focus:outline-none focus:border-[#c8956c] transition-colors text-sm">
                     <option value="">Scegli un trattamento</option>
+                    <option>Massaggio Integrato</option>
                     <option>Massaggio Olistico</option>
                     <option>Aromaterapia</option>
                     <option>Riflessologia Plantare</option>
-                    <option>Massaggio Ayurvedico</option>
                   </select>
                   <textarea
                     placeholder="Messaggio (opzionale)"
@@ -444,13 +444,13 @@ const HolisticLanding = () => {
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <img src={holisticLogo} alt="Armonia Olistica" className="h-8 w-8" />
+              <img src={holisticLogo} alt="Ali del Benessere" className="h-8 w-8" />
               <span className="font-heading font-semibold text-[#3d3229]">
-                Armonia Olistica
+                Ali del Benessere
               </span>
             </div>
             <p className="text-sm text-[#9a8b7d]">
-              © 2026 Armonia Olistica. Tutti i diritti riservati.
+              © 2026 Ali del Benessere. Tutti i diritti riservati.
             </p>
           </div>
         </div>
