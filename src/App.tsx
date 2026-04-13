@@ -11,6 +11,7 @@ import WirelessPlanning from "./pages/WirelessPlanning";
 import Progetti from "./pages/Progetti";
 import GenContatti from "./pages/GenContatti";
 import AssistenzaTecnica from "./pages/AssistenzaTecnica";
+import HolisticLanding from "./pages/HolisticLanding";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/progetti" element={<Progetti />} />
           <Route path="/servizi/assistenza-tecnica" element={<AssistenzaTecnica />} />
           <Route path="/contatti" element={<GenContatti />} />
+          <Route path="/holistic" element={<HolisticLanding />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
