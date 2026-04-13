@@ -1,6 +1,5 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo-genginering-transparent.png";
 
 const Hero = () => {
   return (
@@ -13,7 +12,16 @@ const Hero = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl">
-          <img src={logo} alt="GenGinering Solutions" className="h-44 mb-8" />
+          <div className="mb-8">
+            <h2 className="font-heading text-6xl md:text-8xl font-bold tracking-tight text-gradient-brand leading-none">
+              GENGINERING
+              <span className="text-2xl md:text-3xl align-super ml-1 opacity-70">®</span>
+              <span className="text-xl md:text-2xl ml-3 text-muted-foreground font-medium">SRL</span>
+            </h2>
+            <p className="text-2xl md:text-4xl font-heading font-semibold text-primary tracking-wide mt-1">
+              Solutions
+            </p>
+          </div>
           
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
