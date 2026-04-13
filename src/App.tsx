@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import GenHome from "./pages/GenHome";
 import Servizi from "./pages/Servizi";
+import AutomazioneHardware from "./pages/AutomazioneHardware";
 import Progetti from "./pages/Progetti";
 import GenContatti from "./pages/GenContatti";
 import NotFound from "./pages/NotFound";
@@ -20,6 +21,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<GenHome />} />
           <Route path="/servizi" element={<Servizi />} />
+          <Route path="/servizi/automazione-hardware" element={<AutomazioneHardware />} />
           <Route path="/progetti" element={<Progetti />} />
           <Route path="/contatti" element={<GenContatti />} />
           <Route path="*" element={<NotFound />} />
