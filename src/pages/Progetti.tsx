@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
 
