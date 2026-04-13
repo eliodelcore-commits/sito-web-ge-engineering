@@ -42,6 +42,10 @@ const projects = [
 ];
 
 const Progetti = () => {
+  const [searchParams] = useSearchParams();
+  const cat = searchParams.get("cat");
+  const filtered = cat ? projects.filter((p) => p.category === cat) : projects;
+
   return (
     <div className="min-h-screen">
       <Navbar />
