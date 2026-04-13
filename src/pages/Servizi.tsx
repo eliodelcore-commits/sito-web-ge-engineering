@@ -23,6 +23,7 @@ const services = [
     title: "Wireless Planning con Ekahau AI",
     description: "Progettazione professionale di reti wireless industriali utilizzando la piattaforma Ekahau AI.",
     features: ["Site survey pre e post installazione", "Analisi predittiva con Ekahau AI", "Ottimizzazione copertura e capacità", "Report dettagliati e documentazione"],
+    link: "/servizi/wireless-planning",
   },
   {
     icon: Wrench,
