@@ -76,7 +76,7 @@ const GenContatti = () => {
                 </div>
                 <div>
                   <h3 className="font-heading font-semibold mb-1">Email</h3>
-                  <p className="text-muted-foreground text-sm">info@genginering.it</p>
+                  <p className="text-muted-foreground text-sm">info@geenginering.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
