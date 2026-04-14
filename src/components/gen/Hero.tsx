@@ -17,7 +17,7 @@ const Hero = () => {
       <img
         src={logo}
         alt="GenGinering SRL Solutions"
-        className="hidden md:block absolute h-48 lg:h-60 opacity-90 rounded-xl"
+        className="hidden md:block absolute h-48 lg:h-60 opacity-90 rounded-3xl"
         style={{ top: '80px', right: '240px' }}
       />
       
