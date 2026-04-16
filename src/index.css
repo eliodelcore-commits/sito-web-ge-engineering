@@ -67,7 +67,7 @@
 
 @layer utilities {
   .text-gradient-brand {
-    background: linear-gradient(135deg, hsl(150, 60%, 38%), hsl(160, 55%, 48%));
+    background: linear-gradient(135deg, hsl(73, 100%, 50%), hsl(80, 90%, 55%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
