@@ -24,7 +24,7 @@ const Hero = () => {
           <img
             src={logo}
             alt="GenGinering SRL Solutions"
-            className="h-56 md:h-72 lg:h-80 xl:h-96 mb-6 -ml-4"
+            className="h-40 md:h-56 lg:h-64 xl:h-72 w-auto mb-6 -ml-4"
           />
           
           <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
