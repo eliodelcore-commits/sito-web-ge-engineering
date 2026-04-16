@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo-genginering-clean.png";
+import logo from "@/assets/logo-genginering.png";
 import bgDrives from "@/assets/home-bg-drives.jpg";
 
 const Hero = () => {
@@ -24,8 +24,8 @@ const Hero = () => {
           <img
             src={logo}
             alt="GEENGINBEERING Solutions"
-            className="h-40 md:h-56 lg:h-64 xl:h-72 max-w-full object-contain mb-6 -ml-4"
-            onError={(e) => console.error('Logo failed to load', e)}
+            className="h-40 md:h-56 lg:h-64 xl:h-72 max-w-full object-contain mb-6 -ml-4 rounded-2xl"
+            style={{ mixBlendMode: 'lighten' }}
           />
           
           <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
