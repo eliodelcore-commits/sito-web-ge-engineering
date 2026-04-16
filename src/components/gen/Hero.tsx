@@ -11,7 +11,7 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center opacity-40 blur-[3px]"
         style={{ backgroundImage: `url(${bgDrives})` }}
       />
-      <div className="absolute inset-0 bg-background/60" />
+      <div className="absolute inset-0 bg-background/40" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl">
