@@ -8,14 +8,14 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <Link to="/">
-              <img src={logo} alt="GenGinering Solutions" className="h-10 rounded-2xl opacity-80 hover:opacity-100 transition-opacity" />
+               <img src={logo} alt="GEENGINBEERING Solutions" className="h-10 rounded-2xl opacity-80 hover:opacity-100 transition-opacity" />
             </Link>
             <span className="text-xs text-muted-foreground leading-tight">
               Via Idice 47, 40050<br />Monterenzio (BO)
             </span>
           </div>
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} GenGinering SRL Solutions. Tutti i diritti riservati.
+            © {new Date().getFullYear()} GEENGINBEERING Solutions. Tutti i diritti riservati.
           </p>
         </div>
       </div>

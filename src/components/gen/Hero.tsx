@@ -23,7 +23,7 @@ const Hero = () => {
           {/* Logo sopra il titolo, integrato con lo sfondo */}
           <img
             src={logo}
-            alt="GenGinering SRL Solutions"
+            alt="GEENGINBEERING Solutions"
             className="h-40 md:h-56 lg:h-64 xl:h-72 w-auto mb-6 -ml-4"
           />
           
