@@ -5,14 +5,23 @@ import bgDrives from "@/assets/home-bg-drives.jpg";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative pt-16">
-      {/* Background image sfocata */}
+    <section className="min-h-screen flex items-center relative overflow-hidden pt-16">
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-40 blur-[3px]"
+        className="absolute inset-0 bg-cover bg-center opacity-55 blur-[4px] scale-105"
         style={{ backgroundImage: `url(${bgDrives})` }}
       />
-      <div className="absolute inset-0 bg-background/40" />
-      
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="container mx-auto relative h-full px-6">
+          <img
+            src={logo}
+            alt="GEENGINBEERING Solutions"
+            className="absolute left-6 top-28 h-56 md:top-32 md:h-72 lg:top-36 lg:h-80 xl:h-96 max-w-full object-contain opacity-95"
+            style={{ mixBlendMode: 'screen', filter: 'brightness(1.25) contrast(1.15)' }}
+          />
+        </div>
+      </div>
+      <div className="absolute inset-0 bg-background/35" />
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium mb-8">
@@ -20,14 +29,8 @@ const Hero = () => {
             Automazione Industriale
           </div>
 
-          {/* Logo sopra il titolo, fuso con lo sfondo */}
-          <img
-            src={logo}
-            alt="GEENGINBEERING Solutions"
-            className="h-56 md:h-72 lg:h-80 xl:h-96 max-w-full object-contain mb-6 -ml-4"
-            style={{ mixBlendMode: 'screen', filter: 'brightness(1.2)' }}
-          />
-          
+          <div className="h-44 md:h-56 lg:h-64 xl:h-72 mb-6" aria-hidden="true" />
+
           <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
             Soluzioni di
             <br />
@@ -35,13 +38,13 @@ const Hero = () => {
             <br />
             industriale
           </h1>
-          
+
           <p className="text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed">
-            Hardware, software e wireless planning per l'industria. 
-            Progettiamo e realizziamo impianti di automazione con strumentazione 
+            Hardware, software e wireless planning per l'industria.
+            Progettiamo e realizziamo impianti di automazione con strumentazione
             all'avanguardia, inclusa la piattaforma Ekahau AI.
           </p>
-          
+
           <div className="flex flex-wrap gap-4">
             <Link
               to="/servizi"
