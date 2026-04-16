@@ -16,7 +16,7 @@ const Hero = () => {
             src={logo}
             alt="GEENGINBEERING Solutions"
             className="absolute left-6 top-28 h-56 md:top-32 md:h-72 lg:top-36 lg:h-80 xl:h-96 max-w-full object-contain"
-            style={{ mixBlendMode: 'screen', filter: 'brightness(2.5) contrast(1.5) saturate(1.4)' }}
+            style={{ mixBlendMode: 'screen', filter: 'brightness(1.8) contrast(1.3) saturate(1.2)' }}
           />
         </div>
       </div>
