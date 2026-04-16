@@ -23,8 +23,9 @@ const Hero = () => {
           {/* Logo sopra il titolo, integrato con lo sfondo */}
           <img
             src={logo}
-            alt="GenGinering SRL Solutions"
-            className="h-40 md:h-56 lg:h-64 xl:h-72 w-auto mb-6 -ml-4"
+            alt="GEENGINBEERING Solutions"
+            className="h-40 md:h-56 lg:h-64 xl:h-72 max-w-full object-contain mb-6 -ml-4"
+            onError={(e) => console.error('Logo failed to load', e)}
           />
           
           <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
