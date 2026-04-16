@@ -8,7 +8,7 @@ const Hero = () => {
     <section className="min-h-screen flex items-center justify-center relative pt-16">
       {/* Background image sfocata */}
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-20 blur-[2px]"
+        className="absolute inset-0 bg-cover bg-center opacity-40 blur-[3px]"
         style={{ backgroundImage: `url(${bgDrives})` }}
       />
       <div className="absolute inset-0 bg-background/60" />
@@ -24,7 +24,7 @@ const Hero = () => {
           <img
             src={logo}
             alt="GEENGINBEERING Solutions"
-            className="h-40 md:h-56 lg:h-64 xl:h-72 max-w-full object-contain mb-6 -ml-4"
+            className="h-56 md:h-72 lg:h-80 xl:h-96 max-w-full object-contain mb-6 -ml-4"
             style={{ mixBlendMode: 'screen', filter: 'brightness(1.2)' }}
           />
           
