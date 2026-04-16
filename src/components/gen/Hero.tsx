@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo-genginering-nobg.png";
+import logo from "@/assets/logo-genginering.png";
 import bgDrives from "@/assets/home-bg-drives.jpg";
 
 const Hero = () => {
@@ -20,11 +20,12 @@ const Hero = () => {
             Automazione Industriale
           </div>
 
-          {/* Logo sopra il titolo */}
+          {/* Logo sopra il titolo, fuso con lo sfondo */}
           <img
             src={logo}
             alt="GEENGINBEERING Solutions"
             className="h-40 md:h-56 lg:h-64 xl:h-72 max-w-full object-contain mb-6 -ml-4"
+            style={{ mixBlendMode: 'screen', filter: 'brightness(1.2)' }}
           />
           
           <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
