@@ -15,7 +15,7 @@ const Hero = () => {
           <img
             src={logo}
             alt="GEENGINBEERING Solutions"
-            className="absolute left-6 top-28 h-56 md:top-32 md:h-72 lg:top-36 lg:h-80 xl:h-96 max-w-full object-contain"
+            className="absolute left-6 top-28 h-44 md:top-32 md:h-56 lg:top-36 lg:h-64 xl:h-72 max-w-full object-contain"
             style={{ mixBlendMode: 'screen' }}
           />
         </div>
@@ -29,7 +29,7 @@ const Hero = () => {
             Automazione Industriale
           </div>
 
-          <div className="h-44 md:h-56 lg:h-64 xl:h-72 mb-6" aria-hidden="true" />
+          <div className="h-32 md:h-40 lg:h-48 xl:h-56 mb-6" aria-hidden="true" />
 
           <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
             Soluzioni di
