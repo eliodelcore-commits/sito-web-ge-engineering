@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo-genginering.png";
+import logo from "@/assets/logo-genginering-clean.png";
 import bgDrives from "@/assets/home-bg-drives.jpg";
 
 const Hero = () => {
@@ -24,8 +24,7 @@ const Hero = () => {
           <img
             src={logo}
             alt="GenGinering SRL Solutions"
-            className="h-48 md:h-64 lg:h-72 mb-6 -ml-4"
-            style={{ mixBlendMode: 'lighten' }}
+            className="h-56 md:h-72 lg:h-80 xl:h-96 mb-6 -ml-4"
           />
           
           <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
