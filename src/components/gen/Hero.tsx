@@ -17,8 +17,8 @@ const Hero = () => {
       <img
         src={logo}
         alt="GenGinering SRL Solutions"
-        className="hidden md:block absolute h-48 lg:h-60 opacity-90 rounded-3xl"
-        style={{ top: '80px', right: '240px' }}
+        className="hidden md:block absolute h-64 lg:h-80 xl:h-96 opacity-90"
+        style={{ top: '50%', right: '60px', transform: 'translateY(-50%)' }}
       />
       
       <div className="container mx-auto px-6 relative z-10">
