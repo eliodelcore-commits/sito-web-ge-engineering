@@ -54,7 +54,7 @@ const NavDropdown = ({ label, links, isActive, isOpen, onToggle, onClose }: Drop
         type="button"
         onClick={onToggle}
         className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary ${
-          isActive ? "text-primary" : "text-muted-foreground"
+          isActive ? "text-primary" : "text-white"
         }`}
       >
         {label}
@@ -108,7 +108,7 @@ const Navbar = () => {
           <Link
             to="/"
             className={`text-sm font-medium transition-colors hover:text-primary ${
-              location.pathname === "/" ? "text-primary" : "text-muted-foreground"
+              location.pathname === "/" ? "text-primary" : "text-white"
             }`}
           >
             Home
@@ -135,7 +135,7 @@ const Navbar = () => {
           <Link
             to="/contatti"
             className={`text-sm font-medium transition-colors hover:text-primary ${
-              location.pathname === "/contatti" ? "text-primary" : "text-muted-foreground"
+              location.pathname === "/contatti" ? "text-primary" : "text-white"
             }`}
           >
             Contatti
