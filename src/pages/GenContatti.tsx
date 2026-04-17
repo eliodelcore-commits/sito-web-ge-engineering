@@ -85,7 +85,7 @@ const GenContatti = () => {
                 </div>
                 <div>
                   <h3 className="font-heading font-semibold mb-1">Telefono</h3>
-                  <a href="tel:+390515678908" className="text-muted-foreground text-sm hover:text-primary transition-colors">051 5678908</a>
+                  <a href="tel:+39051568908" className="text-muted-foreground text-sm hover:text-primary transition-colors">+39-051 568908</a>
                 </div>
               </div>
               <div className="flex items-start gap-4">
