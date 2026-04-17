@@ -28,7 +28,7 @@ const machines = [
 
 const AutomazioneHardware = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
 
       {/* Hero */}

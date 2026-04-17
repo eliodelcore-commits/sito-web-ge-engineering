@@ -28,7 +28,7 @@ const sections = [
 
 const AutomazioneSoftware = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
 
       {/* Hero */}
