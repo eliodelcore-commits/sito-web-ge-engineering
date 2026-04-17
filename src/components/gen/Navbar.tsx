@@ -70,7 +70,7 @@ const NavDropdown = ({ label, links, isActive, isOpen, onToggle, onClose }: Drop
               className={`block px-4 py-2 text-sm transition-colors hover:bg-accent hover:text-accent-foreground ${
                 (location.pathname + location.search) === link.to
                   ? "text-primary font-medium"
-                  : "text-muted-foreground"
+                  : "text-white"
               }`}
             >
               {link.label}
