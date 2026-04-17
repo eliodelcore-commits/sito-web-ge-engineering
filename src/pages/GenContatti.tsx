@@ -94,7 +94,7 @@ const GenContatti = () => {
                 </div>
                 <div>
                   <h3 className="font-heading font-semibold mb-1">Sede</h3>
-                  <p className="text-muted-foreground text-sm">Italia</p>
+                  <p className="text-muted-foreground text-sm">Via Idice 47 - 40050 Monterenzio (BO)</p>
                 </div>
               </div>
             </div>
