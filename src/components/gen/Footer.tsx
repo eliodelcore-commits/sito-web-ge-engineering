@@ -1,4 +1,4 @@
-import logo from "@/assets/logo-genginering.png";
+import logo from "@/assets/logo-genginering-new.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
