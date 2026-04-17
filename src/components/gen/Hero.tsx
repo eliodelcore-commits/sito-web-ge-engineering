@@ -7,8 +7,12 @@ const Hero = () => {
   return (
     <section className="min-h-screen flex items-center relative overflow-hidden pt-16">
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-10 blur-[4px] scale-105"
-        style={{ backgroundImage: `url(${bgDrives})` }}
+        className="absolute inset-0 bg-cover bg-center blur-[4px] scale-105"
+        style={{
+          backgroundImage: `url(${bgDrives})`,
+          WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.45) 100%)',
+          maskImage: 'linear-gradient(to right, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.45) 100%)',
+        }}
       />
       <div className="absolute inset-0 pointer-events-none">
         <div className="container mx-auto relative h-full px-6">
