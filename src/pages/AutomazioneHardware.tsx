@@ -19,9 +19,9 @@ const machines = [
     image: robot,
   },
   {
-    title: "Veicoli a Guida Laser (LGV)",
+    title: "Veicoli a Guida Laser (LGV) e Radio (RGV)",
     description:
-      "Installiamo e configuriamo veicoli autonomi a guida laser per il trasporto interno. Forniamo assistenza tecnica, manutenzione preventiva e interventi rapidi on-site.",
+      "Installiamo e configuriamo veicoli autonomi a guida laser (LGV) e a guida radio (RGV) per il trasporto interno. Forniamo assistenza tecnica, manutenzione preventiva e interventi rapidi on-site.",
     image: lgv,
   },
 ];
