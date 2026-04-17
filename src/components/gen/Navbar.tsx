@@ -99,7 +99,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-4">
-          <img src={logo} alt="GEENGINBEERING Solutions" className="h-28 rounded-2xl" />
+          <img src={logo} alt="GENGINERING Solutions" className="h-20 mix-blend-screen" />
           <span className="hidden lg:block text-base text-muted-foreground whitespace-nowrap">
             Via Idice 47, 40050 Monterenzio (BO), Italia
           </span>
