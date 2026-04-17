@@ -113,12 +113,12 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
-      <div className="container mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 h-14 md:h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 md:gap-4 min-w-0">
           <img
             src={logo}
             alt="GENGINERING Solutions"
-            className="h-12 md:h-20 mix-blend-screen rounded-2xl shrink-0"
+            className="h-10 md:h-14 mix-blend-screen rounded-2xl shrink-0"
             style={{ backgroundColor: '#0F172A' }}
           />
           <span className="hidden lg:block text-base text-white whitespace-nowrap">
