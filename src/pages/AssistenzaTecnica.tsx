@@ -23,7 +23,7 @@ const onSiteServices = [
     image: assistenzaVeicoli,
     title: "Veicoli AGV / LGV / RGV",
     description:
-      "Assistenza completa su veicoli a guida automatica, laser e radio: diagnostica elettrica, riparazione meccanica, aggiornamento firmware e calibrazione dei sistemi di navigazione.",
+      "Assistenza completa su veicoli a guida automatica, laser e radio: diagnostica elettrica, riparazione meccanica e calibrazione dei sistemi di navigazione.",
   },
 ];
 
