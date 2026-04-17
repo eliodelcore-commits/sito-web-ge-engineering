@@ -97,10 +97,10 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-6 h-24 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="GEENGINBEERING Solutions" className="h-20 rounded-2xl" />
-          <span className="hidden lg:block text-xs text-muted-foreground whitespace-nowrap">
+      <div className="container mx-auto px-6 h-32 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-4">
+          <img src={logo} alt="GEENGINBEERING Solutions" className="h-28 rounded-2xl" />
+          <span className="hidden lg:block text-base text-muted-foreground whitespace-nowrap">
             Via Idice 47, 40050 Monterenzio (BO), Italia
           </span>
         </Link>
