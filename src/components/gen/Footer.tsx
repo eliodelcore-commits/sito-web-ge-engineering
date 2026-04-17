@@ -1,4 +1,4 @@
-import logo from "@/assets/logo-genginering.png";
+import logo from "@/assets/logo-genginering-new.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <Link to="/">
-               <img src={logo} alt="GEENGINBEERING Solutions" className="h-24 rounded-2xl opacity-80 hover:opacity-100 transition-opacity" />
+               <img src={logo} alt="GENGINERING Solutions" className="h-20 mix-blend-screen opacity-90 hover:opacity-100 transition-opacity" />
             </Link>
             <span className="text-base text-muted-foreground whitespace-nowrap">
               Via Idice 47, 40050 Monterenzio (BO), Italia
