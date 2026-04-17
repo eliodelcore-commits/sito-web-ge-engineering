@@ -118,7 +118,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="GENGINERING Solutions"
-            className="h-12 md:h-20 mix-blend-screen rounded-2xl shrink-0"
+            className="h-10 md:h-14 mix-blend-screen rounded-2xl shrink-0"
             style={{ backgroundColor: '#0F172A' }}
           />
           <span className="hidden lg:block text-base text-white whitespace-nowrap">
