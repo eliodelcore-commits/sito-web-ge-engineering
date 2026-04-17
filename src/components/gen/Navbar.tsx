@@ -108,7 +108,7 @@ const Navbar = () => {
           <Link
             to="/"
             className={`text-sm font-medium transition-colors hover:text-primary ${
-              location.pathname === "/" ? "text-primary" : "text-muted-foreground"
+              location.pathname === "/" ? "text-primary" : "text-white"
             }`}
           >
             Home
