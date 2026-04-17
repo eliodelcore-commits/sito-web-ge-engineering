@@ -6,11 +6,11 @@ const Footer = () => {
     <footer className="border-t border-border py-12">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <Link to="/">
-               <img src={logo} alt="GEENGINBEERING Solutions" className="h-16 rounded-2xl opacity-80 hover:opacity-100 transition-opacity" />
+               <img src={logo} alt="GEENGINBEERING Solutions" className="h-24 rounded-2xl opacity-80 hover:opacity-100 transition-opacity" />
             </Link>
-            <span className="text-xs text-muted-foreground whitespace-nowrap">
+            <span className="text-base text-muted-foreground whitespace-nowrap">
               Via Idice 47, 40050 Monterenzio (BO), Italia
             </span>
           </div>
