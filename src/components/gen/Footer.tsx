@@ -10,7 +10,7 @@ const Footer = () => {
             <Link to="/">
                <img src={logo} alt="GENGINERING Solutions" className="h-20 mix-blend-screen opacity-90 hover:opacity-100 transition-opacity" />
             </Link>
-            <span className="text-base text-muted-foreground whitespace-nowrap">
+            <span className="text-base text-white whitespace-nowrap">
               Via Idice 47, 40050 Monterenzio (BO), Italia
             </span>
           </div>
