@@ -9,7 +9,7 @@ const sections = [
   {
     title: "PLC Siemens",
     description:
-      "Programmiamo e configuriamo PLC Siemens delle serie S7-300, S7-400, S7-1200 e S7-1500 utilizzando l'ambiente TIA Portal. Sviluppiamo logiche di controllo in Ladder, Structured Text e Function Block Diagram per ogni tipo di processo industriale.",
+      "Programmiamo e configuriamo PLC Siemens delle serie S7-300, S7-400, S7-1200 e S7-1500 utilizzando l'ambiente TIA Portal. Sviluppiamo logiche di controllo in Ladder, SCL, AWL, Structured Text e Function Block Diagram per ogni tipo di processo industriale.",
     image: plcImg,
   },
   {
