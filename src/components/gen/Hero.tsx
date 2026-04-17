@@ -39,7 +39,7 @@ const Hero = () => {
             industriale
           </h1>
 
-          <p className="text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed">
+          <p className="text-lg text-white max-w-xl mb-10 leading-relaxed">
             Hardware, software e wireless planning per l'industria.
             Progettiamo e realizziamo impianti di automazione con strumentazione
             all'avanguardia, inclusa la piattaforma Ekahau AI.
