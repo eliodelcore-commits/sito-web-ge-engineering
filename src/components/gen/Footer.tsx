@@ -14,8 +14,8 @@ const Footer = () => {
               Via Idice 47, 40050 Monterenzio (BO), Italia
             </span>
           </div>
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} GEENGINBEERING Solutions. Tutti i diritti riservati.
+          <p className="text-xs text-white">
+            © {new Date().getFullYear()} GEENGINEERING Solution srl. Tutti i diritti riservati.
           </p>
         </div>
       </div>
