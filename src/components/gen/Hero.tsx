@@ -24,12 +24,12 @@ const Hero = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl">
+          <div className="h-72 md:h-80 lg:h-[22rem] xl:h-[24rem]" aria-hidden="true" />
+
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
             Automazione Industriale
           </div>
-
-          <div className="h-32 md:h-40 lg:h-48 xl:h-56 mb-6" aria-hidden="true" />
 
           <h1 className="font-heading text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
             Soluzioni di
