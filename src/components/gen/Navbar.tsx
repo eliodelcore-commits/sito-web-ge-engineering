@@ -135,7 +135,7 @@ const Navbar = () => {
           <Link
             to="/contatti"
             className={`text-sm font-medium transition-colors hover:text-primary ${
-              location.pathname === "/contatti" ? "text-primary" : "text-muted-foreground"
+              location.pathname === "/contatti" ? "text-primary" : "text-white"
             }`}
           >
             Contatti
