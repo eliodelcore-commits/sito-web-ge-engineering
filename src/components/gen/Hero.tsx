@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="min-h-screen flex items-center relative overflow-hidden pt-16">
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-25 blur-[12px] scale-110"
+        className="absolute inset-0 bg-cover bg-center opacity-25 blur-[4px] scale-105"
         style={{ backgroundImage: `url(${bgDrives})` }}
       />
       <div className="absolute inset-0 pointer-events-none">
