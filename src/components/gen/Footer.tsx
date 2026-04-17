@@ -10,11 +10,11 @@ const Footer = () => {
             <Link to="/">
                <img src={logo} alt="GENGINERING Solutions" className="h-20 mix-blend-screen rounded-2xl opacity-90 hover:opacity-100 transition-opacity" style={{ backgroundColor: '#0F172A' }} />
             </Link>
-            <span className="text-base text-white whitespace-nowrap">
+            <span className="text-base text-white whitespace-nowrap leading-none">
               Via Idice 47, 40050 Monterenzio (BO), Italia
             </span>
           </div>
-          <p className="text-xs text-white">
+          <p className="text-base text-white whitespace-nowrap leading-none">
             © {new Date().getFullYear()} GEENGINEERING Solution srl. Tutti i diritti riservati.
           </p>
         </div>
