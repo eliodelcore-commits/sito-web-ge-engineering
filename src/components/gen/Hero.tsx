@@ -15,7 +15,7 @@ const Hero = () => {
           <img
             src={logo}
             alt="GEENGINBEERING Solutions"
-            className="absolute left-6 top-20 h-64 md:top-24 md:h-80 lg:top-28 lg:h-[22rem] xl:h-[24rem] max-w-full object-contain"
+            className="absolute left-6 top-20 h-64 md:top-24 md:h-80 lg:top-28 lg:h-[22rem] xl:h-[24rem] max-w-full object-contain rounded-3xl"
             style={{ mixBlendMode: 'screen' }}
           />
         </div>
