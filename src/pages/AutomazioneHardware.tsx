@@ -48,8 +48,8 @@ const AutomazioneHardware = () => {
           </h1>
           <p className="text-muted-foreground max-w-2xl">
             Installiamo, mettiamo in funzione e forniamo assistenza tecnica su
-            trasloelevatori, robot industriali e veicoli a guida laser per magazzini
-            automatici ad alte prestazioni.
+            trasloelevatori, robot industriali e veicoli a guida automatica
+            (LGV/AGV e RGV) per magazzini automatici ad alte prestazioni.
           </p>
         </div>
       </div>
