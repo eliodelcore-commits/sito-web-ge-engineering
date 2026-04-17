@@ -54,7 +54,7 @@ const NavDropdown = ({ label, links, isActive, isOpen, onToggle, onClose }: Drop
         type="button"
         onClick={onToggle}
         className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary ${
-          isActive ? "text-primary" : "text-muted-foreground"
+          isActive ? "text-primary" : "text-white"
         }`}
       >
         {label}
