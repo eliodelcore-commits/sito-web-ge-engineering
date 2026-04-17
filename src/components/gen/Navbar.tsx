@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ChevronDown } from "lucide-react";
-import logo from "@/assets/logo-genginering-transparent.png";
+import logo from "@/assets/logo-genginering-new.png";
 
 const serviceLinks = [
   { to: "/servizi", label: "Tutti i Servizi" },
