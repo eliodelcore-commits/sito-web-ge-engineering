@@ -1,7 +1,13 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo-genginering-e6f53b.png";
 import bgDrives from "@/assets/home-bg-drives.jpg";
+
+const stats = [
+  { value: "15+", label: "anni di esperienza" },
+  { value: "200+", label: "impianti realizzati" },
+  { value: "24/7", label: "assistenza tecnica" },
+] as const;
 
 const Hero = () => {
   return (
@@ -10,8 +16,10 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center blur-[4px] scale-105"
         style={{
           backgroundImage: `url(${bgDrives})`,
-          WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.45) 100%)',
-          maskImage: 'linear-gradient(to right, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.45) 100%)',
+          WebkitMaskImage:
+            "linear-gradient(to right, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.45) 100%)",
+          maskImage:
+            "linear-gradient(to right, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.45) 100%)",
         }}
       />
       <div className="absolute inset-0 pointer-events-none">
@@ -20,7 +28,7 @@ const Hero = () => {
             src={logo}
             alt="GEENGINBEERING Solutions"
             className="absolute left-2 top-20 h-32 sm:h-40 md:left-4 md:top-24 md:h-56 lg:left-6 lg:top-28 lg:h-72 xl:h-80 max-w-[95vw] object-contain rounded-3xl"
-            style={{ mixBlendMode: 'screen' }}
+            style={{ mixBlendMode: "screen" }}
           />
         </div>
       </div>
@@ -49,7 +57,7 @@ const Hero = () => {
             all'avanguardia, inclusa la piattaforma Ekahau AI.
           </p>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 mb-12">
             <Link
               to="/servizi"
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors"
@@ -64,7 +72,24 @@ const Hero = () => {
               Contattaci
             </Link>
           </div>
+
+          <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-xl border-t border-border/40 pt-8">
+            {stats.map(({ value, label }) => (
+              <div key={label}>
+                <div className="font-heading text-3xl md:text-4xl font-bold text-gradient-brand">
+                  {value}
+                </div>
+                <div className="text-xs sm:text-sm text-muted-foreground mt-1">
+                  {label}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-muted-foreground animate-bounce">
+        <ChevronDown className="w-6 h-6" />
       </div>
     </section>
   );
