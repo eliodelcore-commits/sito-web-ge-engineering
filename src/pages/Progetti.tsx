@@ -30,9 +30,10 @@ const projects = [
   },
   {
     title: "Piattaforma IoT industriale",
+    slug: "iot",
     category: "Automazione Software",
     description: "Sviluppo piattaforma IoT per raccolta dati da sensori industriali con dashboard di analisi e manutenzione predittiva.",
-    tags: ["IoT", "Dashboard", "Predictive Maintenance"],
+    tags: ["IoT", "MQTT", "InfluxDB", "Grafana", "Edge Gateway", "Predictive Maintenance"],
   },
   {
     title: "Copertura wireless stabilimento produttivo",
