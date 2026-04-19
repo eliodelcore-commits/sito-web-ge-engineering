@@ -22,10 +22,10 @@ const projects = [
     tags: ["Ekahau AI", "Wi-Fi 6", "Site Survey"],
   },
   {
-    title: "Revamping impianto packaging",
+    title: "Revamping linea di confezionamento",
     category: "Automazione Hardware",
-    description: "Aggiornamento completo dell'automazione di una linea di confezionamento con integrazione robot collaborativi.",
-    tags: ["Cobot", "PLC", "Servo Drive"],
+    description: "Upgrade da S7-300 a S7-1516F Safety, sostituzione drive KEB F5 con SEW MOVIDRIVE B su Profinet, inserimento 4 cobot collaborativi per etichettatura packaging.",
+    tags: ["S7-1516F Safety", "SEW MOVIDRIVE B", "PROFIsafe", "Cobot", "TIA Portal"],
   },
   {
     title: "Piattaforma IoT industriale",
@@ -63,10 +63,11 @@ const Progetti = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((project) => {
               const isLinea = project.title === "Linea di produzione automatizzata";
+              const isRevamping = project.title === "Revamping linea di confezionamento";
               const card = (
                 <div
                   className={`group p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300 flex flex-col h-full ${
-                    isLinea ? "cursor-pointer" : ""
+                    isLinea || isRevamping ? "cursor-pointer" : ""
                   }`}
                 >
                   <p className="text-xs text-primary font-medium mb-3">
@@ -91,13 +92,23 @@ const Progetti = () => {
                 </div>
               );
 
-              return isLinea ? (
-                <Link key={project.title} to="/progetti/linea-automatizzata">
-                  {card}
-                </Link>
-              ) : (
-                <div key={project.title}>{card}</div>
-              );
+              if (isLinea) {
+                return (
+                  <Link key={project.title} to="/progetti/linea-automatizzata">
+                    {card}
+                  </Link>
+                );
+              }
+
+              if (isRevamping) {
+                return (
+                  <Link key={project.title} to="/progetti/revamping-confezionamento">
+                    {card}
+                  </Link>
+                );
+              }
+
+              return <div key={project.title}>{card}</div>;
             })}
           </div>
         </div>
