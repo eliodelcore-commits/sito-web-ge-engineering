@@ -52,133 +52,225 @@ const ProgettoSCADAChimico = () => {
                   Architettura SCADA a 4 livelli: supervisione, firewall OT/IT, rete di processo, controllo PLC e I/O di campo.
                 </p>
 
-                <svg
-                  width="100%"
-                  viewBox="0 0 900 410"
-                  role="img"
-                >
-                  <title>Topologia SCADA impianto chimico</title>
-                  <desc>Server SCADA ridondati, Historian, firewall OT/IT, core switch, 4 PLC di zona, 8 nodi ET200SP remoti, 2000+ punti I/O.</desc>
+<svg width="100%" viewBox="0 0 900 410" role="img">
 
-                  {/* Level dividers */}
-                  <line x1="20" y1="106" x2="880" y2="106" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
-                  <line x1="20" y1="208" x2="880" y2="208" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
-                  <line x1="20" y1="318" x2="880" y2="318" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
+  <title>Sistema SCADA stabilimento chimico — Topologia</title>
 
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="20">Livello 3 — Supervisione SCADA (rete IT)</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="190" y="122" textAnchor="middle">Perimetro sicurezza OT/IT</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="222">Livello 2 — Rete di processo (OPC-UA)</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="332">Livello 1 — Controllo PLC</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="450" y="476" textAnchor="middle">Livello 0 — Campo · ET200SP remoti (2000+ I/O)</text>
+  <desc>Server SCADA ridondati, Historian, firewall OT/IT, core switch, 4 PLC di zona, 8 nodi ET200SP remoti.</desc>
 
-                  {/* SCADA Servers - Level 3 */}
-                  <line x1="170" y1="62" x2="550" y2="62" stroke="#2563EB" strokeWidth="1.2" strokeDasharray="5 3"/>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="450" y="58" textAnchor="middle">ridond.</text>
+  <line x1="30" y1="92" x2="870" y2="92" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
 
-                  <rect x="30" y="38" width="140" height="46" rx="6" fill="#0f2847" stroke="#2563EB" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="100" y="57" textAnchor="middle" dominantBaseline="central">Server SCADA 1</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#93C5FD" x="100" y="75" textAnchor="middle" dominantBaseline="central">WinCC Primario</text>
+  <line x1="30" y1="162" x2="870" y2="162" stroke="#7f1d1d" strokeWidth="0.5" strokeDasharray="2 2"/>
 
-                  <rect x="190" y="38" width="140" height="46" rx="6" fill="#0f2847" stroke="#2563EB" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="260" y="57" textAnchor="middle" dominantBaseline="central">Server SCADA 2</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#93C5FD" x="260" y="75" textAnchor="middle" dominantBaseline="central">WinCC Backup</text>
+  <line x1="30" y1="228" x2="870" y2="228" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
 
-                  <rect x="370" y="38" width="120" height="46" rx="6" fill="#2d1f6e" stroke="#7F77DD" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="430" y="57" textAnchor="middle" dominantBaseline="central">Historian</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#C4B5FD" x="430" y="75" textAnchor="middle" dominantBaseline="central">30.000 tag · SQL</text>
+  <line x1="30" y1="314" x2="870" y2="314" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
 
-                  <rect x="530" y="38" width="140" height="46" rx="6" fill="#1f356e" stroke="#4A80F0" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="600" y="57" textAnchor="middle" dominantBaseline="central">Engineering WS</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#7EA8D0" x="600" y="75" textAnchor="middle" dominantBaseline="central">TIA Portal · Config.</text>
+  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="20">Livello 3 — Supervisione SCADA (rete IT)</text>
 
-                  {/* Connections to Firewall */}
-                  <path d="M100,84 L100,115" stroke="#2563EB" strokeWidth="0.8" fill="none"/>
-                  <path d="M260,84 L260,100 L530,100 L530,115" stroke="#2563EB" strokeWidth="0.8" fill="none"/>
-                  <path d="M430,84 L430,115" stroke="#7F77DD" strokeWidth="0.8" fill="none"/>
-                  <path d="M600,84 L600,115" stroke="#4A80F0" strokeWidth="0.8" fill="none"/>
+  <text fontFamily="inherit" fontSize="11" fill="#7f1d1d" x="30" y="108">Perimetro sicurezza OT/IT</text>
 
-                  {/* Firewall - Level 2 */}
-                  <rect x="20" y="120" width="140" height="46" rx="6" fill="#1a0e4f" stroke="#8B5CF6" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="90" y="139" textAnchor="middle" dominantBaseline="central">Firewall perimetrale</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#A78BFA" x="90" y="157" textAnchor="middle" dominantBaseline="central">Separazione OT / IT</text>
+  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="178">Livello 2 — Rete di processo (OPC-UA)</text>
 
-                  {/* Core Switch - Level 2 */}
-                  <path d="M160,143 L240,143" stroke="#8B5CF6" strokeWidth="1.5"/>
-                  <rect x="240" y="120" width="320" height="46" rx="6" fill="#0a3d2e" stroke="#1D9E75" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="400" y="139" textAnchor="middle" dominantBaseline="central">Core Ethernet Switch</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#9FE1CB" x="400" y="157" textAnchor="middle" dominantBaseline="central">Rete di processo · OPC-UA · Profinet</text>
+  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="244">Livello 1 — Controllo PLC</text>
 
-                  {/* Connections to PLC - Level 1 */}
-                  <line x1="320" y1="166" x2="320" y2="198" stroke="#1D9E75" strokeWidth="0.8"/>
-                  <line x1="400" y1="166" x2="400" y2="198" stroke="#1D9E75" strokeWidth="0.8"/>
-                  <line x1="480" y1="166" x2="480" y2="198" stroke="#1D9E75" strokeWidth="0.8"/>
-                  <line x1="560" y1="166" x2="560" y2="198" stroke="#1D9E75" strokeWidth="0.8"/>
+  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="328">Livello 0 — Campo · ET200SP remoti (2000+ I/O)</text>
 
-                  {/* PLCs */}
-                  <rect x="240" y="204" width="160" height="50" rx="6" fill="#2a1506" stroke="#D97706" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="320" y="225" textAnchor="middle" dominantBaseline="central">PLC-01 Reattori</text>
-                  <text fontFamily="inherit" fontSize="12" fill="#FBB07A" x="320" y="245" textAnchor="middle" dominantBaseline="central">S7-1516 · 800 I/O</text>
+  <line x1="175" y1="52" x2="197" y2="52" stroke="#2563EB" strokeWidth="1" strokeDasharray="4 2"/>
 
-                  <rect x="420" y="204" width="160" height="50" rx="6" fill="#1f1a06" stroke="#A07820" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="500" y="225" textAnchor="middle" dominantBaseline="central">PLC-02 Distillaz.</text>
-                  <text fontFamily="inherit" fontSize="12" fill="#F5C842" x="500" y="245" textAnchor="middle" dominantBaseline="central">S7-1515 · 500 I/O</text>
+  <text fontFamily="inherit" fontSize="10" fill="#64748B" x="186" y="46" textAnchor="middle">ridond.</text>
 
-                  <rect x="600" y="204" width="160" height="50" rx="6" fill="#3d1208" stroke="#D85A30" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="680" y="225" textAnchor="middle" dominantBaseline="central">PLC-03 ESD Safety</text>
-                  <text fontFamily="inherit" fontSize="12" fill="#F0997B" x="680" y="245" textAnchor="middle" dominantBaseline="central">S7-1516F · 400 I/O safe</text>
+  <rect x="20" y="28" width="155" height="48" rx="6" fill="#0f2040" stroke="#2563EB" strokeWidth="0.8"/>
 
-                  <rect x="720" y="204" width="160" height="50" rx="6" fill="#052828" stroke="#0F6E56" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="800" y="225" textAnchor="middle" dominantBaseline="central">PLC-04 Utilities</text>
-                  <text fontFamily="inherit" fontSize="12" fill="#5DCAA5" x="800" y="245" textAnchor="middle" dominantBaseline="central">S7-1515 · 300 I/O</text>
+  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="97" y="47" textAnchor="middle" dominantBaseline="central">Server SCADA 1</text>
 
-                  {/* Connections to Field Level */}
-                  <path d="M320,254 V274" stroke="#D97706" strokeWidth="0.8" fill="none"/>
-                  <path d="M500,254 V274" stroke="#A07820" strokeWidth="0.8" fill="none"/>
-                  <path d="M680,254 V274" stroke="#D85A30" strokeWidth="0.8" fill="none"/>
-                  <path d="M800,254 V274" stroke="#0F6E56" strokeWidth="0.8" fill="none"/>
+  <text fontFamily="inherit" fontSize="11" fill="#93C5FD" x="97" y="65" textAnchor="middle" dominantBaseline="central">WinCC Primario</text>
 
-                  <line x1="68" y1="274" x2="832" y2="274" stroke="#475569" strokeWidth="0.6"/>
+  <rect x="197" y="28" width="155" height="48" rx="6" fill="#0f2040" stroke="#1D4ED8" strokeWidth="0.8"/>
 
-                  {/* Field Level - ET200SP nodes */}
-                  {[
-                    {x:20, cx:53, fill:"#2a1506", stroke:"#D97706", sub:"#FBB07A", z:"R-01"},
-                    {x:108, cx:161, fill:"#2a1506", stroke:"#D97706", sub:"#FBB07A", z:"R-02"},
-                    {x:223, cx:256, fill:"#0c1e38", stroke:"#2563EB", sub:"#93C5FD", z:"D-01"},
-                    {x:331, cx:364, fill:"#0c1e38", stroke:"#2563EB", sub:"#93C5FD", z:"D-02"},
-                    {x:523, cx:556, fill:"#3d1208", stroke:"#D85A30", sub:"#F0997B", z:"E-01"},
-                    {x:631, cx:664, fill:"#3d1208", stroke:"#D85A30", sub:"#F0997B", z:"E-02"},
-                    {x:708, cx:741, fill:"#052828", stroke:"#0F6E56", sub:"#5DCAA5", z:"U-01"},
-                    {x:816, cx:849, fill:"#052828", stroke:"#0F6E56", sub:"#5DCAA5", z:"U-02"},
-                  ].map(({x, cx, fill, stroke, sub, z}) => (
-                    <g key={z}>
-                      <rect x={x} y="300" width="66" height="42" rx="4" fill={fill} stroke={stroke} strokeWidth="0.8"/>
-                      <text fontFamily="inherit" fontSize="12" fontWeight="600" fill="#F1F5F9" x={cx} y="318" textAnchor="middle" dominantBaseline="central">ET200SP</text>
-                      <text fontFamily="inherit" fontSize="10" fill={sub} x={cx} y="334" textAnchor="middle" dominantBaseline="central">Zona {z}</text>
-                    </g>
-                  ))}
+  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="274" y="47" textAnchor="middle" dominantBaseline="central">Server SCADA 2</text>
 
-                  {/* Legend */}
-                  <rect x="30" y="450" width="10" height="10" rx="2" fill="#2563EB"/>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="46" y="459">SCADA WinCC</text>
+  <text fontFamily="inherit" fontSize="11" fill="#93C5FD" x="274" y="65" textAnchor="middle" dominantBaseline="central">WinCC Backup</text>
 
-                  <rect x="150" y="450" width="10" height="10" rx="2" fill="#7F77DD"/>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="166" y="459">Historian</text>
+  <rect x="530" y="28" width="155" height="48" rx="6" fill="#052828" stroke="#0F6E56" strokeWidth="0.8"/>
 
-                  <rect x="244" y="450" width="10" height="10" rx="2" fill="#4A80F0"/>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="260" y="459">Engineering WS</text>
+  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="607" y="47" textAnchor="middle" dominantBaseline="central">Historian</text>
 
-                  <rect x="368" y="450" width="10" height="10" rx="2" fill="#8B5CF6"/>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="384" y="459">Firewall OT/IT</text>
+  <text fontFamily="inherit" fontSize="11" fill="#5DCAA5" x="607" y="65" textAnchor="middle" dominantBaseline="central">30.000 tag · SQL</text>
 
-                  <rect x="492" y="450" width="10" height="10" rx="2" fill="#1D9E75"/>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="508" y="459">Switch Profinet</text>
+  <rect x="710" y="28" width="160" height="48" rx="6" fill="#1e1040" stroke="#534AB7" strokeWidth="0.8"/>
 
-                  <rect x="632" y="450" width="10" height="10" rx="2" fill="#D97706"/>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="648" y="459">PLC Reattori</text>
+  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="790" y="47" textAnchor="middle" dominantBaseline="central">Engineering WS</text>
 
-                  <rect x="756" y="450" width="10" height="10" rx="2" fill="#D85A30"/>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="772" y="459">ESD Safety</text>
-                </svg>
+  <text fontFamily="inherit" fontSize="11" fill="#C4B5FD" x="790" y="65" textAnchor="middle" dominantBaseline="central">TIA Portal · Config.</text>
+
+  <path d="M97,76 L97,100 L370,100 L370,116" stroke="#2563EB" strokeWidth="0.8" fill="none"/>
+
+  <path d="M274,76 L274,100 L400,100 L400,116" stroke="#1D4ED8" strokeWidth="0.8" fill="none"/>
+
+  <path d="M607,76 L607,100 L500,100 L500,116" stroke="#0F6E56" strokeWidth="0.8" fill="none"/>
+
+  <path d="M790,76 L790,100 L530,100 L530,116" stroke="#534AB7" strokeWidth="0.8" fill="none"/>
+
+  <rect x="310" y="116" width="260" height="34" rx="5" fill="#3d0808" stroke="#991B1B" strokeWidth="0.8"/>
+
+  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="440" y="129" textAnchor="middle" dominantBaseline="central">Firewall perimetrale</text>
+
+  <text fontFamily="inherit" fontSize="11" fill="#FCA5A5" x="440" y="143" textAnchor="middle" dominantBaseline="central">Separazione OT / IT</text>
+
+  <path d="M440,150 V182" stroke="#991B1B" strokeWidth="1" fill="none"/>
+
+  <rect x="240" y="182" width="420" height="36" rx="5" fill="#0a3d2e" stroke="#1D9E75" strokeWidth="0.8"/>
+
+  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="450" y="196" textAnchor="middle" dominantBaseline="central">Core Ethernet Switch</text>
+
+  <text fontFamily="inherit" fontSize="11" fill="#9FE1CB" x="450" y="210" textAnchor="middle" dominantBaseline="central">Rete di processo · OPC-UA · Profinet</text>
+
+  <path d="M450,218 L450,240 L120,240 L120,252" stroke="#D97706" strokeWidth="1" fill="none"/>
+
+  <path d="M450,218 L450,240 L340,240 L340,252" stroke="#2563EB" strokeWidth="1" fill="none"/>
+
+  <path d="M450,218 L450,240 L560,240 L560,252" stroke="#D85A30" strokeWidth="1" fill="none"/>
+
+  <path d="M450,218 L450,240 L780,240 L780,252" stroke="#0F6E56" strokeWidth="1" fill="none"/>
+
+  <rect x="30" y="252" width="180" height="50" rx="6" fill="#2a1506" stroke="#D97706" strokeWidth="0.8"/>
+
+  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="120" y="270" textAnchor="middle" dominantBaseline="central">PLC-01 Reattori</text>
+
+  <text fontFamily="inherit" fontSize="11" fill="#FBB07A" x="120" y="288" textAnchor="middle" dominantBaseline="central">S7-1516 · 800 I/O</text>
+
+  <rect x="250" y="252" width="180" height="50" rx="6" fill="#0c1e38" stroke="#2563EB" strokeWidth="0.8"/>
+
+  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="340" y="270" textAnchor="middle" dominantBaseline="central">PLC-02 Distillaz.</text>
+
+  <text fontFamily="inherit" fontSize="11" fill="#93C5FD" x="340" y="288" textAnchor="middle" dominantBaseline="central">S7-1515 · 500 I/O</text>
+
+  <rect x="470" y="252" width="180" height="50" rx="6" fill="#3d1208" stroke="#D85A30" strokeWidth="0.8"/>
+
+  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="560" y="270" textAnchor="middle" dominantBaseline="central">PLC-03 ESD Safety</text>
+
+  <text fontFamily="inherit" fontSize="11" fill="#F0997B" x="560" y="288" textAnchor="middle" dominantBaseline="central">S7-1516F · 400 I/O safe</text>
+
+  <rect x="690" y="252" width="180" height="50" rx="6" fill="#052828" stroke="#0F6E56" strokeWidth="0.8"/>
+
+  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="780" y="270" textAnchor="middle" dominantBaseline="central">PLC-04 Utilities</text>
+
+  <text fontFamily="inherit" fontSize="11" fill="#5DCAA5" x="780" y="288" textAnchor="middle" dominantBaseline="central">S7-1515 · 300 I/O</text>
+
+  <path d="M120,302 V320" stroke="#D97706" strokeWidth="0.8" fill="none"/>
+
+  <line x1="73" y1="320" x2="167" y2="320" stroke="#D97706" strokeWidth="0.8"/>
+
+  <line x1="73" y1="320" x2="73" y2="338" stroke="#D97706" strokeWidth="0.8"/>
+
+  <line x1="167" y1="320" x2="167" y2="338" stroke="#D97706" strokeWidth="0.8"/>
+
+  <path d="M340,302 V320" stroke="#2563EB" strokeWidth="0.8" fill="none"/>
+
+  <line x1="293" y1="320" x2="387" y2="320" stroke="#2563EB" strokeWidth="0.8"/>
+
+  <line x1="293" y1="320" x2="293" y2="338" stroke="#2563EB" strokeWidth="0.8"/>
+
+  <line x1="387" y1="320" x2="387" y2="338" stroke="#2563EB" strokeWidth="0.8"/>
+
+  <path d="M560,302 V320" stroke="#D85A30" strokeWidth="0.8" fill="none"/>
+
+  <line x1="513" y1="320" x2="607" y2="320" stroke="#D85A30" strokeWidth="0.8"/>
+
+  <line x1="513" y1="320" x2="513" y2="338" stroke="#D85A30" strokeWidth="0.8"/>
+
+  <line x1="607" y1="320" x2="607" y2="338" stroke="#D85A30" strokeWidth="0.8"/>
+
+  <path d="M780,302 V320" stroke="#0F6E56" strokeWidth="0.8" fill="none"/>
+
+  <line x1="733" y1="320" x2="827" y2="320" stroke="#0F6E56" strokeWidth="0.8"/>
+
+  <line x1="733" y1="320" x2="733" y2="338" stroke="#0F6E56" strokeWidth="0.8"/>
+
+  <line x1="827" y1="320" x2="827" y2="338" stroke="#0F6E56" strokeWidth="0.8"/>
+
+  <rect x="30" y="338" width="86" height="32" rx="4" fill="#2a1506" stroke="#D97706" strokeWidth="0.8"/>
+
+  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#F1F5F9" x="73" y="350" textAnchor="middle" dominantBaseline="central">ET200SP</text>
+
+  <text fontFamily="inherit" fontSize="10" fill="#FBB07A" x="73" y="363" textAnchor="middle" dominantBaseline="central">Zona R-01</text>
+
+  <rect x="124" y="338" width="86" height="32" rx="4" fill="#2a1506" stroke="#D97706" strokeWidth="0.8"/>
+
+  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#F1F5F9" x="167" y="350" textAnchor="middle" dominantBaseline="central">ET200SP</text>
+
+  <text fontFamily="inherit" fontSize="10" fill="#FBB07A" x="167" y="363" textAnchor="middle" dominantBaseline="central">Zona R-02</text>
+
+  <rect x="250" y="338" width="86" height="32" rx="4" fill="#0c1e38" stroke="#2563EB" strokeWidth="0.8"/>
+
+  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#F1F5F9" x="293" y="350" textAnchor="middle" dominantBaseline="central">ET200SP</text>
+
+  <text fontFamily="inherit" fontSize="10" fill="#93C5FD" x="293" y="363" textAnchor="middle" dominantBaseline="central">Zona D-01</text>
+
+  <rect x="344" y="338" width="86" height="32" rx="4" fill="#0c1e38" stroke="#2563EB" strokeWidth="0.8"/>
+
+  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#F1F5F9" x="387" y="350" textAnchor="middle" dominantBaseline="central">ET200SP</text>
+
+  <text fontFamily="inherit" fontSize="10" fill="#93C5FD" x="387" y="363" textAnchor="middle" dominantBaseline="central">Zona D-02</text>
+
+  <rect x="470" y="338" width="86" height="32" rx="4" fill="#3d1208" stroke="#D85A30" strokeWidth="0.8"/>
+
+  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#F1F5F9" x="513" y="350" textAnchor="middle" dominantBaseline="central">ET200SP</text>
+
+  <text fontFamily="inherit" fontSize="10" fill="#F0997B" x="513" y="363" textAnchor="middle" dominantBaseline="central">Zona E-01</text>
+
+  <rect x="564" y="338" width="86" height="32" rx="4" fill="#3d1208" stroke="#D85A30" strokeWidth="0.8"/>
+
+  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#F1F5F9" x="607" y="350" textAnchor="middle" dominantBaseline="central">ET200SP</text>
+
+  <text fontFamily="inherit" fontSize="10" fill="#F0997B" x="607" y="363" textAnchor="middle" dominantBaseline="central">Zona E-02</text>
+
+  <rect x="690" y="338" width="86" height="32" rx="4" fill="#052828" stroke="#0F6E56" strokeWidth="0.8"/>
+
+  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#F1F5F9" x="733" y="350" textAnchor="middle" dominantBaseline="central">ET200SP</text>
+
+  <text fontFamily="inherit" fontSize="10" fill="#5DCAA5" x="733" y="363" textAnchor="middle" dominantBaseline="central">Zona U-01</text>
+
+  <rect x="784" y="338" width="86" height="32" rx="4" fill="#052828" stroke="#0F6E56" strokeWidth="0.8"/>
+
+  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#F1F5F9" x="827" y="350" textAnchor="middle" dominantBaseline="central">ET200SP</text>
+
+  <text fontFamily="inherit" fontSize="10" fill="#5DCAA5" x="827" y="363" textAnchor="middle" dominantBaseline="central">Zona U-02</text>
+
+  <rect x="30" y="384" width="10" height="10" rx="2" fill="#2563EB"/>
+
+  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="46" y="393">SCADA WinCC</text>
+
+  <rect x="158" y="384" width="10" height="10" rx="2" fill="#0F6E56"/>
+
+  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="174" y="393">Historian</text>
+
+  <rect x="256" y="384" width="10" height="10" rx="2" fill="#534AB7"/>
+
+  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="272" y="393">Engineering WS</text>
+
+  <rect x="400" y="384" width="10" height="10" rx="2" fill="#991B1B"/>
+
+  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="416" y="393">Firewall OT/IT</text>
+
+  <rect x="508" y="384" width="10" height="10" rx="2" fill="#1D9E75"/>
+
+  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="524" y="393">Core Switch</text>
+
+  <rect x="610" y="384" width="10" height="10" rx="2" fill="#D97706"/>
+
+  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="626" y="393">PLC Reattori</text>
+
+  <rect x="714" y="384" width="10" height="10" rx="2" fill="#D85A30"/>
+
+  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="730" y="393">ESD Safety</text>
+
+  <rect x="808" y="384" width="10" height="10" rx="2" fill="#0F6E56"/>
+
+  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="824" y="393">Utilities</text>
+
+</svg>
               </div>
             </div>
           </div>
