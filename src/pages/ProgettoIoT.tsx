@@ -52,11 +52,7 @@ const ProgettoIoT = () => {
                   Architettura IoT a 4 livelli: sensori di campo, edge gateway, broker MQTT, cloud analytics e dashboard.
                 </p>
 
-                <svg
-                  width="100%"
-                  viewBox="0 0 900 480"
-                  role="img"
-                >
+                <svg width="100%" viewBox="0 0 900 430" role="img">
                   <title>Topologia piattaforma IoT industriale</title>
                   <desc>Gateway edge, broker MQTT ridondato, InfluxDB time-series, Grafana dashboard, manutenzione predittiva.</desc>
 
