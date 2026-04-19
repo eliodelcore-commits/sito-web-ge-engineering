@@ -69,7 +69,7 @@ const Progetti = () => {
               const card = (
                 <div
                   className={`group p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300 flex flex-col h-full ${
-                    isLinea || isRevamping ? "cursor-pointer" : ""
+                    isLinea || isRevamping || isSCADA ? "cursor-pointer" : ""
                   }`}
                 >
                   <p className="text-xs text-primary font-medium mb-3">
