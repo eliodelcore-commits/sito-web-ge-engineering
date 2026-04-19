@@ -120,6 +120,14 @@ const Progetti = () => {
                 );
               }
 
+              if (isRevamping) {
+                return (
+                  <Link key={project.title} to="/progetti/revamping-confezionamento">
+                    {card}
+                  </Link>
+                );
+              }
+
               return <div key={project.title}>{card}</div>;
             })}
           </div>
