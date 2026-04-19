@@ -102,9 +102,9 @@ const Progetti = () => {
                 );
               }
 
-              if (isRevamping) {
+              if (isSCADA) {
                 return (
-                  <Link key={project.title} to="/progetti/revamping-confezionamento">
+                  <Link key={project.title} to="/progetti/scada-chimico">
                     {card}
                   </Link>
                 );
