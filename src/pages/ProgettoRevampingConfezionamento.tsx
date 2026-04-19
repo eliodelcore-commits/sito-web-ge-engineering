@@ -44,8 +44,8 @@ const ProgettoRevampingConfezionamento = () => {
               Architettura Profinet post-revamping a tre livelli: supervisione, controllo safety + motion, campo.
             </p>
 
-            <div className="rounded-xl border border-border bg-card p-6 overflow-x-auto">
-              <svg width="100%" viewBox="0 0 900 490" role="img" style={{ minWidth: "600px" }}>
+            <div className="rounded-xl border border-border bg-card p-6">
+              <svg width="100%" viewBox="0 0 900 490" role="img">
 
                 <title>Revamping linea confezionamento — Topologia Profinet</title>
 
