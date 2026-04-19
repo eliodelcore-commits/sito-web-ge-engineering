@@ -45,157 +45,159 @@ const ProgettoRevampingConfezionamento = () => {
             </p>
 
             <div className="rounded-xl border border-border bg-card p-6 overflow-x-auto">
-              <svg width="100%" viewBox="0 0 900 480" role="img" style={{ minWidth: "600px" }}>
+              <svg width="100%" viewBox="0 0 900 490" role="img" style={{ minWidth: "600px" }}>
 
-  <title>Revamping linea confezionamento — Topologia Profinet</title>
+                <title>Revamping linea confezionamento — Topologia Profinet</title>
 
-  <desc>Upgrade S7-300 a S7-1516F Safety, KEB F5 a SEW MOVIDRIVE B, 4 cobot etichettatura su Profinet.</desc>
+                <desc>Upgrade S7-300 a S7-1516F Safety, KEB F5 a SEW MOVIDRIVE B, 4 cobot etichettatura.</desc>
 
-  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="450" y="16" textAnchor="middle">Livello 2 — Supervisione</text>
+                <line x1="30" y1="112" x2="870" y2="112" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
 
-  <line x1="30" y1="108" x2="870" y2="108" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
+                <line x1="30" y1="206" x2="870" y2="206" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
 
-  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="450" y="122" textAnchor="middle">Livello 1 — Rete Profinet (Scalance XC224)</text>
+                <line x1="30" y1="310" x2="870" y2="310" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
 
-  <line x1="30" y1="202" x2="870" y2="202" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
+                <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="24">Livello 2 — Supervisione</text>
 
-  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="450" y="216" textAnchor="middle">Livello 0a — Controllo · Safety + Motion</text>
+                <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="126">Livello 1 — Profinet (Scalance XC224)</text>
 
-  <line x1="30" y1="304" x2="870" y2="304" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
+                <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="220">Livello 0a — Controllo · Safety + Motion</text>
 
-  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="450" y="318" textAnchor="middle">Livello 0b — Campo · Linea confezionamento (post-revamping)</text>
+                <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="324">Livello 0b — Campo · Linea confezionamento</text>
 
-  <line x1="220" y1="56" x2="680" y2="56" stroke="#3B82F6" strokeWidth="1" strokeDasharray="5 3"/>
+                <line x1="220" y1="58" x2="680" y2="58" stroke="#3B82F6" strokeWidth="1" strokeDasharray="5 3"/>
 
-  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="450" y="50" textAnchor="middle">ridondanza hot-standby</text>
+                <text fontFamily="inherit" fontSize="11" fill="#64748B" x="450" y="52" textAnchor="middle">ridondanza hot-standby</text>
 
-  <rect x="50" y="32" width="170" height="48" rx="6" fill="#1e3a5f" stroke="#3B82F6" strokeWidth="0.8"/>
+                <rect x="50" y="34" width="170" height="48" rx="6" fill="#1e3a5f" stroke="#3B82F6" strokeWidth="0.8"/>
 
-  <text style={{fontFamily:"inherit",fontSize:"14px",fontWeight:600,fill:"#F1F5F9"}} x="135" y="51" textAnchor="middle" dominantBaseline="central">Server WinCC</text>
+                <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="135" y="54" textAnchor="middle" dominantBaseline="central">Server WinCC</text>
 
-  <text style={{fontFamily:"inherit",fontSize:"12px",fill:"#94A3B8"}} x="135" y="69" textAnchor="middle" dominantBaseline="central">SCADA primario</text>
+                <text fontFamily="inherit" fontSize="12" fill="#94A3B8" x="135" y="72" textAnchor="middle" dominantBaseline="central">SCADA primario</text>
 
-  <rect x="680" y="32" width="170" height="48" rx="6" fill="#2d1f6e" stroke="#7F77DD" strokeWidth="0.8"/>
+                <rect x="680" y="34" width="170" height="48" rx="6" fill="#2d1f6e" stroke="#7F77DD" strokeWidth="0.8"/>
 
-  <text style={{fontFamily:"inherit",fontSize:"14px",fontWeight:600,fill:"#F1F5F9"}} x="765" y="51" textAnchor="middle" dominantBaseline="central">Supervisore</text>
+                <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="765" y="54" textAnchor="middle" dominantBaseline="central">Supervisore</text>
 
-  <text style={{fontFamily:"inherit",fontSize:"12px",fill:"#94A3B8"}} x="765" y="69" textAnchor="middle" dominantBaseline="central">Operatore HMI</text>
+                <text fontFamily="inherit" fontSize="12" fill="#94A3B8" x="765" y="72" textAnchor="middle" dominantBaseline="central">Operatore HMI</text>
 
-  <path d="M135,80 L135,112 L310,112 L310,140" stroke="#3B82F6" strokeWidth="0.9" fill="none"/>
+                <path d="M135,82 L135,114 L310,114 L310,138" stroke="#3B82F6" strokeWidth="0.9" fill="none"/>
 
-  <path d="M765,80 L765,112 L590,112 L590,140" stroke="#7F77DD" strokeWidth="0.9" fill="none"/>
+                <path d="M765,82 L765,114 L590,114 L590,138" stroke="#7F77DD" strokeWidth="0.9" fill="none"/>
 
-  <rect x="310" y="140" width="280" height="48" rx="6" fill="#0a3d2e" stroke="#1D9E75" strokeWidth="0.8"/>
+                <rect x="310" y="138" width="280" height="48" rx="6" fill="#0a3d2e" stroke="#1D9E75" strokeWidth="0.8"/>
 
-  <text style={{fontFamily:"inherit",fontSize:"14px",fontWeight:600,fill:"#F1F5F9"}} x="450" y="159" textAnchor="middle" dominantBaseline="central">Scalance XC224</text>
+                <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="450" y="158" textAnchor="middle" dominantBaseline="central">Scalance XC224</text>
 
-  <text style={{fontFamily:"inherit",fontSize:"12px",fill:"#94A3B8"}} x="450" y="177" textAnchor="middle" dominantBaseline="central">Switch backbone Profinet</text>
+                <text fontFamily="inherit" fontSize="12" fill="#9FE1CB" x="450" y="176" textAnchor="middle" dominantBaseline="central">Switch backbone Profinet</text>
 
-  <path d="M450,188 L450,210 L175,210 L175,236" stroke="#1D9E75" strokeWidth="1.2" fill="none"/>
+                <path d="M450,186 L450,226 L175,226 L175,238" stroke="#1D9E75" strokeWidth="1.2" fill="none"/>
 
-  <path d="M450,188 L450,210 L725,210 L725,236" stroke="#475569" strokeWidth="1" fill="none"/>
+                <path d="M450,186 L450,226 L725,226 L725,238" stroke="#475569" strokeWidth="1" fill="none"/>
 
-  <rect x="60" y="236" width="230" height="52" rx="6" fill="#3d1208" stroke="#D85A30" strokeWidth="0.8"/>
+                <rect x="60" y="238" width="230" height="52" rx="6" fill="#3d1208" stroke="#D85A30" strokeWidth="0.8"/>
 
-  <text style={{fontFamily:"inherit",fontSize:"14px",fontWeight:600,fill:"#F1F5F9"}} x="175" y="255" textAnchor="middle" dominantBaseline="central">S7-1516F</text>
+                <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="175" y="258" textAnchor="middle" dominantBaseline="central">S7-1516F</text>
 
-  <text style={{fontFamily:"inherit",fontSize:"12px",fill:"#F0997B"}} x="175" y="275" textAnchor="middle" dominantBaseline="central">Safety CPU · F-Program</text>
+                <text fontFamily="inherit" fontSize="12" fill="#F0997B" x="175" y="278" textAnchor="middle" dominantBaseline="central">Safety CPU · F-Program</text>
 
-  <rect x="610" y="236" width="230" height="52" rx="6" fill="#1E293B" stroke="#475569" strokeWidth="0.8"/>
+                <rect x="610" y="238" width="230" height="52" rx="6" fill="#1E293B" stroke="#475569" strokeWidth="0.8"/>
 
-  <text style={{fontFamily:"inherit",fontSize:"14px",fontWeight:600,fill:"#F1F5F9"}} x="725" y="255" textAnchor="middle" dominantBaseline="central">S7-1515</text>
+                <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="725" y="258" textAnchor="middle" dominantBaseline="central">S7-1515</text>
 
-  <text style={{fontFamily:"inherit",fontSize:"12px",fill:"#94A3B8"}} x="725" y="275" textAnchor="middle" dominantBaseline="central">Motion control</text>
+                <text fontFamily="inherit" fontSize="12" fill="#94A3B8" x="725" y="278" textAnchor="middle" dominantBaseline="central">Motion control</text>
 
-  <line x1="290" y1="262" x2="610" y2="262" stroke="#1D9E75" strokeWidth="0.8" strokeDasharray="4 2"/>
+                <line x1="290" y1="264" x2="610" y2="264" stroke="#1D9E75" strokeWidth="0.8" strokeDasharray="4 2"/>
 
-  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="450" y="256" textAnchor="middle">S7 ↔ S7 Profinet</text>
+                <text fontFamily="inherit" fontSize="11" fill="#64748B" x="450" y="258" textAnchor="middle">S7 ↔ S7 Profinet</text>
 
-  <path d="M175,288 L110,336" stroke="#D85A30" strokeWidth="0.8" strokeDasharray="4 3" fill="none"/>
+                <path d="M175,290 L175,298 L110,298 L110,354" stroke="#D85A30" strokeWidth="0.8" strokeDasharray="4 3" fill="none"/>
 
-  <path d="M175,288 L175,316 L265,316 L265,336" stroke="#D85A30" strokeWidth="0.8" strokeDasharray="4 3" fill="none"/>
+                <path d="M175,290 L175,298 L265,298 L265,354" stroke="#D85A30" strokeWidth="0.8" strokeDasharray="4 3" fill="none"/>
 
-  <rect x="40" y="336" width="140" height="40" rx="4" fill="#3d1208" stroke="#D85A30" strokeWidth="0.8"/>
+                <path d="M725,290 V302" stroke="#475569" strokeWidth="0.8" fill="none"/>
 
-  <text style={{fontFamily:"inherit",fontSize:"13px",fontWeight:600,fill:"#F1F5F9"}} x="110" y="352" textAnchor="middle" dominantBaseline="central">ET200SP-F</text>
+                <line x1="366" y1="302" x2="876" y2="302" stroke="#475569" strokeWidth="0.8"/>
 
-  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#F0997B"}} x="110" y="368" textAnchor="middle" dominantBaseline="central">Safe DI/DQ</text>
+                <line x1="426" y1="302" x2="426" y2="354" stroke="#475569" strokeWidth="0.8"/>
 
-  <rect x="195" y="336" width="145" height="40" rx="4" fill="#3d1208" stroke="#D85A30" strokeWidth="0.8"/>
+                <line x1="554" y1="302" x2="554" y2="354" stroke="#475569" strokeWidth="0.8"/>
 
-  <text style={{fontFamily:"inherit",fontSize:"13px",fontWeight:600,fill:"#F1F5F9"}} x="267" y="352" textAnchor="middle" dominantBaseline="central">PROFIsafe</text>
+                <line x1="682" y1="302" x2="682" y2="354" stroke="#475569" strokeWidth="0.8"/>
 
-  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#F0997B"}} x="267" y="368" textAnchor="middle" dominantBaseline="central">E-stop / safety gate</text>
+                <line x1="810" y1="302" x2="810" y2="354" stroke="#475569" strokeWidth="0.8"/>
 
-  <path d="M725,288 V316" stroke="#475569" strokeWidth="0.8" fill="none"/>
+                <rect x="40" y="354" width="140" height="42" rx="4" fill="#3d1208" stroke="#D85A30" strokeWidth="0.8"/>
 
-  <line x1="390" y1="316" x2="860" y2="316" stroke="#475569" strokeWidth="0.8"/>
+                <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="110" y="371" textAnchor="middle" dominantBaseline="central">ET200SP-F</text>
 
-  {[430,540,650,760].map((cx) => (
+                <text fontFamily="inherit" fontSize="11" fill="#F0997B" x="110" y="387" textAnchor="middle" dominantBaseline="central">Safe DI/DQ</text>
 
-    <line key={cx} x1={cx} y1="316" x2={cx} y2="336" stroke="#475569" strokeWidth="0.8"/>
+                <rect x="192" y="354" width="155" height="42" rx="4" fill="#3d1208" stroke="#D85A30" strokeWidth="0.8"/>
 
-  ))}
+                <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="269" y="371" textAnchor="middle" dominantBaseline="central">PROFIsafe</text>
 
-  {[{x:390,cx:430,n:"01"},{x:500,cx:540,n:"02"},{x:610,cx:650,n:"03"},{x:720,cx:760,n:"04"}].map(({x,cx,n}) => (
+                <text fontFamily="inherit" fontSize="11" fill="#F0997B" x="269" y="387" textAnchor="middle" dominantBaseline="central">E-stop / safety gate</text>
 
-    <g key={n}>
+                {[{x:366,cx:426,n:"01"},{x:494,cx:554,n:"02"},{x:622,cx:682,n:"03"},{x:750,cx:810,n:"04"}].map(({x,cx,n}) => (
 
-      <rect x={x} y="336" width="100" height="40" rx="4" fill="#3d2808" stroke="#BA7517" strokeWidth="0.8"/>
+                  <g key={n}>
 
-      <text style={{fontFamily:"inherit",fontSize:"13px",fontWeight:600,fill:"#F1F5F9"}} x={cx} y="352" textAnchor="middle" dominantBaseline="central">MOVIDRIVE B</text>
+                    <rect x={x} y="354" width="120" height="42" rx="4" fill="#3d2808" stroke="#BA7517" strokeWidth="0.8"/>
 
-      <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#EF9F27"}} x={cx} y="368" textAnchor="middle" dominantBaseline="central">SEW {n} ↑ KEB F5</text>
+                    <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x={cx} y="371" textAnchor="middle" dominantBaseline="central">MOVIDRIVE B</text>
 
-    </g>
+                    <text fontFamily="inherit" fontSize="11" fill="#EF9F27" x={cx} y="387" textAnchor="middle" dominantBaseline="central">SEW {n} · ↑ KEB F5</text>
 
-  ))}
+                  </g>
 
-  {[430,540,650,760].map((cx) => (
+                ))}
 
-    <line key={cx} x1={cx} y1="376" x2={cx} y2="394" stroke="#475569" strokeWidth="0.8"/>
+                {[426,554,682,810].map((cx) => (
 
-  ))}
+                  <line key={cx} x1={cx} y1="396" x2={cx} y2="414" stroke="#475569" strokeWidth="0.8"/>
 
-  {[{x:390,cx:430,n:"01"},{x:500,cx:540,n:"02"},{x:610,cx:650,n:"03"},{x:720,cx:760,n:"04"}].map(({x,cx,n}) => (
+                ))}
 
-    <g key={n}>
+                {[{x:366,cx:426,n:"01"},{x:494,cx:554,n:"02"},{x:622,cx:682,n:"03"},{x:750,cx:810,n:"04"}].map(({x,cx,n}) => (
 
-      <rect x={x} y="394" width="100" height="40" rx="4" fill="#1a3010" stroke="#3B6D11" strokeWidth="0.8"/>
+                  <g key={n}>
 
-      <text style={{fontFamily:"inherit",fontSize:"13px",fontWeight:600,fill:"#F1F5F9"}} x={cx} y="410" textAnchor="middle" dominantBaseline="central">Cobot {n}</text>
+                    <rect x={x} y="414" width="120" height="42" rx="4" fill="#1a3010" stroke="#3B6D11" strokeWidth="0.8"/>
 
-      <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#97C459"}} x={cx} y="426" textAnchor="middle" dominantBaseline="central">Etichettatura</text>
+                    <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x={cx} y="430" textAnchor="middle" dominantBaseline="central">Cobot {n}</text>
 
-    </g>
+                    <text fontFamily="inherit" fontSize="11" fill="#97C459" x={cx} y="446" textAnchor="middle" dominantBaseline="central">Etichettatura</text>
 
-  ))}
+                  </g>
 
-  <rect x="30" y="452" width="10" height="10" rx="2" fill="#3B82F6"/>
+                ))}
 
-  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="46" y="461">SCADA</text>
+                <rect x="30"  y="470" width="10" height="10" rx="2" fill="#3B82F6"/>
 
-  <rect x="110" y="452" width="10" height="10" rx="2" fill="#7F77DD"/>
+                <text fontFamily="inherit" fontSize="11" fill="#64748B" x="46"  y="479">SCADA</text>
 
-  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="126" y="461">Supervisore</text>
+                <rect x="114" y="470" width="10" height="10" rx="2" fill="#7F77DD"/>
 
-  <rect x="230" y="452" width="10" height="10" rx="2" fill="#1D9E75"/>
+                <text fontFamily="inherit" fontSize="11" fill="#64748B" x="130" y="479">Supervisore</text>
 
-  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="246" y="461">Switch Profinet</text>
+                <rect x="236" y="470" width="10" height="10" rx="2" fill="#1D9E75"/>
 
-  <rect x="368" y="452" width="10" height="10" rx="2" fill="#D85A30"/>
+                <text fontFamily="inherit" fontSize="11" fill="#64748B" x="252" y="479">Switch Profinet</text>
 
-  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="384" y="461">Safety (↑ S7-300)</text>
+                <rect x="374" y="470" width="10" height="10" rx="2" fill="#D85A30"/>
 
-  <rect x="514" y="452" width="10" height="10" rx="2" fill="#BA7517"/>
+                <text fontFamily="inherit" fontSize="11" fill="#64748B" x="390" y="479">Safety (↑ S7-300)</text>
 
-  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="530" y="461">MOVIDRIVE B (↑ KEB F5)</text>
+                <rect x="520" y="470" width="10" height="10" rx="2" fill="#BA7517"/>
 
-  <rect x="710" y="452" width="10" height="10" rx="2" fill="#3B6D11"/>
+                <text fontFamily="inherit" fontSize="11" fill="#64748B" x="536" y="479">MOVIDRIVE B (↑ KEB F5)</text>
 
-  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="726" y="461">Cobot etichettatura</text>
+                <rect x="718" y="470" width="10" height="10" rx="2" fill="#3B6D11"/>
 
-</svg>
+                <text fontFamily="inherit" fontSize="11" fill="#64748B" x="734" y="479">Cobot etichettatura</text>
+
+              </svg>
             </div>
           </section>
         </div>
