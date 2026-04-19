@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
 
@@ -61,32 +61,44 @@ const Progetti = () => {
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((project) => (
-              <div
-                key={project.title}
-                className="group p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300 flex flex-col"
-              >
-                <p className="text-xs text-primary font-medium mb-3">
-                  {project.category}
-                </p>
-                <h3 className="font-heading text-lg font-semibold mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-1 text-xs rounded-md bg-secondary text-secondary-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+            {filtered.map((project) => {
+              const isLinea = project.title === "Linea di produzione automatizzata";
+              const card = (
+                <div
+                  className={`group p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300 flex flex-col h-full ${
+                    isLinea ? "cursor-pointer" : ""
+                  }`}
+                >
+                  <p className="text-xs text-primary font-medium mb-3">
+                    {project.category}
+                  </p>
+                  <h3 className="font-heading text-lg font-semibold mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2.5 py-1 text-xs rounded-md bg-secondary text-secondary-foreground"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+
+              return isLinea ? (
+                <Link key={project.title} to="/progetti/linea-automatizzata">
+                  {card}
+                </Link>
+              ) : (
+                <div key={project.title}>{card}</div>
+              );
+            })}
           </div>
         </div>
       </div>
