@@ -67,10 +67,11 @@ const Progetti = () => {
               const isLinea = project.title === "Linea di produzione automatizzata";
               const isRevamping = project.title === "Revamping linea di confezionamento";
               const isSCADA = project.slug === "scada-chimico";
+              const isIoT = project.slug === "iot";
               const card = (
                 <div
                   className={`group p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300 flex flex-col h-full ${
-                    isLinea || isRevamping || isSCADA ? "cursor-pointer" : ""
+                    isLinea || isRevamping || isSCADA || isIoT ? "cursor-pointer" : ""
                   }`}
                 >
                   <p className="text-xs text-primary font-medium mb-3">
@@ -106,6 +107,14 @@ const Progetti = () => {
               if (isSCADA) {
                 return (
                   <Link key={project.title} to="/progetti/scada-chimico">
+                    {card}
+                  </Link>
+                );
+              }
+
+              if (isIoT) {
+                return (
+                  <Link key={project.title} to="/progetti/iot">
                     {card}
                   </Link>
                 );
