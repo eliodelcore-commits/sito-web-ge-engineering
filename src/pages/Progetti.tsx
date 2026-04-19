@@ -11,6 +11,7 @@ const projects = [
   },
   {
     title: "Sistema SCADA stabilimento chimico",
+    slug: "scada-chimico",
     category: "Automazione Software",
     description: "Sviluppo sistema SCADA per il monitoraggio e controllo di un impianto chimico con oltre 2000 punti I/O.",
     tags: ["SCADA", "HMI", "Historian"],
@@ -64,10 +65,11 @@ const Progetti = () => {
             {filtered.map((project) => {
               const isLinea = project.title === "Linea di produzione automatizzata";
               const isRevamping = project.title === "Revamping linea di confezionamento";
+              const isSCADA = project.slug === "scada-chimico";
               const card = (
                 <div
                   className={`group p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300 flex flex-col h-full ${
-                    isLinea || isRevamping ? "cursor-pointer" : ""
+                    isLinea || isRevamping || isSCADA ? "cursor-pointer" : ""
                   }`}
                 >
                   <p className="text-xs text-primary font-medium mb-3">
@@ -100,9 +102,9 @@ const Progetti = () => {
                 );
               }
 
-              if (isRevamping) {
+              if (isSCADA) {
                 return (
-                  <Link key={project.title} to="/progetti/revamping-confezionamento">
+                  <Link key={project.title} to="/progetti/scada-chimico">
                     {card}
                   </Link>
                 );
