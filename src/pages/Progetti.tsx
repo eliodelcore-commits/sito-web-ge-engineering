@@ -11,6 +11,7 @@ const projects = [
   },
   {
     title: "Sistema SCADA stabilimento chimico",
+    slug: "scada-chimico",
     category: "Automazione Software",
     description: "Sviluppo sistema SCADA per il monitoraggio e controllo di un impianto chimico con oltre 2000 punti I/O.",
     tags: ["SCADA", "HMI", "Historian"],
