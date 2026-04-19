@@ -13,6 +13,7 @@ import GenContatti from "./pages/GenContatti";
 import AssistenzaTecnica from "./pages/AssistenzaTecnica";
 import HolisticLanding from "./pages/HolisticLanding";
 import ProgettoLineaAutomatizzata from "./pages/ProgettoLineaAutomatizzata";
+import ProgettoRevampingConfezionamento from "./pages/ProgettoRevampingConfezionamento";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,7 +31,8 @@ const App = () => (
           <Route path="/servizi/automazione-software" element={<AutomazioneSoftware />} />
           <Route path="/servizi/wireless-planning" element={<WirelessPlanning />} />
           <Route path="/progetti" element={<Progetti />} />
-          <Route path="/progetti/linea-automatizzata" element={<ProgettoLineaAutomatizzata />} />
+<Route path="/progetti/linea-automatizzata" element={<ProgettoLineaAutomatizzata />} />
+          <Route path="/progetti/revamping-confezionamento" element={<ProgettoRevampingConfezionamento />} />
           <Route path="/servizi/assistenza-tecnica" element={<AssistenzaTecnica />} />
           <Route path="/contatti" element={<GenContatti />} />
           <Route path="/holistic" element={<HolisticLanding />} />
