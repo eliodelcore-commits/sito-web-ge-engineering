@@ -25,8 +25,8 @@ const projects = [
   {
     title: "Revamping linea di confezionamento",
     category: "Automazione Hardware",
-    description: "Upgrade da S7-300 a S7-1516F Safety, sostituzione drive KEB F5 con SEW MOVIDRIVE B su Profinet, inserimento 4 cobot collaborativi per etichettatura packaging.",
-    tags: ["S7-1516F Safety", "SEW MOVIDRIVE B", "PROFIsafe", "Cobot", "TIA Portal"],
+    description: "Upgrade da S7-300 a S7-1516F Safety, sostituzione drive KEB F5 con SEW MOVIDRIVE B su Profinet, inserimento 4 cobot per etichettatura packaging.",
+    tags: ["S7-1516F Safety", "SEW MOVIDRIVE B", "Cobot"],
   },
   {
     title: "Piattaforma IoT industriale",
