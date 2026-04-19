@@ -13,8 +13,8 @@ const projects = [
     title: "Sistema SCADA stabilimento chimico",
     slug: "scada-chimico",
     category: "Automazione Software",
-    description: "Sviluppo sistema SCADA per il monitoraggio e controllo di un impianto chimico con oltre 2000 punti I/O.",
-    tags: ["SCADA", "HMI", "Historian"],
+    description: "Sistema SCADA WinCC ridondante per impianto chimico con 2000+ punti I/O. Firewall OT/IT, Historian 30.000 tag, 4 PLC di zona con ESD Safety Integrated su F-CPU Siemens.",
+    tags: ["WinCC SCADA", "OPC-UA", "S7-1516F Safety", "Historian", "ESD", "2000+ I/O"],
   },
   {
     title: "Wireless survey magazzino logistico",
