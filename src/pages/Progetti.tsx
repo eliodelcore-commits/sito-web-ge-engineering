@@ -65,6 +65,7 @@ const Progetti = () => {
             {filtered.map((project) => {
               const isLinea = project.title === "Linea di produzione automatizzata";
               const isRevamping = project.title === "Revamping linea di confezionamento";
+              const isSCADA = project.slug === "scada-chimico";
               const card = (
                 <div
                   className={`group p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300 flex flex-col h-full ${
