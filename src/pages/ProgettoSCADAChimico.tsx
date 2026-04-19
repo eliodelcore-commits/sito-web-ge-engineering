@@ -47,16 +47,15 @@ const ProgettoSCADAChimico = () => {
               <div className="px-5 py-4 border-b border-border">
                 <p className="font-heading font-semibold">Vista topologica di rete</p>
               </div>
-              <div className="p-5 overflow-x-auto">
+              <div className="p-5">
                 <p className="text-sm text-muted-foreground mb-4">
                   Architettura SCADA a 4 livelli: supervisione, firewall OT/IT, rete di processo, controllo PLC e I/O di campo.
                 </p>
 
                 <svg
                   width="100%"
-                  viewBox="0 0 900 520"
+                  viewBox="0 0 900 410"
                   role="img"
-                  style={{ minWidth: "700px" }}
                 >
                   <title>Topologia SCADA impianto chimico</title>
                   <desc>Server SCADA ridondati, Historian, firewall OT/IT, core switch, 4 PLC di zona, 8 nodi ET200SP remoti, 2000+ punti I/O.</desc>
