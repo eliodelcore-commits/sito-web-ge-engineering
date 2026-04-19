@@ -45,135 +45,157 @@ const ProgettoRevampingConfezionamento = () => {
             </p>
 
             <div className="rounded-xl border border-border bg-card p-6 overflow-x-auto">
-              <svg
-                viewBox="0 0 880 600"
-                className="w-full h-auto"
-                role="img"
-                aria-label="Upgrade S7-300 a S7-1516F Safety, KEB F5 a SEW MOVIDRIVE B, 4 cobot etichettatura su Profinet."
-              >
-                {/* --- livello labels --- */}
-                <text x="10" y="20" className="fill-muted-foreground" fontSize="11">Livello 2 — Supervisione</text>
-                <text x="10" y="130" className="fill-muted-foreground" fontSize="11">Livello 1 — Rete Profinet (Scalance XC224)</text>
-                <text x="10" y="220" className="fill-muted-foreground" fontSize="11">Livello 0a — Controllo · Safety + Motion</text>
-                <text x="10" y="380" className="fill-muted-foreground" fontSize="11">Livello 0b — Campo · Linea confezionamento (post-revamping)</text>
+              <svg width="100%" viewBox="0 0 900 480" role="img" style={{ minWidth: "600px" }}>
 
-                {/* --- ridondanza line --- */}
-                <line x1="220" y1="70" x2="360" y2="70" stroke="hsl(var(--muted-foreground))" strokeWidth="1" strokeDasharray="4 3" />
-                <text x="290" y="62" textAnchor="middle" className="fill-muted-foreground" fontSize="9">ridondanza hot-standby</text>
+  <title>Revamping linea confezionamento — Topologia Profinet</title>
 
-                {/* --- L2: Server + Supervisore --- */}
-                <g>
-                  <rect x="80" y="40" width="140" height="60" rx="8" className="fill-secondary stroke-primary" strokeWidth="1.5" />
-                  <text x="150" y="65" textAnchor="middle" className="fill-foreground" fontSize="12" fontWeight="600">Server WinCC</text>
-                  <text x="150" y="83" textAnchor="middle" className="fill-muted-foreground" fontSize="10">SCADA primario</text>
-                </g>
-                <g>
-                  <rect x="360" y="40" width="140" height="60" rx="8" className="fill-secondary stroke-primary" strokeWidth="1.5" />
-                  <text x="430" y="65" textAnchor="middle" className="fill-foreground" fontSize="12" fontWeight="600">Supervisore</text>
-                  <text x="430" y="83" textAnchor="middle" className="fill-muted-foreground" fontSize="10">Operatore HMI</text>
-                </g>
+  <desc>Upgrade S7-300 a S7-1516F Safety, KEB F5 a SEW MOVIDRIVE B, 4 cobot etichettatura su Profinet.</desc>
 
-                {/* --- L2 → L1 connections --- */}
-                <line x1="150" y1="100" x2="440" y2="150" stroke="hsl(var(--muted-foreground))" strokeWidth="1" />
-                <line x1="430" y1="100" x2="440" y2="150" stroke="hsl(var(--muted-foreground))" strokeWidth="1" />
+  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="450" y="16" textAnchor="middle">Livello 2 — Supervisione</text>
 
-                {/* --- L1: Scalance XC224 (centered) --- */}
-                <g>
-                  <rect x="400" y="150" width="120" height="50" rx="6" className="fill-primary/15 stroke-primary" strokeWidth="1.5" />
-                  <text x="460" y="172" textAnchor="middle" className="fill-foreground" fontSize="11" fontWeight="600">Scalance XC224</text>
-                  <text x="460" y="188" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Switch backbone Profinet</text>
-                </g>
+  <line x1="30" y1="108" x2="870" y2="108" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
 
-                {/* --- L1 → L0a connections --- */}
-                <line x1="460" y1="200" x2="220" y2="260" stroke="hsl(var(--primary))" strokeWidth="1.5" />
-                <line x1="460" y1="200" x2="700" y2="260" stroke="hsl(var(--primary))" strokeWidth="1.5" />
+  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="450" y="122" textAnchor="middle">Livello 1 — Rete Profinet (Scalance XC224)</text>
 
-                {/* --- L0a: PLCs --- */}
-                <g>
-                  <rect x="160" y="260" width="120" height="50" rx="6" className="fill-card stroke-primary" strokeWidth="1.5" />
-                  <text x="220" y="282" textAnchor="middle" className="fill-foreground" fontSize="11" fontWeight="600">S7-1516F</text>
-                  <text x="220" y="298" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Safety CPU · F-Program</text>
-                </g>
-                <g>
-                  <rect x="640" y="260" width="120" height="50" rx="6" className="fill-card stroke-primary" strokeWidth="1.5" />
-                  <text x="700" y="282" textAnchor="middle" className="fill-foreground" fontSize="11" fontWeight="600">S7-1515</text>
-                  <text x="700" y="298" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Motion control</text>
-                </g>
+  <line x1="30" y1="202" x2="870" y2="202" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
 
-                {/* --- S7 ↔ S7 Profinet --- */}
-                <line x1="280" y1="285" x2="640" y2="285" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeDasharray="4 2" />
-                <text x="460" y="278" textAnchor="middle" className="fill-muted-foreground" fontSize="9">S7 ↔ S7 Profinet</text>
+  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="450" y="216" textAnchor="middle">Livello 0a — Controllo · Safety + Motion</text>
 
-                {/* --- Safety connections (dashed PROFIsafe) --- */}
-                <line x1="220" y1="310" x2="220" y2="380" stroke="hsl(var(--muted-foreground))" strokeWidth="1" strokeDasharray="3 2" />
+  <line x1="30" y1="304" x2="870" y2="304" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
 
-                {/* --- L0b Safety zone --- */}
-                <g>
-                  <rect x="140" y="380" width="100" height="40" rx="5" className="fill-card stroke-primary" strokeWidth="1.5" />
-                  <text x="190" y="398" textAnchor="middle" className="fill-foreground" fontSize="10" fontWeight="600">ET200SP-F</text>
-                  <text x="190" y="412" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Safe DI/DQ</text>
-                </g>
-                <g>
-                  <rect x="260" y="380" width="100" height="40" rx="5" className="fill-card stroke-primary" strokeWidth="1.5" />
-                  <text x="310" y="398" textAnchor="middle" className="fill-foreground" fontSize="10" fontWeight="600">PROFIsafe</text>
-                  <text x="310" y="412" textAnchor="middle" className="fill-muted-foreground" fontSize="9">E-stop / safety gate</text>
-                </g>
+  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="450" y="318" textAnchor="middle">Livello 0b — Campo · Linea confezionamento (post-revamping)</text>
 
-                {/* --- Bus from S7-1515 to drives --- */}
-                <line x1="700" y1="310" x2="430" y2="440" stroke="hsl(var(--muted-foreground))" strokeWidth="1" />
-                <line x1="700" y1="310" x2="540" y2="440" stroke="hsl(var(--muted-foreground))" strokeWidth="1" />
-                <line x1="700" y1="310" x2="650" y2="440" stroke="hsl(var(--muted-foreground))" strokeWidth="1" />
-                <line x1="700" y1="310" x2="760" y2="440" stroke="hsl(var(--muted-foreground))" strokeWidth="1" />
+  <line x1="220" y1="56" x2="680" y2="56" stroke="#3B82F6" strokeWidth="1" strokeDasharray="5 3"/>
 
-                {/* --- L0b: MOVIDRIVE B x4 --- */}
-                {[{x:390,cx:430,n:"01"},{x:500,cx:540,n:"02"},{x:610,cx:650,n:"03"},{x:720,cx:760,n:"04"}].map(({x,cx,n})=>{
-                  const upg = n === "01" ? " ↑ KEB F5" : " ↑ KEB";
-                  return (
-                    <g key={`movi-${n}`}>
-                      <rect x={x} y="440" width="80" height="40" rx="5" className="fill-card stroke-primary" strokeWidth="1.5" />
-                      <text x={cx} y="458" textAnchor="middle" className="fill-foreground" fontSize="10" fontWeight="600">MOVIDRIVE B</text>
-                      <text x={cx} y="472" textAnchor="middle" className="fill-muted-foreground" fontSize="9">SEW {n}{upg}</text>
-                    </g>
-                  );
-                })}
+  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="450" y="50" textAnchor="middle">ridondanza hot-standby</text>
 
-                {/* --- Drives → Cobots lines --- */}
-                {[430,540,650,760].map((cx)=>{
-                  return <line key={`line-${cx}`} x1={cx} y1="480" x2={cx} y2="520" stroke="hsl(var(--muted-foreground))" strokeWidth="1" />;
-                })}
+  <rect x="50" y="32" width="170" height="48" rx="6" fill="#1e3a5f" stroke="#3B82F6" strokeWidth="0.8"/>
 
-                {/* --- L0b: Cobots x4 --- */}
-                {[{x:390,cx:430,n:"01"},{x:500,cx:540,n:"02"},{x:610,cx:650,n:"03"},{x:720,cx:760,n:"04"}].map(({x,cx,n})=>{
-                  return (
-                    <g key={`cobot-${n}`}>
-                      <rect x={x} y="520" width="80" height="40" rx="5" className="fill-card stroke-primary" strokeWidth="1.5" />
-                      <text x={cx} y="538" textAnchor="middle" className="fill-foreground" fontSize="10" fontWeight="600">Cobot {n}</text>
-                      <text x={cx} y="552" textAnchor="middle" className="fill-muted-foreground" fontSize="9">Etichettatura</text>
-                    </g>
-                  );
-                })}
+  <text style={{fontFamily:"inherit",fontSize:"14px",fontWeight:600,fill:"#F1F5F9"}} x="135" y="51" textAnchor="middle" dominantBaseline="central">Server WinCC</text>
 
-                {/* --- Legend --- */}
-                <g transform="translate(10, 580)">
-                  <rect x="0" y="0" width="14" height="10" className="fill-secondary stroke-primary" strokeWidth="1" />
-                  <text x="20" y="9" className="fill-muted-foreground" fontSize="10">SCADA</text>
+  <text style={{fontFamily:"inherit",fontSize:"12px",fill:"#94A3B8"}} x="135" y="69" textAnchor="middle" dominantBaseline="central">SCADA primario</text>
 
-                  <rect x="80" y="0" width="14" height="10" className="fill-secondary stroke-primary" strokeWidth="1" />
-                  <text x="100" y="9" className="fill-muted-foreground" fontSize="10">Supervisore</text>
+  <rect x="680" y="32" width="170" height="48" rx="6" fill="#2d1f6e" stroke="#7F77DD" strokeWidth="0.8"/>
 
-                  <rect x="180" y="0" width="14" height="10" className="fill-primary/15 stroke-primary" strokeWidth="1" />
-                  <text x="200" y="9" className="fill-muted-foreground" fontSize="10">Switch Profinet</text>
+  <text style={{fontFamily:"inherit",fontSize:"14px",fontWeight:600,fill:"#F1F5F9"}} x="765" y="51" textAnchor="middle" dominantBaseline="central">Supervisore</text>
 
-                  <rect x="310" y="0" width="14" height="10" className="fill-card stroke-primary" strokeWidth="1" />
-                  <text x="330" y="9" className="fill-muted-foreground" fontSize="10">Safety (↑ S7-300)</text>
+  <text style={{fontFamily:"inherit",fontSize:"12px",fill:"#94A3B8"}} x="765" y="69" textAnchor="middle" dominantBaseline="central">Operatore HMI</text>
 
-                  <rect x="470" y="0" width="14" height="10" className="fill-card stroke-primary" strokeWidth="1" />
-                  <text x="490" y="9" className="fill-muted-foreground" fontSize="10">MOVIDRIVE B (↑ KEB F5)</text>
+  <path d="M135,80 L135,112 L310,112 L310,140" stroke="#3B82F6" strokeWidth="0.9" fill="none"/>
 
-                  <rect x="660" y="0" width="14" height="10" className="fill-card stroke-primary" strokeWidth="1" />
-                  <text x="680" y="9" className="fill-muted-foreground" fontSize="10">Cobot etichettatura</text>
-                </g>
-              </svg>
+  <path d="M765,80 L765,112 L590,112 L590,140" stroke="#7F77DD" strokeWidth="0.9" fill="none"/>
+
+  <rect x="310" y="140" width="280" height="48" rx="6" fill="#0a3d2e" stroke="#1D9E75" strokeWidth="0.8"/>
+
+  <text style={{fontFamily:"inherit",fontSize:"14px",fontWeight:600,fill:"#F1F5F9"}} x="450" y="159" textAnchor="middle" dominantBaseline="central">Scalance XC224</text>
+
+  <text style={{fontFamily:"inherit",fontSize:"12px",fill:"#94A3B8"}} x="450" y="177" textAnchor="middle" dominantBaseline="central">Switch backbone Profinet</text>
+
+  <path d="M450,188 L450,210 L175,210 L175,236" stroke="#1D9E75" strokeWidth="1.2" fill="none"/>
+
+  <path d="M450,188 L450,210 L725,210 L725,236" stroke="#475569" strokeWidth="1" fill="none"/>
+
+  <rect x="60" y="236" width="230" height="52" rx="6" fill="#3d1208" stroke="#D85A30" strokeWidth="0.8"/>
+
+  <text style={{fontFamily:"inherit",fontSize:"14px",fontWeight:600,fill:"#F1F5F9"}} x="175" y="255" textAnchor="middle" dominantBaseline="central">S7-1516F</text>
+
+  <text style={{fontFamily:"inherit",fontSize:"12px",fill:"#F0997B"}} x="175" y="275" textAnchor="middle" dominantBaseline="central">Safety CPU · F-Program</text>
+
+  <rect x="610" y="236" width="230" height="52" rx="6" fill="#1E293B" stroke="#475569" strokeWidth="0.8"/>
+
+  <text style={{fontFamily:"inherit",fontSize:"14px",fontWeight:600,fill:"#F1F5F9"}} x="725" y="255" textAnchor="middle" dominantBaseline="central">S7-1515</text>
+
+  <text style={{fontFamily:"inherit",fontSize:"12px",fill:"#94A3B8"}} x="725" y="275" textAnchor="middle" dominantBaseline="central">Motion control</text>
+
+  <line x1="290" y1="262" x2="610" y2="262" stroke="#1D9E75" strokeWidth="0.8" strokeDasharray="4 2"/>
+
+  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="450" y="256" textAnchor="middle">S7 ↔ S7 Profinet</text>
+
+  <path d="M175,288 L110,336" stroke="#D85A30" strokeWidth="0.8" strokeDasharray="4 3" fill="none"/>
+
+  <path d="M175,288 L175,316 L265,316 L265,336" stroke="#D85A30" strokeWidth="0.8" strokeDasharray="4 3" fill="none"/>
+
+  <rect x="40" y="336" width="140" height="40" rx="4" fill="#3d1208" stroke="#D85A30" strokeWidth="0.8"/>
+
+  <text style={{fontFamily:"inherit",fontSize:"13px",fontWeight:600,fill:"#F1F5F9"}} x="110" y="352" textAnchor="middle" dominantBaseline="central">ET200SP-F</text>
+
+  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#F0997B"}} x="110" y="368" textAnchor="middle" dominantBaseline="central">Safe DI/DQ</text>
+
+  <rect x="195" y="336" width="145" height="40" rx="4" fill="#3d1208" stroke="#D85A30" strokeWidth="0.8"/>
+
+  <text style={{fontFamily:"inherit",fontSize:"13px",fontWeight:600,fill:"#F1F5F9"}} x="267" y="352" textAnchor="middle" dominantBaseline="central">PROFIsafe</text>
+
+  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#F0997B"}} x="267" y="368" textAnchor="middle" dominantBaseline="central">E-stop / safety gate</text>
+
+  <path d="M725,288 V316" stroke="#475569" strokeWidth="0.8" fill="none"/>
+
+  <line x1="390" y1="316" x2="860" y2="316" stroke="#475569" strokeWidth="0.8"/>
+
+  {[430,540,650,760].map((cx) => (
+
+    <line key={cx} x1={cx} y1="316" x2={cx} y2="336" stroke="#475569" strokeWidth="0.8"/>
+
+  ))}
+
+  {[{x:390,cx:430,n:"01"},{x:500,cx:540,n:"02"},{x:610,cx:650,n:"03"},{x:720,cx:760,n:"04"}].map(({x,cx,n}) => (
+
+    <g key={n}>
+
+      <rect x={x} y="336" width="100" height="40" rx="4" fill="#3d2808" stroke="#BA7517" strokeWidth="0.8"/>
+
+      <text style={{fontFamily:"inherit",fontSize:"13px",fontWeight:600,fill:"#F1F5F9"}} x={cx} y="352" textAnchor="middle" dominantBaseline="central">MOVIDRIVE B</text>
+
+      <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#EF9F27"}} x={cx} y="368" textAnchor="middle" dominantBaseline="central">SEW {n} ↑ KEB F5</text>
+
+    </g>
+
+  ))}
+
+  {[430,540,650,760].map((cx) => (
+
+    <line key={cx} x1={cx} y1="376" x2={cx} y2="394" stroke="#475569" strokeWidth="0.8"/>
+
+  ))}
+
+  {[{x:390,cx:430,n:"01"},{x:500,cx:540,n:"02"},{x:610,cx:650,n:"03"},{x:720,cx:760,n:"04"}].map(({x,cx,n}) => (
+
+    <g key={n}>
+
+      <rect x={x} y="394" width="100" height="40" rx="4" fill="#1a3010" stroke="#3B6D11" strokeWidth="0.8"/>
+
+      <text style={{fontFamily:"inherit",fontSize:"13px",fontWeight:600,fill:"#F1F5F9"}} x={cx} y="410" textAnchor="middle" dominantBaseline="central">Cobot {n}</text>
+
+      <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#97C459"}} x={cx} y="426" textAnchor="middle" dominantBaseline="central">Etichettatura</text>
+
+    </g>
+
+  ))}
+
+  <rect x="30" y="452" width="10" height="10" rx="2" fill="#3B82F6"/>
+
+  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="46" y="461">SCADA</text>
+
+  <rect x="110" y="452" width="10" height="10" rx="2" fill="#7F77DD"/>
+
+  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="126" y="461">Supervisore</text>
+
+  <rect x="230" y="452" width="10" height="10" rx="2" fill="#1D9E75"/>
+
+  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="246" y="461">Switch Profinet</text>
+
+  <rect x="368" y="452" width="10" height="10" rx="2" fill="#D85A30"/>
+
+  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="384" y="461">Safety (↑ S7-300)</text>
+
+  <rect x="514" y="452" width="10" height="10" rx="2" fill="#BA7517"/>
+
+  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="530" y="461">MOVIDRIVE B (↑ KEB F5)</text>
+
+  <rect x="710" y="452" width="10" height="10" rx="2" fill="#3B6D11"/>
+
+  <text style={{fontFamily:"inherit",fontSize:"11px",fill:"#64748B"}} x="726" y="461">Cobot etichettatura</text>
+
+</svg>
             </div>
           </section>
         </div>
