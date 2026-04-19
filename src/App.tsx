@@ -15,6 +15,7 @@ import HolisticLanding from "./pages/HolisticLanding";
 import ProgettoLineaAutomatizzata from "./pages/ProgettoLineaAutomatizzata";
 import ProgettoRevampingConfezionamento from "./pages/ProgettoRevampingConfezionamento";
 import ProgettoSCADAChimico from "./pages/ProgettoSCADAChimico";
+import ProgettoIoT from "./pages/ProgettoIoT";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,7 +35,8 @@ const App = () => (
           <Route path="/progetti" element={<Progetti />} />
 <Route path="/progetti/linea-automatizzata" element={<ProgettoLineaAutomatizzata />} />
 <Route path="/progetti/revamping-confezionamento" element={<ProgettoRevampingConfezionamento />} />
-          <Route path="/progetti/scada-chimico" element={<ProgettoSCADAChimico />} />
+<Route path="/progetti/scada-chimico" element={<ProgettoSCADAChimico />} />
+          <Route path="/progetti/iot" element={<ProgettoIoT />} />
           <Route path="/servizi/assistenza-tecnica" element={<AssistenzaTecnica />} />
           <Route path="/contatti" element={<GenContatti />} />
           <Route path="/holistic" element={<HolisticLanding />} />
