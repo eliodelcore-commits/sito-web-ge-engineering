@@ -80,8 +80,8 @@ const ProgettoLineaAutomatizzata = () => {
               12 PLC S7 di campo.
             </p>
 
-            <div className="rounded-xl border border-border bg-card p-6 overflow-x-auto">
-<svg width="100%" viewBox="0 0 900 420" role="img" style={{ maxWidth: "100%", minWidth: "600px" }}>
+            <div className="rounded-xl border border-border bg-card p-6">
+<svg width="100%" viewBox="0 0 900 420" role="img">
 
   <title>Linea di produzione automatizzata — Topologia Profinet</title>
 
