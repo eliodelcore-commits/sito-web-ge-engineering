@@ -30,7 +30,7 @@ const projects = [
   },
   {
     title: "Piattaforma IoT industriale",
-    slug: "iot",
+    slug: "iot-industriale",
     category: "Automazione Software",
     description: "Sviluppo piattaforma IoT per raccolta dati da sensori industriali con dashboard di analisi e manutenzione predittiva.",
     tags: ["IoT", "MQTT", "InfluxDB", "Grafana", "Edge Gateway", "Predictive Maintenance"],
@@ -67,7 +67,7 @@ const Progetti = () => {
               const isLinea = project.title === "Linea di produzione automatizzata";
               const isRevamping = project.title === "Revamping linea di confezionamento";
               const isSCADA = project.slug === "scada-chimico";
-              const isIoT = project.slug === "iot";
+              const isIoT = project.slug === "iot-industriale";
               const card = (
                 <div
                   className={`group p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300 flex flex-col h-full ${
@@ -114,7 +114,7 @@ const Progetti = () => {
 
               if (isIoT) {
                 return (
-                  <Link key={project.title} to="/progetti/iot">
+                  <Link key={project.title} to="/progetti/iot-industriale">
                     {card}
                   </Link>
                 );
