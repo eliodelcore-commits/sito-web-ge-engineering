@@ -1,7 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect, useCallback } from "react";
-import { ChevronDown, Menu } from "lucide-react";
+import { ChevronDown, Menu, LogIn, LogOut, Shield, User as UserIcon } from "lucide-react";
 import logo from "@/assets/logo-genginering-new.png";
+import { useAuth } from "@/hooks/useAuth";
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -96,6 +98,8 @@ const NavDropdown = ({ label, links, isActive, isOpen, onToggle, onClose }: Drop
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, isAdmin, signOut } = useAuth();
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -104,6 +108,11 @@ const Navbar = () => {
   }, []);
 
   const close = useCallback(() => setOpenMenu(null), []);
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate("/");
+  };
 
   // close on navigation
   useEffect(() => {
@@ -164,6 +173,41 @@ const Navbar = () => {
           >
             Contatti
           </Link>
+
+          {user ? (
+            <div className="flex items-center gap-2">
+              <Link
+                to="/admin"
+                className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-primary ${
+                  location.pathname === "/admin" ? "text-primary" : "text-white"
+                }`}
+                title={user.email ?? undefined}
+              >
+                {isAdmin ? <Shield className="h-4 w-4" /> : <UserIcon className="h-4 w-4" />}
+                <span className="max-w-[140px] truncate">{user.email}</span>
+              </Link>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={handleSignOut}
+                className="text-white hover:text-primary hover:bg-transparent px-2"
+                aria-label="Esci"
+              >
+                <LogOut className="h-4 w-4" />
+              </Button>
+            </div>
+          ) : (
+            <Button
+              asChild
+              size="sm"
+              variant="outline"
+              className="border-primary/40 text-white hover:bg-primary hover:text-primary-foreground"
+            >
+              <Link to="/auth">
+                <LogIn className="h-4 w-4 mr-1.5" /> Accedi
+              </Link>
+            </Button>
+          )}
         </div>
 
         {/* Mobile hamburger */}
@@ -259,6 +303,38 @@ const Navbar = () => {
               >
                 Contatti
               </Link>
+
+              <div className="mt-4 pt-4 border-t border-border">
+                {user ? (
+                  <>
+                    <Link
+                      to="/admin"
+                      className={`flex items-center gap-2 px-3 py-3 rounded-lg text-base font-medium transition-colors ${
+                        location.pathname === "/admin"
+                          ? "text-primary bg-accent/30"
+                          : "text-white hover:bg-accent/30"
+                      }`}
+                    >
+                      {isAdmin ? <Shield className="h-4 w-4" /> : <UserIcon className="h-4 w-4" />}
+                      <span className="truncate">{user.email}</span>
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={handleSignOut}
+                      className="w-full flex items-center gap-2 px-3 py-3 rounded-lg text-base font-medium text-white hover:bg-accent/30 transition-colors text-left"
+                    >
+                      <LogOut className="h-4 w-4" /> Esci
+                    </button>
+                  </>
+                ) : (
+                  <Link
+                    to="/auth"
+                    className="flex items-center gap-2 px-3 py-3 rounded-lg text-base font-medium text-white hover:bg-accent/30 transition-colors"
+                  >
+                    <LogIn className="h-4 w-4" /> Accedi
+                  </Link>
+                )}
+              </div>
             </nav>
           </SheetContent>
         </Sheet>
