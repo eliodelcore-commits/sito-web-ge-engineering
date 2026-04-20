@@ -66,9 +66,7 @@ const ProgettoIoT = () => {
                   Architettura IoT a 4 livelli: sensori di campo, edge gateway, broker MQTT, cloud analytics e dashboard.
                 </p>
 
-                <div className="flex flex-col md:flex-row gap-4">
-                  <div className="w-full md:w-[60%]">
-                    <svg width="100%" viewBox="0 0 900 400" role="img">
+                <svg width="100%" viewBox="0 0 900 400" role="img">
                       <title>Topologia piattaforma IoT industriale</title>
                       <desc>Gateway edge, broker MQTT ridondato, InfluxDB time-series, Grafana dashboard, manutenzione predittiva.</desc>
 
@@ -206,18 +204,7 @@ const ProgettoIoT = () => {
 
                       <rect x="662" y="356" width="10" height="10" rx="2" fill="#2A7A40"/>
                       <text fontFamily="inherit" fontSize="11" fill="#64748B" x="678" y="365">PLC + Sensori</text>
-                    </svg>
-                  </div>
-                  <div className="w-full md:w-[40%]">
-                    <div className="relative w-full h-full min-h-[200px] rounded-lg overflow-hidden">
-                      <img
-                        src="/placeholder.svg"
-                        alt="IoT Platform Illustration"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
+                </svg>
               </div>
             </div>
           </div>
