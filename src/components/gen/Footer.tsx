@@ -15,9 +15,14 @@ const Footer = () => {
                 style={{ backgroundColor: '#0F172A' }}
               />
             </Link>
-            <span className="text-sm md:text-base text-white leading-snug md:whitespace-nowrap">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Via+Idice+47%2C+40050+Monterenzio+BO%2C+Italia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm md:text-base text-white leading-snug md:whitespace-nowrap hover:text-primary transition-colors"
+            >
               Via Idice 47, 40050 Monterenzio (BO), Italia
-            </span>
+            </a>
           </div>
           <p className="text-xs md:text-base text-white leading-snug md:whitespace-nowrap">
             © {new Date().getFullYear()} GEENGINEERING Solution srl. Tutti i diritti riservati.
