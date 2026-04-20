@@ -175,7 +175,6 @@ const ProgettoIoT = () => {
                   <rect x="662" y="356" width="10" height="10" rx="2" fill="#2A7A40"/>
                   <text fontFamily="inherit" fontSize="11" fill="#64748B" x="678" y="365">PLC + Sensori</text>
                 </svg>
-              </div>
             </div>
           </div>
         </div>
