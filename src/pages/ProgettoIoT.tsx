@@ -56,18 +56,15 @@ const ProgettoIoT = () => {
                   <title>Topologia piattaforma IoT industriale</title>
                   <desc>Gateway edge, broker MQTT ridondato, InfluxDB time-series, Grafana dashboard, manutenzione predittiva.</desc>
 
-                  {/* Level dividers */}
                   <line x1="20" y1="90" x2="880" y2="90" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
                   <line x1="20" y1="178" x2="880" y2="178" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
                   <line x1="20" y1="268" x2="880" y2="268" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
 
-                  {/* Level labels */}
                   <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="16">Livello 3 — Analytics e visualizzazione</text>
                   <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="104">Livello 2 — Broker MQTT e data pipeline</text>
                   <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="194">Livello 1 — Edge gateway (OPC-UA → MQTT)</text>
                   <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="282">Livello 0 — Campo · sensori e PLC</text>
 
-                  {/* Level 3 — Analytics */}
                   <rect x="20" y="24" width="140" height="46" rx="6" fill="#0f2847" stroke="#2563EB" strokeWidth="0.8"/>
                   <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="90" y="44" textAnchor="middle" dominantBaseline="central">Grafana</text>
                   <text fontFamily="inherit" fontSize="11" fill="#93C5FD" x="90" y="62" textAnchor="middle" dominantBaseline="central">Dashboard KPI</text>
@@ -84,13 +81,11 @@ const ProgettoIoT = () => {
                   <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="690" y="40" textAnchor="middle" dominantBaseline="central">Alerting Engine</text>
                   <text fontFamily="inherit" fontSize="10" fill="#F0997B" x="690" y="60" textAnchor="middle" dominantBaseline="central">Soglie · email/SMS</text>
 
-                  {/* L3 → bus */}
                   <line x1="90" y1="70" x2="90" y2="90" stroke="#2563EB" strokeWidth="0.8"/>
                   <line x1="257" y1="70" x2="257" y2="90" stroke="#7F77DD" strokeWidth="0.8"/>
                   <line x1="502" y1="70" x2="502" y2="90" stroke="#4A80F0" strokeWidth="0.8"/>
                   <line x1="690" y1="70" x2="690" y2="90" stroke="#D85A30" strokeWidth="0.8"/>
 
-                  {/* Level 2 — MQTT Brokers */}
                   <rect x="149" y="112" width="160" height="46" rx="6" fill="#0a3d2e" stroke="#1D9E75" strokeWidth="0.8"/>
                   <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="229" y="132" textAnchor="middle" dominantBaseline="central">MQTT Broker 1</text>
                   <text fontFamily="inherit" fontSize="11" fill="#9FE1CB" x="229" y="150" textAnchor="middle" dominantBaseline="central">Primario · HiveMQ</text>
@@ -102,14 +97,12 @@ const ProgettoIoT = () => {
                   <line x1="309" y1="135" x2="590" y2="135" stroke="#1D9E75" strokeWidth="1.2" strokeDasharray="6 3"/>
                   <text fontFamily="inherit" fontSize="11" fill="#64748B" x="450" y="130" textAnchor="middle">sync</text>
 
-                  {/* Bus → Brokers */}
                   <line x1="229" y1="90" x2="229" y2="112" stroke="#1D9E75" strokeWidth="0.8"/>
                   <line x1="670" y1="90" x2="670" y2="112" stroke="#3B6D11" strokeWidth="0.8"/>
 
                   <line x1="229" y1="158" x2="229" y2="178" stroke="#1D9E75" strokeWidth="0.8"/>
                   <line x1="670" y1="158" x2="670" y2="178" stroke="#3B6D11" strokeWidth="0.8"/>
 
-                  {/* Level 1 — Edge Gateways */}
                   <rect x="59" y="200" width="120" height="46" rx="6" fill="#2a1506" stroke="#D97706" strokeWidth="0.8"/>
                   <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="119" y="220" textAnchor="middle" dominantBaseline="central">Edge GW</text>
                   <text fontFamily="inherit" fontSize="11" fill="#FBB07A" x="119" y="238" textAnchor="middle" dominantBaseline="central">Linea A</text>
@@ -126,7 +119,6 @@ const ProgettoIoT = () => {
                   <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="781" y="220" textAnchor="middle" dominantBaseline="central">Edge GW</text>
                   <text fontFamily="inherit" fontSize="11" fill="#FBB07A" x="781" y="238" textAnchor="middle" dominantBaseline="central">Linea D</text>
 
-                  {/* Bus → Edge GWs */}
                   <line x1="119" y1="178" x2="119" y2="200" stroke="#D97706" strokeWidth="0.8"/>
                   <line x1="340" y1="178" x2="340" y2="200" stroke="#D97706" strokeWidth="0.8"/>
                   <line x1="560" y1="178" x2="560" y2="200" stroke="#D97706" strokeWidth="0.8"/>
@@ -137,26 +129,47 @@ const ProgettoIoT = () => {
                   <line x1="560" y1="246" x2="560" y2="268" stroke="#D97706" strokeWidth="0.8"/>
                   <line x1="781" y1="246" x2="781" y2="268" stroke="#D97706" strokeWidth="0.8"/>
 
-                  {/* Level 0 — PLC + Sensori (8 box, spaziatura uniforme) */}
-                  {[
-                    { x: 20,  cx: 64  },
-                    { x: 130, cx: 174 },
-                    { x: 241, cx: 285 },
-                    { x: 351, cx: 395 },
-                    { x: 461, cx: 505 },
-                    { x: 571, cx: 615 },
-                    { x: 681, cx: 725 },
-                    { x: 792, cx: 836 },
-                  ].map(({ x, cx }, i) => (
-                    <g key={i}>
-                      <line x1={cx} y1="268" x2={cx} y2="292" stroke="#2A7A40" strokeWidth="0.8"/>
-                      <rect x={x} y="292" width="88" height="40" rx="4" fill="#1a2a10" stroke="#2A7A40" strokeWidth="0.8"/>
-                      <text fontFamily="inherit" fontSize="12" fontWeight="600" fill="#F1F5F9" x={cx} y="308" textAnchor="middle" dominantBaseline="central">PLC+Sens.</text>
-                      <text fontFamily="inherit" fontSize="10" fill="#6BC98A" x={cx} y="324" textAnchor="middle" dominantBaseline="central">250 I/O</text>
-                    </g>
-                  ))}
+                  <line x1="64"  y1="268" x2="64"  y2="292" stroke="#2A7A40" strokeWidth="0.8"/>
+                  <line x1="174" y1="268" x2="174" y2="292" stroke="#2A7A40" strokeWidth="0.8"/>
+                  <line x1="285" y1="268" x2="285" y2="292" stroke="#2A7A40" strokeWidth="0.8"/>
+                  <line x1="395" y1="268" x2="395" y2="292" stroke="#2A7A40" strokeWidth="0.8"/>
+                  <line x1="505" y1="268" x2="505" y2="292" stroke="#2A7A40" strokeWidth="0.8"/>
+                  <line x1="615" y1="268" x2="615" y2="292" stroke="#2A7A40" strokeWidth="0.8"/>
+                  <line x1="725" y1="268" x2="725" y2="292" stroke="#2A7A40" strokeWidth="0.8"/>
+                  <line x1="836" y1="268" x2="836" y2="292" stroke="#2A7A40" strokeWidth="0.8"/>
 
-                  {/* Legend */}
+                  <rect x="20"  y="292" width="88" height="40" rx="4" fill="#1a2a10" stroke="#2A7A40" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="12" fontWeight="600" fill="#F1F5F9" x="64"  y="308" textAnchor="middle" dominantBaseline="central">PLC+Sens.</text>
+                  <text fontFamily="inherit" fontSize="10" fill="#6BC98A" x="64"  y="324" textAnchor="middle" dominantBaseline="central">250 I/O</text>
+
+                  <rect x="130" y="292" width="88" height="40" rx="4" fill="#1a2a10" stroke="#2A7A40" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="12" fontWeight="600" fill="#F1F5F9" x="174" y="308" textAnchor="middle" dominantBaseline="central">PLC+Sens.</text>
+                  <text fontFamily="inherit" fontSize="10" fill="#6BC98A" x="174" y="324" textAnchor="middle" dominantBaseline="central">250 I/O</text>
+
+                  <rect x="241" y="292" width="88" height="40" rx="4" fill="#1a2a10" stroke="#2A7A40" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="12" fontWeight="600" fill="#F1F5F9" x="285" y="308" textAnchor="middle" dominantBaseline="central">PLC+Sens.</text>
+                  <text fontFamily="inherit" fontSize="10" fill="#6BC98A" x="285" y="324" textAnchor="middle" dominantBaseline="central">250 I/O</text>
+
+                  <rect x="351" y="292" width="88" height="40" rx="4" fill="#1a2a10" stroke="#2A7A40" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="12" fontWeight="600" fill="#F1F5F9" x="395" y="308" textAnchor="middle" dominantBaseline="central">PLC+Sens.</text>
+                  <text fontFamily="inherit" fontSize="10" fill="#6BC98A" x="395" y="324" textAnchor="middle" dominantBaseline="central">250 I/O</text>
+
+                  <rect x="461" y="292" width="88" height="40" rx="4" fill="#1a2a10" stroke="#2A7A40" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="12" fontWeight="600" fill="#F1F5F9" x="505" y="308" textAnchor="middle" dominantBaseline="central">PLC+Sens.</text>
+                  <text fontFamily="inherit" fontSize="10" fill="#6BC98A" x="505" y="324" textAnchor="middle" dominantBaseline="central">250 I/O</text>
+
+                  <rect x="571" y="292" width="88" height="40" rx="4" fill="#1a2a10" stroke="#2A7A40" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="12" fontWeight="600" fill="#F1F5F9" x="615" y="308" textAnchor="middle" dominantBaseline="central">PLC+Sens.</text>
+                  <text fontFamily="inherit" fontSize="10" fill="#6BC98A" x="615" y="324" textAnchor="middle" dominantBaseline="central">250 I/O</text>
+
+                  <rect x="681" y="292" width="88" height="40" rx="4" fill="#1a2a10" stroke="#2A7A40" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="12" fontWeight="600" fill="#F1F5F9" x="725" y="308" textAnchor="middle" dominantBaseline="central">PLC+Sens.</text>
+                  <text fontFamily="inherit" fontSize="10" fill="#6BC98A" x="725" y="324" textAnchor="middle" dominantBaseline="central">250 I/O</text>
+
+                  <rect x="792" y="292" width="88" height="40" rx="4" fill="#1a2a10" stroke="#2A7A40" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="12" fontWeight="600" fill="#F1F5F9" x="836" y="308" textAnchor="middle" dominantBaseline="central">PLC+Sens.</text>
+                  <text fontFamily="inherit" fontSize="10" fill="#6BC98A" x="836" y="324" textAnchor="middle" dominantBaseline="central">250 I/O</text>
+
                   <rect x="20"  y="356" width="10" height="10" rx="2" fill="#2563EB"/>
                   <text fontFamily="inherit" fontSize="11" fill="#64748B" x="36"  y="365">Grafana</text>
 
