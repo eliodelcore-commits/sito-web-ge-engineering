@@ -43,11 +43,8 @@ const ProgettoIoT = () => {
             </div>
 
             {/* SVG Topologia */}
-            <div className="rounded-xl border border-border bg-card overflow-hidden mb-8">
-              <div className="px-5 py-4 border-b border-border">
-                <p className="font-heading font-semibold">Vista topologica di rete</p>
-              </div>
-              <div className="p-5">
+            <div className="mt-16 rounded-xl border border-border bg-card p-6 md:p-10 mb-8">
+              <h2 className="font-heading text-xl font-semibold mb-2">Vista topologica di rete</h2>
                 <p className="text-sm text-muted-foreground mb-4">
                   Architettura IoT a 4 livelli: sensori di campo, edge gateway, broker MQTT, cloud analytics e dashboard.
                 </p>
