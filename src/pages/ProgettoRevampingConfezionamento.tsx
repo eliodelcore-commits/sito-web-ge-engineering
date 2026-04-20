@@ -2,10 +2,24 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
 import { ArrowLeft } from "lucide-react";
+import iotBg from "@/assets/iot-bg.jpg";
 
 const ProgettoRevampingConfezionamento = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      <div
+        className="pointer-events-none fixed inset-0 -z-10 bg-cover bg-center"
+        style={{ backgroundImage: `url(${iotBg})` }}
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none fixed inset-0 -z-10"
+        style={{
+          background:
+            "linear-gradient(to right, hsl(var(--background) / 0.97) 0%, hsl(var(--background) / 0.9) 55%, hsl(var(--background) / 0.55) 100%)",
+        }}
+        aria-hidden="true"
+      />
       <Navbar />
       <div className="flex-1 pt-32 pb-24">
         <div className="container mx-auto px-6">
