@@ -268,7 +268,6 @@ const ProgettoSCADAChimico = () => {
   <text fontFamily="inherit" fontSize="11" fill="#64748B" x="824" y="393">Utilities</text>
 
 </svg>
-              </div>
             </div>
           </div>
         </div>
