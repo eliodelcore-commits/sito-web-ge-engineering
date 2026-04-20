@@ -172,7 +172,7 @@ const Navbar = () => {
             <button
               type="button"
               aria-label="Apri menu"
-              className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg text-white hover:bg-accent/50 transition-colors"
+              className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg text-white hover:bg-accent/50 transition-colors justify-self-end"
             >
               <Menu className="h-6 w-6" />
             </button>
