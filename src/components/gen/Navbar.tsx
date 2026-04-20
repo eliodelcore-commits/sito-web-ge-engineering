@@ -1,9 +1,7 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useRef, useEffect, useCallback } from "react";
-import { ChevronDown, Menu, LogIn, LogOut, Shield, User as UserIcon } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import logo from "@/assets/logo-genginering-new.png";
-import { useAuth } from "@/hooks/useAuth";
-import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -98,8 +96,6 @@ const NavDropdown = ({ label, links, isActive, isOpen, onToggle, onClose }: Drop
 
 const Navbar = () => {
   const location = useLocation();
-  const navigate = useNavigate();
-  const { user, isAdmin, signOut } = useAuth();
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -109,11 +105,6 @@ const Navbar = () => {
 
   const close = useCallback(() => setOpenMenu(null), []);
 
-  const handleSignOut = async () => {
-    await signOut();
-    navigate("/");
-  };
-
   // close on navigation
   useEffect(() => {
     close();
@@ -122,13 +113,12 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
-      <div className="container mx-auto px-4 sm:px-6 h-14 md:h-16 grid grid-cols-3 items-center">
-        <div />
-        <Link to="/" className="flex items-center justify-center gap-3 md:gap-4 min-w-0">
+      <div className="container mx-auto px-4 sm:px-6 h-14 md:h-16 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-3 md:gap-4 min-w-0">
           <img
             src={logo}
             alt="GENGINERING Solutions"
-            className="h-7 md:h-9 mix-blend-screen rounded-2xl shrink-0"
+            className="h-10 md:h-14 mix-blend-screen rounded-2xl shrink-0"
             style={{ backgroundColor: '#0F172A' }}
           />
           <span className="hidden lg:block text-base text-white whitespace-nowrap">
@@ -137,7 +127,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center justify-end gap-8">
+        <div className="hidden md:flex items-center gap-8">
           <Link
             to="/"
             className={`text-sm font-medium transition-colors hover:text-primary ${
@@ -173,41 +163,6 @@ const Navbar = () => {
           >
             Contatti
           </Link>
-
-          {user ? (
-            <div className="flex items-center gap-2">
-              <Link
-                to="/admin"
-                className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname === "/admin" ? "text-primary" : "text-white"
-                }`}
-                title={user.email ?? undefined}
-              >
-                {isAdmin ? <Shield className="h-4 w-4" /> : <UserIcon className="h-4 w-4" />}
-                <span className="max-w-[140px] truncate">{user.email}</span>
-              </Link>
-              <Button
-                size="sm"
-                variant="ghost"
-                onClick={handleSignOut}
-                className="text-white hover:text-primary hover:bg-transparent px-2"
-                aria-label="Esci"
-              >
-                <LogOut className="h-4 w-4" />
-              </Button>
-            </div>
-          ) : (
-            <Button
-              asChild
-              size="sm"
-              variant="outline"
-              className="border-primary/40 text-white hover:bg-primary hover:text-primary-foreground"
-            >
-              <Link to="/auth">
-                <LogIn className="h-4 w-4 mr-1.5" /> Accedi
-              </Link>
-            </Button>
-          )}
         </div>
 
         {/* Mobile hamburger */}
@@ -216,7 +171,7 @@ const Navbar = () => {
             <button
               type="button"
               aria-label="Apri menu"
-              className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg text-white hover:bg-accent/50 transition-colors justify-self-end"
+              className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg text-white hover:bg-accent/50 transition-colors"
             >
               <Menu className="h-6 w-6" />
             </button>
@@ -303,38 +258,6 @@ const Navbar = () => {
               >
                 Contatti
               </Link>
-
-              <div className="mt-4 pt-4 border-t border-border">
-                {user ? (
-                  <>
-                    <Link
-                      to="/admin"
-                      className={`flex items-center gap-2 px-3 py-3 rounded-lg text-base font-medium transition-colors ${
-                        location.pathname === "/admin"
-                          ? "text-primary bg-accent/30"
-                          : "text-white hover:bg-accent/30"
-                      }`}
-                    >
-                      {isAdmin ? <Shield className="h-4 w-4" /> : <UserIcon className="h-4 w-4" />}
-                      <span className="truncate">{user.email}</span>
-                    </Link>
-                    <button
-                      type="button"
-                      onClick={handleSignOut}
-                      className="w-full flex items-center gap-2 px-3 py-3 rounded-lg text-base font-medium text-white hover:bg-accent/30 transition-colors text-left"
-                    >
-                      <LogOut className="h-4 w-4" /> Esci
-                    </button>
-                  </>
-                ) : (
-                  <Link
-                    to="/auth"
-                    className="flex items-center gap-2 px-3 py-3 rounded-lg text-base font-medium text-white hover:bg-accent/30 transition-colors"
-                  >
-                    <LogIn className="h-4 w-4" /> Accedi
-                  </Link>
-                )}
-              </div>
             </nav>
           </SheetContent>
         </Sheet>

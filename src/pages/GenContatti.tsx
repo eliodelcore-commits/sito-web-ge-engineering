@@ -76,7 +76,7 @@ const GenContatti = () => {
                 </div>
                 <div>
                   <h3 className="font-heading font-semibold mb-1">Email</h3>
-                  <a href="mailto:info@geenginering.com" className="text-muted-foreground text-sm hover:text-primary transition-colors">info@geenginering.com</a>
+                  <p className="text-muted-foreground text-sm">info@geenginering.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -94,14 +94,7 @@ const GenContatti = () => {
                 </div>
                 <div>
                   <h3 className="font-heading font-semibold mb-1">Sede</h3>
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Via+Idice+47%2C+40050+Monterenzio+BO%2C+Italia"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground text-sm hover:text-primary transition-colors"
-                  >
-                    Via Idice 47 - 40050 Monterenzio (BO)
-                  </a>
+                  <p className="text-muted-foreground text-sm">Via Idice 47 - 40050 Monterenzio (BO)</p>
                 </div>
               </div>
             </div>

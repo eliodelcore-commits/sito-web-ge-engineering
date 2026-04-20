@@ -17,9 +17,6 @@ import ProgettoRevampingConfezionamento from "./pages/ProgettoRevampingConfezion
 import ProgettoLineaAutomatizzata from "./pages/ProgettoLineaAutomatizzata";
 import ProgettoSCADAChimico from "./pages/ProgettoSCADAChimico";
 import NotFound from "./pages/NotFound";
-import Auth from "./pages/Auth";
-import Admin from "./pages/Admin";
-import { AuthProvider } from "./hooks/useAuth";
 
 const queryClient = new QueryClient();
 
@@ -29,7 +26,6 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <AuthProvider>
         <Routes>
           <Route path="/" element={<GenHome />} />
           <Route path="/servizi" element={<Servizi />} />
@@ -44,11 +40,8 @@ const App = () => (
           <Route path="/servizi/assistenza-tecnica" element={<AssistenzaTecnica />} />
           <Route path="/contatti" element={<GenContatti />} />
           <Route path="/holistic" element={<HolisticLanding />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

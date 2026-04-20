@@ -21,12 +21,12 @@ const Hero = () => {
           <img
             src={logo}
             alt="GEENGINBEERING Solutions"
-            className="absolute left-2 top-20 h-20 sm:h-24 md:left-4 md:top-24 md:h-32 lg:left-6 lg:top-28 lg:h-40 xl:h-48 max-w-[95vw] object-contain rounded-3xl"
+            className="absolute left-2 top-20 h-32 sm:h-40 md:left-4 md:top-24 md:h-56 lg:left-6 lg:top-28 lg:h-72 xl:h-80 max-w-[95vw] object-contain rounded-3xl"
             style={{ mixBlendMode: "screen" }}
           />
         </div>
       </div>
-      <div className="absolute inset-0 bg-background/35 shadow-sm" />
+      <div className="absolute inset-0 bg-background/35" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl">
