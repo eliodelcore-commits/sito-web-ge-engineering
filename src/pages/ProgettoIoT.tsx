@@ -24,14 +24,14 @@ const ProgettoIoT = () => {
             Piattaforma IoT industriale
           </h1>
 
-          <div className="max-w-3xl">
-            <p className="text-muted-foreground leading-relaxed mb-8">
+          <div>
+            <p className="text-muted-foreground leading-relaxed mb-8 max-w-3xl">
               Sviluppo piattaforma IoT per raccolta dati da sensori industriali con dashboard di analisi e manutenzione predittiva.
               Gateway edge su ogni linea produttiva, broker MQTT ridondato, pipeline dati verso database time-series InfluxDB
               e dashboard Grafana per visualizzazione KPI e anomalie in tempo reale.
             </p>
 
-            <div className="mb-10">
+            <div className="mb-10 max-w-3xl">
               <h3 className="font-heading text-sm font-semibold uppercase tracking-wider mb-3">Tecnologie</h3>
               <div className="flex flex-wrap gap-2">
                 {["IoT","MQTT","InfluxDB","Grafana","Edge Gateway","Dashboard","Predictive Maintenance","OPC-UA"].map((tag) => (
@@ -43,12 +43,9 @@ const ProgettoIoT = () => {
             </div>
 
             {/* SVG Topologia */}
-            <div className="rounded-xl border border-border bg-card overflow-hidden mb-8">
-              <div className="px-5 py-4 border-b border-border">
-                <p className="font-heading font-semibold">Vista topologica di rete</p>
-              </div>
-              <div className="p-5">
-                <p className="text-sm text-muted-foreground mb-4">
+            <div className="mt-16 rounded-xl border border-border bg-card p-6 md:p-10 mb-8">
+              <h2 className="font-heading text-xl font-semibold mb-2">Vista topologica di rete</h2>
+              <p className="text-sm text-muted-foreground mb-8">
                   Architettura IoT a 4 livelli: sensori di campo, edge gateway, broker MQTT, cloud analytics e dashboard.
                 </p>
 
