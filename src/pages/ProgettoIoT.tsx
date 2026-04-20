@@ -52,127 +52,131 @@ const ProgettoIoT = () => {
                   Architettura IoT a 4 livelli: sensori di campo, edge gateway, broker MQTT, cloud analytics e dashboard.
                 </p>
 
-                <svg width="100%" viewBox="0 0 900 430" role="img">
+                <svg width="100%" viewBox="0 0 900 400" role="img">
                   <title>Topologia piattaforma IoT industriale</title>
                   <desc>Gateway edge, broker MQTT ridondato, InfluxDB time-series, Grafana dashboard, manutenzione predittiva.</desc>
 
                   {/* Level dividers */}
-                  <line x1="20" y1="98" x2="880" y2="98" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
-                  <line x1="20" y1="190" x2="880" y2="190" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
-                  <line x1="20" y1="290" x2="880" y2="290" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
+                  <line x1="20" y1="90" x2="880" y2="90" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
+                  <line x1="20" y1="178" x2="880" y2="178" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
+                  <line x1="20" y1="268" x2="880" y2="268" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
 
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="18">Livello 3 — Analytics e visualizzazione</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="112">Livello 2 — Broker MQTT e data pipeline</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="212">Livello 1 — Edge gateway (OPC-UA → MQTT)</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="312">Livello 0 — Campo · sensori e PLC</text>
+                  {/* Level labels */}
+                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="16">Livello 3 — Analytics e visualizzazione</text>
+                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="104">Livello 2 — Broker MQTT e data pipeline</text>
+                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="194">Livello 1 — Edge gateway (OPC-UA → MQTT)</text>
+                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="282">Livello 0 — Campo · sensori e PLC</text>
 
-                  {/* Level 3 — Analytics & Dashboard */}
-                  <rect x="30" y="34" width="120" height="44" rx="6" fill="#0f2847" stroke="#2563EB" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="90" y="50" textAnchor="middle" dominantBaseline="central">Grafana</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#93C5FD" x="90" y="68" textAnchor="middle" dominantBaseline="central">Dashboard KPI</text>
+                  {/* Level 3 — Analytics */}
+                  <rect x="20" y="24" width="140" height="46" rx="6" fill="#0f2847" stroke="#2563EB" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="90" y="44" textAnchor="middle" dominantBaseline="central">Grafana</text>
+                  <text fontFamily="inherit" fontSize="11" fill="#93C5FD" x="90" y="62" textAnchor="middle" dominantBaseline="central">Dashboard KPI</text>
 
-                  <rect x="170" y="34" width="140" height="44" rx="6" fill="#2d1f6e" stroke="#7F77DD" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="240" y="50" textAnchor="middle" dominantBaseline="central">Predictive ML</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#C4B5FD" x="240" y="68" textAnchor="middle" dominantBaseline="central">Anomaly detection</text>
+                  <rect x="185" y="24" width="145" height="46" rx="6" fill="#2d1f6e" stroke="#7F77DD" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="257" y="44" textAnchor="middle" dominantBaseline="central">Predictive ML</text>
+                  <text fontFamily="inherit" fontSize="11" fill="#C4B5FD" x="257" y="62" textAnchor="middle" dominantBaseline="central">Anomaly detection</text>
 
-                  <rect x="330" y="34" width="130" height="44" rx="6" fill="#1f356e" stroke="#4A80F0" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="395" y="50" textAnchor="middle" dominantBaseline="central">InfluxDB</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#7EA8D0" x="395" y="68" textAnchor="middle" dominantBaseline="central">Time-series DB</text>
+                  <rect x="430" y="24" width="145" height="46" rx="6" fill="#1f356e" stroke="#4A80F0" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="502" y="44" textAnchor="middle" dominantBaseline="central">InfluxDB</text>
+                  <text fontFamily="inherit" fontSize="11" fill="#7EA8D0" x="502" y="62" textAnchor="middle" dominantBaseline="central">Time-series DB</text>
 
-                  <rect x="480" y="34" width="130" height="44" rx="6" fill="#3d1208" stroke="#D85A30" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="545" y="50" textAnchor="middle" dominantBaseline="central">Alerting Engine</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#F0997B" x="545" y="68" textAnchor="middle" dominantBaseline="central">Soglie · notifiche email/SMS</text>
+                  <rect x="600" y="24" width="180" height="46" rx="6" fill="#3d1208" stroke="#D85A30" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="690" y="40" textAnchor="middle" dominantBaseline="central">Alerting Engine</text>
+                  <text fontFamily="inherit" fontSize="10" fill="#F0997B" x="690" y="60" textAnchor="middle" dominantBaseline="central">Soglie · email/SMS</text>
 
-                  {/* Connections to MQTT Brokers */}
-                  <path d="M90,78 L90,104" stroke="#2563EB" strokeWidth="0.8" fill="none"/>
-                  <path d="M240,78 L240,92 L400,92 L400,104" stroke="#7F77DD" strokeWidth="0.8" fill="none"/>
-                  <path d="M395,78 L395,104" stroke="#4A80F0" strokeWidth="0.8" fill="none"/>
-                  <path d="M545,78 L545,92 L400,92" stroke="#D85A30" strokeWidth="0.8" fill="none"/>
+                  {/* L3 → bus */}
+                  <line x1="90" y1="70" x2="90" y2="90" stroke="#2563EB" strokeWidth="0.8"/>
+                  <line x1="257" y1="70" x2="257" y2="90" stroke="#7F77DD" strokeWidth="0.8"/>
+                  <line x1="502" y1="70" x2="502" y2="90" stroke="#4A80F0" strokeWidth="0.8"/>
+                  <line x1="690" y1="70" x2="690" y2="90" stroke="#D85A30" strokeWidth="0.8"/>
 
                   {/* Level 2 — MQTT Brokers */}
-                  <rect x="30" y="114" width="140" height="44" rx="6" fill="#0a3d2e" stroke="#1D9E75" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="100" y="130" textAnchor="middle" dominantBaseline="central">MQTT Broker 1</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#9FE1CB" x="100" y="148" textAnchor="middle" dominantBaseline="central">Primario · HiveMQ</text>
+                  <rect x="149" y="112" width="160" height="46" rx="6" fill="#0a3d2e" stroke="#1D9E75" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="229" y="132" textAnchor="middle" dominantBaseline="central">MQTT Broker 1</text>
+                  <text fontFamily="inherit" fontSize="11" fill="#9FE1CB" x="229" y="150" textAnchor="middle" dominantBaseline="central">Primario · HiveMQ</text>
 
-                  <rect x="330" y="114" width="140" height="44" rx="6" fill="#1a3010" stroke="#3B6D11" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="14" fontWeight="600" fill="#F1F5F9" x="400" y="130" textAnchor="middle" dominantBaseline="central">MQTT Broker 2</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#97C459" x="400" y="148" textAnchor="middle" dominantBaseline="central">Backup · cluster</text>
+                  <rect x="590" y="112" width="160" height="46" rx="6" fill="#1a3010" stroke="#3B6D11" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="670" y="132" textAnchor="middle" dominantBaseline="central">MQTT Broker 2</text>
+                  <text fontFamily="inherit" fontSize="11" fill="#97C459" x="670" y="150" textAnchor="middle" dominantBaseline="central">Backup · cluster</text>
 
-                  <line x1="170" y1="136" x2="330" y2="136" stroke="#1D9E75" strokeWidth="1.5"/>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="250" y="130" textAnchor="middle">sync</text>
+                  <line x1="309" y1="135" x2="590" y2="135" stroke="#1D9E75" strokeWidth="1.2" strokeDasharray="6 3"/>
+                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="450" y="130" textAnchor="middle">sync</text>
 
-                  {/* Connections to Edge Gateways */}
-                  <path d="M100,158 V174" stroke="#1D9E75" strokeWidth="0.8" fill="none"/>
-                  <path d="M400,158 V174" stroke="#3B6D11" strokeWidth="0.8" fill="none"/>
+                  {/* Bus → Brokers */}
+                  <line x1="229" y1="90" x2="229" y2="112" stroke="#1D9E75" strokeWidth="0.8"/>
+                  <line x1="670" y1="90" x2="670" y2="112" stroke="#3B6D11" strokeWidth="0.8"/>
 
-                  <line x1="30" y1="174" x2="870" y2="174" stroke="#475569" strokeWidth="0.6"/>
+                  <line x1="229" y1="158" x2="229" y2="178" stroke="#1D9E75" strokeWidth="0.8"/>
+                  <line x1="670" y1="158" x2="670" y2="178" stroke="#3B6D11" strokeWidth="0.8"/>
 
                   {/* Level 1 — Edge Gateways */}
-                  <rect x="30" y="196" width="100" height="44" rx="6" fill="#2a1506" stroke="#D97706" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="80" y="212" textAnchor="middle" dominantBaseline="central">Edge GW</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#FBB07A" x="80" y="230" textAnchor="middle" dominantBaseline="central">Linea A</text>
+                  <rect x="59" y="200" width="120" height="46" rx="6" fill="#2a1506" stroke="#D97706" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="119" y="220" textAnchor="middle" dominantBaseline="central">Edge GW</text>
+                  <text fontFamily="inherit" fontSize="11" fill="#FBB07A" x="119" y="238" textAnchor="middle" dominantBaseline="central">Linea A</text>
 
-                  <rect x="150" y="196" width="100" height="44" rx="6" fill="#2a1506" stroke="#D97706" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="200" y="212" textAnchor="middle" dominantBaseline="central">Edge GW</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#FBB07A" x="200" y="230" textAnchor="middle" dominantBaseline="central">Linea B</text>
+                  <rect x="280" y="200" width="120" height="46" rx="6" fill="#2a1506" stroke="#D97706" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="340" y="220" textAnchor="middle" dominantBaseline="central">Edge GW</text>
+                  <text fontFamily="inherit" fontSize="11" fill="#FBB07A" x="340" y="238" textAnchor="middle" dominantBaseline="central">Linea B</text>
 
-                  <rect x="270" y="196" width="100" height="44" rx="6" fill="#2a1506" stroke="#D97706" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="320" y="212" textAnchor="middle" dominantBaseline="central">Edge GW</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#FBB07A" x="320" y="230" textAnchor="middle" dominantBaseline="central">Linea C</text>
+                  <rect x="500" y="200" width="120" height="46" rx="6" fill="#2a1506" stroke="#D97706" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="560" y="220" textAnchor="middle" dominantBaseline="central">Edge GW</text>
+                  <text fontFamily="inherit" fontSize="11" fill="#FBB07A" x="560" y="238" textAnchor="middle" dominantBaseline="central">Linea C</text>
 
-                  <rect x="390" y="196" width="100" height="44" rx="6" fill="#2a1506" stroke="#D97706" strokeWidth="0.8"/>
-                  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="440" y="212" textAnchor="middle" dominantBaseline="central">Edge GW</text>
-                  <text fontFamily="inherit" fontSize="11" fill="#FBB07A" x="440" y="230" textAnchor="middle" dominantBaseline="central">Linea D</text>
+                  <rect x="721" y="200" width="120" height="46" rx="6" fill="#2a1506" stroke="#D97706" strokeWidth="0.8"/>
+                  <text fontFamily="inherit" fontSize="13" fontWeight="600" fill="#F1F5F9" x="781" y="220" textAnchor="middle" dominantBaseline="central">Edge GW</text>
+                  <text fontFamily="inherit" fontSize="11" fill="#FBB07A" x="781" y="238" textAnchor="middle" dominantBaseline="central">Linea D</text>
 
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="30" y="252">OPC-UA → MQTT</text>
+                  {/* Bus → Edge GWs */}
+                  <line x1="119" y1="178" x2="119" y2="200" stroke="#D97706" strokeWidth="0.8"/>
+                  <line x1="340" y1="178" x2="340" y2="200" stroke="#D97706" strokeWidth="0.8"/>
+                  <line x1="560" y1="178" x2="560" y2="200" stroke="#D97706" strokeWidth="0.8"/>
+                  <line x1="781" y1="178" x2="781" y2="200" stroke="#D97706" strokeWidth="0.8"/>
 
-                  {/* Connections to Field Level */}
-                  <line x1="80" y1="240" x2="80" y2="264" stroke="#D97706" strokeWidth="0.8"/>
-                  <line x1="200" y1="240" x2="200" y2="264" stroke="#D97706" strokeWidth="0.8"/>
-                  <line x1="320" y1="240" x2="320" y2="264" stroke="#D97706" strokeWidth="0.8"/>
-                  <line x1="440" y1="240" x2="440" y2="264" stroke="#D97706" strokeWidth="0.8"/>
+                  <line x1="119" y1="246" x2="119" y2="268" stroke="#D97706" strokeWidth="0.8"/>
+                  <line x1="340" y1="246" x2="340" y2="268" stroke="#D97706" strokeWidth="0.8"/>
+                  <line x1="560" y1="246" x2="560" y2="268" stroke="#D97706" strokeWidth="0.8"/>
+                  <line x1="781" y1="246" x2="781" y2="268" stroke="#D97706" strokeWidth="0.8"/>
 
-                  <line x1="30" y1="264" x2="870" y2="264" stroke="#475569" strokeWidth="0.6"/>
-
-                  {/* Level 0 — Field devices */}
+                  {/* Level 0 — PLC + Sensori (8 box, spaziatura uniforme) */}
                   {[
-                    {x:30,  cx:80,  fill:"#1a2a10", stroke:"#2A7A40", sub:"#6BC98A", lbl:"PLC+Sens."},
-                    {x:168, cx:220, fill:"#1a2a10", stroke:"#2A7A40", sub:"#6BC98A", lbl:"PLC+Sens."},
-                    {x:240, cx:290, fill:"#1a2a10", stroke:"#2A7A40", sub:"#6BC98A", lbl:"PLC+Sens."},
-                    {x:378, cx:430, fill:"#1a2a10", stroke:"#2A7A40", sub:"#6BC98A", lbl:"PLC+Sens."},
-                    {x:448, cx:500, fill:"#1a2a10", stroke:"#2A7A40", sub:"#6BC98A", lbl:"PLC+Sens."},
-                    {x:588, cx:640, fill:"#1a2a10", stroke:"#2A7A40", sub:"#6BC98A", lbl:"PLC+Sens."},
-                    {x:658, cx:710, fill:"#1a2a10", stroke:"#2A7A40", sub:"#6BC98A", lbl:"PLC+Sens."},
-                    {x:798, cx:850, fill:"#1a2a10", stroke:"#2A7A40", sub:"#6BC98A", lbl:"PLC+Sens."},
-                  ].map(({x, cx, fill, stroke, sub, lbl}, i) => (
+                    { x: 20,  cx: 64  },
+                    { x: 130, cx: 174 },
+                    { x: 241, cx: 285 },
+                    { x: 351, cx: 395 },
+                    { x: 461, cx: 505 },
+                    { x: 571, cx: 615 },
+                    { x: 681, cx: 725 },
+                    { x: 792, cx: 836 },
+                  ].map(({ x, cx }, i) => (
                     <g key={i}>
-                      <rect x={x} y="280" width="100" height="40" rx="4" fill={fill} stroke={stroke} strokeWidth="0.8"/>
-                      <text fontFamily="inherit" fontSize="12" fontWeight="600" fill="#F1F5F9" x={cx} y="296" textAnchor="middle" dominantBaseline="central">{lbl}</text>
-                      <text fontFamily="inherit" fontSize="10" fill={sub} x={cx} y="312" textAnchor="middle" dominantBaseline="central">250 I/O</text>
+                      <line x1={cx} y1="268" x2={cx} y2="292" stroke="#2A7A40" strokeWidth="0.8"/>
+                      <rect x={x} y="292" width="88" height="40" rx="4" fill="#1a2a10" stroke="#2A7A40" strokeWidth="0.8"/>
+                      <text fontFamily="inherit" fontSize="12" fontWeight="600" fill="#F1F5F9" x={cx} y="308" textAnchor="middle" dominantBaseline="central">PLC+Sens.</text>
+                      <text fontFamily="inherit" fontSize="10" fill="#6BC98A" x={cx} y="324" textAnchor="middle" dominantBaseline="central">250 I/O</text>
                     </g>
                   ))}
 
                   {/* Legend */}
-                  <rect x="30" y="420" width="10" height="10" rx="2" fill="#2563EB"/>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="46" y="429">Grafana</text>
+                  <rect x="20"  y="356" width="10" height="10" rx="2" fill="#2563EB"/>
+                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="36"  y="365">Grafana</text>
 
-                  <rect x="110" y="420" width="10" height="10" rx="2" fill="#7F77DD"/>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="126" y="429">ML Analytics</text>
+                  <rect x="108" y="356" width="10" height="10" rx="2" fill="#7F77DD"/>
+                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="124" y="365">ML Analytics</text>
 
-                  <rect x="214" y="420" width="10" height="10" rx="2" fill="#4A80F0"/>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="230" y="429">InfluxDB</text>
+                  <rect x="230" y="356" width="10" height="10" rx="2" fill="#4A80F0"/>
+                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="246" y="365">InfluxDB</text>
 
-                  <rect x="308" y="420" width="10" height="10" rx="2" fill="#D85A30"/>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="324" y="429">Alerting</text>
+                  <rect x="326" y="356" width="10" height="10" rx="2" fill="#D85A30"/>
+                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="342" y="365">Alerting</text>
 
-                  <rect x="400" y="420" width="10" height="10" rx="2" fill="#1D9E75"/>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="416" y="429">MQTT Broker</text>
+                  <rect x="410" y="356" width="10" height="10" rx="2" fill="#1D9E75"/>
+                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="426" y="365">MQTT Broker</text>
 
-                  <rect x="510" y="420" width="10" height="10" rx="2" fill="#D97706"/>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="526" y="429">Edge Gateway</text>
+                  <rect x="532" y="356" width="10" height="10" rx="2" fill="#D97706"/>
+                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="548" y="365">Edge Gateway</text>
 
-                  <rect x="630" y="420" width="10" height="10" rx="2" fill="#2A7A40"/>
-                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="646" y="429">PLC + Sensori</text>
+                  <rect x="662" y="356" width="10" height="10" rx="2" fill="#2A7A40"/>
+                  <text fontFamily="inherit" fontSize="11" fill="#64748B" x="678" y="365">PLC + Sensori</text>
                 </svg>
               </div>
             </div>
