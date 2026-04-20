@@ -98,6 +98,8 @@ const NavDropdown = ({ label, links, isActive, isOpen, onToggle, onClose }: Drop
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, isAdmin, signOut } = useAuth();
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -106,6 +108,11 @@ const Navbar = () => {
   }, []);
 
   const close = useCallback(() => setOpenMenu(null), []);
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate("/");
+  };
 
   // close on navigation
   useEffect(() => {
