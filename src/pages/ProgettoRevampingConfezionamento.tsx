@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
 import { ArrowLeft } from "lucide-react";
-import iotBg from "@/assets/iot-bg.jpg";
+import iotBg from "@/assets/confezionamento-bg.jpg";
 
 const ProgettoRevampingConfezionamento = () => {
   return (
