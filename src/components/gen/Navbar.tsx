@@ -113,8 +113,9 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
-      <div className="container mx-auto px-4 sm:px-6 h-14 md:h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3 md:gap-4 min-w-0">
+      <div className="container mx-auto px-4 sm:px-6 h-14 md:h-16 grid grid-cols-3 items-center">
+        <div />
+        <Link to="/" className="flex items-center justify-center gap-3 md:gap-4 min-w-0">
           <img
             src={logo}
             alt="GENGINERING Solutions"
@@ -127,7 +128,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center justify-end gap-8">
           <Link
             to="/"
             className={`text-sm font-medium transition-colors hover:text-primary ${
@@ -171,7 +172,7 @@ const Navbar = () => {
             <button
               type="button"
               aria-label="Apri menu"
-              className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg text-white hover:bg-accent/50 transition-colors"
+              className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg text-white hover:bg-accent/50 transition-colors justify-self-end"
             >
               <Menu className="h-6 w-6" />
             </button>
