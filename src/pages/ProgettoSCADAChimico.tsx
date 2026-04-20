@@ -24,14 +24,14 @@ const ProgettoSCADAChimico = () => {
             Sistema SCADA stabilimento chimico
           </h1>
 
-          <div className="max-w-3xl">
-            <p className="text-muted-foreground leading-relaxed mb-8">
+          <div>
+            <p className="text-muted-foreground leading-relaxed mb-8 max-w-3xl">
               Sviluppo sistema SCADA per il monitoraggio e controllo di un impianto chimico con oltre 2000 punti I/O.
               Architettura ridondante con server WinCC in hot-standby, Historian per l'archiviazione storica dei dati di processo,
               4 PLC di zona su rete OPC-UA con firewall perimetrale OT/IT. Sistema ESD Safety Integrated su F-CPU Siemens.
             </p>
 
-            <div className="mb-10">
+            <div className="mb-10 max-w-3xl">
               <h3 className="font-heading text-sm font-semibold uppercase tracking-wider mb-3">Tecnologie</h3>
               <div className="flex flex-wrap gap-2">
                 {["WinCC SCADA","OPC-UA","S7-1516F Safety","Historian","ESD","HMI","Profinet","2000+ I/O"].map((tag) => (
@@ -43,11 +43,8 @@ const ProgettoSCADAChimico = () => {
             </div>
 
             {/* SVG Topologia */}
-            <div className="rounded-xl border border-border bg-card overflow-hidden mb-8">
-              <div className="px-5 py-4 border-b border-border">
-                <p className="font-heading font-semibold">Vista topologica di rete</p>
-              </div>
-              <div className="p-5">
+            <div className="mt-16 rounded-xl border border-border bg-card p-6 md:p-10 mb-8">
+              <h2 className="font-heading text-xl font-semibold mb-2">Vista topologica di rete</h2>
                 <p className="text-sm text-muted-foreground mb-4">
                   Architettura SCADA a 4 livelli: supervisione, firewall OT/IT, rete di processo, controllo PLC e I/O di campo.
                 </p>
@@ -271,7 +268,6 @@ const ProgettoSCADAChimico = () => {
   <text fontFamily="inherit" fontSize="11" fill="#64748B" x="824" y="393">Utilities</text>
 
 </svg>
-              </div>
             </div>
           </div>
         </div>
