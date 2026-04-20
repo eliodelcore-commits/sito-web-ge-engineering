@@ -2,10 +2,22 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import iotBg from "@/assets/iot-bg.jpg";
 
 const ProgettoIoT = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <div
+        className="pointer-events-none fixed inset-0 -z-10 bg-cover bg-center"
+        style={{ backgroundImage: `url(${iotBg})` }}
+      />
+      <div
+        className="pointer-events-none fixed inset-0 -z-10"
+        style={{
+          background:
+            "linear-gradient(to right, hsl(var(--background) / 0.97) 0%, hsl(var(--background) / 0.9) 55%, hsl(var(--background) / 0.55) 100%)",
+        }}
+      />
       <Navbar />
       <div className="pt-28 pb-24">
         <div className="container mx-auto px-6">
