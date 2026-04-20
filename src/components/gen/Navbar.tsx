@@ -303,6 +303,38 @@ const Navbar = () => {
               >
                 Contatti
               </Link>
+
+              <div className="mt-4 pt-4 border-t border-border">
+                {user ? (
+                  <>
+                    <Link
+                      to="/admin"
+                      className={`flex items-center gap-2 px-3 py-3 rounded-lg text-base font-medium transition-colors ${
+                        location.pathname === "/admin"
+                          ? "text-primary bg-accent/30"
+                          : "text-white hover:bg-accent/30"
+                      }`}
+                    >
+                      {isAdmin ? <Shield className="h-4 w-4" /> : <UserIcon className="h-4 w-4" />}
+                      <span className="truncate">{user.email}</span>
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={handleSignOut}
+                      className="w-full flex items-center gap-2 px-3 py-3 rounded-lg text-base font-medium text-white hover:bg-accent/30 transition-colors text-left"
+                    >
+                      <LogOut className="h-4 w-4" /> Esci
+                    </button>
+                  </>
+                ) : (
+                  <Link
+                    to="/auth"
+                    className="flex items-center gap-2 px-3 py-3 rounded-lg text-base font-medium text-white hover:bg-accent/30 transition-colors"
+                  >
+                    <LogIn className="h-4 w-4" /> Accedi
+                  </Link>
+                )}
+              </div>
             </nav>
           </SheetContent>
         </Sheet>
