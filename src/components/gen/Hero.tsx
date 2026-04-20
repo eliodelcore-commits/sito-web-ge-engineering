@@ -20,7 +20,7 @@ const Hero = () => {
         <div className="relative h-full">
           <img
             src={logo}
-            alt="GEENGINBEERING Solutions"
+            alt="GEENGINEERING SRL"
             className="absolute left-2 top-20 h-20 sm:h-24 md:left-4 md:top-24 md:h-32 lg:left-6 lg:top-28 lg:h-44 xl:h-52 max-w-[95vw] object-contain rounded-3xl"
             style={{ mixBlendMode: "screen" }}
           />
