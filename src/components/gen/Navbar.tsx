@@ -173,6 +173,41 @@ const Navbar = () => {
           >
             Contatti
           </Link>
+
+          {user ? (
+            <div className="flex items-center gap-2">
+              <Link
+                to="/admin"
+                className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-primary ${
+                  location.pathname === "/admin" ? "text-primary" : "text-white"
+                }`}
+                title={user.email ?? undefined}
+              >
+                {isAdmin ? <Shield className="h-4 w-4" /> : <UserIcon className="h-4 w-4" />}
+                <span className="max-w-[140px] truncate">{user.email}</span>
+              </Link>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={handleSignOut}
+                className="text-white hover:text-primary hover:bg-transparent px-2"
+                aria-label="Esci"
+              >
+                <LogOut className="h-4 w-4" />
+              </Button>
+            </div>
+          ) : (
+            <Button
+              asChild
+              size="sm"
+              variant="outline"
+              className="border-primary/40 text-white hover:bg-primary hover:text-primary-foreground"
+            >
+              <Link to="/auth">
+                <LogIn className="h-4 w-4 mr-1.5" /> Accedi
+              </Link>
+            </Button>
+          )}
         </div>
 
         {/* Mobile hamburger */}
