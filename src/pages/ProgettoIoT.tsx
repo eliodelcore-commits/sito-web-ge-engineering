@@ -40,6 +40,8 @@ const ProgettoIoT = () => {
                   </span>
                 ))}
               </div>
+            </div>
+
             {/* SVG Topologia */}
             <div className="mt-16 rounded-xl border border-border bg-card p-6 md:p-10 mb-8">
               <h2 className="font-heading text-xl font-semibold mb-2">Vista topologica di rete</h2>
