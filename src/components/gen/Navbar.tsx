@@ -117,7 +117,7 @@ const Navbar = () => {
         <Link to="/" className="flex items-center gap-3 md:gap-4 min-w-0">
           <img
             src={logo}
-            alt="GENGINERING Solutions"
+            alt="GEENGINEERING SRL"
             className="h-10 md:h-14 mix-blend-screen rounded-2xl shrink-0"
             style={{ backgroundColor: '#0F172A' }}
           />
