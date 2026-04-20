@@ -1,7 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect, useCallback } from "react";
-import { ChevronDown, Menu } from "lucide-react";
+import { ChevronDown, Menu, LogIn, LogOut, Shield, User as UserIcon } from "lucide-react";
 import logo from "@/assets/logo-genginering-new.png";
+import { useAuth } from "@/hooks/useAuth";
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
