@@ -21,7 +21,7 @@ const Hero = () => {
           <img
             src={logo}
             alt="GEENGINBEERING Solutions"
-            className="absolute left-2 top-20 h-32 sm:h-40 md:left-4 md:top-24 md:h-56 lg:left-6 lg:top-28 lg:h-72 xl:h-80 max-w-[95vw] object-contain rounded-3xl"
+            className="absolute left-2 top-20 h-20 sm:h-24 md:left-4 md:top-24 md:h-32 lg:left-6 lg:top-28 lg:h-44 xl:h-52 max-w-[95vw] object-contain rounded-3xl"
             style={{ mixBlendMode: "screen" }}
           />
         </div>
@@ -30,7 +30,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl">
-          <div className="h-72 md:h-80 lg:h-[22rem] xl:h-[24rem]" aria-hidden="true" />
+          <div className="h-44 md:h-52 lg:h-60 xl:h-64" aria-hidden="true" />
 
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
