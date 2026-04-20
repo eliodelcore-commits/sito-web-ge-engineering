@@ -163,6 +163,13 @@ const Navbar = () => {
           >
             Contatti
           </Link>
+
+          <Link
+            to="/auth"
+            className="text-sm font-medium px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+          >
+            Accedi
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -257,6 +264,13 @@ const Navbar = () => {
                 }`}
               >
                 Contatti
+              </Link>
+
+              <Link
+                to="/auth"
+                className="mt-2 px-3 py-3 rounded-lg text-base font-medium text-center bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                Accedi
               </Link>
             </nav>
           </SheetContent>
