@@ -16,7 +16,7 @@ const ProgettoSCADAChimico = () => {
         className="pointer-events-none fixed inset-0 -z-10"
         style={{
           background:
-            "linear-gradient(to right, hsl(var(--background) / 0.97) 0%, hsl(var(--background) / 0.9) 55%, hsl(var(--background) / 0.55) 100%)",
+            "linear-gradient(to right, hsl(var(--background) / 0.92) 0%, hsl(var(--background) / 0.78) 55%, hsl(var(--background) / 0.5) 100%)",
         }}
         aria-hidden="true"
       />
