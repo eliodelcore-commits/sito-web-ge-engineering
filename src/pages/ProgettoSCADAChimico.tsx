@@ -8,7 +8,7 @@ const ProgettoSCADAChimico = () => {
   return (
     <div className="min-h-screen flex flex-col relative">
       <div
-        className="pointer-events-none fixed inset-0 -z-10 bg-cover bg-center blur-md scale-105"
+        className="pointer-events-none fixed inset-0 -z-10 bg-cover bg-center blur-[2px] scale-105"
         style={{ backgroundImage: `url(${scadaBg})` }}
         aria-hidden="true"
       />
