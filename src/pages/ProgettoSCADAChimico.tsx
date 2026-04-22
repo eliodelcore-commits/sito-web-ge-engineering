@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
-import scadaBg from "@/assets/scada-bg.webp";
+import scadaBg from "@/assets/engineers-discussing.jpg";
 
 const ProgettoSCADAChimico = () => {
   return (
     <div className="min-h-screen flex flex-col relative">
       <div
-        className="pointer-events-none fixed inset-0 -z-10 bg-cover bg-center"
+        className="pointer-events-none fixed inset-0 -z-10 bg-cover bg-center blur-md scale-105"
         style={{ backgroundImage: `url(${scadaBg})` }}
         aria-hidden="true"
       />
