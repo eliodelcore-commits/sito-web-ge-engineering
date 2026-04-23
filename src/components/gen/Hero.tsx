@@ -12,7 +12,7 @@ const Hero = () => {
           <img
             src={logo}
             alt="GEENGINEERING SRL"
-            className="h-20 sm:h-24 md:h-28 lg:h-36 xl:h-44 w-auto object-contain self-start mb-10 md:mb-14"
+            className="h-20 sm:h-24 md:h-28 lg:h-36 xl:h-44 w-auto object-contain self-start mb-16 md:mb-24 lg:mb-28"
           />
 
           <div className="inline-flex w-fit items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium mb-6">
