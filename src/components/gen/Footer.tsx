@@ -1,4 +1,4 @@
-import logo from "@/assets/logo-genginering-amabile.jpg";
+import logo from "@/assets/logo-genginering-amabile.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -11,8 +11,7 @@ const Footer = () => {
               <img
                 src={logo}
                 alt="GENGINERING Solutions"
-                className="h-10 md:h-14 mix-blend-screen rounded-2xl opacity-90 hover:opacity-100 transition-opacity"
-                style={{ backgroundColor: '#0F172A' }}
+                className="h-10 md:h-14 opacity-90 hover:opacity-100 transition-opacity"
               />
             </Link>
             <span className="text-sm md:text-base text-white leading-snug md:whitespace-nowrap">

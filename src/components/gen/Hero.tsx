@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo-genginering-amabile.jpg";
+import logo from "@/assets/logo-genginering-amabile.png";
 import bgDrives from "@/assets/home-bg-drives.jpg";
 
 const Hero = () => {
@@ -21,8 +21,7 @@ const Hero = () => {
           <img
             src={logo}
             alt="GEENGINEERING SRL"
-            className="absolute left-2 top-20 h-20 sm:h-24 md:left-4 md:top-24 md:h-32 lg:left-6 lg:top-28 lg:h-44 xl:h-52 max-w-[95vw] object-contain rounded-3xl"
-            style={{ mixBlendMode: "screen" }}
+            className="absolute left-2 top-20 h-20 sm:h-24 md:left-4 md:top-24 md:h-32 lg:left-6 lg:top-28 lg:h-44 xl:h-52 max-w-[95vw] object-contain"
           />
         </div>
       </div>
