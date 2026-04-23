@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ChevronDown, Menu } from "lucide-react";
-import logo from "@/assets/logo-genginering-new.png";
+import logo from "@/assets/logo-genginering-amabile.jpg";
 import {
   Sheet,
   SheetContent,
