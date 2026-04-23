@@ -8,11 +8,11 @@ const Hero = () => {
     <section className="min-h-screen relative overflow-hidden pt-16 bg-background">
       <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] min-h-[calc(100vh-4rem)]">
         {/* Left column: navbar background, logo + description */}
-        <div className="bg-background flex flex-col justify-center px-6 md:px-10 lg:px-16 py-12 md:py-0">
+        <div className="bg-background flex flex-col px-6 md:px-10 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-12">
           <img
             src={logo}
             alt="GEENGINEERING SRL"
-            className="h-20 sm:h-24 md:h-28 lg:h-36 xl:h-44 w-auto object-contain mb-8 md:mb-10"
+            className="h-20 sm:h-24 md:h-28 lg:h-36 xl:h-44 w-auto object-contain self-start mb-10 md:mb-14"
           />
 
           <div className="inline-flex w-fit items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium mb-6">
