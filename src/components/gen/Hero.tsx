@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo-genginering-amabile.png";
+import logo from "@/assets/logo-genginering-white.png";
 import bgDrives from "@/assets/home-bg-drives.jpg";
 
 const Hero = () => {
