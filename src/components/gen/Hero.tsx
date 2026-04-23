@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo-genginering-white.png";
+import logo from "@/assets/logo-genginering-hero.png";
 import bgDrives from "@/assets/home-bg-drives.jpg";
 
 const Hero = () => {
@@ -13,9 +13,6 @@ const Hero = () => {
             src={logo}
             alt="GEENGINEERING SRL"
             className="h-20 sm:h-24 md:h-28 lg:h-36 xl:h-44 w-auto object-contain mb-8 md:mb-10"
-            style={{
-              filter: "brightness(1.25) contrast(1.15) drop-shadow(0 2px 8px rgba(0,0,0,0.5))",
-            }}
           />
 
           <div className="inline-flex w-fit items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium mb-6">
