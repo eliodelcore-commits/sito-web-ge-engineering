@@ -53,7 +53,7 @@ const Hero = () => {
 
         {/* Right column: drives photo */}
         <div
-          className="relative bg-cover bg-center min-h-[40vh] md:min-h-0"
+          className="relative bg-cover bg-center min-h-[40vh] md:min-h-0 blur-md"
           style={{ backgroundImage: `url(${bgDrives})` }}
           aria-hidden="true"
         >
