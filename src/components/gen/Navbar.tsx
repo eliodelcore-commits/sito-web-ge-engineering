@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ChevronDown, Menu } from "lucide-react";
-import logo from "@/assets/logo-genginering-amabile.jpg";
+import logo from "@/assets/logo-genginering-amabile.png";
 import {
   Sheet,
   SheetContent,
@@ -118,8 +118,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="GEENGINEERING SRL"
-            className="h-10 md:h-14 mix-blend-screen rounded-2xl shrink-0"
-            style={{ backgroundColor: '#0F172A' }}
+            className="h-10 md:h-14 shrink-0"
           />
           <span className="hidden lg:block text-base text-white whitespace-nowrap">
             Via Idice 47, 40050 Monterenzio (BO), Italia
