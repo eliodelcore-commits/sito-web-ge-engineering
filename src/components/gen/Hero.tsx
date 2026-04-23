@@ -22,6 +22,9 @@ const Hero = () => {
             src={logo}
             alt="GEENGINEERING SRL"
             className="absolute left-2 top-20 h-20 sm:h-24 md:left-4 md:top-24 md:h-32 lg:left-6 lg:top-28 lg:h-44 xl:h-52 max-w-[95vw] object-contain"
+            style={{
+              filter: "brightness(1.25) contrast(1.15) drop-shadow(0 2px 8px rgba(0,0,0,0.5))",
+            }}
           />
         </div>
       </div>
