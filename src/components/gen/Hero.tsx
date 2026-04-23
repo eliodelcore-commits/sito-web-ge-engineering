@@ -6,7 +6,7 @@ import bgDrives from "@/assets/home-bg-drives.jpg";
 const Hero = () => {
   return (
     <section className="min-h-screen relative overflow-hidden pt-16 bg-background">
-      <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] min-h-[calc(100vh-4rem)]">
+      <div className="grid grid-cols-1 md:grid-cols-[3fr_7fr] min-h-[calc(100vh-4rem)]">
         {/* Left column: navbar background, logo + description */}
         <div className="bg-background flex flex-col px-6 md:px-10 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-12">
           <img
