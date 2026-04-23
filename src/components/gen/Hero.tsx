@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="min-h-screen flex items-center relative overflow-hidden pt-16">
       <div
-        className="absolute inset-0 bg-cover bg-center blur-[4px] scale-105"
+        className="absolute inset-0 bg-cover bg-center blur-[6px] scale-105 opacity-50"
         style={{
           backgroundImage: `url(${bgDrives})`,
           WebkitMaskImage:
@@ -25,7 +25,7 @@ const Hero = () => {
           />
         </div>
       </div>
-      <div className="absolute inset-0 bg-background/35" />
+      <div className="absolute inset-0 bg-background/70" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl">
