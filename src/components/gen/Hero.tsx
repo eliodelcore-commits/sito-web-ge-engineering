@@ -57,8 +57,14 @@ const Hero = () => {
           style={{ backgroundImage: `url(${bgDrives})` }}
           aria-hidden="true"
         >
-          {/* Soft seam blending into the left column */}
-          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+          {/* Chiaroscuro overlay: dark on the left fading to transparent on the right */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "linear-gradient(to right, hsl(var(--background) / 0.97) 0%, hsl(var(--background) / 0.9) 35%, hsl(var(--background) / 0.55) 70%, hsl(var(--background) / 0.2) 100%)",
+            }}
+          />
         </div>
       </div>
     </section>
