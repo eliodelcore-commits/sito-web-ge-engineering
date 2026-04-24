@@ -74,6 +74,7 @@ const ProgettoTroubleshootingWireless = () => {
               <h3 className="font-heading text-lg font-semibold mb-3">Risultati ottenuti</h3>
               <ul className="text-sm text-muted-foreground space-y-2 list-disc pl-5">
                 <li>Riduzione disconnessioni AGV &gt; 90%</li>
+                <li>Riduzione disconnessioni client su veicoli del 100%</li>
                 <li>Roaming &lt; 50 ms tra AP</li>
                 <li>Eliminazione interferenze co-channel</li>
                 <li>Copertura uniforme su entrambi i piani</li>
