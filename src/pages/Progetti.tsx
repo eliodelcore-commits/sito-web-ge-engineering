@@ -18,6 +18,7 @@ const projects = [
   },
   {
     title: "Wireless survey magazzino logistico automatico",
+    slug: "wireless-survey",
     category: "Wireless Planning",
     description: "Site survey e progettazione rete Wi-Fi 5 e Wi-Fi 6 per magazzino da 15.000 mq con Ekahau AI. Upgrade da Wi-Fi 2.4 GHz a 5 GHz e 6 GHz per copertura ottimale di 200+ dispositivi mobili.",
     tags: ["Ekahau AI", "Wi-Fi 5", "Wi-Fi 6", "Upgrade 2.4→5/6 GHz", "Site Survey"],
@@ -68,10 +69,11 @@ const Progetti = () => {
               const isRevamping = project.title === "Revamping linea di confezionamento";
               const isSCADA = project.slug === "scada-chimico";
               const isIoT = project.slug === "iot-industriale";
+              const isWirelessSurvey = project.slug === "wireless-survey";
               const card = (
                 <div
                   className={`group p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300 flex flex-col h-full ${
-                    isLinea || isRevamping || isSCADA || isIoT ? "cursor-pointer" : ""
+                    isLinea || isRevamping || isSCADA || isIoT || isWirelessSurvey ? "cursor-pointer" : ""
                   }`}
                 >
                   <p className="text-xs text-primary font-medium mb-3">
@@ -115,6 +117,14 @@ const Progetti = () => {
               if (isIoT) {
                 return (
                   <Link key={project.title} to="/progetti/iot-industriale">
+                    {card}
+                  </Link>
+                );
+              }
+
+              if (isWirelessSurvey) {
+                return (
+                  <Link key={project.title} to="/progetti/wireless-survey">
                     {card}
                   </Link>
                 );
