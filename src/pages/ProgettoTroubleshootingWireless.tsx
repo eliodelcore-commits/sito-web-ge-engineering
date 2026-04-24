@@ -73,7 +73,7 @@ const ProgettoTroubleshootingWireless = () => {
             <div className="p-6 rounded-xl border border-border bg-card">
               <h3 className="font-heading text-lg font-semibold mb-3">Risultati ottenuti</h3>
               <ul className="text-sm text-muted-foreground space-y-2 list-disc pl-5">
-                <li>Riduzione disconnessioni client su veicoli RCV &gt;</li>
+                <li>Riduzione disconnessioni client su veicoli RGV &gt;</li>
                 <li>Roaming &lt; 50 ms tra AP</li>
                 <li>Eliminazione interferenze co-channel</li>
                 <li>Copertura uniforme su entrambi i piani</li>
