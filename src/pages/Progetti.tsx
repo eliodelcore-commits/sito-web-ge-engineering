@@ -38,6 +38,7 @@ const projects = [
   },
   {
     title: "Analisi e troubleshooting su reti wireless in un magazzino automatico su due piani con ambienti RF complessi",
+    slug: "troubleshooting-wireless",
     category: "Wireless Planning",
     description: "Progettazione e validazione rete wireless per stabilimento multi-piano con ambienti RF complessi.",
     tags: ["Ekahau AI", "RF Design", "Validazione"],
@@ -70,10 +71,11 @@ const Progetti = () => {
               const isSCADA = project.slug === "scada-chimico";
               const isIoT = project.slug === "iot-industriale";
               const isWirelessSurvey = project.slug === "wireless-survey";
+              const isTroubleshooting = project.slug === "troubleshooting-wireless";
               const card = (
                 <div
                   className={`group p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300 flex flex-col h-full ${
-                    isLinea || isRevamping || isSCADA || isIoT || isWirelessSurvey ? "cursor-pointer" : ""
+                    isLinea || isRevamping || isSCADA || isIoT || isWirelessSurvey || isTroubleshooting ? "cursor-pointer" : ""
                   }`}
                 >
                   <p className="text-xs text-primary font-medium mb-3">
@@ -125,6 +127,14 @@ const Progetti = () => {
               if (isWirelessSurvey) {
                 return (
                   <Link key={project.title} to="/progetti/wireless-survey">
+                    {card}
+                  </Link>
+                );
+              }
+
+              if (isTroubleshooting) {
+                return (
+                  <Link key={project.title} to="/progetti/troubleshooting-wireless">
                     {card}
                   </Link>
                 );
