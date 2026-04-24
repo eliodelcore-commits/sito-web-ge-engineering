@@ -16,6 +16,7 @@ import ProgettoIoT from "./pages/ProgettoIoT";
 import ProgettoRevampingConfezionamento from "./pages/ProgettoRevampingConfezionamento";
 import ProgettoLineaAutomatizzata from "./pages/ProgettoLineaAutomatizzata";
 import ProgettoSCADAChimico from "./pages/ProgettoSCADAChimico";
+import ProgettoWirelessSurvey from "./pages/ProgettoWirelessSurvey";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/progetti/revamping-confezionamento" element={<ProgettoRevampingConfezionamento />} />
           <Route path="/progetti/linea-automatizzata" element={<ProgettoLineaAutomatizzata />} />
           <Route path="/progetti/scada-chimico" element={<ProgettoSCADAChimico />} />
+          <Route path="/progetti/wireless-survey" element={<ProgettoWirelessSurvey />} />
           <Route path="/servizi/assistenza-tecnica" element={<AssistenzaTecnica />} />
           <Route path="/contatti" element={<GenContatti />} />
           <Route path="/holistic" element={<HolisticLanding />} />
