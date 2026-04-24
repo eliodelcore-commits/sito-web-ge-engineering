@@ -17,7 +17,7 @@ const projects = [
     tags: ["WinCC SCADA", "OPC-UA", "S7-1516F Safety", "Historian", "ESD", "2000+ I/O"],
   },
   {
-    title: "Wireless survey magazzino logistico",
+    title: "Wireless survey magazzino logistico automatico",
     category: "Wireless Planning",
     description: "Site survey e progettazione rete Wi-Fi 5 e Wi-Fi 6 per magazzino da 15.000 mq con Ekahau AI. Upgrade da Wi-Fi 2.4 GHz a 5 GHz e 6 GHz per copertura ottimale di 200+ dispositivi mobili.",
     tags: ["Ekahau AI", "Wi-Fi 5", "Wi-Fi 6", "Upgrade 2.4→5/6 GHz", "Site Survey"],
