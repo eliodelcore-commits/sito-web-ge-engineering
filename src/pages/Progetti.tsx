@@ -36,7 +36,7 @@ const projects = [
     tags: ["IoT", "MQTT", "InfluxDB", "Grafana", "Edge Gateway", "Predictive Maintenance"],
   },
   {
-    title: "Copertura wireless stabilimento produttivo",
+    title: "Analisi e troubleshooting su reti wireless in un magazzino automatico su due piani con ambienti RF complessi",
     category: "Wireless Planning",
     description: "Progettazione e validazione rete wireless per stabilimento multi-piano con ambienti RF complessi.",
     tags: ["Ekahau AI", "RF Design", "Validazione"],
