@@ -2,6 +2,7 @@ import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
 import heroImg from "@/assets/automazione-hardware-hero.jpg";
 import trasloelevatore from "@/assets/trasloelevatore.jpg";
+import trasloelevatoreVideo from "@/assets/trasloelevatore-animation.mp4.asset.json";
 import robot from "@/assets/robot-industriale.jpg";
 import lgv from "@/assets/lgv-veicolo.jpg";
 
@@ -11,6 +12,7 @@ const machines = [
     description:
       "Installiamo, configuriamo e mettiamo in servizio trasloelevatori a 3 assi (X/Y/Z) per magazzini verticali ad alta densità. Ci occupiamo del commissioning completo e del service post-avviamento.",
     image: trasloelevatore,
+    video: trasloelevatoreVideo.url,
   },
   {
     title: "Robot Industriali",
@@ -73,14 +75,28 @@ const AutomazioneHardware = () => {
                 </p>
               </div>
               <div className={i % 2 !== 0 ? "md:[direction:ltr]" : ""}>
-                <img
-                  src={machine.image}
-                  alt={machine.title}
-                  className="rounded-xl w-full object-cover aspect-[4/3]"
-                  loading="lazy"
-                  width={800}
-                  height={600}
-                />
+                {machine.video ? (
+                  <video
+                    src={machine.video}
+                    poster={machine.image}
+                    className="rounded-xl w-full object-cover aspect-[4/3]"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    width={800}
+                    height={600}
+                  />
+                ) : (
+                  <img
+                    src={machine.image}
+                    alt={machine.title}
+                    className="rounded-xl w-full object-cover aspect-[4/3]"
+                    loading="lazy"
+                    width={800}
+                    height={600}
+                  />
+                )}
               </div>
             </div>
           ))}
