@@ -119,20 +119,26 @@ const Hero = () => {
             </g>
           </svg>
 
-          {/* Vertical extension — only in the dark band of the right column */}
+          {/* Vertical extension — only in the dark/blue band of the right column,
+              kept entirely off the SEW inverter photo. The dark overlay covers
+              roughly the first 35% of the right column (which is 70% of the grid),
+              so the band lives between 30% and ~54% of the section width.
+              A horizontal mask fades it out before reaching the photo. */}
           <svg
             viewBox="0 0 200 600"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
             preserveAspectRatio="none"
-            className="absolute top-[30%] h-[70%] opacity-50"
+            className="absolute top-[30%] h-[70%] opacity-55"
             style={{
               left: "30%",
-              width: "20%",
+              width: "22%",
               maskImage:
-                "linear-gradient(to bottom, transparent 0%, black 15%, black 80%, transparent 100%)",
+                "linear-gradient(to right, black 0%, black 55%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 85%, transparent 100%)",
               WebkitMaskImage:
-                "linear-gradient(to bottom, transparent 0%, black 15%, black 80%, transparent 100%)",
+                "linear-gradient(to right, black 0%, black 55%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 85%, transparent 100%)",
+              maskComposite: "intersect",
+              WebkitMaskComposite: "source-in",
             }}
           >
             <g
