@@ -18,8 +18,8 @@ interface MeshBackgroundProps {
  */
 const MeshBackground = ({
   className = "pointer-events-none absolute inset-0 w-full h-full z-0",
-  cols = 9,
-  rows = 14,
+  cols = 18,
+  rows = 28,
   animated = true,
   focal = { x: 0.25, y: 0.2 },
 }: MeshBackgroundProps) => {
@@ -28,7 +28,7 @@ const MeshBackground = ({
     const H = 600;
     const dx = W / cols;
     const dy = H / rows;
-    const jitter = 4;
+    const jitter = 0;
 
     const rand = (i: number, j: number) => {
       const s = Math.sin(i * 928.37 + j * 311.7) * 43758.5453;
