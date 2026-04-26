@@ -9,18 +9,18 @@ const Hero = () => {
       <div className="grid grid-cols-1 md:grid-cols-[3fr_7fr] min-h-[calc(100vh-4rem)]">
         {/* Left column: navbar background, logo + description */}
         <div className="bg-background flex flex-col px-6 md:px-10 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-12">
-          <div className="self-start mb-16 md:mb-24 lg:mb-28">
+          <div className="w-full mb-16 md:mb-24 lg:mb-28">
             <img
               src={logo}
               alt="GEENGINEERING SRL"
-              className="h-20 sm:h-24 md:h-28 lg:h-36 xl:h-44 w-auto object-contain"
+              className="h-20 sm:h-24 md:h-28 lg:h-36 xl:h-44 w-auto object-contain self-start"
             />
             {/* Abstract low-poly line pattern inspired by the brand business card */}
             <svg
               viewBox="0 0 400 110"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
-              className="mt-3 w-full max-w-[420px] h-auto opacity-70"
+              className="mt-3 w-full h-auto opacity-70"
               preserveAspectRatio="none"
             >
               <g
