@@ -132,11 +132,11 @@ const Hero = () => {
             className="absolute top-[30%] h-[70%] opacity-55"
             style={{
               left: "30%",
-              width: "22%",
+              width: "15%",
               maskImage:
-                "linear-gradient(to right, black 0%, black 55%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 85%, transparent 100%)",
+                "linear-gradient(to right, black 0%, black 70%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 85%, transparent 100%)",
               WebkitMaskImage:
-                "linear-gradient(to right, black 0%, black 55%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 85%, transparent 100%)",
+                "linear-gradient(to right, black 0%, black 70%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 85%, transparent 100%)",
               maskComposite: "intersect",
               WebkitMaskComposite: "source-in",
             }}
