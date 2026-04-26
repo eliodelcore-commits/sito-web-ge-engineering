@@ -14,7 +14,7 @@ const Hero = () => {
             viewBox="0 0 400 600"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
-            preserveAspectRatio="none"
+            preserveAspectRatio="xMidYMid slice"
             className="pointer-events-none absolute inset-0 w-full h-full opacity-25 z-0"
           >
             <g
