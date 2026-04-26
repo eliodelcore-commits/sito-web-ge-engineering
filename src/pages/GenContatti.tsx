@@ -1,5 +1,6 @@
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import MeshBackground from "@/components/gen/MeshBackground";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
 
@@ -16,8 +17,13 @@ const GenContatti = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <div className="pt-32 pb-24">
-        <div className="container mx-auto px-6">
+      <div className="relative pt-32 pb-24 overflow-hidden bg-background flex-1">
+        {/* Decorative ambient mesh background */}
+        <MeshBackground
+          focal={{ x: 0.18, y: 0.18 }}
+          className="pointer-events-none absolute inset-0 w-full h-full z-0 opacity-90"
+        />
+        <div className="container mx-auto px-6 relative z-10">
           <p className="text-primary text-sm font-medium mb-2">Contatti</p>
           <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">
             Parliamone
