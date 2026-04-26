@@ -10,6 +10,10 @@ interface MeshBackgroundProps {
   animated?: boolean;
   /** Position of the brightest cluster, normalized 0-1 */
   focal?: { x: number; y: number };
+  /** Stroke width of the triangle lines */
+  strokeWidth?: number;
+  /** Radius of the vertex node dots */
+  nodeRadius?: number;
 }
 
 /**
@@ -22,6 +26,8 @@ const MeshBackground = ({
   rows = 44,
   animated = true,
   focal = { x: 0.25, y: 0.2 },
+  strokeWidth = 0.5,
+  nodeRadius = 0.9,
 }: MeshBackgroundProps) => {
   const mesh = useMemo(() => {
     const W = 400;
@@ -138,7 +144,7 @@ const MeshBackground = ({
         <g
           fill="none"
           stroke={`url(#${fadeId})`}
-          strokeWidth="0.5"
+          strokeWidth={strokeWidth}
           strokeLinecap="round"
           strokeLinejoin="round"
           className={animated ? "mesh-drift" : undefined}
@@ -155,7 +161,7 @@ const MeshBackground = ({
               key={idx}
               cx={n.x}
               cy={n.y}
-              r={0.9}
+              r={nodeRadius}
               opacity={Math.max(
                 0.08,
                 0.55 - (n.x / mesh.W) * 0.35 - (n.y / mesh.H) * 0.15
