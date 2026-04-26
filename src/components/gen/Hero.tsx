@@ -9,18 +9,60 @@ const Hero = () => {
       <div className="grid grid-cols-1 md:grid-cols-[3fr_7fr] min-h-[calc(100vh-4rem)]">
         {/* Left column: navbar background, logo + description */}
         <div className="relative bg-background flex flex-col px-6 md:px-10 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-12 overflow-hidden">
-          {/* Decorative low-poly mesh background — top-left to bottom-right */}
+          {/* Decorative low-poly mesh background — refined, professional look */}
           <svg
             viewBox="0 0 400 600"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
             preserveAspectRatio="xMidYMid slice"
-            className="pointer-events-none absolute inset-0 w-full h-full opacity-25 z-0"
+            className="pointer-events-none absolute inset-0 w-full h-full z-0"
           >
+            <defs>
+              {/* Vertical fade: stronger top-left, softer toward bottom */}
+              <linearGradient id="meshFade" x1="0" y1="0" x2="0.6" y2="1">
+                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.55" />
+                <stop offset="55%" stopColor="hsl(var(--primary))" stopOpacity="0.18" />
+                <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.04" />
+              </linearGradient>
+              {/* Subtle glow for nodes */}
+              <radialGradient id="nodeGlow" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+              </radialGradient>
+              <filter id="meshBlur" x="-10%" y="-10%" width="120%" height="120%">
+                <feGaussianBlur stdDeviation="0.4" />
+              </filter>
+            </defs>
+
+            {/* Soft underlying glow layer */}
             <g
               fill="none"
-              stroke="hsl(var(--primary))"
-              strokeWidth="0.5"
+              stroke="url(#meshFade)"
+              strokeWidth="1.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              opacity="0.35"
+              filter="url(#meshBlur)"
+            >
+              <polygon points="0,0 60,20 30,80" />
+              <polygon points="60,20 130,5 110,60" />
+              <polygon points="130,5 200,30 170,70" />
+              <polygon points="200,30 280,10 260,55" />
+              <polygon points="280,10 360,40 330,85" />
+              <polygon points="30,80 110,60 90,150" />
+              <polygon points="110,60 170,70 160,140" />
+              <polygon points="170,70 260,55 240,135" />
+              <polygon points="260,55 330,85 320,160" />
+              <polygon points="90,150 160,140 130,220" />
+              <polygon points="160,140 240,135 210,210" />
+              <polygon points="240,135 320,160 300,230" />
+            </g>
+
+            {/* Crisp mesh lines */}
+            <g
+              fill="none"
+              stroke="url(#meshFade)"
+              strokeWidth="0.6"
               strokeLinecap="round"
               strokeLinejoin="round"
             >
@@ -79,6 +121,28 @@ const Hero = () => {
               <polygon points="70,520 170,500 160,600" />
               <polygon points="170,500 260,510 250,600" />
               <polygon points="260,510 360,530 360,600" />
+            </g>
+
+            {/* Highlighted nodes at key vertices (top-left cluster, fading away) */}
+            <g fill="hsl(var(--primary))">
+              <circle cx="60" cy="20" r="1.4" opacity="0.9" />
+              <circle cx="130" cy="5" r="1.2" opacity="0.85" />
+              <circle cx="200" cy="30" r="1.4" opacity="0.8" />
+              <circle cx="280" cy="10" r="1.2" opacity="0.7" />
+              <circle cx="110" cy="60" r="1.6" opacity="0.85" />
+              <circle cx="170" cy="70" r="1.2" opacity="0.7" />
+              <circle cx="260" cy="55" r="1.4" opacity="0.65" />
+              <circle cx="330" cy="85" r="1.2" opacity="0.55" />
+              <circle cx="90" cy="150" r="1.4" opacity="0.55" />
+              <circle cx="240" cy="135" r="1.2" opacity="0.4" />
+              <circle cx="160" cy="140" r="1" opacity="0.45" />
+              <circle cx="320" cy="160" r="1" opacity="0.35" />
+            </g>
+            {/* Soft glow halos on a few featured nodes */}
+            <g>
+              <circle cx="60" cy="20" r="6" fill="url(#nodeGlow)" opacity="0.6" />
+              <circle cx="200" cy="30" r="7" fill="url(#nodeGlow)" opacity="0.45" />
+              <circle cx="110" cy="60" r="6" fill="url(#nodeGlow)" opacity="0.4" />
             </g>
           </svg>
 
