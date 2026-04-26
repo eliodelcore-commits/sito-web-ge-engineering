@@ -3,146 +3,128 @@ import { Link } from "react-router-dom";
 import logo from "@/assets/logo-genginering-hero.png";
 import bgDrives from "@/assets/home-bg-drives.jpg";
 
+// Generate a regular triangulated grid (with subtle jitter) for the hero mesh.
+// Deterministic — no animation, no re-renders.
+const buildMesh = () => {
+  const W = 400;
+  const H = 600;
+  const cols = 9;
+  const rows = 14;
+  const dx = W / cols;
+  const dy = H / rows;
+  const jitter = 4; // subtle organic offset
+
+  // Deterministic pseudo-random
+  const rand = (i: number, j: number) => {
+    const s = Math.sin(i * 928.37 + j * 311.7) * 43758.5453;
+    return s - Math.floor(s);
+  };
+
+  const pt = (i: number, j: number) => {
+    // Offset every other row to create equilateral-ish triangles
+    const ox = j % 2 === 0 ? 0 : dx / 2;
+    // Pin border vertices so the mesh covers edges cleanly
+    const isBorder = i === 0 || i === cols || j === 0 || j === rows;
+    const jx = isBorder ? 0 : (rand(i, j) - 0.5) * jitter * 2;
+    const jy = isBorder ? 0 : (rand(j, i) - 0.5) * jitter * 2;
+    return [Math.round((i * dx + ox + jx) * 10) / 10, Math.round((j * dy + jy) * 10) / 10] as const;
+  };
+
+  const triangles: string[] = [];
+  const nodes: { x: number; y: number }[] = [];
+
+  for (let j = 0; j < rows; j++) {
+    for (let i = 0; i < cols; i++) {
+      const a = pt(i, j);
+      const b = pt(i + 1, j);
+      const c = pt(i, j + 1);
+      const d = pt(i + 1, j + 1);
+      triangles.push(`${a[0]},${a[1]} ${b[0]},${b[1]} ${d[0]},${d[1]}`);
+      triangles.push(`${a[0]},${a[1]} ${d[0]},${d[1]} ${c[0]},${c[1]}`);
+    }
+  }
+
+  for (let j = 0; j <= rows; j++) {
+    for (let i = 0; i <= cols; i++) {
+      const [x, y] = pt(i, j);
+      nodes.push({ x, y });
+    }
+  }
+
+  return { triangles, nodes, W, H };
+};
+
+const MESH = buildMesh();
+
 const Hero = () => {
   return (
     <section className="min-h-screen relative overflow-hidden pt-16 bg-background">
       <div className="grid grid-cols-1 md:grid-cols-[3fr_7fr] min-h-[calc(100vh-4rem)]">
         {/* Left column: navbar background, logo + description */}
         <div className="relative bg-background flex flex-col px-6 md:px-10 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-12 overflow-hidden">
-          {/* Decorative low-poly mesh background — refined, professional look */}
+          {/* Decorative triangulated mesh — uniform, integrated, professional */}
           <svg
-            viewBox="0 0 400 600"
+            viewBox={`0 0 ${MESH.W} ${MESH.H}`}
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
             preserveAspectRatio="xMidYMid slice"
             className="pointer-events-none absolute inset-0 w-full h-full z-0"
           >
             <defs>
-              {/* Vertical fade: stronger top-left, softer toward bottom */}
-              <linearGradient id="meshFade" x1="0" y1="0" x2="0.6" y2="1">
-                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.55" />
-                <stop offset="55%" stopColor="hsl(var(--primary))" stopOpacity="0.18" />
-                <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.04" />
+              {/* Diagonal fade — top-left bright, bottom-right soft */}
+              <linearGradient id="meshFade" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.5" />
+                <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.22" />
+                <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.08" />
               </linearGradient>
-              {/* Subtle glow for nodes */}
+              {/* Radial vignette to integrate edges with background */}
+              <radialGradient id="meshVignette" cx="0.25" cy="0.2" r="0.95">
+                <stop offset="0%" stopColor="white" stopOpacity="1" />
+                <stop offset="70%" stopColor="white" stopOpacity="0.55" />
+                <stop offset="100%" stopColor="white" stopOpacity="0" />
+              </radialGradient>
               <radialGradient id="nodeGlow" cx="0.5" cy="0.5" r="0.5">
                 <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.9" />
                 <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
               </radialGradient>
-              <filter id="meshBlur" x="-10%" y="-10%" width="120%" height="120%">
-                <feGaussianBlur stdDeviation="0.4" />
-              </filter>
+              <mask id="meshMask">
+                <rect width={MESH.W} height={MESH.H} fill="url(#meshVignette)" />
+              </mask>
             </defs>
 
-            {/* Soft underlying glow layer */}
-            <g
-              fill="none"
-              stroke="url(#meshFade)"
-              strokeWidth="1.4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              opacity="0.35"
-              filter="url(#meshBlur)"
-            >
-              <polygon points="0,0 60,20 30,80" />
-              <polygon points="60,20 130,5 110,60" />
-              <polygon points="130,5 200,30 170,70" />
-              <polygon points="200,30 280,10 260,55" />
-              <polygon points="280,10 360,40 330,85" />
-              <polygon points="30,80 110,60 90,150" />
-              <polygon points="110,60 170,70 160,140" />
-              <polygon points="170,70 260,55 240,135" />
-              <polygon points="260,55 330,85 320,160" />
-              <polygon points="90,150 160,140 130,220" />
-              <polygon points="160,140 240,135 210,210" />
-              <polygon points="240,135 320,160 300,230" />
-            </g>
+            <g mask="url(#meshMask)">
+              {/* Uniform triangulated mesh */}
+              <g
+                fill="none"
+                stroke="url(#meshFade)"
+                strokeWidth="0.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                {MESH.triangles.map((pts, idx) => (
+                  <polygon key={idx} points={pts} />
+                ))}
+              </g>
 
-            {/* Crisp mesh lines */}
-            <g
-              fill="none"
-              stroke="url(#meshFade)"
-              strokeWidth="0.6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              {/* Triangulated mesh sweeping from top-left to bottom-right */}
-              <polygon points="0,0 60,20 30,80" />
-              <polygon points="60,20 130,5 110,60" />
-              <polygon points="130,5 200,30 170,70" />
-              <polygon points="200,30 280,10 260,55" />
-              <polygon points="280,10 360,40 330,85" />
-              <polygon points="60,20 110,60 30,80" />
-              <polygon points="110,60 170,70 130,5" />
-              <polygon points="170,70 260,55 200,30" />
-              <polygon points="260,55 330,85 280,10" />
-              <polygon points="30,80 110,60 90,150" />
-              <polygon points="110,60 170,70 160,140" />
-              <polygon points="170,70 260,55 240,135" />
-              <polygon points="260,55 330,85 320,160" />
-              <polygon points="330,85 400,120 380,200" />
-              <polygon points="90,150 160,140 130,220" />
-              <polygon points="160,140 240,135 210,210" />
-              <polygon points="240,135 320,160 300,230" />
-              <polygon points="320,160 380,200 360,260" />
-              <polygon points="0,140 90,150 50,230" />
-              <polygon points="50,230 130,220 90,150" />
-              <polygon points="130,220 210,210 160,140" />
-              <polygon points="210,210 300,230 240,135" />
-              <polygon points="300,230 360,260 320,160" />
-              <polygon points="50,230 130,220 110,310" />
-              <polygon points="130,220 210,210 200,300" />
-              <polygon points="210,210 300,230 280,310" />
-              <polygon points="300,230 360,260 360,340" />
-              <polygon points="0,260 50,230 30,330" />
-              <polygon points="30,330 110,310 50,230" />
-              <polygon points="110,310 200,300 130,220" />
-              <polygon points="200,300 280,310 210,210" />
-              <polygon points="280,310 360,340 300,230" />
-              <polygon points="30,330 110,310 90,420" />
-              <polygon points="110,310 200,300 180,400" />
-              <polygon points="200,300 280,310 270,410" />
-              <polygon points="280,310 360,340 360,430" />
-              <polygon points="0,360 30,330 20,440" />
-              <polygon points="20,440 90,420 30,330" />
-              <polygon points="90,420 180,400 110,310" />
-              <polygon points="180,400 270,410 200,300" />
-              <polygon points="270,410 360,430 280,310" />
-              <polygon points="20,440 90,420 70,520" />
-              <polygon points="90,420 180,400 170,500" />
-              <polygon points="180,400 270,410 260,510" />
-              <polygon points="270,410 360,430 360,530" />
-              <polygon points="0,470 20,440 10,560" />
-              <polygon points="10,560 70,520 20,440" />
-              <polygon points="70,520 170,500 90,420" />
-              <polygon points="170,500 260,510 180,400" />
-              <polygon points="260,510 360,530 270,410" />
-              <polygon points="10,560 70,520 60,600" />
-              <polygon points="70,520 170,500 160,600" />
-              <polygon points="170,500 260,510 250,600" />
-              <polygon points="260,510 360,530 360,600" />
-            </g>
+              {/* Nodes at every vertex — small, uniform */}
+              <g fill="hsl(var(--primary))">
+                {MESH.nodes.map((n, idx) => (
+                  <circle
+                    key={idx}
+                    cx={n.x}
+                    cy={n.y}
+                    r={0.9}
+                    opacity={0.55 - (n.x / MESH.W) * 0.35 - (n.y / MESH.H) * 0.15}
+                  />
+                ))}
+              </g>
 
-            {/* Highlighted nodes at key vertices (top-left cluster, fading away) */}
-            <g fill="hsl(var(--primary))">
-              <circle cx="60" cy="20" r="1.4" opacity="0.9" />
-              <circle cx="130" cy="5" r="1.2" opacity="0.85" />
-              <circle cx="200" cy="30" r="1.4" opacity="0.8" />
-              <circle cx="280" cy="10" r="1.2" opacity="0.7" />
-              <circle cx="110" cy="60" r="1.6" opacity="0.85" />
-              <circle cx="170" cy="70" r="1.2" opacity="0.7" />
-              <circle cx="260" cy="55" r="1.4" opacity="0.65" />
-              <circle cx="330" cy="85" r="1.2" opacity="0.55" />
-              <circle cx="90" cy="150" r="1.4" opacity="0.55" />
-              <circle cx="240" cy="135" r="1.2" opacity="0.4" />
-              <circle cx="160" cy="140" r="1" opacity="0.45" />
-              <circle cx="320" cy="160" r="1" opacity="0.35" />
-            </g>
-            {/* Soft glow halos on a few featured nodes */}
-            <g>
-              <circle cx="60" cy="20" r="6" fill="url(#nodeGlow)" opacity="0.6" />
-              <circle cx="200" cy="30" r="7" fill="url(#nodeGlow)" opacity="0.45" />
-              <circle cx="110" cy="60" r="6" fill="url(#nodeGlow)" opacity="0.4" />
+              {/* A few luminous accent nodes in the upper-left cluster */}
+              <g>
+                <circle cx={MESH.W * 0.18} cy={MESH.H * 0.08} r="6" fill="url(#nodeGlow)" opacity="0.5" />
+                <circle cx={MESH.W * 0.42} cy={MESH.H * 0.14} r="7" fill="url(#nodeGlow)" opacity="0.4" />
+                <circle cx={MESH.W * 0.28} cy={MESH.H * 0.22} r="5" fill="url(#nodeGlow)" opacity="0.35" />
+              </g>
             </g>
           </svg>
 
