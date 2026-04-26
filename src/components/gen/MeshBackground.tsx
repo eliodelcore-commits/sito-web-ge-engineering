@@ -170,8 +170,6 @@ const MeshBackground = ({
                   ? {
                       transformBox: "fill-box",
                       transformOrigin: "center",
-                      animationDelay: `${(rand2(idx) * 6).toFixed(2)}s`,
-                      animationDuration: `${(3.5 + rand2(idx + 7) * 4).toFixed(2)}s`,
                     }
                   : undefined
               }
