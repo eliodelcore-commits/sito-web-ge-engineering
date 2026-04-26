@@ -85,13 +85,17 @@
   50%      { opacity: 0.9;  transform: scale(1.06); }
 }
 @keyframes meshNodeTwinkle {
-  0%, 100% {
-    opacity: 0.3;
+  0%, 47%, 53%, 100% {
+    opacity: 0.25;
     filter: drop-shadow(0 0 0 hsl(var(--primary) / 0));
   }
-  48%, 52% {
+  49%, 51% {
     opacity: 1;
-    filter: drop-shadow(0 0 4px hsl(var(--primary) / 0.95));
+    filter: drop-shadow(0 0 5px hsl(var(--primary) / 1));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px hsl(var(--primary) / 1));
   }
 }
 .mesh-drift {
@@ -105,7 +109,7 @@
   will-change: transform, opacity;
 }
 .mesh-node-twinkle {
-  animation: meshNodeTwinkle 24s ease-in-out infinite;
+  animation: meshNodeTwinkle 24s linear infinite;
   will-change: opacity, filter;
 }
 @media (prefers-reduced-motion: reduce) {
