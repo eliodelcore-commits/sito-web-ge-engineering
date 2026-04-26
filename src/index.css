@@ -105,10 +105,8 @@
   will-change: transform, opacity;
 }
 .mesh-node-twinkle {
-  animation-name: meshNodeTwinkle;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  will-change: opacity, transform, filter;
+  animation: meshNodeTwinkle 24s ease-in-out infinite;
+  will-change: opacity, filter;
 }
 @media (prefers-reduced-motion: reduce) {
   .mesh-drift, .mesh-pulse, .mesh-node-twinkle { animation: none; }
