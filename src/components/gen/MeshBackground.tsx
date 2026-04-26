@@ -18,8 +18,8 @@ interface MeshBackgroundProps {
  */
 const MeshBackground = ({
   className = "pointer-events-none absolute inset-0 w-full h-full z-0",
-  cols = 18,
-  rows = 28,
+  cols = 28,
+  rows = 44,
   animated = true,
   focal = { x: 0.25, y: 0.2 },
 }: MeshBackgroundProps) => {
