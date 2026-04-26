@@ -10,12 +10,14 @@ const Hero = () => {
         {/* Left column: navbar background, logo + description */}
         <div className="relative bg-background flex flex-col px-6 md:px-10 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-12">
           {/* Abstract low-poly line web — single connected drawing inspired by the business card.
-              Spans from the top of the column (just under the navbar) down to the badge below. */}
+              Spans from the top-left of the column (under the navbar) down to just above the
+              "Automazione Industriale" badge, and horizontally extends past the column into
+              ~30% of the right background area. */}
           <svg
             viewBox="0 0 400 320"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
-            className="absolute left-0 right-0 top-0 w-full h-[58%] opacity-50 pointer-events-none z-0"
+            className="absolute left-0 top-0 w-[140%] h-[38%] opacity-50 pointer-events-none z-0"
             preserveAspectRatio="none"
           >
             <g
