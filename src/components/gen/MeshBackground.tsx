@@ -72,10 +72,6 @@ const MeshBackground = ({
 
   // Stable but unique ids per instance (avoids gradient/mask collisions if multiple mounted)
   const uid = useMemo(() => Math.random().toString(36).slice(2, 8), []);
-  const rand2 = (n: number) => {
-    const s = Math.sin(n * 127.1 + 311.7) * 43758.5453;
-    return s - Math.floor(s);
-  };
   const fadeId = `meshFade-${uid}`;
   const vignetteId = `meshVignette-${uid}`;
   const glowId = `nodeGlow-${uid}`;
@@ -170,8 +166,6 @@ const MeshBackground = ({
                   ? {
                       transformBox: "fill-box",
                       transformOrigin: "center",
-                      animationDelay: `${(rand2(idx) * 6).toFixed(2)}s`,
-                      animationDuration: `${(3.5 + rand2(idx + 7) * 4).toFixed(2)}s`,
                     }
                   : undefined
               }
