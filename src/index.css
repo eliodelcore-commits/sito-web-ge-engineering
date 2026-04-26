@@ -73,3 +73,27 @@
     background-clip: text;
   }
 }
+
+/* Decorative mesh background — extremely slow ambient motion (non-distracting) */
+@keyframes meshDrift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(-0.6%, 0.4%, 0) scale(1.012); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes meshPulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.9;  transform: scale(1.06); }
+}
+.mesh-drift {
+  animation: meshDrift 24s ease-in-out infinite;
+  will-change: transform;
+}
+.mesh-pulse {
+  animation: meshPulse 9s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mesh-drift, .mesh-pulse { animation: none; }
+}
