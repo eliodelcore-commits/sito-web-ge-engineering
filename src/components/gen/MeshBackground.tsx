@@ -160,6 +160,17 @@ const MeshBackground = ({
                 0.08,
                 0.55 - (n.x / mesh.W) * 0.35 - (n.y / mesh.H) * 0.15
               )}
+              className={animated ? "mesh-node-twinkle" : undefined}
+              style={
+                animated
+                  ? {
+                      transformBox: "fill-box",
+                      transformOrigin: "center",
+                      animationDelay: `${(rand2(idx) * 6).toFixed(2)}s`,
+                      animationDuration: `${(3.5 + rand2(idx + 7) * 4).toFixed(2)}s`,
+                    }
+                  : undefined
+              }
             />
           ))}
         </g>
