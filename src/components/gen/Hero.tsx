@@ -8,62 +8,74 @@ const Hero = () => {
     <section className="min-h-screen relative overflow-hidden pt-16 bg-background">
       <div className="grid grid-cols-1 md:grid-cols-[3fr_7fr] min-h-[calc(100vh-4rem)]">
         {/* Left column: navbar background, logo + description */}
-        <div className="bg-background flex flex-col px-6 md:px-10 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-12">
-          <div className="relative w-full mb-16 md:mb-24 lg:mb-28">
-            {/* Abstract low-poly line pattern inspired by the brand business card */}
-            <svg
-              viewBox="0 0 400 220"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-              className="absolute inset-0 w-full h-full opacity-60 pointer-events-none"
-              preserveAspectRatio="none"
+        <div className="relative bg-background flex flex-col px-6 md:px-10 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-12">
+          {/* Abstract low-poly line web — single connected drawing inspired by the business card.
+              Spans from the top of the column (just under the navbar) down to the badge below. */}
+          <svg
+            viewBox="0 0 400 320"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            className="absolute left-0 right-0 top-0 w-full h-[58%] opacity-50 pointer-events-none z-0"
+            preserveAspectRatio="none"
+          >
+            <g
+              fill="none"
+              stroke="hsl(var(--primary))"
+              strokeWidth="0.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <g
-                fill="none"
-                stroke="hsl(var(--primary))"
-                strokeWidth="0.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                {/* Top half */}
-                <polyline points="5,40 60,10 130,30 90,70 5,40" />
-                <polyline points="60,10 150,5 200,35 130,30" />
-                <polyline points="150,5 230,20 200,35" />
-                <polyline points="200,35 280,15 340,40 230,20" />
-                <polyline points="280,15 360,5 395,35 340,40" />
-                <polyline points="130,30 200,75 90,70" />
-                <polyline points="200,75 280,55 340,40" />
-                <polyline points="200,75 290,90 360,70 395,35" />
-                {/* Middle band (behind the logo) */}
-                <polyline points="5,110 80,95 160,115 220,100 300,120 380,105 395,140" />
-                <polyline points="5,140 70,125 140,150 210,130 290,155 370,135 395,170" />
-                {/* Bottom half */}
-                <polyline points="5,180 60,150 130,175 90,210 5,180" />
-                <polyline points="60,150 150,140 200,170 130,175" />
-                <polyline points="200,170 280,150 340,180 230,160" />
-                <polyline points="280,150 360,140 395,175 340,180" />
-                <polyline points="130,175 200,215 90,210" />
-                <polyline points="200,215 280,195 340,180" />
-                <polyline points="200,215 290,200 360,215 395,175" />
-                <line x1="60" y1="10" x2="200" y2="75" />
-                <line x1="150" y1="5" x2="290" y2="90" />
-                <line x1="60" y1="150" x2="200" y2="215" />
-                <line x1="150" y1="140" x2="290" y2="200" />
-              </g>
-            </svg>
+              {/* One continuous interconnected mesh of triangles, like the business card sketch */}
+              <path d="M 5 25 L 70 10 L 140 35 L 60 65 Z" />
+              <path d="M 70 10 L 140 35 L 200 8 Z" />
+              <path d="M 200 8 L 140 35 L 230 55 Z" />
+              <path d="M 200 8 L 230 55 L 290 20 Z" />
+              <path d="M 290 20 L 230 55 L 320 75 Z" />
+              <path d="M 290 20 L 320 75 L 395 30 Z" />
+              <path d="M 395 30 L 320 75 L 395 95 Z" />
+              <path d="M 60 65 L 140 35 L 130 110 Z" />
+              <path d="M 140 35 L 230 55 L 200 120 Z" />
+              <path d="M 230 55 L 320 75 L 280 130 Z" />
+              <path d="M 320 75 L 395 95 L 360 150 Z" />
+              <path d="M 5 25 L 60 65 L 20 130 Z" />
+              <path d="M 60 65 L 130 110 L 20 130 Z" />
+              <path d="M 130 110 L 200 120 L 90 175 Z" />
+              <path d="M 200 120 L 280 130 L 210 195 Z" />
+              <path d="M 280 130 L 360 150 L 320 215 Z" />
+              <path d="M 360 150 L 395 95 L 395 200 Z" />
+              <path d="M 20 130 L 130 110 L 90 175 Z" />
+              <path d="M 90 175 L 200 120 L 210 195 Z" />
+              <path d="M 210 195 L 280 130 L 320 215 Z" />
+              <path d="M 320 215 L 360 150 L 395 200 Z" />
+              <path d="M 20 130 L 90 175 L 5 220 Z" />
+              <path d="M 90 175 L 210 195 L 130 250 Z" />
+              <path d="M 210 195 L 320 215 L 250 270 Z" />
+              <path d="M 320 215 L 395 200 L 395 280 Z" />
+              <path d="M 5 220 L 90 175 L 130 250 Z" />
+              <path d="M 5 220 L 130 250 L 60 305 Z" />
+              <path d="M 130 250 L 210 195 L 250 270 Z" />
+              <path d="M 130 250 L 250 270 L 180 315 Z" />
+              <path d="M 250 270 L 320 215 L 395 280 Z" />
+              <path d="M 250 270 L 395 280 L 330 315 Z" />
+              <path d="M 60 305 L 130 250 L 180 315 Z" />
+              <path d="M 180 315 L 250 270 L 330 315 Z" />
+            </g>
+          </svg>
+
+          <div className="relative z-10 mb-16 md:mb-24 lg:mb-28">
             <img
               src={logo}
               alt="GEENGINEERING SRL"
-              className="relative h-20 sm:h-24 md:h-28 lg:h-36 xl:h-44 w-auto object-contain"
+              className="h-20 sm:h-24 md:h-28 lg:h-36 xl:h-44 w-auto object-contain"
             />
           </div>
 
-          <div className="inline-flex w-fit items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium mb-6">
+          <div className="relative z-10 inline-flex w-fit items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-sm text-primary text-xs font-medium mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
             Automazione Industriale
           </div>
 
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
+          <h1 className="relative z-10 font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
             Soluzioni di
             <br />
             <span className="text-gradient-brand">automazione</span>
@@ -71,13 +83,13 @@ const Hero = () => {
             industriale
           </h1>
 
-          <p className="text-base md:text-lg text-white max-w-xl mb-8 leading-relaxed">
+          <p className="relative z-10 text-base md:text-lg text-white max-w-xl mb-8 leading-relaxed">
             Hardware, software e wireless planning per l'industria.
             Progettiamo e realizziamo impianti di automazione con strumentazione
             all'avanguardia, inclusa la piattaforma Ekahau AI.
           </p>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="relative z-10 flex flex-wrap gap-4">
             <Link
               to="/servizi"
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors"
