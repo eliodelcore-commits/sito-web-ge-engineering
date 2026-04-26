@@ -9,44 +9,53 @@ const Hero = () => {
       <div className="grid grid-cols-1 md:grid-cols-[3fr_7fr] min-h-[calc(100vh-4rem)]">
         {/* Left column: navbar background, logo + description */}
         <div className="bg-background flex flex-col px-6 md:px-10 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-12">
-          <div className="w-full mb-16 md:mb-24 lg:mb-28">
-            <img
-              src={logo}
-              alt="GEENGINEERING SRL"
-              className="h-20 sm:h-24 md:h-28 lg:h-36 xl:h-44 w-auto object-contain self-start"
-            />
+          <div className="relative w-full mb-16 md:mb-24 lg:mb-28">
             {/* Abstract low-poly line pattern inspired by the brand business card */}
             <svg
-              viewBox="0 0 400 110"
+              viewBox="0 0 400 220"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
-              className="mt-3 w-full h-auto opacity-70"
+              className="absolute inset-0 w-full h-full opacity-60 pointer-events-none"
               preserveAspectRatio="none"
             >
               <g
                 fill="none"
                 stroke="hsl(var(--primary))"
-                strokeWidth="0.6"
+                strokeWidth="0.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                <polyline points="5,80 45,30 95,70 60,100 5,80" />
-                <polyline points="45,30 110,15 150,55 95,70" />
-                <polyline points="110,15 175,40 150,55" />
-                <polyline points="150,55 210,25 260,60 175,40" />
-                <polyline points="210,25 285,10 330,45 260,60" />
-                <polyline points="285,10 360,30 395,70 330,45" />
-                <polyline points="95,70 150,95 210,75 260,60" />
-                <polyline points="150,95 220,105 280,90 260,60" />
-                <polyline points="280,90 340,100 395,70 330,45" />
-                <polyline points="60,100 150,95 95,70" />
-                <line x1="45" y1="30" x2="150" y2="55" />
-                <line x1="110" y1="15" x2="210" y2="25" />
-                <line x1="175" y1="40" x2="260" y2="60" />
-                <line x1="210" y1="75" x2="280" y2="90" />
-                <line x1="95" y1="70" x2="220" y2="105" />
+                {/* Top half */}
+                <polyline points="5,40 60,10 130,30 90,70 5,40" />
+                <polyline points="60,10 150,5 200,35 130,30" />
+                <polyline points="150,5 230,20 200,35" />
+                <polyline points="200,35 280,15 340,40 230,20" />
+                <polyline points="280,15 360,5 395,35 340,40" />
+                <polyline points="130,30 200,75 90,70" />
+                <polyline points="200,75 280,55 340,40" />
+                <polyline points="200,75 290,90 360,70 395,35" />
+                {/* Middle band (behind the logo) */}
+                <polyline points="5,110 80,95 160,115 220,100 300,120 380,105 395,140" />
+                <polyline points="5,140 70,125 140,150 210,130 290,155 370,135 395,170" />
+                {/* Bottom half */}
+                <polyline points="5,180 60,150 130,175 90,210 5,180" />
+                <polyline points="60,150 150,140 200,170 130,175" />
+                <polyline points="200,170 280,150 340,180 230,160" />
+                <polyline points="280,150 360,140 395,175 340,180" />
+                <polyline points="130,175 200,215 90,210" />
+                <polyline points="200,215 280,195 340,180" />
+                <polyline points="200,215 290,200 360,215 395,175" />
+                <line x1="60" y1="10" x2="200" y2="75" />
+                <line x1="150" y1="5" x2="290" y2="90" />
+                <line x1="60" y1="150" x2="200" y2="215" />
+                <line x1="150" y1="140" x2="290" y2="200" />
               </g>
             </svg>
+            <img
+              src={logo}
+              alt="GEENGINEERING SRL"
+              className="relative h-20 sm:h-24 md:h-28 lg:h-36 xl:h-44 w-auto object-contain"
+            />
           </div>
 
           <div className="inline-flex w-fit items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium mb-6">
