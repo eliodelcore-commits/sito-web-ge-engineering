@@ -69,25 +69,24 @@ const Hero = () => {
           />
         </div>
 
-        {/* Abstract low-poly line mesh — overlay covering whole hero grid.
-            - Top horizontal band: from left (under navbar) past the column boundary into
-              the dark portion of the right background, fading out (discontinuous) within
-              the right ~30% of the dark area.
-            - Vertical extension: descends only in the dark band of the right column. */}
+        {/* Abstract low-poly line pattern — replicates the business card layout.
+            Spider-web of triangles hanging from the top edge, confined to the
+            dark blue background area (left 30% of right column). Stays clear of
+            the logo on the left and the SEW inverter photo on the right. */}
         <div className="absolute inset-0 pointer-events-none z-[5]">
-          {/* Top mesh band */}
           <svg
-            viewBox="0 0 400 200"
+            viewBox="0 0 300 600"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
             preserveAspectRatio="none"
-            className="absolute left-0 top-0 h-[34%] opacity-55"
+            className="absolute top-0 h-full opacity-60"
             style={{
-              width: "51%",
+              left: "30%",
+              width: "22%",
               maskImage:
-                "linear-gradient(to right, black 0%, black 65%, transparent 100%)",
+                "linear-gradient(to right, black 0%, black 70%, transparent 100%)",
               WebkitMaskImage:
-                "linear-gradient(to right, black 0%, black 65%, transparent 100%)",
+                "linear-gradient(to right, black 0%, black 70%, transparent 100%)",
             }}
           >
             <g
@@ -97,73 +96,47 @@ const Hero = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <path d="M 5 25 L 70 10 L 140 35 L 60 65 Z" />
-              <path d="M 70 10 L 140 35 L 200 8 Z" />
-              <path d="M 200 8 L 140 35 L 230 55 Z" />
-              <path d="M 200 8 L 230 55 L 290 20 Z" />
-              <path d="M 290 20 L 230 55 L 320 75 Z" />
-              <path d="M 290 20 L 320 75 L 395 30 Z" />
-              <path d="M 395 30 L 320 75 L 395 95 Z" />
-              <path d="M 60 65 L 140 35 L 130 110 Z" />
-              <path d="M 140 35 L 230 55 L 200 120 Z" />
-              <path d="M 230 55 L 320 75 L 280 130 Z" />
-              <path d="M 320 75 L 395 95 L 360 150 Z" />
-              <path d="M 5 25 L 60 65 L 20 130 Z" />
-              <path d="M 60 65 L 130 110 L 20 130 Z" />
-              <path d="M 130 110 L 200 120 L 90 175 Z" />
-              <path d="M 200 120 L 280 130 L 210 195 Z" />
-              <path d="M 280 130 L 360 150 L 320 195 Z" />
-              <path d="M 20 130 L 130 110 L 90 175 Z" />
-              <path d="M 90 175 L 200 120 L 210 195 Z" />
-              <path d="M 210 195 L 280 130 L 320 195 Z" />
-            </g>
-          </svg>
+              {/* Top spikes touching the upper edge — like the card */}
+              <path d="M 40 0 L 70 90" />
+              <path d="M 80 0 L 70 90" />
+              <path d="M 90 0 L 140 80" />
+              <path d="M 150 0 L 140 80" />
+              <path d="M 170 0 L 210 95" />
+              <path d="M 220 0 L 210 95" />
+              <path d="M 240 0 L 270 85" />
 
-          {/* Vertical extension — only in the dark/blue band of the right column,
-              kept entirely off the SEW inverter photo. The dark overlay covers
-              roughly the first 35% of the right column (which is 70% of the grid),
-              so the band lives between 30% and ~54% of the section width.
-              A horizontal mask fades it out before reaching the photo. */}
-          <svg
-            viewBox="0 0 200 600"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            preserveAspectRatio="none"
-            className="absolute top-[30%] h-[70%] opacity-55"
-            style={{
-              left: "30%",
-              width: "15%",
-              maskImage:
-                "linear-gradient(to right, black 0%, black 70%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 85%, transparent 100%)",
-              WebkitMaskImage:
-                "linear-gradient(to right, black 0%, black 70%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 12%, black 85%, transparent 100%)",
-              maskComposite: "intersect",
-              WebkitMaskComposite: "source-in",
-            }}
-          >
-            <g
-              fill="none"
-              stroke="hsl(var(--primary))"
-              strokeWidth="0.6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M 10 20 L 90 50 L 30 110 Z" />
-              <path d="M 90 50 L 170 30 L 130 100 Z" />
-              <path d="M 90 50 L 130 100 L 30 110 Z" />
-              <path d="M 30 110 L 130 100 L 60 180 Z" />
-              <path d="M 130 100 L 190 150 L 60 180 Z" />
-              <path d="M 60 180 L 190 150 L 100 240 Z" />
-              <path d="M 190 150 L 170 230 L 100 240 Z" />
-              <path d="M 100 240 L 170 230 L 40 290 Z" />
-              <path d="M 170 230 L 180 310 L 40 290 Z" />
-              <path d="M 40 290 L 180 310 L 80 370 Z" />
-              <path d="M 180 310 L 160 380 L 80 370 Z" />
-              <path d="M 80 370 L 160 380 L 30 440 Z" />
-              <path d="M 160 380 L 190 460 L 30 440 Z" />
-              <path d="M 30 440 L 190 460 L 70 520 Z" />
-              <path d="M 190 460 L 170 540 L 70 520 Z" />
-              <path d="M 70 520 L 170 540 L 100 590 Z" />
+              {/* First polygon cluster — left */}
+              <path d="M 70 90 L 20 150 L 60 220 L 130 180 L 140 80 Z" />
+              <path d="M 70 90 L 140 80 L 110 150 Z" />
+              <path d="M 140 80 L 130 180 L 110 150 Z" />
+              <path d="M 20 150 L 60 220 L 30 260 Z" />
+              <path d="M 60 220 L 130 180 L 100 260 Z" />
+
+              {/* Middle polygon cluster */}
+              <path d="M 140 80 L 210 95 L 180 170 L 130 180 Z" />
+              <path d="M 210 95 L 270 85 L 250 180 L 180 170 Z" />
+              <path d="M 180 170 L 250 180 L 220 250 L 160 240 Z" />
+              <path d="M 130 180 L 180 170 L 160 240 L 100 260 Z" />
+
+              {/* Lower descending lines — sparse spider web going down */}
+              <path d="M 30 260 L 100 260 L 70 350 Z" />
+              <path d="M 100 260 L 160 240 L 140 340 Z" />
+              <path d="M 160 240 L 220 250 L 200 340 Z" />
+              <path d="M 220 250 L 270 270 L 240 360 Z" />
+
+              <path d="M 70 350 L 140 340 L 110 430 Z" />
+              <path d="M 140 340 L 200 340 L 170 430 Z" />
+              <path d="M 200 340 L 240 360 L 220 440 Z" />
+
+              <path d="M 110 430 L 170 430 L 140 510 Z" />
+              <path d="M 170 430 L 220 440 L 195 520 Z" />
+
+              <path d="M 140 510 L 195 520 L 165 590 Z" />
+
+              {/* Extra connecting strands */}
+              <path d="M 70 350 L 110 430" />
+              <path d="M 240 360 L 220 440" />
+              <path d="M 30 260 L 70 350" />
             </g>
           </svg>
         </div>
