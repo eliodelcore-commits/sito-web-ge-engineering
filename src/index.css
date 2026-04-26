@@ -84,6 +84,23 @@
   0%, 100% { opacity: 0.55; transform: scale(1); }
   50%      { opacity: 0.9;  transform: scale(1.06); }
 }
+@keyframes meshNodeTwinkle {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 hsl(var(--primary) / 0));
+  }
+  45% {
+    opacity: 1;
+    transform: scale(2.4);
+    filter: drop-shadow(0 0 3px hsl(var(--primary) / 0.95));
+  }
+  60% {
+    opacity: 0.9;
+    transform: scale(2);
+    filter: drop-shadow(0 0 2px hsl(var(--primary) / 0.7));
+  }
+}
 .mesh-drift {
   animation: meshDrift 24s ease-in-out infinite;
   will-change: transform;
@@ -94,6 +111,12 @@
   transform-origin: center;
   will-change: transform, opacity;
 }
+.mesh-node-twinkle {
+  animation-name: meshNodeTwinkle;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  will-change: opacity, transform, filter;
+}
 @media (prefers-reduced-motion: reduce) {
-  .mesh-drift, .mesh-pulse { animation: none; }
+  .mesh-drift, .mesh-pulse, .mesh-node-twinkle { animation: none; }
 }
