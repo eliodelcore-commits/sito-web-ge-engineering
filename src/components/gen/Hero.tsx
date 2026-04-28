@@ -11,7 +11,13 @@ const Hero = () => {
         {/* Left column: navbar background, logo + description */}
         <div className="relative bg-background flex flex-col px-6 md:px-10 lg:px-16 pt-8 md:pt-10 lg:pt-12 pb-12 overflow-hidden">
           {/* Decorative triangulated mesh — uniform, integrated, professional */}
-          <MeshBackground focal={{ x: 0.25, y: 0.2 }} />
+          <MeshBackground
+            focal={{ x: 0.25, y: 0.2 }}
+            cols={80}
+            rows={130}
+            strokeWidth={0.22}
+            nodeRadius={0.25}
+          />
 
           <div className="relative z-10 self-start mb-16 md:mb-24 lg:mb-28">
             <img
