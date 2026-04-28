@@ -122,6 +122,15 @@
   animation: meshNodeTwinkle 24s linear infinite;
   will-change: opacity, filter;
 }
+@keyframes meshWaveSweep {
+  0%   { transform: translateX(-66%); }
+  100% { transform: translateX(33%); }
+}
+.mesh-wave {
+  animation: meshWaveSweep 7s linear infinite;
+  will-change: transform;
+  filter: blur(0.6px);
+}
 @media (prefers-reduced-motion: reduce) {
-  .mesh-drift, .mesh-pulse, .mesh-node-twinkle { animation: none; }
+  .mesh-drift, .mesh-pulse, .mesh-node-twinkle, .mesh-wave { animation: none; }
 }

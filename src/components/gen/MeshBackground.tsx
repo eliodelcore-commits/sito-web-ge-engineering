@@ -1,208 +1,93 @@
 import { useMemo } from "react";
 
 interface MeshBackgroundProps {
-  /** Tailwind className applied to the wrapper svg */
   className?: string;
-  /** Triangulation density */
+  /** Dot grid columns (kept for API compat; controls dot density horizontally) */
   cols?: number;
+  /** Dot grid rows (kept for API compat; controls dot density vertically) */
   rows?: number;
-  /** 0 = static, otherwise enables a very slow ambient drift */
   animated?: boolean;
-  /** Position of the brightest cluster, normalized 0-1 */
   focal?: { x: number; y: number };
-  /** Stroke width of the triangle lines */
+  /** kept for API compat — unused in dot-grid variant */
   strokeWidth?: number;
-  /** Radius of the vertex node dots */
+  /** Radius of the dots */
   nodeRadius?: number;
 }
 
 /**
- * Decorative triangulated mesh background — uniform, integrated, professional.
- * Designed to sit behind page content (place wrapper as relative, mesh absolute, content z-10).
+ * Dot-grid background with an animated cyan wave passing across.
+ * Dots use the theme's primary (lime-yellow); wave uses a complementary cyan.
  */
 const MeshBackground = ({
   className = "pointer-events-none absolute inset-0 w-full h-full z-0",
-  cols = 28,
-  rows = 44,
+  cols = 60,
+  rows = 90,
   animated = true,
-  focal = { x: 0.25, y: 0.2 },
-  strokeWidth = 0.5,
-  nodeRadius = 0.9,
+  focal = { x: 0.5, y: 0.5 },
+  nodeRadius = 0.6,
 }: MeshBackgroundProps) => {
-  const mesh = useMemo(() => {
+  const { dots, W, H } = useMemo(() => {
     const W = 400;
     const H = 600;
     const dx = W / cols;
     const dy = H / rows;
-    const jitter = 0;
-
-    const rand = (i: number, j: number) => {
-      const s = Math.sin(i * 928.37 + j * 311.7) * 43758.5453;
-      return s - Math.floor(s);
-    };
-
-    const pt = (i: number, j: number) => {
-      const ox = j % 2 === 0 ? 0 : dx / 2;
-      const isBorder = i === 0 || i === cols || j === 0 || j === rows;
-      const jx = isBorder ? 0 : (rand(i, j) - 0.5) * jitter * 2;
-      const jy = isBorder ? 0 : (rand(j, i) - 0.5) * jitter * 2;
-      return [
-        Math.round((i * dx + ox + jx) * 10) / 10,
-        Math.round((j * dy + jy) * 10) / 10,
-      ] as const;
-    };
-
-    const triangles: string[] = [];
-    const nodes: { x: number; y: number }[] = [];
-
-    for (let j = 0; j < rows; j++) {
-      for (let i = 0; i < cols; i++) {
-        const a = pt(i, j);
-        const b = pt(i + 1, j);
-        const c = pt(i, j + 1);
-        const d = pt(i + 1, j + 1);
-        triangles.push(`${a[0]},${a[1]} ${b[0]},${b[1]} ${d[0]},${d[1]}`);
-        triangles.push(`${a[0]},${a[1]} ${d[0]},${d[1]} ${c[0]},${c[1]}`);
-      }
-    }
-
+    const arr: { x: number; y: number }[] = [];
     for (let j = 0; j <= rows; j++) {
       for (let i = 0; i <= cols; i++) {
-        const [x, y] = pt(i, j);
-        nodes.push({ x, y });
+        arr.push({
+          x: Math.round(i * dx * 10) / 10,
+          y: Math.round(j * dy * 10) / 10,
+        });
       }
     }
-
-    return { triangles, nodes, W, H };
+    return { dots: arr, W, H };
   }, [cols, rows]);
 
-  // Stable but unique ids per instance (avoids gradient/mask collisions if multiple mounted)
   const uid = useMemo(() => Math.random().toString(36).slice(2, 8), []);
-  const fadeId = `meshFade-${uid}`;
-  const vignetteId = `meshVignette-${uid}`;
-  const glowId = `nodeGlow-${uid}`;
-  const maskId = `meshMask-${uid}`;
-  const pulseId = `meshPulse-${uid}`;
+  const waveId = `wave-${uid}`;
+  const waveMaskId = `waveMask-${uid}`;
 
   return (
     <svg
-      viewBox={`0 0 ${mesh.W} ${mesh.H}`}
+      viewBox={`0 0 ${W} ${H}`}
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
       preserveAspectRatio="xMidYMid slice"
       className={className}
     >
       <defs>
-        <linearGradient id={fadeId} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.5" />
-          <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.22" />
-          <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.08" />
+        {/* Diagonal cyan wave gradient — soft, with bright crest */}
+        <linearGradient id={waveId} x1="0" y1="0" x2="1" y2="0.6">
+          <stop offset="0%" stopColor="hsl(190 95% 55%)" stopOpacity="0" />
+          <stop offset="35%" stopColor="hsl(190 95% 55%)" stopOpacity="0" />
+          <stop offset="48%" stopColor="hsl(185 95% 60%)" stopOpacity="0.55" />
+          <stop offset="52%" stopColor="hsl(180 100% 70%)" stopOpacity="0.85" />
+          <stop offset="56%" stopColor="hsl(190 95% 60%)" stopOpacity="0.55" />
+          <stop offset="70%" stopColor="hsl(200 95% 55%)" stopOpacity="0" />
+          <stop offset="100%" stopColor="hsl(200 95% 55%)" stopOpacity="0" />
         </linearGradient>
-        <radialGradient
-          id={vignetteId}
-          cx={focal.x}
-          cy={focal.y}
-          r="0.95"
-        >
-          <stop offset="0%" stopColor="white" stopOpacity="1" />
-          <stop offset="70%" stopColor="white" stopOpacity="0.55" />
-          <stop offset="100%" stopColor="white" stopOpacity="0" />
-        </radialGradient>
-        <radialGradient id={glowId} cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
-        </radialGradient>
-        <radialGradient
-          id={pulseId}
-          cx="0.5"
-          cy="0.5"
-          r="0.5"
-        >
-          <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.18" />
-          <stop offset="60%" stopColor="hsl(var(--primary))" stopOpacity="0.05" />
-          <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
-        </radialGradient>
-        <mask id={maskId}>
-          <rect width={mesh.W} height={mesh.H} fill={`url(#${vignetteId})`} />
-        </mask>
       </defs>
 
-      {/* Slow ambient pulse — keeps the background alive without distracting */}
+      {/* Uniform dot grid — primary (lime-yellow) */}
+      <g fill="hsl(var(--primary))" opacity="0.55">
+        {dots.map((d, i) => (
+          <circle key={i} cx={d.x} cy={d.y} r={nodeRadius} />
+        ))}
+      </g>
+
+      {/* Cyan wave sweep — moves diagonally across the canvas */}
       {animated && (
-        <g mask={`url(#${maskId})`} style={{ mixBlendMode: "screen" }}>
-          <circle
-            cx={mesh.W * focal.x}
-            cy={mesh.H * focal.y}
-            r={mesh.W * 0.55}
-            fill={`url(#${pulseId})`}
-            className="mesh-pulse"
+        <g style={{ mixBlendMode: "screen" }}>
+          <rect
+            x={-W}
+            y={0}
+            width={W * 3}
+            height={H}
+            fill={`url(#${waveId})`}
+            className="mesh-wave"
           />
         </g>
       )}
-
-      <g mask={`url(#${maskId})`}>
-        <g
-          fill="none"
-          stroke={`url(#${fadeId})`}
-          strokeWidth={strokeWidth}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className={animated ? "mesh-drift" : undefined}
-          style={animated ? { transformOrigin: "50% 50%" } : undefined}
-        >
-          {mesh.triangles.map((pts, idx) => (
-            <polygon key={idx} points={pts} />
-          ))}
-        </g>
-
-        <g fill="hsl(var(--primary))">
-          {mesh.nodes.map((n, idx) => (
-            <circle
-              key={idx}
-              cx={n.x}
-              cy={n.y}
-              r={nodeRadius}
-              opacity={Math.max(
-                0.08,
-                0.55 - (n.x / mesh.W) * 0.35 - (n.y / mesh.H) * 0.15
-              )}
-              className={animated ? "mesh-node-twinkle" : undefined}
-              style={
-                animated
-                  ? {
-                      transformBox: "fill-box",
-                      transformOrigin: "center",
-                    }
-                  : undefined
-              }
-            />
-          ))}
-        </g>
-
-        <g>
-          <circle
-            cx={mesh.W * focal.x}
-            cy={mesh.H * focal.y}
-            r="6"
-            fill={`url(#${glowId})`}
-            opacity="0.5"
-          />
-          <circle
-            cx={mesh.W * (focal.x + 0.18)}
-            cy={mesh.H * (focal.y + 0.06)}
-            r="7"
-            fill={`url(#${glowId})`}
-            opacity="0.4"
-          />
-          <circle
-            cx={mesh.W * (focal.x + 0.05)}
-            cy={mesh.H * (focal.y + 0.14)}
-            r="5"
-            fill={`url(#${glowId})`}
-            opacity="0.35"
-          />
-        </g>
-      </g>
     </svg>
   );
 };
