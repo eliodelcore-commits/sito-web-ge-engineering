@@ -153,7 +153,7 @@
     meshWaveSweep 100s linear infinite,
     meshWaveFade  100s linear infinite;
   will-change: transform;
-  filter: blur(0.6px);
+  filter: blur(0.3px) drop-shadow(0 0 4px hsl(180 100% 70% / 0.7));
 }
 @media (prefers-reduced-motion: reduce) {
   .mesh-drift, .mesh-pulse, .mesh-node-twinkle, .mesh-wave { animation: none; }
