@@ -123,36 +123,35 @@
   will-change: opacity, filter;
 }
 @keyframes meshWaveSweep {
-  /* Rect is 3W x 3H at (-W,-H); the crest sits at ~50% of the gradient
-     (i.e. center of the rect). Translating by ±16.7% of the rect places the
-     crest exactly at the viewport's top-left / bottom-right corner.
-     The wave sweeps from top-left to bottom-right, continues past the
-     bottom-right corner, then we instantly jump it back to the top-left
-     start position (invisible because opacity is 0). After a 3s pause it
-     fades back in at the top-left corner and starts the next sweep. */
-  0%      { transform: translate(-16.7%, -16.7%); } /* crest at top-left corner */
-  15%     { transform: translate(16.7%, 16.7%); }   /* crest at bottom-right corner */
-  18%     { transform: translate(33%, 33%); }       /* fully off-canvas bottom-right */
-  18.001% { transform: translate(-16.7%, -16.7%); } /* invisible jump back to start */
-  100%    { transform: translate(-16.7%, -16.7%); } /* hold at start until loop restarts */
+  /* Sweep crest from top-left corner to bottom-right corner, then instantly
+     reset (invisible) back to the top-left so the next cycle can begin. */
+  0%      { transform: translate(-16.7%, -16.7%) scale(1); } /* crest at top-left */
+  15%     { transform: translate(16.7%, 16.7%) scale(1); }   /* crest at bottom-right */
+  15.001% { transform: translate(-16.7%, -16.7%) scale(0.4); } /* hidden reset, small */
+  100%    { transform: translate(-16.7%, -16.7%) scale(1); }
  }
 
 @keyframes meshWaveFade {
-  /* Total cycle = 100s. Visible sweep: 0%–18% (~18s). Invisible pause +
-     fade-in until 21% (~3s after disappearance). Then stays at full opacity
-     while sitting at the start position waiting for next animation cycle. */
-  0%      { opacity: 1; }                /* visible during sweep */
-  18%     { opacity: 1; }                /* still visible just before exit */
-  18.001% { opacity: 0; }                /* instant hide for the jump-back */
-  21%     { opacity: 0; }                /* ~3s pause invisible */
-  24%     { opacity: 1; }                /* fade back in at top-left corner */
-  100%    { opacity: 1; }
+  /* Total cycle = 100s. Sweep occupies 0%–15% (~15s).
+     - Start small & faint at top-left, grow & brighten while crossing,
+     - Fade out approaching bottom-right corner so it dissolves before exit,
+     - Stay invisible during the long pause,
+     - Fade back in (small) at top-left for the next cycle. */
+  0%      { opacity: 0; }                /* invisible at top-left start */
+  3%      { opacity: 0.85; }             /* quickly appears, small */
+  9%      { opacity: 1; }                /* full strength mid-diagonal */
+  13%     { opacity: 0.6; }              /* begins to dissolve */
+  15%     { opacity: 0; }                /* fully dissolved at bottom-right */
+  15.001% { opacity: 0; }                /* hidden during reset */
+  97%     { opacity: 0; }                /* stays invisible during pause */
+  100%    { opacity: 0; }                /* next cycle re-fades from 0 */
 }
 .mesh-wave {
   animation:
     meshWaveSweep 100s linear infinite,
     meshWaveFade  100s linear infinite;
-  will-change: transform;
+  will-change: transform, opacity;
+  transform-origin: top left;
   filter: blur(0.6px);
 }
 @media (prefers-reduced-motion: reduce) {
