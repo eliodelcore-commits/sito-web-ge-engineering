@@ -123,12 +123,17 @@
   will-change: opacity, filter;
 }
 @keyframes meshWaveSweep {
-  /* Wave sweeps quickly from top-left to bottom-right, then holds off-canvas
-     for the remainder of the cycle so the total loop lasts 100s but the
-     visible pass is fast. */
-  0%    { transform: translate(-18%, -18%); }
-  15%   { transform: translate(18%, 18%); }
-  100%  { transform: translate(18%, 18%); }
+  /* Rect is 3W x 3H at (-W,-H); the crest sits at ~50% of the gradient
+     (i.e. center of the rect). Translating by ±16.67% of the rect places the
+     crest exactly at the viewport's top-left or bottom-right corner.
+     The wave enters from the top-left, sweeps to the bottom-right and exits;
+     for the rest of the loop we push it further off-canvas so it stays
+     completely invisible until the next pass. */
+  0%    { transform: translate(-16.7%, -16.7%); }   /* crest at top-left corner */
+  15%   { transform: translate(16.7%, 16.7%); }     /* crest at bottom-right corner */
+  16%   { transform: translate(50%, 50%); }         /* push fully off-canvas */
+  99%   { transform: translate(50%, 50%); }         /* hold invisible */
+  100%  { transform: translate(-16.7%, -16.7%); }   /* snap back to start */
 }
 .mesh-wave {
   animation: meshWaveSweep 100s linear infinite;
