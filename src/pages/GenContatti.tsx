@@ -21,8 +21,8 @@ const GenContatti = () => {
         {/* Decorative ambient mesh background */}
         <MeshBackground
           focal={{ x: 0.18, y: 0.18 }}
-          cols={44}
-          rows={70}
+          cols={80}
+          rows={130}
           strokeWidth={0.22}
           nodeRadius={0.45}
           className="pointer-events-none absolute inset-0 w-full h-full z-0 opacity-90"
