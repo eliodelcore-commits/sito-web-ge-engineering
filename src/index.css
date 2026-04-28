@@ -124,16 +124,18 @@
 }
 @keyframes meshWaveSweep {
   /* Rect is 3W x 3H at (-W,-H); the crest sits at ~50% of the gradient
-     (i.e. center of the rect). Translating by ±16.67% of the rect places the
-     crest exactly at the viewport's top-left or bottom-right corner.
-     The wave enters from the top-left, sweeps to the bottom-right and exits;
-     for the rest of the loop we push it further off-canvas so it stays
-     completely invisible until the next pass. */
+     (i.e. center of the rect). Translating by ±16.7% of the rect places the
+     crest exactly at the viewport's top-left / bottom-right corner.
+     The wave enters from the top-left, sweeps to the bottom-right, then
+     CONTINUES in the same direction past the corner so it disappears fully.
+     While invisible (off bottom-right) we instantly jump it far off the
+     top-left side so the next pass can start. No visible backtrack. */
   0%    { transform: translate(-16.7%, -16.7%); }   /* crest at top-left corner */
   15%   { transform: translate(16.7%, 16.7%); }     /* crest at bottom-right corner */
-  16%   { transform: translate(50%, 50%); }         /* push fully off-canvas */
-  99%   { transform: translate(50%, 50%); }         /* hold invisible */
-  100%  { transform: translate(-16.7%, -16.7%); }   /* snap back to start */
+  18%   { transform: translate(33%, 33%); }         /* keep moving forward, fully off-canvas */
+  18.001% { transform: translate(-33%, -33%); }     /* invisible jump back beyond top-left */
+  99.999% { transform: translate(-33%, -33%); }     /* hold off-canvas (invisible) */
+  100%  { transform: translate(-16.7%, -16.7%); }   /* arrive at start for next loop */
 }
 .mesh-wave {
   animation: meshWaveSweep 100s linear infinite;
