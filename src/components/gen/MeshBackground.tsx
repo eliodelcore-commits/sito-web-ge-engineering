@@ -56,16 +56,16 @@ const MeshBackground = ({
       className={className}
     >
       <defs>
-        {/* Thin diagonal light beam — sharp bright core with soft falloff.
-            Oriented perpendicular to the 45° travel direction. */}
+        {/* Diagonal cyan wave gradient — soft, with bright crest.
+            Oriented top-left → bottom-right (45° diagonal). */}
         <linearGradient id={waveId} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%"   stopColor="hsl(180 100% 75%)" stopOpacity="0" />
-          <stop offset="49%"  stopColor="hsl(180 100% 75%)" stopOpacity="0" />
-          <stop offset="49.7%" stopColor="hsl(180 100% 80%)" stopOpacity="0.6" />
-          <stop offset="50%"  stopColor="hsl(180 100% 95%)" stopOpacity="1" />
-          <stop offset="50.3%" stopColor="hsl(180 100% 80%)" stopOpacity="0.6" />
-          <stop offset="51%"  stopColor="hsl(180 100% 75%)" stopOpacity="0" />
-          <stop offset="100%" stopColor="hsl(180 100% 75%)" stopOpacity="0" />
+          <stop offset="0%" stopColor="hsl(190 95% 55%)" stopOpacity="0" />
+          <stop offset="35%" stopColor="hsl(190 95% 55%)" stopOpacity="0" />
+          <stop offset="48%" stopColor="hsl(185 95% 60%)" stopOpacity="0.55" />
+          <stop offset="52%" stopColor="hsl(180 100% 70%)" stopOpacity="0.85" />
+          <stop offset="56%" stopColor="hsl(190 95% 60%)" stopOpacity="0.55" />
+          <stop offset="70%" stopColor="hsl(200 95% 55%)" stopOpacity="0" />
+          <stop offset="100%" stopColor="hsl(200 95% 55%)" stopOpacity="0" />
         </linearGradient>
       </defs>
 
