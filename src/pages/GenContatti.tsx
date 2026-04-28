@@ -45,7 +45,7 @@ const GenContatti = () => {
                   value={formData.nome}
                   onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                  className="contact-input w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                   placeholder="Il tuo nome"
                 />
               </div>
@@ -56,7 +56,7 @@ const GenContatti = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                  className="contact-input w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                   placeholder="la.tua@email.com"
                 />
               </div>
@@ -67,7 +67,7 @@ const GenContatti = () => {
                   onChange={(e) => setFormData({ ...formData, messaggio: e.target.value })}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
+                  className="contact-input w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
                   placeholder="Descrivi il tuo progetto..."
                 />
               </div>
