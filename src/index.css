@@ -157,3 +157,17 @@
 @media (prefers-reduced-motion: reduce) {
   .mesh-drift, .mesh-pulse, .mesh-node-twinkle, .mesh-wave { animation: none; }
 }
+
+/* Contact form inputs: white background while typing, focused, or autofilled */
+.contact-input:focus,
+.contact-input:not(:placeholder-shown) {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+.contact-input:-webkit-autofill,
+.contact-input:-webkit-autofill:hover,
+.contact-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #0f172a;
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+  caret-color: #0f172a;
+}
