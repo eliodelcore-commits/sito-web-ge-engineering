@@ -123,11 +123,15 @@
   will-change: opacity, filter;
 }
 @keyframes meshWaveSweep {
-  0%   { transform: translateX(-66%); }
-  100% { transform: translateX(33%); }
+  /* The <rect> is 3x viewport wide, starting at x=-W. Translate from fully
+     off-screen left to fully off-screen right, then a brief invisible pause
+     before restarting from the left. */
+  0%   { transform: translateX(0%); }
+  75%  { transform: translateX(66%); }
+  100% { transform: translateX(66%); }
 }
 .mesh-wave {
-  animation: meshWaveSweep 7s linear infinite;
+  animation: meshWaveSweep 9s linear infinite;
   will-change: transform;
   filter: blur(0.6px);
 }
