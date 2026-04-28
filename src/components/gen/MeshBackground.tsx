@@ -56,8 +56,9 @@ const MeshBackground = ({
       className={className}
     >
       <defs>
-        {/* Diagonal cyan wave gradient — soft, with bright crest */}
-        <linearGradient id={waveId} x1="0" y1="0" x2="1" y2="0.6">
+        {/* Diagonal cyan wave gradient — soft, with bright crest.
+            Oriented top-left → bottom-right (45° diagonal). */}
+        <linearGradient id={waveId} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="hsl(190 95% 55%)" stopOpacity="0" />
           <stop offset="35%" stopColor="hsl(190 95% 55%)" stopOpacity="0" />
           <stop offset="48%" stopColor="hsl(185 95% 60%)" stopOpacity="0.55" />
@@ -75,14 +76,16 @@ const MeshBackground = ({
         ))}
       </g>
 
-      {/* Cyan wave sweep — moves diagonally across the canvas */}
+      {/* Cyan wave sweep — travels diagonally from top-left to bottom-right.
+          Oversized rect so the crest can start fully off-screen (top-left)
+          and end fully off-screen (bottom-right). */}
       {animated && (
         <g style={{ mixBlendMode: "screen" }}>
           <rect
             x={-W}
-            y={0}
+            y={-H}
             width={W * 3}
-            height={H}
+            height={H * 3}
             fill={`url(#${waveId})`}
             className="mesh-wave"
           />
