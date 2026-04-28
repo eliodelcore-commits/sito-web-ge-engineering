@@ -133,7 +133,7 @@
   100%  { transform: translate(18%, 18%); }
 }
 .mesh-wave {
-  animation: meshWaveSweep 18s linear infinite;
+  animation: meshWaveSweep 36s linear infinite;
   will-change: transform;
   filter: blur(0.6px);
 }
