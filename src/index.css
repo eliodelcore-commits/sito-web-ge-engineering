@@ -148,8 +148,8 @@
 }
 .mesh-wave {
   animation:
-    meshWaveSweep 40s linear infinite,
-    meshWaveFade  40s linear infinite;
+    meshWaveSweep 18s linear infinite,
+    meshWaveFade  18s linear infinite;
   will-change: transform, opacity;
   transform-origin: top left;
   filter: blur(0.6px);
