@@ -60,11 +60,11 @@ const MeshBackground = ({
             Oriented top-left → bottom-right (45° diagonal). */}
         <linearGradient id={waveId} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="hsl(190 95% 55%)" stopOpacity="0" />
-          <stop offset="46%" stopColor="hsl(190 95% 55%)" stopOpacity="0" />
-          <stop offset="49.5%" stopColor="hsl(185 95% 60%)" stopOpacity="0.55" />
-          <stop offset="50%" stopColor="hsl(180 100% 70%)" stopOpacity="0.9" />
-          <stop offset="50.5%" stopColor="hsl(190 95% 60%)" stopOpacity="0.55" />
-          <stop offset="54%" stopColor="hsl(200 95% 55%)" stopOpacity="0" />
+          <stop offset="46%" stopColor="hsl(190 100% 65%)" stopOpacity="0" />
+          <stop offset="49.3%" stopColor="hsl(185 100% 75%)" stopOpacity="0.95" />
+          <stop offset="50%" stopColor="hsl(180 100% 90%)" stopOpacity="1" />
+          <stop offset="50.7%" stopColor="hsl(190 100% 75%)" stopOpacity="0.95" />
+          <stop offset="54%" stopColor="hsl(200 100% 65%)" stopOpacity="0" />
           <stop offset="100%" stopColor="hsl(200 95% 55%)" stopOpacity="0" />
         </linearGradient>
       </defs>
@@ -80,7 +80,7 @@ const MeshBackground = ({
           Oversized rect so the crest can start fully off-screen (top-left)
           and end fully off-screen (bottom-right). */}
       {animated && (
-        <g style={{ mixBlendMode: "screen" }}>
+        <g style={{ mixBlendMode: "screen", filter: "drop-shadow(0 0 6px hsl(180 100% 70% / 0.7))" }}>
           <rect
             x={-W}
             y={-H}
