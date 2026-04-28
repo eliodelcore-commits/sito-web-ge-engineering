@@ -123,12 +123,13 @@
   will-change: opacity, filter;
 }
 @keyframes meshWaveSweep {
-  /* The <rect> is 3x viewport wide, starting at x=-W. Translate from fully
-     off-screen left to fully off-screen right, then a brief invisible pause
-     before restarting from the left. */
-  0%   { transform: translateX(0%); }
-  75%  { transform: translateX(66%); }
-  100% { transform: translateX(66%); }
+  /* The <rect> is 3x viewport wide, starting at x=-W, with the wave crest
+     centered around 50% of its own width. Translate so the crest enters from
+     fully off-screen left, sweeps across, then exits fully off-screen right.
+     After exit, hold invisibly before snapping back to restart from the left. */
+  0%    { transform: translateX(-22%); }
+  80%   { transform: translateX(22%); }
+  100%  { transform: translateX(22%); }
 }
 .mesh-wave {
   animation: meshWaveSweep 9s linear infinite;
