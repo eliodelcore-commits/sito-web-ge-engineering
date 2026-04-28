@@ -126,7 +126,7 @@
   /* Sweep crest from top-left corner to bottom-right corner, then instantly
      reset (invisible) back to the top-left so the next cycle can begin. */
   0%      { transform: translate(-22%, -18%) scale(1); }   /* crest further top-left, near navbar */
-  15%     { transform: translate(16.7%, 16.7%) scale(1); } /* crest at bottom-right */
+  15%     { transform: translate(22%, 35%) scale(1); }     /* crest beyond bottom-right, lower */
   15.001% { transform: translate(-22%, -18%) scale(0.4); } /* hidden reset */
   100%    { transform: translate(-22%, -18%) scale(1); }
  }
