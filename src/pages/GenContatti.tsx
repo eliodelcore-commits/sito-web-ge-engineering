@@ -21,10 +21,10 @@ const GenContatti = () => {
         {/* Decorative ambient mesh background */}
         <MeshBackground
           focal={{ x: 0.18, y: 0.18 }}
-          cols={80}
-          rows={130}
+          cols={44}
+          rows={70}
           strokeWidth={0.22}
-          nodeRadius={0.25}
+          nodeRadius={0.45}
           className="pointer-events-none absolute inset-0 w-full h-full z-0 opacity-90"
         />
         <div className="container mx-auto px-6 relative z-10">
@@ -45,7 +45,7 @@ const GenContatti = () => {
                   value={formData.nome}
                   onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
                   required
-                  className="contact-input w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                  className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                   placeholder="Il tuo nome"
                 />
               </div>
@@ -56,7 +56,7 @@ const GenContatti = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="contact-input w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                  className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                   placeholder="la.tua@email.com"
                 />
               </div>
@@ -67,7 +67,7 @@ const GenContatti = () => {
                   onChange={(e) => setFormData({ ...formData, messaggio: e.target.value })}
                   required
                   rows={5}
-                  className="contact-input w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
                   placeholder="Descrivi il tuo progetto..."
                 />
               </div>
