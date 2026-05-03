@@ -164,6 +164,15 @@ const Navbar = () => {
           </Link>
 
           <Link
+            to="/lavora-con-noi"
+            className={`text-sm font-medium transition-colors hover:text-primary ${
+              location.pathname === "/lavora-con-noi" ? "text-primary" : "text-white"
+            }`}
+          >
+            Lavora con noi
+          </Link>
+
+          <Link
             to="/auth"
             className="text-sm font-medium px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
           >
@@ -263,6 +272,17 @@ const Navbar = () => {
                 }`}
               >
                 Contatti
+              </Link>
+
+              <Link
+                to="/lavora-con-noi"
+                className={`px-3 py-3 rounded-lg text-base font-medium transition-colors ${
+                  location.pathname === "/lavora-con-noi"
+                    ? "text-primary bg-accent/30"
+                    : "text-white hover:bg-accent/30"
+                }`}
+              >
+                Lavora con noi
               </Link>
 
               <Link
