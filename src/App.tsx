@@ -10,6 +10,7 @@ import AutomazioneSoftware from "./pages/AutomazioneSoftware";
 import WirelessPlanning from "./pages/WirelessPlanning";
 import Progetti from "./pages/Progetti";
 import GenContatti from "./pages/GenContatti";
+import LavoraConNoi from "./pages/LavoraConNoi";
 import AssistenzaTecnica from "./pages/AssistenzaTecnica";
 import HolisticLanding from "./pages/HolisticLanding";
 import ProgettoIoT from "./pages/ProgettoIoT";
@@ -43,6 +44,7 @@ const App = () => (
           <Route path="/progetti/troubleshooting-wireless" element={<ProgettoTroubleshootingWireless />} />
           <Route path="/servizi/assistenza-tecnica" element={<AssistenzaTecnica />} />
           <Route path="/contatti" element={<GenContatti />} />
+          <Route path="/lavora-con-noi" element={<LavoraConNoi />} />
           <Route path="/holistic" element={<HolisticLanding />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
