@@ -46,6 +46,8 @@ const MeshBackground = ({
   const uid = useMemo(() => Math.random().toString(36).slice(2, 8), []);
   const waveId = `wave-${uid}`;
   const waveMaskId = `waveMask-${uid}`;
+  const blurId = `blur-${uid}`;
+  const fadeMaskId = `fade-${uid}`;
 
   return (
     <svg
@@ -56,6 +58,20 @@ const MeshBackground = ({
       className={className}
     >
       <defs>
+        {/* Soft gaussian blur applied to the dot layer */}
+        <filter id={blurId} x="-10%" y="-10%" width="120%" height="120%">
+          <feGaussianBlur stdDeviation="0.9" />
+        </filter>
+
+        {/* Horizontal fade mask: dots get progressively softer across the page */}
+        <linearGradient id={`${fadeMaskId}-grad`} x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="white" stopOpacity="1" />
+          <stop offset="100%" stopColor="white" stopOpacity="0.35" />
+        </linearGradient>
+        <mask id={fadeMaskId}>
+          <rect x="0" y="0" width={W} height={H} fill={`url(#${fadeMaskId}-grad)`} />
+        </mask>
+
         {/* Diagonal cyan wave gradient — soft, with bright crest.
             Oriented top-left → bottom-right (45° diagonal). */}
         <linearGradient id={waveId} x1="0" y1="0" x2="1" y2="1">
@@ -70,7 +86,12 @@ const MeshBackground = ({
       </defs>
 
       {/* Uniform dot grid — primary (lime-yellow) */}
-      <g fill="hsl(var(--primary))" opacity="0.55">
+      <g
+        fill="hsl(var(--primary))"
+        opacity="0.55"
+        filter={`url(#${blurId})`}
+        mask={`url(#${fadeMaskId})`}
+      >
         {dots.map((d, i) => (
           <circle key={i} cx={d.x} cy={d.y} r={nodeRadius} />
         ))}
