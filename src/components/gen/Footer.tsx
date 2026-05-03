@@ -18,9 +18,17 @@ const Footer = () => {
               Via Idice 47, 40050 Monterenzio (BO), Italia
             </span>
           </div>
-          <p className="text-xs md:text-base text-white leading-snug md:whitespace-nowrap">
-            © {new Date().getFullYear()} GEENGINEERING Solution srl. Tutti i diritti riservati.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+            <Link
+              to="/lavora-con-noi"
+              className="text-xs md:text-base text-white hover:text-primary transition-colors leading-snug whitespace-nowrap"
+            >
+              Lavora con noi
+            </Link>
+            <p className="text-xs md:text-base text-white leading-snug md:whitespace-nowrap">
+              © {new Date().getFullYear()} GEENGINEERING Solution srl. Tutti i diritti riservati.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
