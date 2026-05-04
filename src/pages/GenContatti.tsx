@@ -18,8 +18,15 @@ const GenContatti = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <div className="relative pt-32 pb-24 overflow-hidden bg-background flex-1">
-        {/* Decorative ambient mesh background — same as home */}
-        <MeshBackground focal={{ x: 0.25, y: 0.2 }} />
+        {/* Decorative ambient mesh background */}
+        <MeshBackground
+          focal={{ x: 0.18, y: 0.18 }}
+          cols={72}
+          rows={115}
+          strokeWidth={0.22}
+          nodeRadius={0.45}
+          className="pointer-events-none absolute inset-0 w-full h-full z-0 opacity-90"
+        />
         <div className="container mx-auto px-6 relative z-10">
           <p className="text-primary text-sm font-medium mb-2">Contatti</p>
           <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">
