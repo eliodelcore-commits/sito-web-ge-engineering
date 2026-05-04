@@ -180,6 +180,10 @@ const LavoraConNoi = () => {
                   </li>
                   <li className="flex gap-3">
                     <span className="text-primary">•</span>
+                    <span>Tecnici elettromeccanici</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-primary">•</span>
                     <span>Stagisti e neolaureati in ingegneria</span>
                   </li>
                 </ul>
