@@ -60,7 +60,7 @@ const MeshBackground = ({
       <defs>
         {/* Soft gaussian blur applied to the dot layer */}
         <filter id={blurId} x="-10%" y="-10%" width="120%" height="120%">
-          <feGaussianBlur stdDeviation="0.9" />
+          <feGaussianBlur stdDeviation="0.45" />
         </filter>
 
         {/* Horizontal fade mask: dots get progressively softer across the page */}
