@@ -48,7 +48,6 @@ const MeshBackground = ({
   const waveMaskId = `waveMask-${uid}`;
   const blurId = `blur-${uid}`;
   const fadeMaskId = `fade-${uid}`;
-  const dotWaveId = `dotwave-${uid}`;
 
   return (
     <svg
@@ -62,32 +61,6 @@ const MeshBackground = ({
         {/* Soft gaussian blur applied to the dot layer */}
         <filter id={blurId} x="-10%" y="-10%" width="120%" height="120%">
           <feGaussianBlur stdDeviation="0.9" />
-        </filter>
-
-        {/* Autonomous wavy displacement for the dot grid (independent from the cyan wave) */}
-        <filter id={dotWaveId} x="-10%" y="-10%" width="120%" height="120%">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.012 0.02"
-            numOctaves="2"
-            seed="3"
-            result="noise"
-          >
-            <animate
-              attributeName="baseFrequency"
-              dur="22s"
-              values="0.010 0.018; 0.016 0.024; 0.010 0.018"
-              repeatCount="indefinite"
-            />
-          </feTurbulence>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="6">
-            <animate
-              attributeName="scale"
-              dur="14s"
-              values="4; 9; 4"
-              repeatCount="indefinite"
-            />
-          </feDisplacementMap>
         </filter>
 
         {/* Horizontal fade mask: dots get progressively softer across the page */}
@@ -116,15 +89,9 @@ const MeshBackground = ({
       <g
         fill="hsl(var(--primary))"
         opacity="0.55"
-        filter={`url(#${dotWaveId})`}
+        filter={`url(#${blurId})`}
         mask={`url(#${fadeMaskId})`}
       >
-        <animate
-          attributeName="opacity"
-          values="0; 0.9; 0.05; 0.85; 0.1; 0.95; 0"
-          dur="11s"
-          repeatCount="indefinite"
-        />
         {dots.map((d, i) => (
           <circle key={i} cx={d.x} cy={d.y} r={nodeRadius} />
         ))}
