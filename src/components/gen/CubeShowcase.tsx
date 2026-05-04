@@ -100,7 +100,7 @@ const CubeShowcase = () => {
     const faceImg = faceEl?.getAttribute("data-face") || null;
     setExpandingFace(faceImg);
     setFading(true);
-    setTimeout(() => navigate(to), 950);
+    setTimeout(() => navigate(to), 800);
   };
 
   return (
@@ -108,7 +108,7 @@ const CubeShowcase = () => {
       {expandingFace && (
         <div
           className="fixed inset-0 z-[100] bg-cover bg-center animate-cube-expand pointer-events-none"
-          style={{ backgroundImage: `url(${expandingFace})` }}
+          style={{ backgroundImage: `url(${expandingFace})`, willChange: "clip-path, transform, opacity", transform: "translateZ(0)" }}
         >
           <div className="absolute inset-0 bg-background/40" />
         </div>
