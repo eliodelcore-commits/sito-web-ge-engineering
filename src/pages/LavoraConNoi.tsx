@@ -56,7 +56,7 @@ const LavoraConNoi = () => {
           cols={72}
           rows={115}
           strokeWidth={0.22}
-          nodeRadius={0.45}
+          nodeRadius={0.25}
           className="pointer-events-none absolute inset-0 w-full h-full z-0 opacity-90"
         />
         <div className="container mx-auto px-6 relative z-10">
