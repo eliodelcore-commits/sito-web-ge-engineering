@@ -119,6 +119,12 @@ const MeshBackground = ({
         filter={`url(#${dotWaveId})`}
         mask={`url(#${fadeMaskId})`}
       >
+        <animate
+          attributeName="opacity"
+          values="0.15; 0.75; 0.25; 0.85; 0.15"
+          dur="9s"
+          repeatCount="indefinite"
+        />
         {dots.map((d, i) => (
           <circle key={i} cx={d.x} cy={d.y} r={nodeRadius} />
         ))}
