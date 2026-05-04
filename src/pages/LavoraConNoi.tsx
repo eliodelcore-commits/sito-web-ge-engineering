@@ -53,8 +53,6 @@ const LavoraConNoi = () => {
       <div className="relative pt-32 pb-24 overflow-hidden bg-background flex-1">
         <MeshBackground
           focal={{ x: 0.18, y: 0.18 }}
-          cols={72}
-          rows={115}
           strokeWidth={0.22}
           nodeRadius={0.45}
           className="pointer-events-none absolute inset-0 w-full h-full z-0 opacity-90"
