@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import MeshBackground from "@/components/gen/MeshBackground";
 import { toast } from "@/hooks/use-toast";
 import { Headset, LogOut, Mail } from "lucide-react";
 
@@ -56,8 +57,16 @@ const AreaConsulente = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <div className="flex-1 pt-32 pb-24 bg-background">
-        <div className="container mx-auto px-6 max-w-2xl">
+      <div className="relative flex-1 pt-32 pb-24 bg-background overflow-hidden">
+        <MeshBackground
+          focal={{ x: 0.18, y: 0.18 }}
+          cols={72}
+          rows={115}
+          strokeWidth={0.22}
+          nodeRadius={0.25}
+          className="pointer-events-none absolute inset-0 w-full h-full z-0 opacity-90"
+        />
+        <div className="container mx-auto px-6 max-w-2xl relative z-10">
           <div className="flex items-start justify-between gap-4 mb-8">
             <div>
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
