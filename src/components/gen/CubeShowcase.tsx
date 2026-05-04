@@ -41,6 +41,7 @@ const CubeShowcase = () => {
   const cubeRef = useRef<HTMLDivElement | null>(null);
   const rotXRef = useRef(-15);
   const rotYRef = useRef(20);
+  const hoveringLinkRef = useRef(false);
 
   const applyTransform = () => {
     if (cubeRef.current) {
@@ -53,7 +54,7 @@ const CubeShowcase = () => {
     const loop = (t: number) => {
       const dt = Math.min((t - last) / 1000, 0.05);
       last = t;
-      if (!draggingRef.current) {
+      if (!draggingRef.current && !hoveringLinkRef.current) {
         rotYRef.current += dt * 18;
         applyTransform();
       }
