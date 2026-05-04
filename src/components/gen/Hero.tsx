@@ -50,7 +50,7 @@ const Hero = () => {
             </Link>
             <Link
               to="/contatti"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-secondary transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-secondary active:bg-white active:text-black transition-colors"
             >
               Contattaci
             </Link>
