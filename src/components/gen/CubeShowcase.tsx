@@ -31,8 +31,6 @@ const CubeShowcase = () => {
   const SIZE = isMobile ? 220 : 320;
   const HALF = SIZE / 2;
   const navigate = useNavigate();
-  const [rotX, setRotX] = useState(-15);
-  const [rotY, setRotY] = useState(20);
   const [dragging, setDragging] = useState(false);
   const [fading, setFading] = useState(false);
   const [expandingFace, setExpandingFace] = useState<string | null>(null);
@@ -40,17 +38,28 @@ const CubeShowcase = () => {
   const rafRef = useRef<number | null>(null);
   const draggingRef = useRef(false);
   const movedRef = useRef(false);
+  const cubeRef = useRef<HTMLDivElement | null>(null);
+  const rotXRef = useRef(-15);
+  const rotYRef = useRef(20);
+
+  const applyTransform = () => {
+    if (cubeRef.current) {
+      cubeRef.current.style.transform = `translateZ(0) rotateX(${rotXRef.current}deg) rotateY(${rotYRef.current}deg)`;
+    }
+  };
 
   useEffect(() => {
     let last = performance.now();
     const loop = (t: number) => {
-      const dt = (t - last) / 1000;
+      const dt = Math.min((t - last) / 1000, 0.05);
       last = t;
       if (!draggingRef.current) {
-        setRotY((y) => y + dt * 18);
+        rotYRef.current += dt * 18;
+        applyTransform();
       }
       rafRef.current = requestAnimationFrame(loop);
     };
+    applyTransform();
     rafRef.current = requestAnimationFrame(loop);
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
@@ -69,8 +78,9 @@ const CubeShowcase = () => {
     const dx = e.clientX - lastPos.current.x;
     const dy = e.clientY - lastPos.current.y;
     if (Math.abs(dx) + Math.abs(dy) > 4) movedRef.current = true;
-    setRotY((y) => y + dx * 0.4);
-    setRotX((x) => Math.max(-80, Math.min(80, x - dy * 0.4)));
+    rotYRef.current += dx * 0.4;
+    rotXRef.current = Math.max(-80, Math.min(80, rotXRef.current - dy * 0.4));
+    applyTransform();
     lastPos.current = { x: e.clientX, y: e.clientY };
   };
   const onPointerUp = () => {
@@ -118,6 +128,7 @@ const CubeShowcase = () => {
           style={{ perspective: "1200px", height: SIZE * 1.8 }}
         >
           <div
+            ref={cubeRef}
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}
             onPointerUp={onPointerUp}
@@ -127,9 +138,8 @@ const CubeShowcase = () => {
               width: SIZE,
               height: SIZE,
               transformStyle: "preserve-3d",
-              transform: `rotateX(${rotX}deg) rotateY(${rotY}deg)`,
-              transition: dragging ? "none" : "transform 0.1s linear",
               touchAction: "none",
+              willChange: "transform",
             }}
           >
             {faces.map((face) => (
