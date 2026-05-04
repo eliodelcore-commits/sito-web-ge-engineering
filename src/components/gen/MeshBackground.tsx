@@ -31,12 +31,20 @@ const MeshBackground = ({
     const H = 600;
     const dx = W / cols;
     const dy = H / rows;
-    const arr: { x: number; y: number }[] = [];
+    const arr: { x: number; y: number; delay: number; dur: number }[] = [];
+    // Deterministic pseudo-random so SSR/CSR stay consistent
+    let seed = 1;
+    const rand = () => {
+      seed = (seed * 9301 + 49297) % 233280;
+      return seed / 233280;
+    };
     for (let j = 0; j <= rows; j++) {
       for (let i = 0; i <= cols; i++) {
         arr.push({
           x: Math.round(i * dx * 10) / 10,
           y: Math.round(j * dy * 10) / 10,
+          delay: -rand() * 8, // negative delay so they start mid-cycle, desynced
+          dur: 5 + rand() * 7, // 5s–12s individual cycle
         });
       }
     }
@@ -119,14 +127,16 @@ const MeshBackground = ({
         filter={`url(#${dotWaveId})`}
         mask={`url(#${fadeMaskId})`}
       >
-        <animate
-          attributeName="opacity"
-          values="0; 0.9; 0.05; 0.85; 0.1; 0.95; 0"
-          dur="11s"
-          repeatCount="indefinite"
-        />
         {dots.map((d, i) => (
-          <circle key={i} cx={d.x} cy={d.y} r={nodeRadius} />
+          <circle
+            key={i}
+            cx={d.x}
+            cy={d.y}
+            r={nodeRadius}
+            style={{
+              animation: `meshDotTwinkle ${d.dur}s ease-in-out ${d.delay}s infinite`,
+            }}
+          />
         ))}
       </g>
 
