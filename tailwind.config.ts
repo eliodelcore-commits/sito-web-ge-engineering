@@ -80,11 +80,17 @@ export default {
           from: { opacity: "0", transform: "translateY(20px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        "cube-expand": {
+          "0%": { clipPath: "circle(0% at 50% 50%)", opacity: "0.3", transform: "scale(0.6)" },
+          "60%": { opacity: "1" },
+          "100%": { clipPath: "circle(150% at 50% 50%)", opacity: "1", transform: "scale(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.6s ease-out forwards",
+        "cube-expand": "cube-expand 0.7s cubic-bezier(0.65, 0, 0.35, 1) forwards",
       },
     },
   },
