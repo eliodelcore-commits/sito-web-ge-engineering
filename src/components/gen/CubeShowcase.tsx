@@ -100,7 +100,7 @@ const CubeShowcase = () => {
     const faceImg = faceEl?.getAttribute("data-face") || null;
     setExpandingFace(faceImg);
     setFading(true);
-    setTimeout(() => navigate(to), 700);
+    setTimeout(() => navigate(to), 950);
   };
 
   return (
