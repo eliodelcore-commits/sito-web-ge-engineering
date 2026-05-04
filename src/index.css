@@ -157,9 +157,3 @@
 @media (prefers-reduced-motion: reduce) {
   .mesh-drift, .mesh-pulse, .mesh-node-twinkle, .mesh-wave { animation: none; }
 }
-
-/* Per-dot random twinkle for the MeshBackground dot grid */
-@keyframes meshDotTwinkle {
-  0%, 100% { opacity: 0; }
-  50%      { opacity: 1; }
-}

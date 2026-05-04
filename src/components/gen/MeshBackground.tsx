@@ -31,20 +31,12 @@ const MeshBackground = ({
     const H = 600;
     const dx = W / cols;
     const dy = H / rows;
-    const arr: { x: number; y: number; delay: number; dur: number }[] = [];
-    // Deterministic pseudo-random so SSR/CSR stay consistent
-    let seed = 1;
-    const rand = () => {
-      seed = (seed * 9301 + 49297) % 233280;
-      return seed / 233280;
-    };
+    const arr: { x: number; y: number }[] = [];
     for (let j = 0; j <= rows; j++) {
       for (let i = 0; i <= cols; i++) {
         arr.push({
           x: Math.round(i * dx * 10) / 10,
           y: Math.round(j * dy * 10) / 10,
-          delay: -rand() * 8, // negative delay so they start mid-cycle, desynced
-          dur: 5 + rand() * 7, // 5s–12s individual cycle
         });
       }
     }
@@ -57,8 +49,6 @@ const MeshBackground = ({
   const blurId = `blur-${uid}`;
   const fadeMaskId = `fade-${uid}`;
   const dotWaveId = `dotwave-${uid}`;
-  const dotEraseMaskId = `dotErase-${uid}`;
-  const dotEraseGradId = `dotEraseGrad-${uid}`;
 
   return (
     <svg
@@ -109,29 +99,6 @@ const MeshBackground = ({
           <rect x="0" y="0" width={W} height={H} fill={`url(#${fadeMaskId}-grad)`} />
         </mask>
 
-        {/* Erase mask: a diagonal band of "black" travels across, hiding dots
-            along its passage and splitting the dot field in two zones. */}
-        <linearGradient id={dotEraseGradId} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="white" stopOpacity="1" />
-          <stop offset="42%" stopColor="white" stopOpacity="1" />
-          <stop offset="47%" stopColor="white" stopOpacity="0.25" />
-          <stop offset="50%" stopColor="black" stopOpacity="1" />
-          <stop offset="53%" stopColor="white" stopOpacity="0.25" />
-          <stop offset="58%" stopColor="white" stopOpacity="1" />
-          <stop offset="100%" stopColor="white" stopOpacity="1" />
-        </linearGradient>
-        <mask id={dotEraseMaskId} maskUnits="userSpaceOnUse">
-          <rect x="0" y="0" width={W} height={H} fill="white" />
-          <rect
-            x={-W}
-            y={-H}
-            width={W * 3}
-            height={H * 3}
-            fill={`url(#${dotEraseGradId})`}
-            className="mesh-wave"
-          />
-        </mask>
-
         {/* Diagonal cyan wave gradient — soft, with bright crest.
             Oriented top-left → bottom-right (45° diagonal). */}
         <linearGradient id={waveId} x1="0" y1="0" x2="1" y2="1">
@@ -150,22 +117,17 @@ const MeshBackground = ({
         fill="hsl(var(--primary))"
         opacity="0.55"
         filter={`url(#${dotWaveId})`}
+        mask={`url(#${fadeMaskId})`}
       >
-        <g mask={`url(#${dotEraseMaskId})`}>
-          <g mask={`url(#${fadeMaskId})`}>
-            {dots.map((d, i) => (
-              <circle
-                key={i}
-                cx={d.x}
-                cy={d.y}
-                r={nodeRadius}
-                style={{
-                  animation: `meshDotTwinkle ${d.dur}s ease-in-out ${d.delay}s infinite`,
-                }}
-              />
-            ))}
-          </g>
-        </g>
+        <animate
+          attributeName="opacity"
+          values="0; 0.9; 0.05; 0.85; 0.1; 0.95; 0"
+          dur="11s"
+          repeatCount="indefinite"
+        />
+        {dots.map((d, i) => (
+          <circle key={i} cx={d.x} cy={d.y} r={nodeRadius} />
+        ))}
       </g>
 
       {/* Cyan wave sweep — travels diagonally from top-left to bottom-right.
