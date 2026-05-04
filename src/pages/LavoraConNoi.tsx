@@ -51,7 +51,7 @@ const LavoraConNoi = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <div className="relative pt-32 pb-24 overflow-hidden bg-background flex-1">
-        <MeshBackground focal={{ x: 0.25, y: 0.2 }} />
+        <MeshBackground focal={{ x: 0.25, y: 0.2 }} cols={200} rows={90} />
         <div className="container mx-auto px-6 relative z-10">
           <p className="text-primary text-sm font-medium mb-2">Carriere</p>
           <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">
