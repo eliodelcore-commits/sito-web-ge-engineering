@@ -172,6 +172,12 @@ const CubeShowcase = () => {
                       className="flex flex-col gap-1"
                       onMouseEnter={() => { hoveringLinkRef.current = true; }}
                       onMouseLeave={() => { hoveringLinkRef.current = false; }}
+                      onFocus={() => { hoveringLinkRef.current = true; }}
+                      onBlur={(e) => {
+                        if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                          hoveringLinkRef.current = false;
+                        }
+                      }}
                     >
                       <Link
                         to={face.to}
