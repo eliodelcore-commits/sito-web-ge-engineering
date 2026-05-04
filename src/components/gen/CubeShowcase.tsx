@@ -79,9 +79,13 @@ const CubeShowcase = () => {
     lastPos.current = null;
   };
 
-  const handleNavigate = (e: React.MouseEvent, to: string) => {
+  const handleNavigate = (e: React.MouseEvent, to: string, withEffect: boolean) => {
     e.preventDefault();
     if (movedRef.current || fading) return;
+    if (!withEffect) {
+      navigate(to);
+      return;
+    }
     const faceEl = (e.currentTarget as HTMLElement).closest("[data-face]") as HTMLElement | null;
     const faceImg = faceEl?.getAttribute("data-face") || null;
     setExpandingFace(faceImg);
@@ -151,14 +155,14 @@ const CubeShowcase = () => {
                     <div className="flex flex-col gap-1">
                       <Link
                         to={face.to}
-                        onClick={(e) => handleNavigate(e, face.to)}
+                        onClick={(e) => handleNavigate(e, face.to, true)}
                         className="text-primary text-[11px] uppercase tracking-wider font-semibold hover:underline pointer-events-auto"
                       >
                         Servizio →
                       </Link>
                       <Link
                         to={face.projectTo}
-                        onClick={(e) => handleNavigate(e, face.projectTo)}
+                        onClick={(e) => handleNavigate(e, face.projectTo, false)}
                         className="text-white/90 text-[11px] uppercase tracking-wider hover:text-primary pointer-events-auto"
                       >
                         Progetto: {face.projectLabel} →
