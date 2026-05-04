@@ -153,8 +153,13 @@ const CubeShowcase = () => {
                 }}
               >
                 <div
-                  className="w-full h-full bg-cover bg-center border border-white/10 relative overflow-hidden"
-                  style={{ backgroundImage: `url(${face.img})` }}
+                  className="w-full h-full bg-cover bg-center relative overflow-hidden"
+                  style={{
+                    backgroundImage: `url(${face.img})`,
+                    border: "2px solid hsl(0 0% 5%)",
+                    boxShadow:
+                      "inset 0 0 0 1px hsl(0 0% 0% / 0.6), inset 0 0 24px hsl(0 0% 0% / 0.55), 0 0 18px hsl(0 0% 0% / 0.45)",
+                  }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-primary/20 transition-opacity" />
