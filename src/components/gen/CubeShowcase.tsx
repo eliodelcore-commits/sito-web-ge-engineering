@@ -35,6 +35,7 @@ const CubeShowcase = () => {
   const [rotY, setRotY] = useState(20);
   const [dragging, setDragging] = useState(false);
   const [fading, setFading] = useState(false);
+  const [expandingFace, setExpandingFace] = useState<string | null>(null);
   const lastPos = useRef<{ x: number; y: number } | null>(null);
   const rafRef = useRef<number | null>(null);
   const draggingRef = useRef(false);
@@ -81,12 +82,23 @@ const CubeShowcase = () => {
   const handleNavigate = (e: React.MouseEvent, to: string) => {
     e.preventDefault();
     if (movedRef.current || fading) return;
+    const faceEl = (e.currentTarget as HTMLElement).closest("[data-face]") as HTMLElement | null;
+    const faceImg = faceEl?.getAttribute("data-face") || null;
+    setExpandingFace(faceImg);
     setFading(true);
-    setTimeout(() => navigate(to), 450);
+    setTimeout(() => navigate(to), 700);
   };
 
   return (
-    <section className={`relative py-16 md:py-24 bg-background overflow-hidden transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}>
+    <section className="relative py-16 md:py-24 bg-background overflow-hidden">
+      {expandingFace && (
+        <div
+          className="fixed inset-0 z-[100] bg-cover bg-center animate-cube-expand pointer-events-none"
+          style={{ backgroundImage: `url(${expandingFace})` }}
+        >
+          <div className="absolute inset-0 bg-background/40" />
+        </div>
+      )}
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
@@ -119,6 +131,7 @@ const CubeShowcase = () => {
             {faces.map((face) => (
               <div
                 key={face.to}
+                data-face={face.img}
                 className="absolute inset-0 group"
                 style={{
                   transform: `rotateX(${face.rot.x ?? 0}deg) rotateY(${face.rot.y ?? 0}deg) translateZ(${HALF}px)`,
