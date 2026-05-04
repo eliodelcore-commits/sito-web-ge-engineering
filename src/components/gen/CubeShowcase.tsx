@@ -162,7 +162,7 @@ const CubeShowcase = () => {
                       </Link>
                       <Link
                         to={face.projectTo}
-                        onClick={(e) => handleNavigate(e, face.projectTo, false)}
+                        onClick={(e) => handleNavigate(e, face.projectTo, true)}
                         className="text-white/90 text-[11px] uppercase tracking-wider hover:text-primary pointer-events-auto"
                       >
                         Progetto: {face.projectLabel} →
