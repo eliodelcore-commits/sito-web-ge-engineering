@@ -11,6 +11,8 @@ type Face = {
   img: string;
   title: string;
   to: string;
+  projectTo: string;
+  projectLabel: string;
   transform: string;
 };
 
@@ -18,12 +20,12 @@ const SIZE = 320;
 const HALF = SIZE / 2;
 
 const faces: Face[] = [
-  { img: hardwareImg, title: "Automazione Hardware", to: "/servizi/automazione-hardware", transform: `rotateY(0deg) translateZ(${HALF}px)` },
-  { img: softwareImg, title: "Automazione Software", to: "/servizi/automazione-software", transform: `rotateY(90deg) translateZ(${HALF}px)` },
-  { img: wirelessImg, title: "Wireless Planning", to: "/servizi/wireless-planning", transform: `rotateY(180deg) translateZ(${HALF}px)` },
-  { img: assistenzaImg, title: "Assistenza Tecnica", to: "/servizi/assistenza-tecnica", transform: `rotateY(-90deg) translateZ(${HALF}px)` },
-  { img: iotImg, title: "IoT Industriale", to: "/progetti/iot-industriale", transform: `rotateX(90deg) translateZ(${HALF}px)` },
-  { img: lineaImg, title: "Linea Automatizzata", to: "/progetti/linea-automatizzata", transform: `rotateX(-90deg) translateZ(${HALF}px)` },
+  { img: hardwareImg, title: "Automazione Hardware", to: "/servizi/automazione-hardware", projectTo: "/progetti/revamping-confezionamento", projectLabel: "Revamping Confezionamento", transform: `rotateY(0deg) translateZ(${HALF}px)` },
+  { img: softwareImg, title: "Automazione Software", to: "/servizi/automazione-software", projectTo: "/progetti/scada-chimico", projectLabel: "SCADA Chimico", transform: `rotateY(90deg) translateZ(${HALF}px)` },
+  { img: wirelessImg, title: "Wireless Planning", to: "/servizi/wireless-planning", projectTo: "/progetti/wireless-survey", projectLabel: "Wireless Survey", transform: `rotateY(180deg) translateZ(${HALF}px)` },
+  { img: assistenzaImg, title: "Assistenza Tecnica", to: "/servizi/assistenza-tecnica", projectTo: "/progetti/troubleshooting-wireless", projectLabel: "Troubleshooting Wireless", transform: `rotateY(-90deg) translateZ(${HALF}px)` },
+  { img: iotImg, title: "IoT Industriale", to: "/progetti/iot-industriale", projectTo: "/progetti", projectLabel: "Tutti i progetti", transform: `rotateX(90deg) translateZ(${HALF}px)` },
+  { img: lineaImg, title: "Linea Automatizzata", to: "/progetti/linea-automatizzata", projectTo: "/progetti", projectLabel: "Tutti i progetti", transform: `rotateX(-90deg) translateZ(${HALF}px)` },
 ];
 
 const CubeShowcase = () => {
@@ -105,13 +107,9 @@ const CubeShowcase = () => {
             }}
           >
             {faces.map((face) => (
-              <Link
+              <div
                 key={face.to}
-                to={face.to}
-                onClick={(e) => {
-                  if (movedRef.current) e.preventDefault();
-                }}
-                className="absolute inset-0 block group"
+                className="absolute inset-0 group"
                 style={{
                   transform: face.transform,
                   backfaceVisibility: "hidden",
@@ -123,16 +121,29 @@ const CubeShowcase = () => {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-primary/20 transition-opacity" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 className="font-display text-lg font-bold text-white drop-shadow-lg">
+                  <div className="absolute bottom-0 left-0 right-0 p-3 flex flex-col gap-2">
+                    <h3 className="font-display text-base font-bold text-white drop-shadow-lg leading-tight">
                       {face.title}
                     </h3>
-                    <span className="text-primary text-xs uppercase tracking-wider">
-                      Scopri →
-                    </span>
+                    <div className="flex flex-col gap-1">
+                      <Link
+                        to={face.to}
+                        onClick={(e) => { if (movedRef.current) e.preventDefault(); }}
+                        className="text-primary text-[11px] uppercase tracking-wider font-semibold hover:underline pointer-events-auto"
+                      >
+                        Servizio →
+                      </Link>
+                      <Link
+                        to={face.projectTo}
+                        onClick={(e) => { if (movedRef.current) e.preventDefault(); }}
+                        className="text-white/90 text-[11px] uppercase tracking-wider hover:text-primary pointer-events-auto"
+                      >
+                        Progetto: {face.projectLabel} →
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
