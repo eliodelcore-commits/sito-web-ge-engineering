@@ -168,7 +168,11 @@ const CubeShowcase = () => {
                     <h3 className="font-display text-base font-bold text-white drop-shadow-lg leading-tight">
                       {face.title}
                     </h3>
-                    <div className="flex flex-col gap-1">
+                    <div
+                      className="flex flex-col gap-1"
+                      onMouseEnter={() => { hoveringLinkRef.current = true; }}
+                      onMouseLeave={() => { hoveringLinkRef.current = false; }}
+                    >
                       <Link
                         to={face.to}
                         onClick={(e) => handleNavigate(e, face.to, true)}
