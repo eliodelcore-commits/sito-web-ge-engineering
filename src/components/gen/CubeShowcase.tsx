@@ -116,7 +116,7 @@ const CubeShowcase = () => {
                 }}
               >
                 <div
-                  className="w-full h-full bg-cover bg-center border-2 border-primary/40 shadow-[0_0_40px_rgba(191,255,0,0.15)] relative overflow-hidden"
+                  className="w-full h-full bg-cover bg-center border border-white/10 relative overflow-hidden"
                   style={{ backgroundImage: `url(${face.img})` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
