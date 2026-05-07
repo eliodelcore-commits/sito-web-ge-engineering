@@ -49,12 +49,17 @@ const ProgettoSCADAChimico = () => {
               <h3 className="font-heading text-sm font-semibold uppercase tracking-wider mb-3">Tecnologie</h3>
               <div className="flex flex-wrap gap-2">
               {["WinCC SCADA","OPC-UA","S7-1516F Safety","Historian","ESD","HMI","Profinet","2000+ I/O"].map((tag) => {
-                const isLinked = tag === "WinCC SCADA" || tag === "OPC-UA";
+                const linkedPaths: Record<string, string> = {
+                  "WinCC SCADA": "/wincc-scada",
+                  "OPC-UA": "/opc-ua",
+                  "S7-1516F Safety": "/s7-safety",
+                };
+                const isLinked = tag in linkedPaths;
                 const TagWrapper = isLinked ? Link : "span";
                 return (
                   <TagWrapper
                     key={tag}
-                    to={isLinked ? (tag === "WinCC SCADA" ? "/wincc-scada" : "/opc-ua") : undefined}
+                    to={isLinked ? linkedPaths[tag] : undefined}
                     className={`px-3 py-1 text-sm rounded-md bg-secondary text-secondary-foreground ${isLinked ? "hover:bg-primary/20 hover:text-primary transition-colors cursor-pointer" : ""}`}
                   >
                     {tag}
