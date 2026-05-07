@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import TechTag from "@/components/gen/TechTag";
 import iotBg from "@/assets/iot-bg.jpg";
 
 const ProgettoIoT = () => {
@@ -46,19 +47,9 @@ const ProgettoIoT = () => {
             <div className="mb-10 max-w-3xl">
               <h3 className="font-heading text-sm font-semibold uppercase tracking-wider mb-3">Tecnologie</h3>
               <div className="flex flex-wrap gap-2">
-                {["IoT","MQTT","InfluxDB","Grafana","Edge Gateway","Dashboard","Predictive Maintenance","OPC-UA"].map((tag) => {
-                  const isOPCUA = tag === "OPC-UA";
-                  const TagWrapper = isOPCUA ? Link : "span";
-                  return (
-                    <TagWrapper
-                      key={tag}
-                      to={isOPCUA ? "/opc-ua" : undefined}
-                      className={`px-3 py-1 text-sm rounded-md bg-secondary text-secondary-foreground ${isOPCUA ? "hover:bg-primary/20 hover:text-primary transition-colors cursor-pointer" : ""}`}
-                    >
-                      {tag}
-                    </TagWrapper>
-                  );
-                })}
+                {["IoT","MQTT","InfluxDB","Grafana","Edge Gateway","Dashboard","Predictive Maintenance","OPC-UA"].map((tag) => (
+                  <TechTag key={tag} tag={tag} />
+                ))}
               </div>
             </div>
 
