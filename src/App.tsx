@@ -17,6 +17,7 @@ import Auth from "./pages/Auth";
 import AreaConsulente from "./pages/AreaConsulente";
 import WinCCSCADA from "./pages/WinCCSCADA";
 import OPCUA from "./pages/OPCUA";
+import S7Safety from "./pages/S7Safety";
 import ProgettoIoT from "./pages/ProgettoIoT";
 import ProgettoRevampingConfezionamento from "./pages/ProgettoRevampingConfezionamento";
 import ProgettoLineaAutomatizzata from "./pages/ProgettoLineaAutomatizzata";
@@ -54,6 +55,7 @@ const App = () => (
           <Route path="/area-consulente" element={<AreaConsulente />} />
           <Route path="/wincc-scada" element={<WinCCSCADA />} />
           <Route path="/opc-ua" element={<OPCUA />} />
+          <Route path="/s7-safety" element={<S7Safety />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
