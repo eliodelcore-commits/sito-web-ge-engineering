@@ -114,16 +114,23 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 h-14 md:h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3 md:gap-4 min-w-0">
-          <img
-            src={logo}
-            alt="GEENGINEERING SRL"
-            className="h-10 md:h-14 shrink-0"
-          />
-          <span className="hidden lg:block text-base text-white whitespace-nowrap">
+        <div className="flex items-center gap-3 md:gap-4 min-w-0">
+          <Link to="/" className="shrink-0">
+            <img
+              src={logo}
+              alt="GEENGINEERING SRL"
+              className="h-10 md:h-14 shrink-0"
+            />
+          </Link>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Via+Idice+47%2C+40050+Monterenzio+BO%2C+Italia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden lg:block text-base text-white whitespace-nowrap hover:text-primary transition-colors"
+          >
             Via Idice 47, 40050 Monterenzio (BO), Italia
-          </span>
-        </Link>
+          </a>
+        </div>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
