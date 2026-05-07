@@ -66,20 +66,10 @@ const AreaConsulente = () => {
           nodeRadius={0.25}
           className="pointer-events-none absolute inset-0 w-full h-full z-0 opacity-90"
         />
-        <div className="container mx-auto px-6 max-w-2xl relative z-10">
-          <div className="flex items-start justify-between gap-4 mb-8">
-            <div>
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <Headset className="w-6 h-6 text-primary" />
-              </div>
-              <p className="text-primary text-sm font-medium mb-2">Area riservata</p>
-              <h1 className="font-heading text-3xl md:text-4xl font-bold mb-2">
-                Parla con un consulente
-              </h1>
-              <p className="text-muted-foreground">
-                Ciao{userEmail ? `, ${userEmail}` : ""}. Scrivi al tuo consulente
-                commerciale dedicato: ti risponderemo al più presto.
-              </p>
+        <div className="container mx-auto px-6 max-w-xl relative z-10">
+          <div className="flex items-start justify-between gap-4 mb-6">
+            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+              <Headset className="w-6 h-6 text-primary" />
             </div>
             <button
               type="button"
@@ -90,6 +80,14 @@ const AreaConsulente = () => {
               Esci
             </button>
           </div>
+          <p className="text-primary text-sm font-medium mb-2">Area riservata</p>
+          <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+            Parla con un consulente
+          </h1>
+          <p className="text-muted-foreground mb-8">
+            Ciao{userEmail ? `, ${userEmail}` : ""}. Scrivi al tuo consulente
+            commerciale dedicato: ti risponderemo al più presto.
+          </p>
 
           <form onSubmit={handleSend} className="space-y-5">
             <div>
