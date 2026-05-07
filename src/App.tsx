@@ -21,6 +21,7 @@ import OPCUA from "./pages/OPCUA";
 import S7Safety from "./pages/S7Safety";
 import Historian from "./pages/Historian";
 import HMI from "./pages/HMI";
+import ESD from "./pages/ESD";
 import ProgettoIoT from "./pages/ProgettoIoT";
 import ProgettoRevampingConfezionamento from "./pages/ProgettoRevampingConfezionamento";
 import ProgettoLineaAutomatizzata from "./pages/ProgettoLineaAutomatizzata";
@@ -62,6 +63,7 @@ const App = () => (
           <Route path="/s7-safety" element={<S7Safety />} />
           <Route path="/historian" element={<Historian />} />
           <Route path="/hmi" element={<HMI />} />
+          <Route path="/esd" element={<ESD />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
