@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
-import scadaBg from "@/assets/scada-bg.webp";
+import scadaBg from "@/assets/wincc-linea-bg.jpg";
 
 const WinCCSCADALinea = () => {
   return (
