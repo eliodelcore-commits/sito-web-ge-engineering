@@ -49,13 +49,13 @@ const ProgettoSCADAChimico = () => {
               <h3 className="font-heading text-sm font-semibold uppercase tracking-wider mb-3">Tecnologie</h3>
               <div className="flex flex-wrap gap-2">
               {["WinCC SCADA","OPC-UA","S7-1516F Safety","Historian","ESD","HMI","Profinet","2000+ I/O"].map((tag) => {
-                const isWinCC = tag === "WinCC SCADA";
-                const TagWrapper = isWinCC ? Link : "span";
+                const isLinked = tag === "WinCC SCADA" || tag === "OPC-UA";
+                const TagWrapper = isLinked ? Link : "span";
                 return (
                   <TagWrapper
                     key={tag}
-                    to={isWinCC ? "/wincc-scada" : undefined}
-                    className={`px-3 py-1 text-sm rounded-md bg-secondary text-secondary-foreground ${isWinCC ? "hover:bg-primary/20 hover:text-primary transition-colors cursor-pointer" : ""}`}
+                    to={isLinked ? (tag === "WinCC SCADA" ? "/wincc-scada" : "/opc-ua") : undefined}
+                    className={`px-3 py-1 text-sm rounded-md bg-secondary text-secondary-foreground ${isLinked ? "hover:bg-primary/20 hover:text-primary transition-colors cursor-pointer" : ""}`}
                   >
                     {tag}
                   </TagWrapper>

@@ -16,6 +16,7 @@ import HolisticLanding from "./pages/HolisticLanding";
 import Auth from "./pages/Auth";
 import AreaConsulente from "./pages/AreaConsulente";
 import WinCCSCADA from "./pages/WinCCSCADA";
+import OPCUA from "./pages/OPCUA";
 import ProgettoIoT from "./pages/ProgettoIoT";
 import ProgettoRevampingConfezionamento from "./pages/ProgettoRevampingConfezionamento";
 import ProgettoLineaAutomatizzata from "./pages/ProgettoLineaAutomatizzata";
@@ -52,6 +53,7 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/area-consulente" element={<AreaConsulente />} />
           <Route path="/wincc-scada" element={<WinCCSCADA />} />
+          <Route path="/opc-ua" element={<OPCUA />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
