@@ -76,9 +76,19 @@ const ProgettoLineaAutomatizzata = () => {
           </p>
 
           <div className="flex flex-wrap gap-2 mb-16">
-            {tags.map((tag) => (
-              <TechTag key={tag} tag={tag} size="xs" />
-            ))}
+            {tags.map((tag) =>
+              tag === "WinCC SCADA" ? (
+                <Link
+                  key={tag}
+                  to="/wincc-scada-linea"
+                  className="px-2.5 py-1 text-xs rounded-md bg-secondary text-secondary-foreground hover:bg-primary/20 hover:text-primary transition-colors cursor-pointer"
+                >
+                  {tag}
+                </Link>
+              ) : (
+                <TechTag key={tag} tag={tag} size="xs" />
+              )
+            )}
           </div>
 
           <section className="mt-12">
