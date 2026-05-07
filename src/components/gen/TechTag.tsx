@@ -8,6 +8,7 @@ export const techLinkedPaths: Record<string, string> = {
   Historian: "/historian",
   HMI: "/hmi",
   ESD: "/esd",
+  Profinet: "/profinet",
 };
 
 interface TechTagProps {

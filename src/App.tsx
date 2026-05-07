@@ -22,6 +22,7 @@ import S7Safety from "./pages/S7Safety";
 import Historian from "./pages/Historian";
 import HMI from "./pages/HMI";
 import ESD from "./pages/ESD";
+import Profinet from "./pages/Profinet";
 import ProgettoIoT from "./pages/ProgettoIoT";
 import ProgettoRevampingConfezionamento from "./pages/ProgettoRevampingConfezionamento";
 import ProgettoLineaAutomatizzata from "./pages/ProgettoLineaAutomatizzata";
@@ -64,6 +65,7 @@ const App = () => (
           <Route path="/historian" element={<Historian />} />
           <Route path="/hmi" element={<HMI />} />
           <Route path="/esd" element={<ESD />} />
+          <Route path="/profinet" element={<Profinet />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
