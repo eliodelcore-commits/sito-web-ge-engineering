@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import TechTag from "@/components/gen/TechTag";
 import { ArrowLeft } from "lucide-react";
 import iotBg from "@/assets/confezionamento-bg.jpg";
 
@@ -39,6 +40,26 @@ const ProgettoRevampingConfezionamento = () => {
           <p className="text-muted-foreground leading-relaxed max-w-3xl">
             Upgrade da S7-300 a S7-1516F Safety, sostituzione drive KEB F5 con SEW MOVIDRIVE B su Profinet, inserimento 4 cobot per etichettatura packaging.
           </p>
+
+          <div className="mt-8 max-w-3xl">
+            <h3 className="font-heading text-sm font-semibold uppercase tracking-wider mb-3">Tecnologie</h3>
+            <div className="flex flex-wrap gap-2">
+              {[
+                "WinCC SCADA",
+                "S7-1516F Safety",
+                "S7-1515 Motion",
+                "Profinet",
+                "Scalance XC224",
+                "PROFIsafe",
+                "ET200SP-F",
+                "SEW MOVIDRIVE B",
+                "Cobot",
+                "HMI",
+              ].map((tag) => (
+                <TechTag key={tag} tag={tag} />
+              ))}
+            </div>
+          </div>
 
           <div className="mt-16 rounded-xl border border-border bg-card p-6 md:p-10">
             <h2 className="font-heading text-xl font-semibold mb-2">Vista topologica di rete</h2>
