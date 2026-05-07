@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import TechTag from "@/components/gen/TechTag";
 import lineaBg from "@/assets/linea-bg.jpg";
 
 const tags = [
@@ -76,12 +77,7 @@ const ProgettoLineaAutomatizzata = () => {
 
           <div className="flex flex-wrap gap-2 mb-16">
             {tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-2.5 py-1 text-xs rounded-md bg-secondary text-secondary-foreground"
-              >
-                {tag}
-              </span>
+              <TechTag key={tag} tag={tag} size="xs" />
             ))}
           </div>
 
