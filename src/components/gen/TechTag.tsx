@@ -7,6 +7,7 @@ export const techLinkedPaths: Record<string, string> = {
   "S7-1516F Safety": "/s7-safety",
   Historian: "/historian",
   HMI: "/hmi",
+  ESD: "/esd",
 };
 
 interface TechTagProps {
