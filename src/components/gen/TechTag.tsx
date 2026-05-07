@@ -6,6 +6,7 @@ export const techLinkedPaths: Record<string, string> = {
   "OPC-UA": "/opc-ua",
   "S7-1516F Safety": "/s7-safety",
   Historian: "/historian",
+  HMI: "/hmi",
 };
 
 interface TechTagProps {
