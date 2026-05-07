@@ -53,6 +53,7 @@ const ProgettoSCADAChimico = () => {
                   "WinCC SCADA": "/wincc-scada",
                   "OPC-UA": "/opc-ua",
                   "S7-1516F Safety": "/s7-safety",
+                  "Historian": "/historian",
                 };
                 const isLinked = tag in linkedPaths;
                 const TagWrapper = isLinked ? Link : "span";
