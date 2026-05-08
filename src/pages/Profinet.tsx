@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Network, Zap, Shield, Layers, Activity, GitBranch } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
-import bg from "@/assets/scada-bg.webp";
+import bg from "@/assets/profinet-bg.jpg";
 
 const features = [
   {
