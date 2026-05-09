@@ -7,7 +7,7 @@ const projects = [
     title: "Linea di produzione automatizzata",
     category: "Automazione Hardware",
     description: "Progettazione e realizzazione completa dell'automazione di una linea produttiva. Architettura Profinet ad anello con 12 PLC Siemens S7 distribuiti su 4 switch Scalance X, 2 server SCADA WinCC in ridondanza hot-standby e postazione supervisore operatore HMI. Sistema di visione artificiale integrato per controllo qualità inline.",
-    tags: ["PLC Siemens S7", "Profinet", "WinCC SCADA", "Scalance X", "Safety", "Visione Artificiale"],
+    tags: ["PLC Siemens", "Profinet", "WinCC SCADA", "Scalance X", "Safety", "Visione Artificiale"],
   },
   {
     title: "Sistema SCADA stabilimento chimico",

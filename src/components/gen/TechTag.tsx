@@ -9,6 +9,12 @@ export const techLinkedPaths: Record<string, string> = {
   HMI: "/hmi",
   ESD: "/esd",
   Profinet: "/profinet",
+  "PLC Siemens": "/siemens",
+  "Scalance X": "/siemens",
+  "Scalance XC224": "/siemens",
+  ET200SP: "/siemens",
+  "ET200SP-F": "/siemens",
+  "S7-1515 Motion": "/siemens",
 };
 
 interface TechTagProps {

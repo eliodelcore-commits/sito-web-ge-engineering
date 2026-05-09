@@ -23,6 +23,7 @@ import Historian from "./pages/Historian";
 import HMI from "./pages/HMI";
 import ESD from "./pages/ESD";
 import Profinet from "./pages/Profinet";
+import Siemens from "./pages/Siemens";
 import ProgettoIoT from "./pages/ProgettoIoT";
 import ProgettoRevampingConfezionamento from "./pages/ProgettoRevampingConfezionamento";
 import ProgettoLineaAutomatizzata from "./pages/ProgettoLineaAutomatizzata";
@@ -66,6 +67,7 @@ const App = () => (
           <Route path="/hmi" element={<HMI />} />
           <Route path="/esd" element={<ESD />} />
           <Route path="/profinet" element={<Profinet />} />
+          <Route path="/siemens" element={<Siemens />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
