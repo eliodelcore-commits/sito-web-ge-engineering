@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ShieldCheck, AlertTriangle, Cpu, Network, FileCheck, Lock } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
-import safetyBg from "@/assets/automazione-software-hero.jpg";
+import safetyBg from "@/assets/safety-bg.jpg";
 
 const features = [
   {
