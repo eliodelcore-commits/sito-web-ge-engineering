@@ -31,6 +31,7 @@ import ProgettoSCADAChimico from "./pages/ProgettoSCADAChimico";
 import ProgettoWirelessSurvey from "./pages/ProgettoWirelessSurvey";
 import ProgettoTroubleshootingWireless from "./pages/ProgettoTroubleshootingWireless";
 import NotFound from "./pages/NotFound";
+import PageTransition from "./components/gen/PageTransition";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <PageTransition>
         <Routes>
           <Route path="/" element={<GenHome />} />
           <Route path="/servizi" element={<Servizi />} />
@@ -70,6 +72,7 @@ const App = () => (
           <Route path="/siemens" element={<Siemens />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </PageTransition>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
