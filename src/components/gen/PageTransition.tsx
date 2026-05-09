@@ -1,35 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const PageTransition = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
-  const [displayed, setDisplayed] = useState(children);
-  const [stage, setStage] = useState<"in" | "out">("in");
 
   useEffect(() => {
-    setStage("out");
-    const t = setTimeout(() => {
-      setDisplayed(children);
-      window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-      setStage("in");
-    }, 180);
-    return () => clearTimeout(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
   }, [location.pathname]);
 
-  useEffect(() => {
-    setDisplayed(children);
-  }, [children]);
-
   return (
-    <div
-      className={`transition-all duration-300 ease-out ${
-        stage === "in"
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 translate-y-2"
-      }`}
-    >
-      {displayed}
+    <div key={location.pathname} className="animate-fade-in">
+      {children}
     </div>
   );
 };
