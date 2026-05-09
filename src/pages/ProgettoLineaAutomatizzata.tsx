@@ -6,7 +6,7 @@ import TechTag from "@/components/gen/TechTag";
 import lineaBg from "@/assets/linea-bg.jpg";
 
 const tags = [
-  "PLC Siemens S7",
+  "PLC Siemens",
   "Profinet",
   "WinCC SCADA",
   "Scalance X",
