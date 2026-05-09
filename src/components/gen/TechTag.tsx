@@ -9,6 +9,7 @@ export const techLinkedPaths: Record<string, string> = {
   HMI: "/hmi",
   ESD: "/esd",
   Profinet: "/profinet",
+  Safety: "/safety",
   "PLC Siemens": "/siemens",
   "Scalance X": "/siemens",
   "Scalance XC224": "/siemens",
