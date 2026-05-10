@@ -11,19 +11,6 @@ import aiproInspect from "@/assets/ekahau-aipro-inspect.png";
 import sk2Radios from "@/assets/ekahau-sidekick2-radios.png";
 import sk2Antennas from "@/assets/ekahau-sidekick2-antennas.png";
 
-const hardware = [
-  {
-    name: "Ekahau Sidekick 2",
-    desc: "Strumento all-in-one per site survey professionali. Integra due radio Wi-Fi 6/6E tri-band (2.4 / 5 / 6 GHz), spectrum analyzer dual-band e GPS. Misure simultanee attive e passive in un'unica passata, con accuratezza calibrata in fabbrica.",
-    specs: ["Wi-Fi 6E (2.4/5/6 GHz)", "Spectrum analyzer integrato", "8 antenne calibrate", "USB-C su laptop o iPhone/iPad"],
-  },
-  {
-    name: "Ekahau Sidekick (gen 1)",
-    desc: "Predecessore del Sidekick 2, supporta Wi-Fi 5 e analisi spettro 2.4/5 GHz. Ancora ampiamente utilizzato per audit e survey su reti legacy.",
-    specs: ["Wi-Fi 5 (802.11ac)", "Spectrum analyzer", "Bande 2.4/5 GHz"],
-  },
-];
-
 const software = [
   {
     name: "Ekahau AI Pro",
