@@ -1,6 +1,7 @@
 import { Link, useSearchParams } from "react-router-dom";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import TechTag from "@/components/gen/TechTag";
 
 const projects = [
   {
@@ -89,12 +90,7 @@ const Progetti = () => {
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2.5 py-1 text-xs rounded-md bg-secondary text-secondary-foreground"
-                      >
-                        {tag}
-                      </span>
+                      <TechTag key={tag} tag={tag} size="xs" />
                     ))}
                   </div>
                 </div>
