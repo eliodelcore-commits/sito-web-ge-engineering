@@ -26,6 +26,7 @@ import Profinet from "./pages/Profinet";
 import Siemens from "./pages/Siemens";
 import Safety from "./pages/Safety";
 import VisioneArtificiale from "./pages/VisioneArtificiale";
+import Ekahau from "./pages/Ekahau";
 import ProgettoIoT from "./pages/ProgettoIoT";
 import ProgettoRevampingConfezionamento from "./pages/ProgettoRevampingConfezionamento";
 import ProgettoLineaAutomatizzata from "./pages/ProgettoLineaAutomatizzata";
@@ -74,6 +75,7 @@ const App = () => (
           <Route path="/siemens" element={<Siemens />} />
           <Route path="/safety" element={<Safety />} />
           <Route path="/visione-artificiale" element={<VisioneArtificiale />} />
+          <Route path="/ekahau" element={<Ekahau />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         </PageTransition>
