@@ -17,6 +17,10 @@ export const techLinkedPaths: Record<string, string> = {
   "ET200SP-F": "/siemens",
   "S7-1515 Motion": "/siemens",
   "Visione Artificiale": "/visione-artificiale",
+  "Ekahau AI": "/ekahau",
+  Ekahau: "/ekahau",
+  "Ekahau Sidekick": "/ekahau",
+  "Ekahau Sidekick 2": "/ekahau",
 };
 
 interface TechTagProps {
