@@ -27,6 +27,7 @@ import Siemens from "./pages/Siemens";
 import Safety from "./pages/Safety";
 import VisioneArtificiale from "./pages/VisioneArtificiale";
 import Ekahau from "./pages/Ekahau";
+import IoT from "./pages/IoT";
 import ProgettoIoT from "./pages/ProgettoIoT";
 import ProgettoRevampingConfezionamento from "./pages/ProgettoRevampingConfezionamento";
 import ProgettoLineaAutomatizzata from "./pages/ProgettoLineaAutomatizzata";
@@ -76,6 +77,7 @@ const App = () => (
           <Route path="/safety" element={<Safety />} />
           <Route path="/visione-artificiale" element={<VisioneArtificiale />} />
           <Route path="/ekahau" element={<Ekahau />} />
+          <Route path="/iot" element={<IoT />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         </PageTransition>
