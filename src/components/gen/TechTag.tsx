@@ -21,6 +21,8 @@ export const techLinkedPaths: Record<string, string> = {
   Ekahau: "/ekahau",
   "Ekahau Sidekick": "/ekahau",
   "Ekahau Sidekick 2": "/ekahau",
+  IoT: "/iot",
+  IIoT: "/iot",
 };
 
 interface TechTagProps {
