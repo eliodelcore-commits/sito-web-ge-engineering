@@ -122,14 +122,20 @@ const Navbar = () => {
               className="h-10 md:h-14 shrink-0"
             />
           </Link>
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=Via+Idice+47%2C+40050+Monterenzio+BO%2C+Italia"
-           
-           
-            className="hidden lg:block text-base text-white whitespace-nowrap hover:text-primary transition-colors"
-          >
-            Via Idice 47, 40050 Monterenzio (BO), Italia
-          </a>
+          <div className="hidden lg:flex flex-col">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Via+Idice+47%2C+40050+Monterenzio+BO%2C+Italia"
+              className="text-base text-white whitespace-nowrap hover:text-primary transition-colors"
+            >
+              Via Idice 47, 40050 Monterenzio (BO), Italia
+            </a>
+            <a
+              href="mailto:info@geenginering.com"
+              className="text-sm text-white whitespace-nowrap hover:text-primary transition-colors"
+            >
+              info@geenginering.com
+            </a>
+          </div>
         </div>
 
         {/* Desktop nav */}
