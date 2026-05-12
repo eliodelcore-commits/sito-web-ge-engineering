@@ -124,8 +124,8 @@ const Navbar = () => {
           </Link>
           <a
             href="https://www.google.com/maps/search/?api=1&query=Via+Idice+47%2C+40050+Monterenzio+BO%2C+Italia"
-            target="_blank"
-            rel="noopener noreferrer"
+           
+           
             className="hidden lg:block text-base text-white whitespace-nowrap hover:text-primary transition-colors"
           >
             Via Idice 47, 40050 Monterenzio (BO), Italia
