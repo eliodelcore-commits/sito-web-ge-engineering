@@ -116,6 +116,31 @@ const GenContatti = () => {
               </div>
             </div>
           </div>
+
+          {/* Mappa incorporata */}
+          <div className="mt-16">
+            <h2 className="font-heading text-2xl md:text-3xl font-bold mb-6">Dove siamo</h2>
+            <div className="rounded-lg overflow-hidden border border-border shadow-lg aspect-[16/9] w-full">
+              <iframe
+                title="Mappa GENGINEERING - Via Idice 47, Monterenzio (BO)"
+                src="https://www.google.com/maps?q=Via+Idice+47,+40050+Monterenzio+BO,+Italia&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Via+Idice+47%2C+40050+Monterenzio+BO%2C+Italia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-4 text-sm text-primary hover:underline"
+            >
+              <MapPin className="w-4 h-4" /> Apri in Google Maps
+            </a>
+          </div>
         </div>
       </div>
       <Footer />
