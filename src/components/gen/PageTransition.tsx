@@ -1,4 +1,4 @@
-import { cloneElement, isValidElement, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -12,12 +12,6 @@ const PageTransition = ({ children }: { children: React.ReactNode }) => {
       prevPath.current = location.pathname;
     }
   }, [location.pathname]);
-
-  // Pass `location` prop to <Routes> so React Router keeps rendering the
-  // outgoing route while it animates out, eliminating layout jumps.
-  const routedChildren = isValidElement(children)
-    ? cloneElement(children as React.ReactElement, { location })
-    : children;
 
   return (
     <div style={{ perspective: "1600px" }}>
@@ -50,7 +44,7 @@ const PageTransition = ({ children }: { children: React.ReactNode }) => {
             willChange: "transform, opacity, filter",
           }}
         >
-          {routedChildren}
+          {children}
         </motion.div>
       </AnimatePresence>
     </div>
