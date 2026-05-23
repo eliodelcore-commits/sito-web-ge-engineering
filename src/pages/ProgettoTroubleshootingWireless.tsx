@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import TechTag from "@/components/gen/TechTag";
 
 const ProgettoTroubleshootingWireless = () => {
   return (
@@ -52,9 +53,7 @@ const ProgettoTroubleshootingWireless = () => {
             <h3 className="font-heading text-sm font-semibold uppercase tracking-wider mb-3">Tecnologie</h3>
             <div className="flex flex-wrap gap-2">
               {["Ekahau AI", "Spectrum Analyzer", "Packet Capture", "RF Design", "Roaming Tuning", "Validazione"].map((tag) => (
-                <span key={tag} className="px-3 py-1 text-sm rounded-md bg-secondary text-secondary-foreground">
-                  {tag}
-                </span>
+                <TechTag key={tag} tag={tag} />
               ))}
             </div>
           </div>
