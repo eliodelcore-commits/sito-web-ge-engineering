@@ -122,22 +122,22 @@ const Navbar = () => {
               className="h-10 md:h-14 shrink-0"
             />
           </Link>
-          <div className="hidden lg:flex flex-col">
+          <div className="hidden lg:flex flex-col leading-none gap-0.5">
             <a
               href="https://www.google.com/maps/search/?api=1&query=Via+Idice+47%2C+40050+Monterenzio+BO%2C+Italia"
-              className="text-base text-white whitespace-nowrap hover:text-primary transition-colors"
+              className="text-[11px] text-white/80 whitespace-nowrap hover:text-primary transition-colors"
             >
               Via Idice 47, 40050 Monterenzio (BO), Italia
             </a>
             <a
               href="mailto:info@geenginering.com"
-              className="text-sm text-white whitespace-nowrap hover:text-primary transition-colors"
+              className="text-[11px] text-white/80 whitespace-nowrap hover:text-primary transition-colors"
             >
               info@geenginering.com
             </a>
             <a
               href="tel:+39051568908"
-              className="text-sm text-white whitespace-nowrap hover:text-primary transition-colors"
+              className="text-[11px] text-white/80 whitespace-nowrap hover:text-primary transition-colors"
             >
               +39 051 568908
             </a>
