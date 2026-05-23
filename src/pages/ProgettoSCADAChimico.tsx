@@ -76,21 +76,16 @@ const ProgettoSCADAChimico = () => {
 
   <line x1="30" y1="314" x2="870" y2="314" stroke="#334155" strokeWidth="0.5" strokeDasharray="4 3"/>
 
-  {/* Etichette livello con sfondo per garantire leggibilità sopra linee/box */}
-  <rect x="24" y="8" width="260" height="16" rx="3" fill="#0B1220" fillOpacity="0.92"/>
+  {/* Etichette livello — posizionate in zone libere, senza sfondi */}
   <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#CBD5E1" x="30" y="20">Livello 3 — Supervisione SCADA (rete IT)</text>
 
-  <rect x="585" y="126" width="170" height="16" rx="3" fill="#1A0A0A" fillOpacity="0.92"/>
-  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#FCA5A5" x="591" y="138">Perimetro sicurezza OT/IT</text>
+  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#FCA5A5" x="585" y="114">Perimetro sicurezza OT/IT</text>
 
-  <rect x="24" y="160" width="240" height="16" rx="3" fill="#0B1220" fillOpacity="0.92"/>
-  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#CBD5E1" x="30" y="172">Livello 2 — Rete di processo (OPC-UA)</text>
+  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#CBD5E1" x="30" y="176">Livello 2 — Rete di processo (OPC-UA)</text>
 
-  <rect x="24" y="226" width="160" height="16" rx="3" fill="#0B1220" fillOpacity="0.92"/>
-  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#CBD5E1" x="30" y="238">Livello 1 — Controllo PLC</text>
+  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#CBD5E1" x="30" y="232">Livello 1 — Controllo PLC</text>
 
-  <rect x="24" y="308" width="300" height="16" rx="3" fill="#0B1220" fillOpacity="0.92"/>
-  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#CBD5E1" x="30" y="320">Livello 0 — Campo · ET200SP remoti (2000+ I/O)</text>
+  <text fontFamily="inherit" fontSize="10" fontWeight="600" fill="#CBD5E1" x="30" y="311">Liv. 0 — Campo · ET200SP (2000+ I/O)</text>
 
   {/* Indicatore ridondanza tra Server SCADA 1 e 2 */}
   <line x1="175" y1="52" x2="197" y2="52" stroke="#60A5FA" strokeWidth="1.2" strokeDasharray="3 2"/>
