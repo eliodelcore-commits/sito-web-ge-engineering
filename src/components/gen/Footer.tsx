@@ -14,22 +14,22 @@ const Footer = () => {
                 className="h-10 md:h-14 opacity-90 hover:opacity-100 transition-opacity"
               />
             </Link>
-            <div className="flex flex-col items-center sm:items-start gap-1">
+            <div className="flex flex-col items-center sm:items-start leading-none gap-0.5">
               <a
                 href="https://www.google.com/maps/search/?api=1&query=Via+Idice+47%2C+40050+Monterenzio+BO%2C+Italia"
-                className="text-sm md:text-base text-white leading-snug md:whitespace-nowrap hover:text-primary transition-colors"
+                className="text-[11px] text-white/80 md:whitespace-nowrap hover:text-primary transition-colors"
               >
                 Via Idice 47, 40050 Monterenzio (BO), Italia
               </a>
               <a
                 href="mailto:info@geenginering.com"
-                className="text-sm md:text-base text-white leading-snug md:whitespace-nowrap hover:text-primary transition-colors"
+                className="text-[11px] text-white/80 md:whitespace-nowrap hover:text-primary transition-colors"
               >
                 info@geenginering.com
               </a>
               <a
                 href="tel:+39051568908"
-                className="text-sm md:text-base text-white leading-snug md:whitespace-nowrap hover:text-primary transition-colors"
+                className="text-[11px] text-white/80 md:whitespace-nowrap hover:text-primary transition-colors"
               >
                 +39 051 568908
               </a>
