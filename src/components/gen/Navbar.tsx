@@ -135,6 +135,12 @@ const Navbar = () => {
             >
               info@geenginering.com
             </a>
+            <a
+              href="tel:+39051568908"
+              className="text-sm text-white whitespace-nowrap hover:text-primary transition-colors"
+            >
+              +39 051 568908
+            </a>
           </div>
         </div>
 

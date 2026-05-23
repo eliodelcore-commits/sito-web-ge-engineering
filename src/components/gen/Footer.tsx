@@ -27,6 +27,12 @@ const Footer = () => {
               >
                 info@geenginering.com
               </a>
+              <a
+                href="tel:+39051568908"
+                className="text-sm md:text-base text-white leading-snug md:whitespace-nowrap hover:text-primary transition-colors"
+              >
+                +39 051 568908
+              </a>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
