@@ -80,8 +80,8 @@ const ProgettoSCADAChimico = () => {
   <rect x="24" y="8" width="260" height="16" rx="3" fill="#0B1220" fillOpacity="0.92"/>
   <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#CBD5E1" x="30" y="20">Livello 3 — Supervisione SCADA (rete IT)</text>
 
-  <rect x="24" y="96" width="170" height="16" rx="3" fill="#1A0A0A" fillOpacity="0.92"/>
-  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#FCA5A5" x="30" y="108">Perimetro sicurezza OT/IT</text>
+  <rect x="585" y="126" width="170" height="16" rx="3" fill="#1A0A0A" fillOpacity="0.92"/>
+  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#FCA5A5" x="591" y="138">Perimetro sicurezza OT/IT</text>
 
   <rect x="24" y="160" width="240" height="16" rx="3" fill="#0B1220" fillOpacity="0.92"/>
   <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#CBD5E1" x="30" y="172">Livello 2 — Rete di processo (OPC-UA)</text>
