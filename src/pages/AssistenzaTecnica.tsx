@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
 import { Wrench, Monitor, Phone, Clock, CheckCircle2 } from "lucide-react";
@@ -143,12 +144,12 @@ const AssistenzaTecnica = () => {
               manutenzione programmata. Contattaci per un preventivo
               personalizzato.
             </p>
-            <a
-              href="/contatti"
+            <Link
+              to="/contatti"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
             >
               Contattaci
-            </a>
+            </Link>
           </div>
         </div>
       </div>
