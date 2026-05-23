@@ -32,8 +32,6 @@ const CubeShowcase = () => {
   const HALF = SIZE / 2;
   const navigate = useNavigate();
   const [dragging, setDragging] = useState(false);
-  const [fading, setFading] = useState(false);
-  const [expandingFace, setExpandingFace] = useState<string | null>(null);
   const lastPos = useRef<{ x: number; y: number } | null>(null);
   const rafRef = useRef<number | null>(null);
   const draggingRef = useRef(false);
@@ -90,30 +88,14 @@ const CubeShowcase = () => {
     lastPos.current = null;
   };
 
-  const handleNavigate = (e: React.MouseEvent, to: string, withEffect: boolean) => {
+  const handleNavigate = (e: React.MouseEvent, to: string) => {
     e.preventDefault();
-    if (movedRef.current || fading) return;
-    if (!withEffect) {
-      navigate(to);
-      return;
-    }
-    const faceEl = (e.currentTarget as HTMLElement).closest("[data-face]") as HTMLElement | null;
-    const faceImg = faceEl?.getAttribute("data-face") || null;
-    setExpandingFace(faceImg);
-    setFading(true);
-    setTimeout(() => navigate(to), 1500);
+    if (movedRef.current) return;
+    navigate(to);
   };
 
   return (
     <section className="relative py-16 md:py-24 bg-background overflow-hidden">
-      {expandingFace && (
-        <div
-          className="fixed inset-0 z-[100] bg-cover bg-center animate-cube-expand pointer-events-none"
-          style={{ backgroundImage: `url(${expandingFace})`, willChange: "clip-path, transform, opacity", transform: "translateZ(0)" }}
-        >
-          <div className="absolute inset-0 bg-background/40" />
-        </div>
-      )}
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
@@ -181,14 +163,14 @@ const CubeShowcase = () => {
                     >
                       <Link
                         to={face.to}
-                        onClick={(e) => handleNavigate(e, face.to, true)}
+                        onClick={(e) => handleNavigate(e, face.to)}
                         className="text-primary text-[11px] uppercase tracking-wider font-semibold hover:underline pointer-events-auto"
                       >
                         Servizio →
                       </Link>
                       <Link
                         to={face.projectTo}
-                        onClick={(e) => handleNavigate(e, face.projectTo, true)}
+                        onClick={(e) => handleNavigate(e, face.projectTo)}
                         className="text-white/90 text-[11px] uppercase tracking-wider hover:text-primary pointer-events-auto"
                       >
                         Progetto: {face.projectLabel} →
