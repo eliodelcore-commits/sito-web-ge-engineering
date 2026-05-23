@@ -79,11 +79,11 @@ const ProgettoSCADAChimico = () => {
   {/* Etichette livello — posizionate in zone libere, senza sfondi */}
   <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#CBD5E1" x="30" y="20">Livello 3 — Supervisione SCADA (rete IT)</text>
 
-  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#FCA5A5" x="710" y="110">Perimetro sicurezza OT/IT</text>
+  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#FCA5A5" x="585" y="114">Perimetro sicurezza OT/IT</text>
 
-  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#CBD5E1" x="30" y="178">Livello 2 — Rete di processo (OPC-UA)</text>
+  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#CBD5E1" x="30" y="176">Livello 2 — Rete di processo (OPC-UA)</text>
 
-  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#CBD5E1" x="30" y="248">Livello 1 — Controllo PLC</text>
+  <text fontFamily="inherit" fontSize="11" fontWeight="600" fill="#CBD5E1" x="30" y="232">Livello 1 — Controllo PLC</text>
 
   <text fontFamily="inherit" fontSize="10" fontWeight="600" fill="#CBD5E1" x="30" y="311">Liv. 0 — Campo · ET200SP (2000+ I/O)</text>
 
