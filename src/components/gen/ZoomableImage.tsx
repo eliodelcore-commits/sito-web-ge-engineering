@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 
 type Props = React.ImgHTMLAttributes<HTMLImageElement>;
@@ -29,7 +30,7 @@ const ZoomableImage = (props: Props) => {
         className={`${props.className ?? ""} cursor-zoom-in`}
         title={props.title ?? "Doppio click per ingrandire"}
       />
-      {open && (
+      {open && createPortal(
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 backdrop-blur-sm animate-fade-in p-4"
           onClick={() => setOpen(false)}
@@ -49,7 +50,8 @@ const ZoomableImage = (props: Props) => {
             onClick={(e) => e.stopPropagation()}
             onDoubleClick={() => setOpen(false)}
           />
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
