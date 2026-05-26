@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Wifi, Radio, Map, BarChart3, Cpu, Sparkles } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import ZoomableImage from "@/components/gen/ZoomableImage";
 import bg from "@/assets/ekahau-hero-bg.jpg";
 import sidekick2Img from "@/assets/ekahau-sidekick2.png";
 import surveyAppImg from "@/assets/ekahau-survey-app.png";
@@ -51,7 +52,7 @@ const Ekahau = () => {
 
       {/* Hero */}
       <div className="relative h-[70vh] min-h-[480px]">
-        <img
+        <ZoomableImage
           src={bg}
           alt="Ekahau Sidekick 2 e Survey Analyzer"
           className="absolute inset-0 w-full h-full object-cover"
@@ -110,7 +111,7 @@ const Ekahau = () => {
               </div>
             </div>
             <div className="relative">
-              <img
+              <ZoomableImage
                 src={sidekick2Img}
                 alt="Ekahau Sidekick 2 con Survey App"
                 className="w-full rounded-xl"
@@ -123,14 +124,14 @@ const Ekahau = () => {
 
           <div className="grid md:grid-cols-2 gap-6 mt-16">
             <div className="p-6 rounded-xl border border-border bg-card">
-              <img src={sk2Radios} alt="4 radio tri-band" className="w-full h-48 object-contain mb-4" loading="lazy" />
+              <ZoomableImage src={sk2Radios} alt="4 radio tri-band" className="w-full h-48 object-contain mb-4" loading="lazy" />
               <h3 className="font-heading text-lg font-semibold mb-2">4 radio tri-band</h3>
               <p className="text-sm text-muted-foreground">
                 Acquisizione simultanea su 2.4, 5 e 6 GHz: survey più rapidi e dataset completi in una singola passata.
               </p>
             </div>
             <div className="p-6 rounded-xl border border-border bg-card">
-              <img src={sk2Antennas} alt="9 antenne wideband calibrate" className="w-full h-48 object-contain mb-4" loading="lazy" />
+              <ZoomableImage src={sk2Antennas} alt="9 antenne wideband calibrate" className="w-full h-48 object-contain mb-4" loading="lazy" />
               <h3 className="font-heading text-lg font-semibold mb-2">9 antenne calibrate</h3>
               <p className="text-sm text-muted-foreground">
                 Calibrazione di fabbrica che garantisce misure ripetibili e accurate per design e validazione.
@@ -161,7 +162,7 @@ const Ekahau = () => {
               </ul>
             </div>
             <div className="lg:order-1">
-              <img
+              <ZoomableImage
                 src={aiproInspect}
                 alt="Interfaccia Ekahau AI Pro - Inspect view"
                 className="w-full rounded-xl border border-border"
@@ -172,13 +173,13 @@ const Ekahau = () => {
 
           <div className="grid md:grid-cols-2 gap-6 mt-12">
             <figure className="rounded-xl overflow-hidden border border-border bg-card">
-              <img src={aiproChannel} alt="Ekahau AI Pro - Channel planner" className="w-full" loading="lazy" />
+              <ZoomableImage src={aiproChannel} alt="Ekahau AI Pro - Channel planner" className="w-full" loading="lazy" />
               <figcaption className="p-4 text-sm text-muted-foreground">
                 <span className="font-semibold text-foreground">Channel Planner</span> — assegnazione automatica dei canali e gestione co-channel/adjacent.
               </figcaption>
             </figure>
             <figure className="rounded-xl overflow-hidden border border-border bg-card">
-              <img src={surveyAppImg} alt="Ekahau Survey app con Sidekick 2" className="w-full" loading="lazy" />
+              <ZoomableImage src={surveyAppImg} alt="Ekahau Survey app con Sidekick 2" className="w-full" loading="lazy" />
               <figcaption className="p-4 text-sm text-muted-foreground">
                 <span className="font-semibold text-foreground">Ekahau Survey</span> — acquisizione attiva/passiva on-site con Sidekick 2.
               </figcaption>
@@ -209,7 +210,7 @@ const Ekahau = () => {
             })}
           </div>
           <div className="mt-10 max-w-md mx-auto">
-            <img src={analyzerAppImg} alt="Ekahau Analyzer mobile app" className="w-full rounded-xl border border-border" loading="lazy" />
+            <ZoomableImage src={analyzerAppImg} alt="Ekahau Analyzer mobile app" className="w-full rounded-xl border border-border" loading="lazy" />
             <p className="text-center text-xs text-muted-foreground mt-3">Ekahau Analyzer su iPhone con Sidekick 2 collegato via USB-C</p>
           </div>
         </div>
