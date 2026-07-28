@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "sdk_version": "0.25.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "genginering-mcp",
+      "version": "0.1.0",
+      "title": "GenGinering Solutions MCP"
+    },
+    "tools": [
+      {
+        "name": "list_services",
+        "title": "Elenca i servizi",
+        "description": "Elenca i servizi di automazione industriale offerti da GenGinering Solutions, con descrizione, punti chiave e pagina del sito.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_projects",
+        "title": "Elenca i progetti",
+        "description": "Elenca i progetti/case study pubblici di GenGinering Solutions. Opzionalmente filtra per categoria o per tecnologia (tag).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "string",
+              "description": "Categoria: Automazione Hardware, Automazione Software o Wireless Planning."
+            },
+            "tag": {
+              "type": "string",
+              "description": "Tecnologia da cercare nei tag, es. 'WinCC SCADA'."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_technologies",
+        "title": "Elenca le tecnologie",
+        "description": "Elenca le tecnologie industriali documentate sul sito (WinCC SCADA, OPC-UA, Profinet, Safety, Ekahau, IoT...) con la pagina di approfondimento.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_company_info",
+        "title": "Informazioni azienda e contatti",
+        "description": "Restituisce i dati pubblici di GenGinering Solutions: descrizione, indirizzo, email, telefono e sito web.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
