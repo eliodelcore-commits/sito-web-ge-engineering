@@ -24,10 +24,34 @@ type Payload = {
   telefono?: unknown;
   oggetto?: unknown;
   sito?: unknown;
+  allegato?: unknown;
 };
 
 function clean(v: unknown, max: number): string {
   return typeof v === "string" ? v.replace(/\r\n?/g, "\n").trim().slice(0, max) : "";
+}
+
+type Attachment = { nome: string; tipo: string; base64: string };
+
+const ALLOWED_TYPES = [
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+];
+const MAX_ATTACHMENT_B64 = 7_000_000; // ~5 MB di file
+
+function parseAttachment(v: unknown): Attachment | null | "invalid" {
+  if (v == null) return null;
+  if (typeof v !== "object") return "invalid";
+  const a = v as Record<string, unknown>;
+  const nome = clean(a.nome, 150).replace(/["\\\n]/g, "_");
+  const tipo = clean(a.tipo, 120);
+  const base64 = typeof a.base64 === "string" ? a.base64.replace(/\s/g, "") : "";
+  if (!nome || !ALLOWED_TYPES.includes(tipo)) return "invalid";
+  if (!base64 || base64.length > MAX_ATTACHMENT_B64 || !/^[A-Za-z0-9+/=]+$/.test(base64)) {
+    return "invalid";
+  }
+  return { nome, tipo, base64 };
 }
 
 function buildRawEmail(args: {
@@ -35,16 +59,38 @@ function buildRawEmail(args: {
   replyTo: string;
   subject: string;
   body: string;
+  attachment?: Attachment | null;
 }): string {
-  const email = [
+  const head = [
     `To: ${args.to}`,
     `Reply-To: ${args.replyTo}`,
     `Subject: ${header(args.subject)}`,
     "MIME-Version: 1.0",
-    'Content-Type: text/plain; charset="UTF-8"',
-    "",
-    args.body,
-  ].join("\r\n");
+  ];
+  let email: string;
+  if (args.attachment) {
+    const boundary = `b_${crypto.randomUUID()}`;
+    const a = args.attachment;
+    const chunked = a.base64.match(/.{1,76}/g)?.join("\r\n") ?? "";
+    email = [
+      ...head,
+      `Content-Type: multipart/mixed; boundary="${boundary}"`,
+      "",
+      `--${boundary}`,
+      'Content-Type: text/plain; charset="UTF-8"',
+      "",
+      args.body,
+      `--${boundary}`,
+      `Content-Type: ${a.tipo}; name="${header(a.nome)}"`,
+      `Content-Disposition: attachment; filename="${header(a.nome)}"`,
+      "Content-Transfer-Encoding: base64",
+      "",
+      chunked,
+      `--${boundary}--`,
+    ].join("\r\n");
+  } else {
+    email = [...head, 'Content-Type: text/plain; charset="UTF-8"', "", args.body].join("\r\n");
+  }
   return b64(email).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 }
 
@@ -90,6 +136,11 @@ Deno.serve(async (req) => {
       return json(400, { error: "Messaggio troppo corto" });
     }
 
+    const allegato = parseAttachment(payload.allegato);
+    if (allegato === "invalid") {
+      return json(400, { error: "Allegato non valido: usa PDF o Word fino a 5 MB" });
+    }
+
     const righe = [`Nome: ${nome}`, `Email: ${email}`];
     if (telefono) righe.push(`Telefono: ${telefono}`);
     righe.push("", messaggio);
@@ -99,6 +150,7 @@ Deno.serve(async (req) => {
       replyTo: email,
       subject: oggetto || `Nuovo messaggio dal sito da ${nome}`,
       body: righe.join("\n"),
+      attachment: allegato,
     });
 
     const response = await fetch(`${GATEWAY_URL}/users/me/messages/send`, {
