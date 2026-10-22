@@ -6,6 +6,7 @@ import Footer from "@/components/gen/Footer";
 import MeshBackground from "@/components/gen/MeshBackground";
 import { toast } from "@/hooks/use-toast";
 import { Headset, LogOut, Mail } from "lucide-react";
+import { FunctionsHttpError } from "@supabase/supabase-js";
 
 const CONSULENTE_EMAIL = "info@geenginering.com";
 
@@ -15,6 +16,7 @@ const AreaConsulente = () => {
   const [oggetto, setOggetto] = useState("");
   const [messaggio, setMessaggio] = useState("");
   const [telefono, setTelefono] = useState("");
+  const [sending, setSending] = useState(false);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -36,19 +38,43 @@ const AreaConsulente = () => {
     navigate("/", { replace: true });
   };
 
-  const handleSend = (e: React.FormEvent) => {
+  const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!messaggio.trim()) {
       toast({ title: "Scrivi un messaggio", variant: "destructive" });
       return;
     }
-    const subject = encodeURIComponent(
-      oggetto.trim() || "Richiesta consulenza commerciale"
-    );
-    const body = encodeURIComponent(
-      `Mittente: ${userEmail ?? ""}\nTelefono: ${telefono}\n\n${messaggio}`
-    );
-    window.location.href = `mailto:${CONSULENTE_EMAIL}?subject=${subject}&body=${body}`;
+    setSending(true);
+    const { error } = await supabase.functions.invoke("send-message", {
+      body: {
+        nome: userEmail ?? "Cliente area riservata",
+        email: userEmail ?? CONSULENTE_EMAIL,
+        messaggio,
+        telefono,
+        oggetto: oggetto.trim() || "Richiesta consulenza commerciale",
+      },
+    });
+    setSending(false);
+    if (error) {
+      const details =
+        error instanceof FunctionsHttpError
+          ? await error.context.text()
+          : error.message;
+      console.error("send-message failed:", details);
+      toast({
+        title: "Invio non riuscito",
+        description: "Riprova oppure scrivi a info@geenginering.com",
+        variant: "destructive",
+      });
+      return;
+    }
+    toast({
+      title: "Messaggio inviato",
+      description: "Il consulente ti risponderà al più presto.",
+    });
+    setOggetto("");
+    setTelefono("");
+    setMessaggio("");
   };
 
   const fieldClass =
@@ -125,10 +151,11 @@ const AreaConsulente = () => {
             </div>
             <button
               type="submit"
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors"
+              disabled={sending}
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
               <Mail className="w-4 h-4" />
-              Invia al consulente
+              {sending ? "Invio in corso..." : "Invia al consulente"}
             </button>
             <p className="text-xs text-muted-foreground text-center">
               Il messaggio verrà inviato a {CONSULENTE_EMAIL}
