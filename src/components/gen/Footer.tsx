@@ -1,3 +1,4 @@
+import { outboundTarget } from "@/lib/utils";
 import logo from "@/assets/logo-genginering-amabile.png";
 import { Link } from "react-router-dom";
 
@@ -17,14 +18,14 @@ const Footer = () => {
             <div className="flex flex-col items-center sm:items-start leading-none gap-0.5">
               <a
                 href="https://www.google.com/maps/search/?api=1&query=Via+Idice+47%2C+40050+Monterenzio+BO%2C+Italia"
-              target="_top"
+              target={outboundTarget} rel="noopener noreferrer"
                 className="text-[11px] text-white/80 md:whitespace-nowrap hover:text-primary transition-colors"
               >
                 Via Idice 47, 40050 Monterenzio (BO), Italia
               </a>
               <a
                 href="mailto:info@geenginering.com"
-              target="_top"
+              target={outboundTarget} rel="noopener noreferrer"
                 className="text-[11px] text-white/80 md:whitespace-nowrap hover:text-primary transition-colors"
               >
                 info@geenginering.com
