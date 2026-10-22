@@ -12,7 +12,6 @@ import Progetti from "./pages/Progetti";
 import GenContatti from "./pages/GenContatti";
 import LavoraConNoi from "./pages/LavoraConNoi";
 import AssistenzaTecnica from "./pages/AssistenzaTecnica";
-import HolisticLanding from "./pages/HolisticLanding";
 import Auth from "./pages/Auth";
 import AreaConsulente from "./pages/AreaConsulente";
 import WinCCSCADA from "./pages/WinCCSCADA";
@@ -64,7 +63,6 @@ const App = () => (
           <Route path="/servizi/assistenza-tecnica" element={<AssistenzaTecnica />} />
           <Route path="/contatti" element={<GenContatti />} />
           <Route path="/lavora-con-noi" element={<LavoraConNoi />} />
-          <Route path="/holistic" element={<HolisticLanding />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/area-consulente" element={<AreaConsulente />} />
           <Route path="/wincc-scada" element={<WinCCSCADA />} />
