@@ -5,6 +5,8 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+import { FunctionsHttpError } from "@supabase/supabase-js";
 
 const contactSchema = z.object({
   nome: z.string().trim().min(2, "Il nome deve avere almeno 2 caratteri").max(100, "Nome troppo lungo"),
@@ -12,11 +14,19 @@ const contactSchema = z.object({
   messaggio: z.string().trim().min(10, "Il messaggio deve avere almeno 10 caratteri").max(2000, "Messaggio troppo lungo"),
 });
 
-const GenContatti = () => {
-  const [formData, setFormData] = useState({ nome: "", email: "", messaggio: "" });
-  const [errors, setErrors] = useState<{ nome?: string; email?: string; messaggio?: string }>({});
+// Segnaposto della sede: Via Idice 47, 40050 Monterenzio (BO)
+const MAP_PLACE_ID = "ChIJO3JkS14pKxMRyfevnNDHOmk";
+const MAPS_BROWSER_KEY = import.meta.env["VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY"];
+const MAP_EMBED_URL = MAPS_BROWSER_KEY
+  ? `https://www.google.com/maps/embed/v1/place?key=${MAPS_BROWSER_KEY}&q=place_id:${MAP_PLACE_ID}&zoom=16&maptype=roadmap`
+  : "";
 
-  const handleSubmit = (e: React.FormEvent) => {
+const GenContatti = () => {
+  const [formData, setFormData] = useState({ nome: "", email: "", messaggio: "", sito: "" });
+  const [errors, setErrors] = useState<{ nome?: string; email?: string; messaggio?: string }>({});
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = contactSchema.safeParse(formData);
     if (!result.success) {
@@ -31,11 +41,20 @@ const GenContatti = () => {
     }
     setErrors({});
     const { nome, email, messaggio } = result.data;
-    const subject = encodeURIComponent(`Richiesta di contatto da ${nome}`);
-    const body = encodeURIComponent(`Nome: ${nome}\nEmail: ${email}\n\n${messaggio}`);
-    window.location.href = `mailto:info@geenginering.com?subject=${subject}&body=${body}`;
-    toast.success("Apertura del client email...");
-    setFormData({ nome: "", email: "", messaggio: "" });
+    setSending(true);
+    const { error } = await supabase.functions.invoke("send-message", {
+      body: { nome, email, messaggio, sito: formData.sito },
+    });
+    setSending(false);
+    if (error) {
+      const details =
+        error instanceof FunctionsHttpError ? await error.context.text() : error.message;
+      console.error("send-message failed:", details);
+      toast.error("Invio non riuscito. Riprova o scrivi a info@geenginering.com");
+      return;
+    }
+    toast.success("Messaggio inviato: ti risponderemo al più presto.");
+    setFormData({ nome: "", email: "", messaggio: "", sito: "" });
   };
 
   return (
@@ -98,11 +117,22 @@ const GenContatti = () => {
                 />
                 {errors.messaggio && <p className="text-destructive text-xs mt-1">{errors.messaggio}</p>}
               </div>
+              {/* Trappola anti spam: non compilare questo campo */}
+              <input
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                value={formData.sito}
+                onChange={(e) => setFormData({ ...formData, sito: e.target.value })}
+                className="hidden"
+              />
               <button
                 type="submit"
-                className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors"
+                disabled={sending}
+                className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Invia messaggio
+                {sending ? "Invio in corso..." : "Invia messaggio"}
               </button>
             </form>
 
@@ -133,14 +163,26 @@ const GenContatti = () => {
                   <h3 className="font-heading font-semibold mb-1">Sede</h3>
                   <a
                     href="https://www.google.com/maps/search/?api=1&query=Via+Idice+47%2C+40050+Monterenzio+BO%2C+Italia" target="_blank" rel="noopener noreferrer"
-                   
-                   
                     className="text-muted-foreground text-sm hover:text-primary transition-colors"
                   >
                     Via Idice 47 - 40050 Monterenzio (BO)
                   </a>
                 </div>
               </div>
+
+              {MAP_EMBED_URL && (
+                <div className="rounded-lg overflow-hidden border border-border bg-card">
+                  <iframe
+                    title="Mappa della sede: Via Idice 47, 40050 Monterenzio (BO)"
+                    src={MAP_EMBED_URL}
+                    className="w-full h-72"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="strict-origin-when-cross-origin"
+                  />
+                </div>
+              )}
             </div>
           </div>
 
