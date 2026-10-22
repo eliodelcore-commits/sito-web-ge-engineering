@@ -84,12 +84,6 @@ export const pageMeta: Record<string, PageMeta> = {
     description:
       "Cerchiamo programmatori PLC, tecnici di campo, tecnici elettromeccanici e neolaureati: invia la tua candidatura con CV.",
   },
-  "/holistic": {
-    title: "Ali del Benessere | Massaggi olistici e riflessologia",
-    description:
-      "Massaggio olistico, aromaterapia, riflessologia plantare e ayurvedico: studio Ali del Benessere.",
-    noindex: true,
-  },
   "/wincc-scada": {
     title: "WinCC SCADA: esempio di supervisione | GE Engineering",
     description:
