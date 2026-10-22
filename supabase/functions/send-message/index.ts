@@ -24,6 +24,7 @@ type Payload = {
   telefono?: unknown;
   oggetto?: unknown;
   sito?: unknown;
+  allegato?: unknown;
 };
 
 function clean(v: unknown, max: number): string {
@@ -135,6 +136,11 @@ Deno.serve(async (req) => {
       return json(400, { error: "Messaggio troppo corto" });
     }
 
+    const allegato = parseAttachment(payload.allegato);
+    if (allegato === "invalid") {
+      return json(400, { error: "Allegato non valido: usa PDF o Word fino a 5 MB" });
+    }
+
     const righe = [`Nome: ${nome}`, `Email: ${email}`];
     if (telefono) righe.push(`Telefono: ${telefono}`);
     righe.push("", messaggio);
@@ -144,6 +150,7 @@ Deno.serve(async (req) => {
       replyTo: email,
       subject: oggetto || `Nuovo messaggio dal sito da ${nome}`,
       body: righe.join("\n"),
+      attachment: allegato,
     });
 
     const response = await fetch(`${GATEWAY_URL}/users/me/messages/send`, {
