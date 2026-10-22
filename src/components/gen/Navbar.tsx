@@ -1,3 +1,4 @@
+import { outboundTarget } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ChevronDown, Menu } from "lucide-react";
@@ -125,14 +126,14 @@ const Navbar = () => {
           <div className="hidden lg:flex flex-col leading-none gap-0.5">
             <a
               href="https://www.google.com/maps/search/?api=1&query=Via+Idice+47%2C+40050+Monterenzio+BO%2C+Italia"
-              target="_top"
+              target={outboundTarget} rel="noopener noreferrer"
               className="text-[11px] text-white/80 whitespace-nowrap hover:text-primary transition-colors"
             >
               Via Idice 47, 40050 Monterenzio (BO), Italia
             </a>
             <a
               href="mailto:info@geenginering.com"
-              target="_top"
+              target={outboundTarget} rel="noopener noreferrer"
               className="text-[11px] text-white/80 whitespace-nowrap hover:text-primary transition-colors"
             >
               info@geenginering.com
