@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "sdk_version": "0.25.0",
+  "sdk_version": "0.25.1",
   "path": "/functions/v1/mcp",
   "auth": {
     "type": "none"
   },
   "mcp": {
     "server": {
-      "name": "genginering-mcp",
+      "name": "sito-web-ge-engineering",
       "version": "0.1.0",
-      "title": "GenGinering Solutions MCP"
+      "title": "Sito web GE ENGINEERING"
     },
     "tools": [
       {
