@@ -36,6 +36,7 @@ import ProgettoWirelessSurvey from "./pages/ProgettoWirelessSurvey";
 import ProgettoTroubleshootingWireless from "./pages/ProgettoTroubleshootingWireless";
 import NotFound from "./pages/NotFound";
 import PageTransition from "./components/gen/PageTransition";
+import RouteSeo from "./components/gen/RouteSeo";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <RouteSeo />
         <PageTransition>
         <Routes>
           <Route path="/" element={<GenHome />} />
