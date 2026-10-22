@@ -1,7 +1,7 @@
 # Roadmap
 
-- [ ] Pubblicare il sito con le ultime modifiche (modulo CV, mappa, invio mail) — in corso
-- [x] Dominio geenginering.com collegato: DNS già corretti e visibili, in attesa di attivazione
-- [x] Verificato: geenginering.com apre il sito (200, titolo corretto)
-- [ ] Mappa su geenginering.com: serve una chiave Google Maps propria (quella gestita vale solo su *.lovable.app)
-- [ ] Non far comparire "Lovable" sul sito: badge già nascosto, resta l'indirizzo .lovable.app finché non c'è il dominio
+- [x] Pubblicare il sito con le ultime modifiche (modulo CV, mappa, invio mail)
+- [x] Dominio geenginering.com collegato e attivo: il sito si apre all'indirizzo aziendale
+- [x] Modulo candidature verificato sul sito live: candidatura di prova partita con curriculum allegato
+- [ ] Mappa su geenginering.com: serve una chiave Google Maps dell'azienda con il dominio autorizzato (quella gestita vale solo su *.lovable.app)
+- [ ] Nuovo controllo di sicurezza sul codice pubblicato, se si vuole condividere il sito in modo ampio
