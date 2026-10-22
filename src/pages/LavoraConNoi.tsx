@@ -3,6 +3,24 @@ import Footer from "@/components/gen/Footer";
 import MeshBackground from "@/components/gen/MeshBackground";
 import { Briefcase, GraduationCap, Users, Sparkles, Mail } from "lucide-react";
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { FunctionsHttpError } from "@supabase/supabase-js";
+import { toast } from "sonner";
+
+const MAX_CV_BYTES = 5 * 1024 * 1024;
+const CV_TYPES = [
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+];
+
+const fileToBase64 = (file: File) =>
+  new Promise<string>((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(String(r.result).split(",")[1] ?? "");
+    r.onerror = () => reject(r.error);
+    r.readAsDataURL(file);
+  });
 
 const LavoraConNoi = () => {
   const [formData, setFormData] = useState({
@@ -10,15 +28,63 @@ const LavoraConNoi = () => {
     email: "",
     ruolo: "",
     messaggio: "",
+    sito: "",
   });
+  const [cv, setCv] = useState<File | null>(null);
+  const [sending, setSending] = useState(false);
+  const [formKey, setFormKey] = useState(0);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFile = (f: File | null) => {
+    if (f && !CV_TYPES.includes(f.type)) {
+      toast.error("Il CV deve essere in formato PDF o Word.");
+      setCv(null);
+      return;
+    }
+    if (f && f.size > MAX_CV_BYTES) {
+      toast.error("Il CV non può superare i 5 MB.");
+      setCv(null);
+      return;
+    }
+    setCv(f);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Candidatura - ${formData.ruolo || "Spontanea"}`);
-    const body = encodeURIComponent(
-      `Nome: ${formData.nome}\nEmail: ${formData.email}\nRuolo di interesse: ${formData.ruolo}\n\n${formData.messaggio}`
-    );
-    window.location.href = `mailto:info@geenginering.com?subject=${subject}&body=${body}`;
+    if (!cv) {
+      toast.error("Allega il tuo CV per inviare la candidatura.");
+      return;
+    }
+    setSending(true);
+    try {
+      const base64 = await fileToBase64(cv);
+      const { error } = await supabase.functions.invoke("send-message", {
+        body: {
+          nome: formData.nome,
+          email: formData.email,
+          oggetto: `Candidatura - ${formData.ruolo || "Spontanea"} - ${formData.nome}`,
+          messaggio: `Ruolo di interesse: ${formData.ruolo || "Candidatura spontanea"}\n\n${formData.messaggio}`,
+          sito: formData.sito,
+          allegato: { nome: cv.name, tipo: cv.type, base64 },
+        },
+      });
+      if (error) {
+        const details = error instanceof FunctionsHttpError ? await error.context.text() : error.message;
+        console.error("send-message failed:", details);
+        let msg = "Invio non riuscito, riprova più tardi.";
+        try { msg = JSON.parse(details).error || msg; } catch { /* testo semplice */ }
+        toast.error(msg);
+        return;
+      }
+      toast.success("Candidatura inviata! Ti contatteremo al più presto.");
+      setFormData({ nome: "", email: "", ruolo: "", messaggio: "", sito: "" });
+      setCv(null);
+      setFormKey((k) => k + 1);
+    } catch (err) {
+      console.error(err);
+      toast.error("Invio non riuscito, riprova più tardi.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const valori = [
@@ -137,14 +203,36 @@ const LavoraConNoi = () => {
                   placeholder="Raccontaci di te, della tua esperienza e perché vorresti lavorare con noi..."
                 />
               </div>
-              <p className="text-xs text-muted-foreground">
-                Allega il tuo CV rispondendo all'email che si aprirà dopo l'invio.
-              </p>
+              <div>
+                <label className="block text-sm font-medium mb-2" htmlFor="cv">
+                  Curriculum (PDF o Word, max 5 MB)
+                </label>
+                <input
+                  key={formKey}
+                  id="cv"
+                  type="file"
+                  accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  onChange={(e) => handleFile(e.target.files?.[0] ?? null)}
+                  required
+                  className="w-full text-sm text-muted-foreground file:mr-4 file:px-4 file:py-2 file:rounded-lg file:border-0 file:bg-primary/10 file:text-primary file:font-medium hover:file:bg-primary/20 file:cursor-pointer"
+                />
+              </div>
+              <input
+                type="text"
+                name="sito"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                value={formData.sito}
+                onChange={(e) => setFormData({ ...formData, sito: e.target.value })}
+                className="hidden"
+              />
               <button
                 type="submit"
-                className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors"
+                disabled={sending}
+                className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-60"
               >
-                Invia candidatura
+                {sending ? "Invio in corso..." : "Invia candidatura"}
               </button>
             </form>
 
