@@ -5,3 +5,5 @@
 - [x] Modulo candidature verificato sul sito live: candidatura di prova partita con curriculum allegato
 - [ ] Mappa su geenginering.com: serve una chiave Google Maps dell'azienda con il dominio autorizzato (quella gestita vale solo su *.lovable.app)
 - [ ] Nuovo controllo di sicurezza sul codice pubblicato, se si vuole condividere il sito in modo ampio
+- [x] Sito verificato nella Search Console di Google (elenco pagine inviato, 0 errori)
+- [ ] Indicizzazione su Google: il dominio è nuovo, Google deve ancora leggere le pagine; si può sollecitare dalla Search Console
