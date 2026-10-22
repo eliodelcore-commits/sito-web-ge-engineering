@@ -6,6 +6,7 @@ import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { FunctionsHttpError } from "@supabase/supabase-js";
 import { toast } from "sonner";
+import { outboundTarget } from "@/lib/utils";
 
 const MAX_CV_BYTES = 5 * 1024 * 1024;
 const CV_TYPES = [
@@ -291,6 +292,8 @@ const LavoraConNoi = () => {
                     </p>
                     <a
                       href="mailto:info@geenginering.com?subject=Candidatura%20spontanea"
+                      target={outboundTarget}
+                      rel="noopener noreferrer"
                       className="text-primary text-sm hover:underline"
                     >
                       info@geenginering.com
