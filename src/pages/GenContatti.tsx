@@ -132,7 +132,7 @@ const GenContatti = () => {
                 <div>
                   <h3 className="font-heading font-semibold mb-1">Sede</h3>
                   <a
-                    href="https://www.google.com/maps/search/?api=1&query=Via+Idice+47%2C+40050+Monterenzio+BO%2C+Italia"
+                    href="https://www.google.com/maps/search/?api=1&query=Via+Idice+47%2C+40050+Monterenzio+BO%2C+Italia" target="_blank" rel="noopener noreferrer"
                    
                    
                     className="text-muted-foreground text-sm hover:text-primary transition-colors"
