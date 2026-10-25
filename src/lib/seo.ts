@@ -80,9 +80,9 @@ export const pageMeta: Record<string, PageMeta> = {
       "Scriveteci o venite in sede: Via Idice 47, 40050 Monterenzio (BO). Modulo di contatto, telefono e mappa.",
   },
   "/lavora-con-noi": {
-    title: "Lavora con noi | GE Engineering",
+    title: "Lavora con noi: offerte di lavoro in automazione industriale a Bologna | GE Engineering",
     description:
-      "Cerchiamo programmatori PLC, tecnici di campo, tecnici elettromeccanici e neolaureati: invia la tua candidatura con CV.",
+      "Offerte di lavoro a Monterenzio (Bologna): programmatori PLC Siemens, tecnici di campo, tecnici elettromeccanici e neolaureati. Invia la tua candidatura con CV.",
   },
   "/wincc-scada": {
     title: "WinCC SCADA: esempio di supervisione | GE Engineering",
