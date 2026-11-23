@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Shield, AlertTriangle, Zap, Lock, Activity, Eye } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import TechTag from "@/components/gen/TechTag";
 import safetyBg from "@/assets/automazione-hardware-hero.jpg";
 
 const features = [
@@ -89,9 +90,7 @@ const S7Safety = () => {
               </h3>
               <div className="flex flex-wrap gap-2">
                 {["SIL3 / PLe","Safety Integrated","F-CPU S7-1500","TIA Portal","ET200SP Safety","Profinet Safe","F-DI / F-DQ","Diagnostic integrato"].map((tag) => (
-                  <span key={tag} className="px-3 py-1 text-sm rounded-md bg-secondary text-secondary-foreground">
-                    {tag}
-                  </span>
+                  <TechTag key={tag} tag={tag} />
                 ))}
               </div>
             </div>

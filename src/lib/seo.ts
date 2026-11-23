@@ -1,3 +1,5 @@
+import { industrialTopics, technologyTopicPath } from "@/data/industrialTopics";
+
 export const SITE_URL = "https://geenginering.com";
 
 export type PageMeta = {
@@ -149,6 +151,11 @@ export const pageMeta: Record<string, PageMeta> = {
     description:
       "Sensori e gateway verso il cloud: raccolta dati, manutenzione predittiva e analisi di consumo negli impianti.",
   },
+  "/tecnologie": {
+    title: "Tecnologie di automazione industriale | GE Engineering",
+    description:
+      "Schede illustrative di PLC, azionamenti SEW, cobot, reti Profinet e wireless, OPC-UA, Historian e piattaforme IoT industriali.",
+  },
   "/auth": {
     title: "Accedi o crea le tue credenziali | GE Engineering",
     description: "Area riservata: accedi o crea le credenziali per parlare con un consulente dedicato.",
@@ -160,6 +167,13 @@ export const pageMeta: Record<string, PageMeta> = {
     noindex: true,
   },
 };
+
+for (const topic of industrialTopics) {
+  pageMeta[technologyTopicPath(topic.slug)] = {
+    title: `${topic.title} | GE Engineering`,
+    description: topic.summary,
+  };
+}
 
 export const normalizePath = (pathname: string) =>
   pathname.replace(/\/+$/, "") || "/";

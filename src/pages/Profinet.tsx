@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Network, Zap, Shield, Layers, Activity, GitBranch } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import TechTag from "@/components/gen/TechTag";
 import bg from "@/assets/profinet-bg.jpg";
 
 const features = [
@@ -99,12 +100,7 @@ const Profinet = () => {
                 "LLDP topology",
                 "TSN ready",
               ].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 text-sm rounded-md bg-secondary text-secondary-foreground"
-                >
-                  {tag}
-                </span>
+                <TechTag key={tag} tag={tag} />
               ))}
             </div>
           </div>

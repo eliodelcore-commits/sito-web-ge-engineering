@@ -7,9 +7,9 @@ import scadaBg from "@/assets/engineers-discussing.jpg";
 
 const ProgettoSCADAChimico = () => {
   return (
-    <div className="min-h-screen flex flex-col relative">
+    <div className="min-h-screen flex flex-col relative overflow-x-hidden">
       <div
-        className="pointer-events-none fixed inset-0 -z-10 bg-cover bg-center blur-[2px] scale-105"
+        className="pointer-events-none fixed inset-0 -z-10 bg-cover bg-center blur-[2px] scale-y-105"
         style={{ backgroundImage: `url(${scadaBg})` }}
         aria-hidden="true"
       />

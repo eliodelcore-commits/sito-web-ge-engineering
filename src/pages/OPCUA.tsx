@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Server, Network, Lock, Eye, Cpu, Layers } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import TechTag from "@/components/gen/TechTag";
 import opcBg from "@/assets/automazione-software-hero.jpg";
 
 const features = [
@@ -89,9 +90,7 @@ const OPCUA = () => {
               </h3>
               <div className="flex flex-wrap gap-2">
                 {["Client/Server","Pub/Sub","Modello informativo","Sicurezza TLS","Companion specs","Namespace","Historian","Alarms&Conditions"].map((tag) => (
-                  <span key={tag} className="px-3 py-1 text-sm rounded-md bg-secondary text-secondary-foreground">
-                    {tag}
-                  </span>
+                  <TechTag key={tag} tag={tag} />
                 ))}
               </div>
             </div>

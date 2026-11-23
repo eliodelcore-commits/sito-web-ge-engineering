@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Monitor, Hand, Bell, Languages, ShieldCheck, Layers } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import TechTag from "@/components/gen/TechTag";
 import hmiBg from "@/assets/automazione-software-hero.jpg";
 
 const features = [
@@ -96,12 +97,7 @@ const HMI = () => {
                 "Profinet",
                 "WinCC Unified / TIA",
               ].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 text-sm rounded-md bg-secondary text-secondary-foreground"
-                >
-                  {tag}
-                </span>
+                <TechTag key={tag} tag={tag} />
               ))}
             </div>
           </div>

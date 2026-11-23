@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Cpu, Network, ShieldCheck, Gauge, Layers, Workflow } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import TechTag from "@/components/gen/TechTag";
 import siemensBg from "@/assets/siemens-bg.jpg";
 
 const families = [
@@ -113,12 +114,7 @@ const Siemens = () => {
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {f.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="px-2 py-0.5 text-xs rounded bg-secondary text-secondary-foreground"
-                    >
-                      {t}
-                    </span>
+                    <TechTag key={t} tag={t} size="xs" />
                   ))}
                 </div>
               </div>

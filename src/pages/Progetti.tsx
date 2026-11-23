@@ -67,84 +67,48 @@ const Progetti = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((project) => {
-              const isLinea = project.title === "Linea di produzione automatizzata";
-              const isRevamping = project.title === "Revamping linea di confezionamento";
-              const isSCADA = project.slug === "scada-chimico";
-              const isIoT = project.slug === "iot-industriale";
-              const isWirelessSurvey = project.slug === "wireless-survey";
-              const isTroubleshooting = project.slug === "troubleshooting-wireless";
-              const card = (
+              const projectPaths: Record<string, string> = {
+                "Linea di produzione automatizzata": "/progetti/linea-automatizzata",
+                "Revamping linea di confezionamento": "/progetti/revamping-confezionamento",
+                "scada-chimico": "/progetti/scada-chimico",
+                "iot-industriale": "/progetti/iot-industriale",
+                "wireless-survey": "/progetti/wireless-survey",
+                "troubleshooting-wireless": "/progetti/troubleshooting-wireless",
+              };
+              const projectPath = projectPaths[project.slug ?? project.title];
+
+              return (
                 <div
-                  className={`group p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300 flex flex-col h-full ${
-                    isLinea || isRevamping || isSCADA || isIoT || isWirelessSurvey || isTroubleshooting ? "cursor-pointer" : ""
+                  key={project.title}
+                  className={`group relative p-6 rounded-xl border border-border bg-card hover:border-primary/30 transition-all duration-300 flex flex-col h-full ${
+                    projectPath ? "cursor-pointer" : ""
                   }`}
                 >
                   <p className="text-xs text-primary font-medium mb-3">
                     {project.category}
                   </p>
                   <h3 className="font-heading text-lg font-semibold mb-2">
-                    {project.title}
+                    {projectPath ? (
+                      <Link
+                        to={projectPath}
+                        className="after:absolute after:inset-0 after:rounded-xl hover:text-primary transition-colors"
+                      >
+                        {project.title}
+                      </Link>
+                    ) : (
+                      project.title
+                    )}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="relative z-10 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <TechTag key={tag} tag={tag} size="xs" />
                     ))}
                   </div>
                 </div>
               );
-
-              if (isLinea) {
-                return (
-                  <Link key={project.title} to="/progetti/linea-automatizzata">
-                    {card}
-                  </Link>
-                );
-              }
-
-              if (isSCADA) {
-                return (
-                  <Link key={project.title} to="/progetti/scada-chimico">
-                    {card}
-                  </Link>
-                );
-              }
-
-              if (isIoT) {
-                return (
-                  <Link key={project.title} to="/progetti/iot-industriale">
-                    {card}
-                  </Link>
-                );
-              }
-
-              if (isWirelessSurvey) {
-                return (
-                  <Link key={project.title} to="/progetti/wireless-survey">
-                    {card}
-                  </Link>
-                );
-              }
-
-              if (isTroubleshooting) {
-                return (
-                  <Link key={project.title} to="/progetti/troubleshooting-wireless">
-                    {card}
-                  </Link>
-                );
-              }
-
-              if (isRevamping) {
-                return (
-                  <Link key={project.title} to="/progetti/revamping-confezionamento">
-                    {card}
-                  </Link>
-                );
-              }
-
-              return <div key={project.title}>{card}</div>;
             })}
           </div>
         </div>

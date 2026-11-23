@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ShieldAlert, Power, Activity, GitBranch, FileCheck, Siren } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import TechTag from "@/components/gen/TechTag";
 import esdBg from "@/assets/automazione-software-hero.jpg";
 
 const features = [
@@ -98,12 +99,7 @@ const ESD = () => {
                 "Indipendenza dal BPCS",
                 "Fail-safe de-energize",
               ].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 text-sm rounded-md bg-secondary text-secondary-foreground"
-                >
-                  {tag}
-                </span>
+                <TechTag key={tag} tag={tag} />
               ))}
             </div>
           </div>

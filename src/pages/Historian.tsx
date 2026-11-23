@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Database, TrendingUp, FileText, Search, Clock, HardDrive } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import TechTag from "@/components/gen/TechTag";
 import historianBg from "@/assets/automazione-software-hero.jpg";
 
 const features = [
@@ -89,9 +90,7 @@ const Historian = () => {
               </h3>
               <div className="flex flex-wrap gap-2">
                 {["Time-series DB","30.000+ tag","SQL / OPC-HA","Compressione swinging-door","Batch report","Audit trail","NTP/PTP sync","Ridondanza"].map((tag) => (
-                  <span key={tag} className="px-3 py-1 text-sm rounded-md bg-secondary text-secondary-foreground">
-                    {tag}
-                  </span>
+                  <TechTag key={tag} tag={tag} />
                 ))}
               </div>
             </div>

@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import { technologyTagPaths } from "@/data/industrialTopics";
 
 // Mappa centralizzata: tag tecnologico → pagina dedicata
 export const techLinkedPaths: Record<string, string> = {
+  ...technologyTagPaths,
   "WinCC SCADA": "/wincc-scada",
   "OPC-UA": "/opc-ua",
   "S7-1516F Safety": "/s7-safety",

@@ -1,3 +1,5 @@
+import { industrialTopics, technologyTopicPath } from "../../../data/industrialTopics";
+
 export const company = {
   name: "GenGinering Solutions",
   descrizione:
@@ -126,4 +128,9 @@ export const technologies = [
   { name: "Visione Artificiale", path: "/visione-artificiale", description: "Protocolli GigE Vision, USB3 Vision, GenICam e librerie OpenCV, OpenMV, Halcon." },
   { name: "Ekahau", path: "/ekahau", description: "Ekahau Sidekick 2 e suite AI Pro / Survey / Analyzer per il wireless planning." },
   { name: "IoT", path: "/iot", description: "IoT industriale: edge gateway, MQTT, time-series e manutenzione predittiva." },
+  ...industrialTopics.map((topic) => ({
+    name: topic.title,
+    path: technologyTopicPath(topic.slug),
+    description: topic.summary,
+  })),
 ];

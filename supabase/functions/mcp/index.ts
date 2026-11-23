@@ -8,6 +8,344 @@ import { defineMcp } from "npm:@lovable.dev/mcp-js@0.25.1";
 // src/lib/mcp/tools/get-company-info.ts
 import { defineTool } from "npm:@lovable.dev/mcp-js@0.25.1";
 
+// src/data/industrialTopics.ts
+var technologyTopicPath = (slug) => `/tecnologie/${slug}`;
+var industrialTopics = [
+  {
+    slug: "sew-movidrive",
+    title: "SEW MOVIDRIVE B",
+    category: "Azionamenti e motion control",
+    summary: "Azionamenti per regolare velocit\xE0 e coppia dei motori e coordinare i movimenti di macchine e linee industriali.",
+    explanation: "MOVIDRIVE B riceve i riferimenti di movimento dal PLC e pilota il motore controllandone accelerazione, velocit\xE0 e coppia. La diagnostica dell'azionamento aiuta a individuare sovraccarichi, anomalie e condizioni di arresto.",
+    application: "Nel progetto di revamping della confezionatrice, quattro MOVIDRIVE B sostituiscono i precedenti KEB F5 e dialogano con il controllo tramite Profinet. La pagina del progetto mostra la loro posizione nella topologia di linea.",
+    points: ["Regolazione di velocit\xE0 e coppia", "Integrazione con PLC e Profinet", "Diagnostica e revamping degli azionamenti"],
+    related: { label: "Vedi il revamping con MOVIDRIVE B", path: "/progetti/revamping-confezionamento" }
+  },
+  {
+    slug: "cobot",
+    title: "Cobot industriali",
+    category: "Robotica collaborativa",
+    summary: "Robot pensati per operare a contatto con le attivit\xE0 degli operatori in applicazioni flessibili come etichettatura, pick-and-place e controllo qualit\xE0.",
+    explanation: "Un cobot combina braccio robotico, controllo di movimento e funzioni di sicurezza. L'integrazione con PLC, sensori e sistema di visione permette di sincronizzare il suo ciclo con la macchina. L'applicazione collaborativa richiede sempre una valutazione dei rischi dell'intera cella.",
+    application: "Nella linea di confezionamento illustrata, quattro cobot sono dedicati all'etichettatura del packaging e sono inseriti nella stessa architettura di controllo dei drive e della safety.",
+    points: ["Movimenti programmabili e riconfigurabili", "Integrazione con PLC, sensori e visione", "Valutazione safety dell'intera applicazione"],
+    related: { label: "Vedi i cobot nella linea di confezionamento", path: "/progetti/revamping-confezionamento" }
+  },
+  {
+    slug: "mqtt",
+    title: "MQTT",
+    category: "IoT industriale",
+    summary: "Protocollo leggero di pubblicazione e sottoscrizione per trasportare dati da sensori, PLC e gateway verso applicazioni industriali.",
+    explanation: "I dispositivi pubblicano messaggi su argomenti, detti topic, attraverso un broker. Le applicazioni interessate si sottoscrivono ai topic senza stabilire un collegamento diretto con ogni dispositivo, semplificando architetture distribuite e raccolta dati.",
+    application: "Nella piattaforma IoT illustrata, gli edge gateway convertono i dati OPC-UA in messaggi MQTT e li inviano a un broker ridondato, dal quale partono storicizzazione e analisi.",
+    points: ["Modello publish/subscribe", "Broker come punto centrale di scambio", "Integrazione tra edge gateway e analytics"],
+    related: { label: "Vedi l'architettura IoT con MQTT", path: "/progetti/iot-industriale" }
+  },
+  {
+    slug: "influxdb",
+    title: "InfluxDB e dati time-series",
+    category: "IoT industriale",
+    summary: "Database orientato alle serie temporali per conservare misure, stati e eventi associati al loro momento di rilevazione.",
+    explanation: "Un database time-series organizza i valori lungo l'asse temporale e rende efficienti interrogazioni su intervalli, aggregazioni e andamenti. \xC8 adatto a segnali di processo, consumi, conteggi e indicatori calcolati.",
+    application: "Nel progetto IoT, InfluxDB riceve i dati provenienti dai gateway e li mette a disposizione delle dashboard Grafana e delle analisi di manutenzione predittiva.",
+    points: ["Valori associati al timestamp", "Aggregazioni e analisi per intervallo", "Alimentazione di dashboard e analytics"],
+    related: { label: "Vedi il flusso dati verso InfluxDB", path: "/progetti/iot-industriale" }
+  },
+  {
+    slug: "grafana",
+    title: "Grafana e dashboard industriali",
+    category: "Visualizzazione dati",
+    summary: "Dashboard per consultare indicatori, andamenti e anomalie provenienti da database e sistemi di supervisione.",
+    explanation: "Grafana trasforma interrogazioni sui dati in grafici, indicatori e pannelli consultabili. Le viste possono essere organizzate per linea, macchina o ruolo, mantenendo separata la visualizzazione dalla raccolta dei dati.",
+    application: "Nella piattaforma IoT, le dashboard mostrano KPI e anomalie utilizzando le serie storiche archiviate in InfluxDB.",
+    points: ["Grafici e KPI configurabili", "Viste per impianto, linea e macchina", "Consultazione di dati correnti e storici"],
+    related: { label: "Vedi le dashboard nel progetto IoT", path: "/progetti/iot-industriale" }
+  },
+  {
+    slug: "edge-gateway",
+    title: "Edge Gateway industriale",
+    category: "IoT industriale",
+    summary: "Dispositivo che collega il livello di campo ai sistemi dati, elaborando e instradando le informazioni vicino alla macchina.",
+    explanation: "Un edge gateway raccoglie variabili da PLC e sensori, pu\xF2 normalizzarle o filtrarle localmente e le inoltra con protocolli adatti ai sistemi superiori. L'elaborazione locale riduce la dipendenza dal collegamento continuo verso il cloud.",
+    application: "Ogni linea del progetto IoT dispone di un gateway che raccoglie i dati OPC-UA e li pubblica verso il broker MQTT.",
+    points: ["Raccolta dati vicino al campo", "Conversione tra protocolli OT e IT", "Elaborazione locale e inoltro controllato"],
+    related: { label: "Vedi i gateway nella topologia IoT", path: "/progetti/iot-industriale" }
+  },
+  {
+    slug: "predictive-maintenance",
+    title: "Manutenzione predittiva",
+    category: "Analisi dati industriali",
+    summary: "Analisi dei segnali di impianto per riconoscere derive e anomalie e programmare gli interventi sulla base di evidenze operative.",
+    explanation: "Il punto di partenza \xE8 una raccolta dati affidabile: temperature, vibrazioni, correnti, allarmi e tempi di ciclo possono mostrare cambiamenti nel comportamento della macchina. Le regole o i modelli di analisi devono essere verificati sul campo con i tecnici.",
+    application: "Nel progetto IoT, i dati storicizzati alimentano dashboard e controlli sulle anomalie, creando una base per attivit\xE0 di manutenzione predittiva.",
+    points: ["Serie storiche e indicatori di deriva", "Rilevazione di comportamenti anomali", "Verifica dei risultati con la manutenzione"],
+    related: { label: "Vedi la piattaforma dati industriale", path: "/progetti/iot-industriale" }
+  },
+  {
+    slug: "wifi-industriale",
+    title: "Wi-Fi 5 e Wi-Fi 6 industriale",
+    category: "Wireless industriale",
+    summary: "Reti wireless per terminali, AGV e dispositivi mobili, progettate considerando copertura, capacit\xE0, interferenze e roaming.",
+    explanation: "Le bande a 5 e 6 GHz offrono risorse utili per ridurre congestione e interferenze rispetto a un impianto concentrato sul 2,4 GHz. La scelta di canali, potenza e access point dipende per\xF2 dall'ambiente reale e dai client utilizzati.",
+    application: "Nel magazzino logistico illustrato, il passaggio verso Wi-Fi 5 e Wi-Fi 6 \xE8 affiancato da survey e validazione per sostenere il lavoro dei dispositivi mobili.",
+    points: ["Progettazione delle bande 2,4, 5 e 6 GHz", "Copertura e capacit\xE0 per client mobili", "Verifica di interferenze e roaming"],
+    related: { label: "Vedi il progetto Wi-Fi nel magazzino", path: "/progetti/wireless-survey" }
+  },
+  {
+    slug: "wireless-site-survey",
+    title: "Site Survey e validazione wireless",
+    category: "Wireless industriale",
+    summary: "Misura e verifica della rete wireless sul campo per confrontare il progetto con la copertura e le prestazioni effettive.",
+    explanation: "Il survey predittivo usa planimetrie e materiali per stimare la propagazione. I rilievi attivi e passivi sul sito permettono poi di controllare segnale, rumore, interferenze e comportamento dei client, guidando le correzioni.",
+    application: "Nei progetti wireless presentati, la validazione chiude il ciclo di progettazione e aiuta a individuare zone d'ombra, problemi di canale e punti da spostare.",
+    points: ["Survey predittivo su planimetria", "Rilievi attivi e passivi in campo", "Validazione dopo installazione o modifica"],
+    related: { label: "Vedi un esempio di wireless survey", path: "/progetti/wireless-survey" }
+  },
+  {
+    slug: "rf-design",
+    title: "RF Design e analisi spettrale",
+    category: "Wireless industriale",
+    summary: "Studio della propagazione radio e delle interferenze per definire posizione degli access point, canali e potenze.",
+    explanation: "Scaffalature metalliche, macchine e dispositivi presenti nell'ambiente modificano la propagazione. L'analisi spettrale aiuta a distinguere interferenze Wi-Fi e non Wi-Fi e a scegliere una configurazione coerente con il sito.",
+    application: "Nel troubleshooting del magazzino su due piani, l'analisi RF supporta la revisione del posizionamento degli access point e del piano canali.",
+    points: ["Analisi dell'ambiente e dei materiali", "Piano canali e controllo delle interferenze", "Posizionamento ragionato degli access point"],
+    related: { label: "Vedi il troubleshooting RF", path: "/progetti/troubleshooting-wireless" }
+  },
+  {
+    slug: "roaming-industriale",
+    title: "Roaming e Packet Capture",
+    category: "Wireless industriale",
+    summary: "Analisi del passaggio dei client tra access point per comprendere disconnessioni, ritardi e perdita di pacchetti.",
+    explanation: "Il roaming coinvolge client, access point e configurazione della rete. Il packet capture permette di osservare gli scambi durante il passaggio e distinguere problemi radio, tempi di autenticazione o comportamenti del dispositivo.",
+    application: "Nel magazzino automatico, queste analisi sono utilizzate per studiare il comportamento degli AGV in movimento e regolare il roaming.",
+    points: ["Analisi dei passaggi tra access point", "Cattura dei pacchetti durante gli eventi", "Verifica su client e veicoli in movimento"],
+    related: { label: "Vedi l'analisi roaming nel magazzino", path: "/progetti/troubleshooting-wireless" }
+  },
+  {
+    slug: "profisafe",
+    title: "PROFIsafe e I/O safety",
+    category: "Sicurezza funzionale",
+    summary: "Profilo di comunicazione per trasportare dati di sicurezza sulla rete Profinet tra F-CPU e dispositivi fail-safe.",
+    explanation: "PROFIsafe aggiunge controlli che permettono di rilevare errori di trasmissione, ripetizioni o sequenze non valide. I moduli F-DI e F-DQ collegano ingressi e uscite di sicurezza mantenendo la logica nel programma safety.",
+    application: "Nelle architetture illustrate, F-CPU Siemens, ET200SP-F e PROFIsafe gestiscono arresti e dispositivi di protezione insieme al controllo standard.",
+    points: ["Comunicazione safety su Profinet", "F-CPU e moduli F-DI / F-DQ", "Integrazione di arresti e periferia ET200SP-F"],
+    related: { label: "Vedi l'architettura S7-1516F Safety", path: "/s7-safety" }
+  },
+  {
+    slug: "tia-portal",
+    title: "TIA Portal",
+    category: "Engineering Siemens",
+    summary: "Ambiente di sviluppo per configurare e programmare PLC, HMI, reti e dispositivi dell'ecosistema Siemens.",
+    explanation: "TIA Portal riunisce configurazione hardware, variabili, logiche PLC, pagine HMI e diagnostica. Una progettazione ordinata di blocchi, nomi e librerie facilita collaudo, manutenzione e successive modifiche.",
+    application: "Le pagine Siemens, WinCC e safety mostrano esempi di componenti configurati e integrati nello stesso ecosistema di engineering.",
+    points: ["Configurazione hardware e rete", "Programmazione PLC e sviluppo HMI", "Diagnostica e manutenzione del progetto"],
+    related: { label: "Vedi l'ecosistema Siemens", path: "/siemens" }
+  },
+  {
+    slug: "s7-1500",
+    title: "SIMATIC S7-1500 ed F-CPU",
+    category: "PLC Siemens",
+    summary: "Famiglia di controllori per automazione standard, motion e sicurezza, con versioni fail-safe per logiche safety integrate.",
+    explanation: "Le CPU S7-1500 elaborano il programma di controllo e gestiscono comunicazione e periferia distribuita. Le versioni F aggiungono l'esecuzione del programma safety, mentre le varianti Motion coordinano applicazioni di movimento.",
+    application: "Nei progetti del sito compaiono S7-1516F per la safety e S7-1515 Motion per il controllo degli assi e degli azionamenti.",
+    points: ["Controllo standard e motion", "Versioni F per safety integrata", "Profinet, OPC-UA e periferia ET 200"],
+    related: { label: "Vedi le famiglie di PLC Siemens", path: "/siemens" }
+  },
+  {
+    slug: "s7-1200",
+    title: "SIMATIC S7-1200",
+    category: "PLC Siemens",
+    summary: "Controllore compatto per macchine e impianti di piccola e media taglia, con comunicazione Profinet integrata.",
+    explanation: "La famiglia S7-1200 combina CPU, ingressi e uscite locali con possibilit\xE0 di espansione. Le CPU 1212C, 1214C e 1215C coprono esigenze diverse di dimensionamento e il web server supporta attivit\xE0 di diagnostica.",
+    application: "\xC8 una delle famiglie presentate nell'ecosistema Siemens insieme ai controllori S7-1500 e ai pannelli HMI.",
+    points: ["Controllo compatto e modulare", "CPU 1212C, 1214C e 1215C", "Profinet e web server integrati"],
+    related: { label: "Vedi la scheda S7-1200", path: "/siemens" }
+  },
+  {
+    slug: "et200",
+    title: "SIMATIC ET 200 e I/O distribuito",
+    category: "Periferia industriale",
+    summary: "Sistemi di ingressi e uscite decentrati per avvicinare i collegamenti di campo alla macchina e ridurre il cablaggio verso il quadro.",
+    explanation: "Le famiglie ET200SP, ET200M, ET200pro ed ET200eco rispondono a esigenze diverse di modularit\xE0 e installazione. BaseUnit, versioni safety e gradi di protezione come IP65 permettono di adattare la periferia al contesto.",
+    application: "Le topologie dei progetti mostrano ET200SP standard ed F collegati ai PLC tramite Profinet e PROFIsafe.",
+    points: ["I/O distribuito modulare", "Versioni standard, safety e per campo", "Integrazione Profinet con i PLC Siemens"],
+    related: { label: "Vedi le periferie ET 200", path: "/siemens" }
+  },
+  {
+    slug: "scalance",
+    title: "Scalance X e reti industriali",
+    category: "Networking industriale",
+    summary: "Switch industriali per costruire reti Profinet gestite, diagnosticate e, quando necessario, ridondanti.",
+    explanation: "Gli switch Scalance gestiscono il traffico tra PLC, SCADA, I/O e azionamenti. Funzioni come MRP, VLAN e diagnostica aiutano a organizzare la rete e a mantenere la continuit\xE0 in caso di interruzione di un tratto dell'anello.",
+    application: "La linea automatizzata usa quattro switch Scalance X in una topologia ad anello; altri progetti utilizzano XC224 come backbone Profinet.",
+    points: ["Switch managed per ambienti industriali", "Topologie ad anello con MRP", "Diagnostica e segmentazione della rete"],
+    related: { label: "Vedi la rete Scalance della linea", path: "/progetti/linea-automatizzata" }
+  },
+  {
+    slug: "scalance-security",
+    title: "Scalance S e sicurezza OT",
+    category: "Networking industriale",
+    summary: "Firewall e router industriali per separare reti OT e IT e controllare gli accessi remoti verso l'impianto.",
+    explanation: "Le regole stateful limitano le comunicazioni autorizzate tra zone, mentre le VPN IPsec proteggono i collegamenti remoti. Una buona architettura combina segmentazione, controllo degli accessi e diagnostica.",
+    application: "Nello stabilimento chimico illustrato, il firewall perimetrale separa la supervisione IT dalla rete di processo OT.",
+    points: ["Segmentazione tra reti OT e IT", "Regole stateful firewall", "Accesso remoto tramite VPN IPsec"],
+    related: { label: "Vedi il firewall OT/IT del progetto SCADA", path: "/progetti/scada-chimico" }
+  },
+  {
+    slug: "profinet-performance",
+    title: "Profinet RT, IRT e ridondanza",
+    category: "Bus di campo industriale",
+    summary: "Funzioni Profinet per comunicazione real-time, motion control, diagnostica e continuit\xE0 della rete di automazione.",
+    explanation: "RT e IRT rispondono a esigenze temporali diverse, mentre MRP e le architetture S2/R1 affrontano la ridondanza. GSDML, LLDP e TSN riguardano rispettivamente descrizione dei device, topologia ed evoluzione della comunicazione deterministica.",
+    application: "Le pagine Profinet e i sinottici di progetto mostrano come queste funzioni si collochino tra PLC, switch, I/O e drive.",
+    points: ["RT, IRT e sincronizzazione", "MRP e ridondanza S2 / R1", "GSDML, LLDP e predispozione TSN"],
+    related: { label: "Approfondisci Profinet", path: "/profinet" }
+  },
+  {
+    slug: "historian-architecture",
+    title: "Architettura Historian",
+    category: "Storicizzazione dati",
+    summary: "Raccolta, compressione e consultazione delle serie storiche di processo per report, analisi e tracciabilit\xE0.",
+    explanation: "Un Historian indicizza grandi quantit\xE0 di tag e li rende disponibili tramite interfacce come SQL o OPC-HA. Compressione, sincronizzazione temporale, audit trail e ridondanza contribuiscono alla qualit\xE0 e continuit\xE0 dell'archivio.",
+    application: "Nello stabilimento chimico illustrato, l'Historian raccoglie 30.000 tag nella rete di supervisione e supporta la consultazione storica dell'impianto.",
+    points: ["Time-series, compressione e batch report", "SQL, OPC-HA e audit trail", "Sincronizzazione NTP/PTP e ridondanza"],
+    related: { label: "Vedi l'Historian del progetto SCADA", path: "/historian" }
+  },
+  {
+    slug: "safety-levels",
+    title: "SIL, PL e diagnostica safety",
+    category: "Sicurezza funzionale",
+    summary: "Livelli e strumenti usati per descrivere le prestazioni delle funzioni di sicurezza e verificarne il comportamento.",
+    explanation: "SIL e PL derivano da metodologie e norme differenti e vanno attribuiti alla funzione di sicurezza sulla base dell'intera catena. Diagnostica, test e architettura dei componenti contribuiscono al raggiungimento del livello richiesto.",
+    application: "Le pagine S7-1516F, Safety ed ESD illustrano esempi di F-CPU, ingressi e uscite safety, arresti e gestione degli eventi.",
+    points: ["Valutazione dell'intera funzione di sicurezza", "Diagnostica integrata e test", "Coerenza tra logica, sensori e attuatori"],
+    related: { label: "Approfondisci la sicurezza funzionale", path: "/safety" }
+  },
+  {
+    slug: "hmi-functions",
+    title: "Funzioni HMI e WinCC Unified",
+    category: "Interfacce operatore",
+    summary: "Sinottici, touch, allarmi, lingue e permessi per rendere leggibili e controllabili macchine e impianti.",
+    explanation: "Un'interfaccia HMI organizza le informazioni secondo i compiti dell'operatore. Sinottici vettoriali, riconoscimento degli allarmi, multilingua e audit trail dei comandi aiutano a rendere le operazioni chiare e tracciabili.",
+    application: "Le pagine HMI e WinCC mostrano esempi di pannelli touch, supervisione e integrazione con PLC e SCADA.",
+    points: ["Touch industriale e sinottici vettoriali", "Allarmi con riconoscimento e multilingua", "Utenti, ruoli e audit trail dei comandi"],
+    related: { label: "Vedi le interfacce HMI", path: "/hmi" }
+  },
+  {
+    slug: "esd-design",
+    title: "Progettazione ESD e causa-effetto",
+    category: "Sicurezza di processo",
+    summary: "Logiche di arresto, matrici causa-effetto e proof test per portare il processo in una condizione sicura.",
+    explanation: "La matrice causa-effetto collega anomalie e comandi alle azioni da eseguire. Proof test, bypass tracciati e indipendenza dal sistema di controllo di base sono elementi da definire e verificare nell'applicazione specifica.",
+    application: "La pagina ESD descrive un'architettura con F-CPU ridondata, PROFIsafe e logica fail-safe de-energize.",
+    points: ["Matrice causa-effetto e shutdown", "Proof test SIF e bypass tracciato", "Indipendenza dal BPCS e logica fail-safe"],
+    related: { label: "Vedi il sistema ESD", path: "/esd" }
+  },
+  {
+    slug: "opc-ua-architecture",
+    title: "Architettura OPC-UA",
+    category: "Interoperabilit\xE0 industriale",
+    summary: "Client/server, Pub/Sub, namespace e sicurezza per scambiare dati industriali con un modello informativo comune.",
+    explanation: "OPC-UA organizza variabili, oggetti e metodi in namespace e supporta sia il modello client/server sia Pub/Sub. Certificati, TLS e companion specification aiutano a rendere lo scambio protetto e semanticamente coerente.",
+    application: "Nei progetti presentati, OPC-UA collega PLC, SCADA, Historian ed edge gateway alle applicazioni che utilizzano i dati.",
+    points: ["Client/server e Pub/Sub", "Namespace, allarmi e modello informativo", "TLS e companion specification"],
+    related: { label: "Approfondisci OPC-UA", path: "/opc-ua" }
+  }
+];
+var technologyTagPaths = {
+  "2000+ I/O": "/progetti/scada-chimico",
+  "SEW MOVIDRIVE B": technologyTopicPath("sew-movidrive"),
+  Cobot: technologyTopicPath("cobot"),
+  MQTT: technologyTopicPath("mqtt"),
+  InfluxDB: technologyTopicPath("influxdb"),
+  Grafana: technologyTopicPath("grafana"),
+  Dashboard: technologyTopicPath("grafana"),
+  "Edge Gateway": technologyTopicPath("edge-gateway"),
+  "Predictive Maintenance": technologyTopicPath("predictive-maintenance"),
+  "Wi-Fi 5": technologyTopicPath("wifi-industriale"),
+  "Wi-Fi 6": technologyTopicPath("wifi-industriale"),
+  "Upgrade 2.4\u21925/6 GHz": technologyTopicPath("wifi-industriale"),
+  "Site Survey": technologyTopicPath("wireless-site-survey"),
+  Validazione: technologyTopicPath("wireless-site-survey"),
+  "RF Design": technologyTopicPath("rf-design"),
+  "Spectrum Analyzer": technologyTopicPath("rf-design"),
+  "Roaming Analysis": technologyTopicPath("roaming-industriale"),
+  "Packet Capture": technologyTopicPath("roaming-industriale"),
+  "Roaming Tuning": technologyTopicPath("roaming-industriale"),
+  PROFIsafe: technologyTopicPath("profisafe"),
+  "Profinet Safe": technologyTopicPath("profisafe"),
+  "PROFIsafe SIL 3": technologyTopicPath("profisafe"),
+  "ET200SP Safety": technologyTopicPath("profisafe"),
+  "F-DI / F-DQ": technologyTopicPath("profisafe"),
+  "TIA Portal": technologyTopicPath("tia-portal"),
+  "WinCC Unified / TIA": technologyTopicPath("tia-portal"),
+  "S7-1516F": technologyTopicPath("s7-1500"),
+  "S7-1518": technologyTopicPath("s7-1500"),
+  "F-CPU": technologyTopicPath("s7-1500"),
+  "F-CPU S7-1500": technologyTopicPath("s7-1500"),
+  "F-CPU Siemens ridondata": technologyTopicPath("s7-1500"),
+  "Safety Integrated": technologyTopicPath("s7-1500"),
+  "CPU 1212C": technologyTopicPath("s7-1200"),
+  "CPU 1214C": technologyTopicPath("s7-1200"),
+  "CPU 1215C": technologyTopicPath("s7-1200"),
+  "Web server": technologyTopicPath("s7-1200"),
+  BaseUnit: technologyTopicPath("et200"),
+  ET200M: technologyTopicPath("et200"),
+  ET200pro: technologyTopicPath("et200"),
+  ET200eco: technologyTopicPath("et200"),
+  IP65: technologyTopicPath("et200"),
+  "Scalance X204": technologyTopicPath("scalance"),
+  "Scalance XR500": technologyTopicPath("scalance"),
+  "MRP Manager": technologyTopicPath("scalance"),
+  "Scalance SC636": technologyTopicPath("scalance-security"),
+  "Scalance S615": technologyTopicPath("scalance-security"),
+  "VPN IPsec": technologyTopicPath("scalance-security"),
+  "Stateful FW": technologyTopicPath("scalance-security"),
+  "RT (1 ms)": technologyTopicPath("profinet-performance"),
+  "IRT (31,25 \xB5s)": technologyTopicPath("profinet-performance"),
+  "MRP < 200 ms": technologyTopicPath("profinet-performance"),
+  "S2 / R1 ridondanza": technologyTopicPath("profinet-performance"),
+  "GSDML device": technologyTopicPath("profinet-performance"),
+  "LLDP topology": technologyTopicPath("profinet-performance"),
+  "TSN ready": technologyTopicPath("profinet-performance"),
+  "Time-series DB": technologyTopicPath("historian-architecture"),
+  "30.000+ tag": technologyTopicPath("historian-architecture"),
+  "SQL / OPC-HA": technologyTopicPath("historian-architecture"),
+  "Compressione swinging-door": technologyTopicPath("historian-architecture"),
+  "Batch report": technologyTopicPath("historian-architecture"),
+  "Audit trail": technologyTopicPath("historian-architecture"),
+  "NTP/PTP sync": technologyTopicPath("historian-architecture"),
+  Ridondanza: technologyTopicPath("historian-architecture"),
+  "SIL3 / PLe": technologyTopicPath("safety-levels"),
+  "SIL 3 (IEC 61508/61511)": technologyTopicPath("safety-levels"),
+  "Diagnostic integrato": technologyTopicPath("safety-levels"),
+  "Touch industriale": technologyTopicPath("hmi-functions"),
+  "Sinottici vettoriali": technologyTopicPath("hmi-functions"),
+  "Allarmi con ack": technologyTopicPath("hmi-functions"),
+  "Multilingua IT/EN/DE": technologyTopicPath("hmi-functions"),
+  "Audit trail comandi": technologyTopicPath("hmi-functions"),
+  "Cause & Effect matrix": technologyTopicPath("esd-design"),
+  "Proof test SIF": technologyTopicPath("esd-design"),
+  "Bypass tracciato": technologyTopicPath("esd-design"),
+  "Indipendenza dal BPCS": technologyTopicPath("esd-design"),
+  "Fail-safe de-energize": technologyTopicPath("esd-design"),
+  "Client/Server": technologyTopicPath("opc-ua-architecture"),
+  "Pub/Sub": technologyTopicPath("opc-ua-architecture"),
+  "Modello informativo": technologyTopicPath("opc-ua-architecture"),
+  "Sicurezza TLS": technologyTopicPath("opc-ua-architecture"),
+  "Companion specs": technologyTopicPath("opc-ua-architecture"),
+  Namespace: technologyTopicPath("opc-ua-architecture"),
+  "Alarms&Conditions": technologyTopicPath("opc-ua-architecture"),
+  "WinCC Runtime": "/wincc-scada",
+  "Sinottici animati": "/hmi",
+  "Allarmi e messaggi": "/wincc-scada",
+  Trending: "/historian",
+  "User Administration": "/wincc-scada",
+  "Recipe Management": "/wincc-scada",
+  "Report Designer": "/wincc-scada",
+  "OPC-UA/DA": "/opc-ua"
+};
+
 // src/lib/mcp/data/company.ts
 var company = {
   name: "GenGinering Solutions",
@@ -121,7 +459,12 @@ var technologies = [
   { name: "Safety", path: "/safety", description: "Funzioni di sicurezza SIL 3 / PL e, PROFIsafe e norme di riferimento." },
   { name: "Visione Artificiale", path: "/visione-artificiale", description: "Protocolli GigE Vision, USB3 Vision, GenICam e librerie OpenCV, OpenMV, Halcon." },
   { name: "Ekahau", path: "/ekahau", description: "Ekahau Sidekick 2 e suite AI Pro / Survey / Analyzer per il wireless planning." },
-  { name: "IoT", path: "/iot", description: "IoT industriale: edge gateway, MQTT, time-series e manutenzione predittiva." }
+  { name: "IoT", path: "/iot", description: "IoT industriale: edge gateway, MQTT, time-series e manutenzione predittiva." },
+  ...industrialTopics.map((topic) => ({
+    name: topic.title,
+    path: technologyTopicPath(topic.slug),
+    description: topic.summary
+  }))
 ];
 
 // src/lib/mcp/tools/get-company-info.ts

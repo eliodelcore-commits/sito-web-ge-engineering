@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Monitor, TrendingUp, Bell, Database, Shield, Users } from "lucide-react";
 import Navbar from "@/components/gen/Navbar";
 import Footer from "@/components/gen/Footer";
+import TechTag from "@/components/gen/TechTag";
 import scadaBg from "@/assets/scada-bg.webp";
 import touchImg from "@/assets/interfaccia-touch.jpg";
 
@@ -89,9 +90,7 @@ const WinCCSCADA = () => {
               </h3>
               <div className="flex flex-wrap gap-2">
                 {["WinCC Runtime","Sinottici animati","Allarmi e messaggi","Trending","User Administration","Recipe Management","Report Designer","OPC-UA/DA"].map((tag) => (
-                  <span key={tag} className="px-3 py-1 text-sm rounded-md bg-secondary text-secondary-foreground">
-                    {tag}
-                  </span>
+                  <TechTag key={tag} tag={tag} />
                 ))}
               </div>
             </div>
