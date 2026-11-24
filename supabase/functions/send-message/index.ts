@@ -13,7 +13,12 @@ const b64 = (s: string) =>
   btoa(Array.from(new TextEncoder().encode(s), (b) => String.fromCharCode(b)).join(""));
 
 // I testi in italiano contengono accenti: le intestazioni vanno codificate RFC 2047.
-const header = (v: string) => (/^[\x00-\x7F]*$/.test(v) ? v : `=?UTF-8?B?${b64(v)}?=`);
+// Le intestazioni non devono mai contenere a capo o caratteri di controllo (header injection).
+const oneLine = (v: string) => v.replace(/[\x00-\x1F\x7F]+/g, " ").trim();
+const header = (raw: string) => {
+  const v = oneLine(raw);
+  return /^[\x20-\x7E]*$/.test(v) ? v : `=?UTF-8?B?${b64(v)}?=`;
+};
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -62,8 +67,8 @@ function buildRawEmail(args: {
   attachment?: Attachment | null;
 }): string {
   const head = [
-    `To: ${args.to}`,
-    `Reply-To: ${args.replyTo}`,
+    `To: ${oneLine(args.to)}`,
+    `Reply-To: ${oneLine(args.replyTo)}`,
     `Subject: ${header(args.subject)}`,
     "MIME-Version: 1.0",
   ];
@@ -126,7 +131,7 @@ Deno.serve(async (req) => {
     const email = clean(payload.email, 255);
     const messaggio = clean(payload.messaggio, 2000);
     const telefono = clean(payload.telefono, 30);
-    const oggetto = clean(payload.oggetto, 120);
+    const oggetto = clean(payload.oggetto, 120).replace(/[\x00-\x1F\x7F]+/g, " ").trim();
 
     if (nome.length < 2) return json(400, { error: "Nome mancante o troppo corto" });
     if (!EMAIL_RE.test(email) || email.length < 6) {
