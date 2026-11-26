@@ -89,8 +89,10 @@ const CubeShowcase = () => {
   };
 
   const handleNavigate = (e: React.MouseEvent, to: string) => {
+    if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
     e.preventDefault();
-    if (movedRef.current) return;
+    // A drag suppresses its pointer click, not later keyboard activation.
+    if (e.detail > 0 && movedRef.current) return;
     navigate(to);
   };
 

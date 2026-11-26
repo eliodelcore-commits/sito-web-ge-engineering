@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Controllati i collegamenti su 58 pagine e 66 destinazioni: nessuna pagina mancante; menu desktop/mobile e schede verificati; corretta l'apertura da tastiera dei link del cubo dopo il trascinamento (servizi e progetti)
+
 - [x] Corretti 10 tag che riaprivano la stessa pagina: WinCC SCADA, Siemens e SCADA chimico; tutti i tag controllati su 58 pagine e clic verificati anche da telefono
 
 - [x] Pubblicare il sito con le ultime modifiche (modulo CV, mappa, invio mail)
