@@ -2,6 +2,8 @@
 
 Regole tecniche del progetto. Le preferenze di contenuto (prezzi, contatti, toni, colori) stanno in mem://, non qui.
 
+- Technology tag destinations are centralized in `TechTag` and `industrialTopics`; feature tags must lead to an explanatory topic rather than reload their source page, so every click exposes relevant content.
+
 - Ogni email in uscita dal sito (form contatti e form dell'area consulente) passa dalla funzione `send-message`, che la consegna all'account Gmail collegato. Nessun form deve aprire il client email del visitatore con `mailto:`.
 - Le credenziali dei connettori (Gmail, Google Maps) restano nel backend: le chiamate al gateway partono solo da lì; il browser vede soltanto la chiave pubblica di Google Maps.
 - Le coordinate della sede per la mappa si prendono da Google Geocoding (place_id di Via Idice 47), non si scrivono a mano: se l'indirizzo cambia, si ri-geocoda.

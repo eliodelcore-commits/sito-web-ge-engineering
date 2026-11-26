@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Corretti 10 tag che riaprivano la stessa pagina: WinCC SCADA, Siemens e SCADA chimico; tutti i tag controllati su 58 pagine e clic verificati anche da telefono
+
 - [x] Pubblicare il sito con le ultime modifiche (modulo CV, mappa, invio mail)
 - [x] Dominio geenginering.com collegato e attivo: il sito si apre all'indirizzo aziendale
 - [x] Modulo candidature verificato sul sito live: candidatura di prova partita con curriculum allegato

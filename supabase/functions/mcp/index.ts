@@ -12,6 +12,56 @@ import { defineTool } from "npm:@lovable.dev/mcp-js@0.25.1";
 var technologyTopicPath = (slug) => `/tecnologie/${slug}`;
 var industrialTopics = [
   {
+    slug: "wincc-runtime",
+    title: "WinCC Runtime",
+    category: "Supervisione SCADA",
+    summary: "Esecuzione del progetto WinCC per visualizzare lo stato dell'impianto, comandare le macchine e raccogliere dati di processo.",
+    explanation: "Runtime \xE8 l'ambiente che esegue il progetto di supervisione configurato durante l'engineering. Legge le variabili dai PLC, aggiorna i sinottici e gestisce comandi, allarmi e archivi secondo la configurazione e le licenze della versione WinCC utilizzata.",
+    application: "Nell'esempio WinCC SCADA del sito, il Runtime presenta lo stato delle macchine, i valori di processo e gli allarmi della linea. La supervisione collega cos\xEC le informazioni di campo alle attivit\xE0 dell'operatore.",
+    points: ["Esecuzione del progetto di supervisione", "Scambio delle variabili con i PLC", "Sinottici, comandi e diagnostica in tempo reale"],
+    related: { label: "Torna alla supervisione WinCC SCADA", path: "/wincc-scada" }
+  },
+  {
+    slug: "wincc-allarmi-messaggi",
+    title: "Allarmi e messaggi in WinCC",
+    category: "Supervisione SCADA",
+    summary: "Segnalazione delle anomalie di impianto con priorit\xE0, riconoscimento operatore e archivio degli eventi.",
+    explanation: "WinCC associa le condizioni di processo a messaggi con classe, priorit\xE0 e testo descrittivo. La lista allarmi distingue gli eventi attivi, rientrati e riconosciuti. Filtri per area e intervallo temporale aiutano l'operatore a individuare il problema e la manutenzione a ricostruire la sequenza degli eventi.",
+    application: "Nel sinottico WinCC SCADA illustrato, il pannello allarmi segnala le anomalie della linea accanto allo stato delle macchine. Il riconoscimento conferma la lettura da parte dell'operatore, ma non elimina la causa dell'anomalia.",
+    points: ["Classi, priorit\xE0 e testi degli allarmi", "Riconoscimento e stato attivo o rientrato", "Archivio e filtri per analizzare gli eventi"],
+    related: { label: "Vedi il sinottico WinCC SCADA", path: "/wincc-scada" }
+  },
+  {
+    slug: "wincc-user-administration",
+    title: "User Administration in WinCC",
+    category: "Supervisione SCADA",
+    summary: "Gestione degli utenti e delle autorizzazioni per distinguere le operazioni consentite a operatori, manutentori e responsabili.",
+    explanation: "L'amministrazione utenti assegna autorizzazioni a gruppi e account. I comandi e le pagine che richiedono un livello specifico sono accessibili solo agli utenti abilitati. Timeout di sessione e tracciamento delle operazioni vanno configurati in base alla versione WinCC e ai requisiti dell'impianto.",
+    application: "La supervisione WinCC presentata distingue attivit\xE0 di conduzione, manutenzione e amministrazione. Questo permette di proteggere modifiche ai parametri e comandi sensibili senza complicare il lavoro ordinario degli operatori.",
+    points: ["Utenti, gruppi e autorizzazioni", "Accesso controllato a comandi e parametri", "Gestione delle sessioni e tracciabilit\xE0"],
+    related: { label: "Vedi la supervisione WinCC", path: "/wincc-scada" }
+  },
+  {
+    slug: "wincc-recipe-management",
+    title: "Recipe Management in WinCC",
+    category: "Supervisione SCADA",
+    summary: "Organizzazione dei parametri di produzione in ricette per gestire prodotti, formati e cambi di lavorazione.",
+    explanation: "Una ricetta raggruppa valori come tempi, temperature, velocit\xE0 e quantit\xE0 per uno specifico prodotto. Il sistema permette di selezionare e trasferire il set di parametri al PLC, con controlli di validit\xE0 e autorizzazioni definiti nel progetto. La conferma del trasferimento evita di confondere i valori archiviati con quelli effettivamente applicati.",
+    application: "In una linea di confezionamento supervisionata da WinCC, le ricette possono raccogliere i parametri dei diversi formati. L'operatore seleziona il prodotto e verifica il set attivo prima di avviare la produzione.",
+    points: ["Set di parametri per prodotto o formato", "Trasferimento controllato dei valori al PLC", "Verifica della ricetta attiva al cambio produzione"],
+    related: { label: "Vedi WinCC SCADA", path: "/wincc-scada" }
+  },
+  {
+    slug: "wincc-report-designer",
+    title: "Report Designer in WinCC",
+    category: "Supervisione SCADA",
+    summary: "Report di produzione ed eventi costruiti a partire dai dati raccolti e archiviati dalla supervisione.",
+    explanation: "La progettazione dei report definisce quali variabili, allarmi e intervalli temporali riportare e come organizzarli. L'emissione pu\xF2 essere manuale o pianificata secondo gli strumenti disponibili nella versione WinCC e nelle opzioni installate. Timestamp e riferimenti a lotto o turno rendono i dati pi\xF9 facili da interpretare.",
+    application: "Nel progetto SCADA per lo stabilimento chimico, i dati di processo e lo storico degli eventi costituiscono la base per report di esercizio. Questi documenti supportano analisi dei turni, tracciabilit\xE0 e consultazione da parte dei responsabili.",
+    points: ["Impaginazione di dati di processo e allarmi", "Selezione di periodi, lotti e turni", "Report manuali o pianificati secondo la configurazione"],
+    related: { label: "Vedi il progetto SCADA chimico", path: "/progetti/scada-chimico" }
+  },
+  {
     slug: "sew-movidrive",
     title: "SEW MOVIDRIVE B",
     category: "Azionamenti e motion control",
@@ -253,7 +303,7 @@ var industrialTopics = [
   }
 ];
 var technologyTagPaths = {
-  "2000+ I/O": "/progetti/scada-chimico",
+  "2000+ I/O": technologyTopicPath("et200"),
   "SEW MOVIDRIVE B": technologyTopicPath("sew-movidrive"),
   Cobot: technologyTopicPath("cobot"),
   MQTT: technologyTopicPath("mqtt"),
@@ -336,13 +386,13 @@ var technologyTagPaths = {
   "Companion specs": technologyTopicPath("opc-ua-architecture"),
   Namespace: technologyTopicPath("opc-ua-architecture"),
   "Alarms&Conditions": technologyTopicPath("opc-ua-architecture"),
-  "WinCC Runtime": "/wincc-scada",
+  "WinCC Runtime": technologyTopicPath("wincc-runtime"),
   "Sinottici animati": "/hmi",
-  "Allarmi e messaggi": "/wincc-scada",
+  "Allarmi e messaggi": technologyTopicPath("wincc-allarmi-messaggi"),
   Trending: "/historian",
-  "User Administration": "/wincc-scada",
-  "Recipe Management": "/wincc-scada",
-  "Report Designer": "/wincc-scada",
+  "User Administration": technologyTopicPath("wincc-user-administration"),
+  "Recipe Management": technologyTopicPath("wincc-recipe-management"),
+  "Report Designer": technologyTopicPath("wincc-report-designer"),
   "OPC-UA/DA": "/opc-ua"
 };
 

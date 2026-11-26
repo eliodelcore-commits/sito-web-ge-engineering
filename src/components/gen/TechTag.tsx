@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { technologyTagPaths } from "@/data/industrialTopics";
+import { technologyTagPaths, technologyTopicPath } from "@/data/industrialTopics";
 
 // Mappa centralizzata: tag tecnologico → pagina dedicata
 export const techLinkedPaths: Record<string, string> = {
@@ -14,10 +14,10 @@ export const techLinkedPaths: Record<string, string> = {
   Safety: "/safety",
   "PLC Siemens": "/siemens",
   "Scalance X": "/siemens",
-  "Scalance XC224": "/siemens",
-  ET200SP: "/siemens",
-  "ET200SP-F": "/siemens",
-  "S7-1515 Motion": "/siemens",
+  "Scalance XC224": technologyTopicPath("scalance"),
+  ET200SP: technologyTopicPath("et200"),
+  "ET200SP-F": technologyTopicPath("profisafe"),
+  "S7-1515 Motion": technologyTopicPath("s7-1500"),
   "Visione Artificiale": "/visione-artificiale",
   "Ekahau AI": "/ekahau",
   Ekahau: "/ekahau",
